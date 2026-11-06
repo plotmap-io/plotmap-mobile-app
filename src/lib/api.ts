@@ -12,6 +12,8 @@
 import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
+import { devRespond } from '@/lib/dev-data';
+
 /**
  * A phone on the LAN cannot reach the Mac's "localhost", so derive the host
  * from the Metro server the app was loaded by. Falls back to localhost on web.
@@ -42,7 +44,36 @@ function inferBaseUrl(): string {
   return `http://${host}:9000`;
 }
 
-export const API_BASE = inferBaseUrl();
+const INFERRED_BASE = inferBaseUrl();
+
+/** Set from the Development screen; empty falls back to what Metro implies. */
+let baseOverride: string | null = null;
+
+export function setApiBase(url: string | null) {
+  const trimmed = url?.trim();
+  baseOverride = trimmed ? trimmed.replace(/\/+$/, '') : null;
+}
+
+export function apiBase(): string {
+  return baseOverride ?? INFERRED_BASE;
+}
+
+/** The URL the app would use with no override — shown as the placeholder. */
+export const INFERRED_API_BASE = INFERRED_BASE;
+
+/**
+ * While on, requests the sample dataset can answer never touch the network.
+ * Development builds only; `setSampleData` is called from nowhere else.
+ */
+let sampleData = false;
+
+export function setSampleData(on: boolean) {
+  sampleData = on;
+}
+
+export function sampleDataOn(): boolean {
+  return sampleData;
+}
 
 export class ApiError extends Error {
   constructor(
@@ -66,7 +97,22 @@ export async function request<T>(
   init: RequestInit & { auth?: boolean } = {},
 ): Promise<T> {
   const { auth = true, headers, ...rest } = init;
-  const res = await fetch(`${API_BASE}${path}`, {
+
+  if (sampleData) {
+    const method = (rest.method ?? 'GET').toUpperCase();
+    let parsed: unknown;
+    try {
+      parsed = typeof rest.body === 'string' ? JSON.parse(rest.body) : undefined;
+    } catch {
+      parsed = undefined;
+    }
+    const canned = devRespond(path, method, parsed);
+    // undefined means "the sample data has no answer" — fall through to the
+    // network so a real failure still looks like a real failure.
+    if (canned !== undefined) return canned as T;
+  }
+
+  const res = await fetch(`${apiBase()}${path}`, {
     ...rest,
     headers: {
       'Content-Type': 'application/json',
@@ -114,5 +160,5 @@ export const api = {
 /** Media paths come back relative; the app needs absolute URLs. */
 export function mediaUrl(path: string | undefined | null): string | undefined {
   if (!path) return undefined;
-  return path.startsWith('http') ? path : `${API_BASE}${path}`;
+  return path.startsWith('http') ? path : `${apiBase()}${path}`;
 }

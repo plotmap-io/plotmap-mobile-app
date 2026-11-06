@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { API_BASE } from '@/lib/api';
+import { apiBase } from '@/lib/api';
 import type { MapRegion } from '@/lib/region';
 import { searchListings } from '@/lib/listings';
 import { statusesFor } from '@/types/api';
@@ -60,7 +60,7 @@ export function useSearch(initialRegion: MapRegion, filters: Filters) {
       } catch (e) {
         if (ticket !== seq.current) return;
         const why = e instanceof Error ? e.message : 'Search failed';
-        setError(`${why}\n${API_BASE}`);
+        setError(`${why}\n${apiBase()}`);
       } finally {
         if (ticket === seq.current) setLoading(false);
       }

@@ -60,6 +60,14 @@ function groupsFor(signedIn: boolean, unread: number): Group[] {
       : { label: 'Settings', rows: [{ icon: 'sliders', label: 'Preferences' }] },
   );
 
+  // Development builds only — the section does not exist in a release.
+  if (__DEV__) {
+    groups.push({
+      label: 'Development',
+      rows: [{ icon: 'tool', label: 'Server & sample data', href: '/development' }],
+    });
+  }
+
   groups.push({
     label: 'Support',
     rows: [

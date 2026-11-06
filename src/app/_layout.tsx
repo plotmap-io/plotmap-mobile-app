@@ -6,6 +6,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AuthProvider } from '@/lib/auth';
+import { DevSettingsProvider } from '@/lib/dev-settings';
 import { FilterProvider } from '@/lib/filters';
 
 SplashScreen.preventAutoHideAsync();
@@ -18,6 +19,7 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
+        <DevSettingsProvider>
         <AuthProvider>
           <FilterProvider>
           <StatusBar style="dark" />
@@ -38,9 +40,11 @@ export default function RootLayout() {
             <Stack.Screen name="u/[username]" />
             <Stack.Screen name="listing/[id]" />
             <Stack.Screen name="thread/[id]" />
+            <Stack.Screen name="development" />
           </Stack>
           </FilterProvider>
         </AuthProvider>
+        </DevSettingsProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

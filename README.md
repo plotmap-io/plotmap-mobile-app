@@ -36,6 +36,31 @@ cp .env.example .env
 # macOS: ipconfig getifaddr en0  →  EXPO_PUBLIC_API_URL=http://192.168.x.x:9000
 ```
 
+## Running without a backend
+
+A development build carries a **Development** section at the bottom of the Menu
+tab (`Menu → Development → Server & sample data`). It has two switches:
+
+- **API server** — which host the app talks to. Empty follows the machine that
+  served the bundle. One tap points it at `https://api.example.com`, which
+  nothing answers, so every request fails on demand.
+- **Sample data** — *Insert fake data* answers requests locally instead, so the
+  map, the list, the filters and a listing page are populated with no server
+  running anywhere. *Remove fake data* goes back to the real one.
+
+Between them they give the three states worth testing: a real server, a server
+that cannot be reached, and a populated app with no server at all.
+
+The dataset is 666 generated listings across Kerala, 26 of them awkward on
+purpose — two pins on one coordinate, a knot of 14 too tight to draw apart, a
+pair split by a grid line, money at both extremes, a row with no photos, a row
+with nothing to highlight, a far outlier. It is deterministic, so every launch
+and every machine sees the same map. Nothing in it is real, and the section does
+not exist in a release build.
+
+Requests the sample data has no answer for still go to the network, so signing
+in fails honestly rather than pretending.
+
 ## Checks
 
 ```bash
@@ -66,7 +91,7 @@ src/
     thread/     one message thread
     u/          public profile by username
   components/   shared UI (cards, sheets, map canvas, tab bar)
-  lib/          API client, auth, search, filters, formatting
+  lib/          API client, auth, search, filters, formatting, dev data
   types/        API types and pure helpers
   theme/        colour and spacing tokens
 ```
