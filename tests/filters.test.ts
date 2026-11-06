@@ -1,14 +1,9 @@
 import { describe, expect, it } from 'vitest';
 
-import { countActive, statusesFor } from '@/types/api';
+import { countActive, DEFAULT_FILTERS, statusesFor } from '@/services/filters';
 import type { Filters } from '@/types/api';
 
-const base: Filters = {
-  status: 'ForSale',
-  sort: 'nearest',
-  convertPrices: false,
-  displayCurrency: 'INR',
-};
+const base: Filters = DEFAULT_FILTERS;
 
 describe('statusesFor', () => {
   it('passes a single tab through as one server status', () => {

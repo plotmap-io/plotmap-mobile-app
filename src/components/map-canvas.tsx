@@ -4,8 +4,8 @@ import MapView, { Marker, PROVIDER_DEFAULT, PROVIDER_GOOGLE } from 'react-native
 import Animated, { useAnimatedStyle, type SharedValue } from 'react-native-reanimated';
 
 import { INITIAL_REGION, type MapRegion } from '@/lib/region';
+import type { ListingPin, MapPin } from '@/services/map-pins';
 import { color } from '@/theme/tokens';
-import type { ListingCard } from '@/types/api';
 
 /**
  * Apple Maps on iOS, Google on Android — both free on the native SDKs.
@@ -13,36 +13,37 @@ import type { ListingCard } from '@/types/api';
  * re-rasterises each frame, which is what makes RN map screens stutter.
  */
 const PriceMarker = memo(function PriceMarker({
-  listing,
+  pin,
   active,
   onPress,
 }: {
-  listing: ListingCard;
+  pin: ListingPin;
   active: boolean;
   onPress: (id: string) => void;
 }) {
   return (
     <Marker
-      coordinate={listing.coordinates}
+      coordinate={pin.coordinate}
       tracksViewChanges={false}
-      onPress={() => onPress(listing.id)}
+      onPress={() => onPress(pin.listingId)}
       anchor={{ x: 0.5, y: 1 }}>
       <View style={[styles.pin, active && styles.pinOn]}>
-        <Text style={[styles.pinText, active && styles.pinTextOn]}>{listing.markerPrice}</Text>
+        <Text style={[styles.pinText, active && styles.pinTextOn]}>{pin.label}</Text>
       </View>
     </Marker>
   );
 });
 
+/** The canvas draws the pins it is handed; `services/map-pins` decides them. */
 export function MapCanvas({
   progress,
-  listings,
+  pins,
   activeId,
   onSelect,
   onRegionSettled,
 }: {
   progress: SharedValue<number>;
-  listings: ListingCard[];
+  pins: MapPin[];
   activeId: string | null;
   onSelect: (id: string) => void;
   onRegionSettled?: (region: MapRegion) => void;
@@ -63,14 +64,17 @@ export function MapCanvas({
         toolbarEnabled={false}
         rotateEnabled={false}
         pitchEnabled={false}>
-        {listings.map((listing) => (
-          <PriceMarker
-            key={listing.id}
-            listing={listing}
-            active={listing.id === activeId}
-            onPress={onSelect}
-          />
-        ))}
+        {/* Only listing pins have a renderer; a cluster pin draws nothing. */}
+        {pins.map((pin) =>
+          pin.kind === 'listing' ? (
+            <PriceMarker
+              key={pin.id}
+              pin={pin}
+              active={pin.listingId === activeId}
+              onPress={onSelect}
+            />
+          ) : null,
+        )}
       </MapView>
 
       {/* A scrim, not marker opacity — animating markers would defeat

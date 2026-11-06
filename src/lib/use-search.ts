@@ -3,26 +3,15 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { apiBase } from '@/lib/api';
 import type { MapRegion } from '@/lib/region';
 import { searchListings } from '@/lib/listings';
-import { statusesFor } from '@/types/api';
-import type { Filters, ListingCard, SearchQuery } from '@/types/api';
-
-function boundsOf(region: MapRegion) {
-  return {
-    boundsSW: {
-      latitude: region.latitude - region.latitudeDelta / 2,
-      longitude: region.longitude - region.longitudeDelta / 2,
-    },
-    boundsNE: {
-      latitude: region.latitude + region.latitudeDelta / 2,
-      longitude: region.longitude + region.longitudeDelta / 2,
-    },
-    center: { latitude: region.latitude, longitude: region.longitude },
-  };
-}
+import { queryFrom } from '@/services/search-query';
+import type { Filters, ListingCard } from '@/types/api';
 
 /**
  * Search is driven by the map's viewport: pan or zoom and the backend returns
  * the listings inside the new bounds. All filtering happens server side.
+ *
+ * The hook owns only what is React: loading, errors, and ignoring a stale
+ * reply. Which filters become which query fields is `services/search-query`.
  */
 export function useSearch(initialRegion: MapRegion, filters: Filters) {
   const [listings, setListings] = useState<ListingCard[]>([]);
@@ -36,22 +25,7 @@ export function useSearch(initialRegion: MapRegion, filters: Filters) {
       const ticket = ++seq.current;
       setLoading(true);
       try {
-        const query: SearchQuery = {
-          ...boundsOf(region),
-          status: statusesFor(filters.status),
-          sort: filters.sort,
-          limit: 60,
-        };
-        if (filters.convertPrices) {
-          query.convertPrices = true;
-          query.displayCurrency = filters.displayCurrency;
-        }
-        if (filters.propertyType) query.propertyType = [filters.propertyType];
-        if (filters.minPrice != null) query.minPrice = filters.minPrice;
-        if (filters.maxPrice != null) query.maxPrice = filters.maxPrice;
-        if (filters.minArea != null) query.minArea = filters.minArea;
-        if (filters.maxArea != null) query.maxArea = filters.maxArea;
-        const res = await searchListings(query);
+        const res = await searchListings(queryFrom(filters, region));
         // A slower earlier request must not overwrite a newer result.
         if (ticket !== seq.current) return;
         setListings(res.listings ?? []);

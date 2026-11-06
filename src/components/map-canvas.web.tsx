@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from 'react';
 import type { SharedValue } from 'react-native-reanimated';
 
 import { INITIAL_REGION, type MapRegion } from '@/lib/region';
+import type { MapPin } from '@/services/map-pins';
 import { color } from '@/theme/tokens';
-import type { ListingCard } from '@/types/api';
 
 /**
  * Web map. Leaflet with raster OpenStreetMap tiles — free, no API key, and no
@@ -46,13 +46,13 @@ function pinHtml(label: string, active: boolean): string {
 }
 
 export function MapCanvas({
-  listings,
+  pins,
   activeId,
   onSelect,
   onRegionSettled,
 }: {
   progress: SharedValue<number>;
-  listings: ListingCard[];
+  pins: MapPin[];
   activeId: string | null;
   onSelect: (id: string) => void;
   onRegionSettled?: (region: MapRegion) => void;
@@ -102,7 +102,9 @@ export function MapCanvas({
     const instance = map.current;
     if (!L || !instance) return;
 
-    const wanted = new Set(listings.map((l) => l.id));
+    // Only listing pins have a renderer; a cluster pin draws nothing.
+    const drawn = pins.filter((p) => p.kind === 'listing');
+    const wanted = new Set(drawn.map((p) => p.id));
     for (const [id, marker] of markers.current) {
       if (!wanted.has(id)) {
         marker.remove();
@@ -110,25 +112,25 @@ export function MapCanvas({
       }
     }
 
-    for (const listing of listings) {
+    for (const pin of drawn) {
       const icon = L.divIcon({
-        html: pinHtml(listing.markerPrice, listing.id === activeId),
+        html: pinHtml(pin.label, pin.listingId === activeId),
         className: '',
         iconAnchor: [28, 28],
       });
-      const existing = markers.current.get(listing.id);
+      const existing = markers.current.get(pin.id);
       if (existing) {
         existing.setIcon(icon);
         continue;
       }
       markers.current.set(
-        listing.id,
-        L.marker([listing.coordinates.latitude, listing.coordinates.longitude], { icon })
+        pin.id,
+        L.marker([pin.coordinate.latitude, pin.coordinate.longitude], { icon })
           .addTo(instance)
-          .on('click', () => select.current(listing.id)),
+          .on('click', () => select.current(pin.listingId)),
       );
     }
-  }, [listings, activeId, ready]);
+  }, [pins, activeId, ready]);
 
   return <div ref={container} style={{ position: 'absolute', inset: 0 }} />;
 }

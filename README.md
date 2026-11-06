@@ -123,8 +123,9 @@ and are spread across the screens — values modified during render, refs read i
 render. They are known and unrelated to any one change.
 
 Tests live in `tests/` and run in plain Node, so they can only import modules that
-are free of React Native imports — today that means `src/types/api.ts`. Logic worth
-testing belongs in a module like that rather than inside a component.
+are free of React Native imports: `src/services/`, `src/types/api.ts` and
+`src/lib/dev-data.ts`. Logic worth testing belongs in a service rather than inside
+a component — see *Views and services* below.
 
 ## Layout
 
@@ -136,8 +137,9 @@ src/
     thread/     one message thread
     u/          public profile by username
   components/   shared UI (cards, sheets, map canvas, tab bar)
-  lib/          API client, auth, search, filters, formatting, dev data
-  types/        API types and pure helpers
+  services/     pure logic — no React, no React Native, tested in Node
+  lib/          API client, auth, React state, formatting, dev data
+  types/        API types and tables
   theme/        colour and spacing tokens
 ```
 
@@ -147,6 +149,14 @@ Two conventions worth knowing before changing anything:
   `displayPrice` (`₹ 42,00,000`), `markerPrice` (`₹ 42.0 L`), `addressDisplay`,
   labelled `highlightFields`. The client attaches the token, unwraps the envelope and
   renders. Re-implementing formatting on the client duplicates work the API already did.
+- **Views and services are separate.** Anything that is a *decision* — which
+  filters reach the server, what belongs on the map — lives in `src/services/`
+  as a plain function with no React or React Native import, so `npm test` can
+  run it in Node with no device and no server. Screens and hooks hold what is
+  genuinely React: state, effects, layout. `services/search-query.ts` builds
+  the search query from the filters; `services/filters.ts` holds the filter
+  rules; `services/map-pins.ts` decides the markers a map canvas draws, and
+  both canvases draw what it returns without knowing what a listing is.
 - **Response shapes are not uniform.** Most routes wrap `{ data, errors, meta }`;
   auth and session routes return the resource directly, or `{ error }` on failure.
   `request()` in `src/lib/api.ts` normalises both — go through it.

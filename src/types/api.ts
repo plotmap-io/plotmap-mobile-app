@@ -143,18 +143,8 @@ export interface Filters {
   maxArea?: number;
 }
 
-/** History is two server statuses, not one. */
-export function statusesFor(tab: StatusTab): string[] {
-  return tab === 'History' ? ['Sold', 'Rented'] : [tab];
-}
-
-export function countActive(f: Filters): number {
-  let n = 0;
-  if (f.propertyType) n++;
-  if (f.minPrice != null || f.maxPrice != null) n++;
-  if (f.minArea != null || f.maxArea != null) n++;
-  return n;
-}
+/* Filter rules — statusesFor, countActive, clearFilters — live in
+   `src/services/filters.ts`. This module stays types and tables. */
 
 /* ---------- listing detail ---------- */
 

@@ -33,7 +33,9 @@ import { useFilters } from "@/lib/filters";
 import { INITIAL_REGION } from "@/lib/region";
 import { useSearch } from "@/lib/use-search";
 import { color } from "@/theme/tokens";
-import { countActive, type StatusTab } from "@/types/api";
+import { countActive } from "@/services/filters";
+import { toPins } from "@/services/map-pins";
+import type { StatusTab } from "@/types/api";
 
 const SPRING = { damping: 24, stiffness: 220, mass: 0.6 };
 
@@ -273,6 +275,10 @@ export default function SearchScreen() {
     transform: [{ translateY: 10 * (1 - progress.value) }],
   }));
 
+  // The map is handed pins, not listings: what belongs on it is decided in
+  // `services/map-pins`, where a test can reach it.
+  const pins = useMemo(() => toPins(listings), [listings]);
+
   const rows = error ? (
     <Text style={styles.empty}>{error}</Text>
   ) : !loading && listings.length === 0 ? (
@@ -299,7 +305,7 @@ export default function SearchScreen() {
       <View style={[styles.mapLayer, { top: detents.full, bottom: 0 }]}>
         <MapCanvas
           progress={progress}
-          listings={listings}
+          pins={pins}
           activeId={activeId}
           onSelect={selectPin}
           onRegionSettled={(region) => {

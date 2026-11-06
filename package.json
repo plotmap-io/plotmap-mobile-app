@@ -51,7 +51,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "expo lint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "upload": "bash scripts/make-upload.sh"
   },
   "private": true
 }

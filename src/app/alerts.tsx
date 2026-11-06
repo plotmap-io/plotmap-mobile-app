@@ -10,7 +10,8 @@ import { createAlert, deleteAlert, listAlerts, runAlert, type Alert } from '@/li
 import { useAuth } from '@/lib/auth';
 import { useFilters } from '@/lib/filters';
 import { color } from '@/theme/tokens';
-import { STATUS_LABEL, statusesFor } from '@/types/api';
+import { statusesFor } from '@/services/filters';
+import { STATUS_LABEL } from '@/types/api';
 
 /** Saved searches. "Save this search" captures the filters you are holding. */
 export default function AlertsScreen() {

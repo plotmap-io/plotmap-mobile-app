@@ -12,6 +12,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useFilters } from '@/lib/filters';
+import { clearFilters } from '@/services/filters';
 import { metadata } from '@/lib/metadata';
 import { color } from '@/theme/tokens';
 import type { Filters, PropertyType } from '@/types/api';
@@ -68,14 +69,7 @@ export default function FiltersScreen() {
             <Feather name="x" size={22} color={color.muted} />
           </Pressable>
           <Text style={styles.title}>Filters</Text>
-          <Pressable onPress={() =>
-              setDraft({
-                status: draft.status,
-                sort: draft.sort,
-                convertPrices: draft.convertPrices,
-                displayCurrency: draft.displayCurrency,
-              })
-            } hitSlop={10}>
+          <Pressable onPress={() => setDraft(clearFilters)} hitSlop={10}>
             <Text style={styles.clear}>Clear</Text>
           </Pressable>
         </View>
