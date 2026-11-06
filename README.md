@@ -39,12 +39,18 @@ cp .env.example .env
 ## Checks
 
 ```bash
-npm test           # unit tests (vitest, plain Node)
-npm run typecheck  # tsc --noEmit
-npm run lint       # expo lint
+npm test           # unit tests (vitest, plain Node)  — green
+npm run typecheck  # tsc --noEmit                     — green
+npm run lint       # expo lint                        — see below
 ```
 
-All three run without a device, a simulator or a server.
+`npm test` and `npm run typecheck` pass from a fresh clone with nothing else
+installed or running — no device, no simulator, no server.
+
+`npm run lint` currently reports pre-existing errors. They come from the React
+Compiler rules in `eslint-config-expo` 58 (`reactCompiler` is on in `app.json`)
+and are spread across the screens — values modified during render, refs read in
+render. They are known and unrelated to any one change.
 
 Tests live in `tests/` and run in plain Node, so they can only import modules that
 are free of React Native imports — today that means `src/types/api.ts`. Logic worth
