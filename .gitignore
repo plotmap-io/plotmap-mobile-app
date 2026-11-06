@@ -62,3 +62,6 @@ AGENTS.md
 CLAUDE.md
 .claude/
 .agents/
+
+# fixtures captured from a real backend — synthetic ones only in this repo
+tests/fixtures/local-*.json

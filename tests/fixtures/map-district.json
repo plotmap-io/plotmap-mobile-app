@@ -1,0 +1,3975 @@
+{
+ "listings": [
+  {
+   "id": "sample-0001",
+   "coordinates": {
+    "latitude": 10.51966,
+    "longitude": 76.19764
+   },
+   "markerPrice": "₹ 57.3 L"
+  },
+  {
+   "id": "sample-0002",
+   "coordinates": {
+    "latitude": 10.5374,
+    "longitude": 76.22326
+   },
+   "markerPrice": "₹ 20.9 L"
+  },
+  {
+   "id": "sample-0003",
+   "coordinates": {
+    "latitude": 10.74951,
+    "longitude": 76.37124
+   },
+   "markerPrice": "₹ 160.2 L"
+  },
+  {
+   "id": "sample-0004",
+   "coordinates": {
+    "latitude": 10.5135,
+    "longitude": 76.22247
+   },
+   "markerPrice": "₹ 156.5 L"
+  },
+  {
+   "id": "sample-0005",
+   "coordinates": {
+    "latitude": 10.54119,
+    "longitude": 76.20402
+   },
+   "markerPrice": "₹ 124.3 L"
+  },
+  {
+   "id": "sample-0006",
+   "coordinates": {
+    "latitude": 10.70518,
+    "longitude": 76.37273
+   },
+   "markerPrice": "₹ 174.3 L"
+  },
+  {
+   "id": "sample-0007",
+   "coordinates": {
+    "latitude": 10.3435,
+    "longitude": 76.13903
+   },
+   "markerPrice": "₹ 185.4 L"
+  },
+  {
+   "id": "sample-0008",
+   "coordinates": {
+    "latitude": 10.50741,
+    "longitude": 76.1967
+   },
+   "markerPrice": "₹ 136.6 L"
+  },
+  {
+   "id": "sample-0009",
+   "coordinates": {
+    "latitude": 10.38868,
+    "longitude": 76.17406
+   },
+   "markerPrice": "₹ 137.1 L"
+  },
+  {
+   "id": "sample-0010",
+   "coordinates": {
+    "latitude": 10.65939,
+    "longitude": 76.10306
+   },
+   "markerPrice": "₹ 54.1 L"
+  },
+  {
+   "id": "sample-0011",
+   "coordinates": {
+    "latitude": 10.53909,
+    "longitude": 76.2314
+   },
+   "markerPrice": "₹ 126.3 L"
+  },
+  {
+   "id": "sample-0012",
+   "coordinates": {
+    "latitude": 10.53793,
+    "longitude": 76.24182
+   },
+   "markerPrice": "₹ 34.1 L"
+  },
+  {
+   "id": "sample-0013",
+   "coordinates": {
+    "latitude": 10.27216,
+    "longitude": 76.17453
+   },
+   "markerPrice": "₹ 63.4 L"
+  },
+  {
+   "id": "sample-0014",
+   "coordinates": {
+    "latitude": 10.52697,
+    "longitude": 76.2192
+   },
+   "markerPrice": "₹ 124.1 L"
+  },
+  {
+   "id": "sample-0015",
+   "coordinates": {
+    "latitude": 10.39089,
+    "longitude": 76.15434
+   },
+   "markerPrice": "₹ 170.4 L"
+  },
+  {
+   "id": "sample-0016",
+   "coordinates": {
+    "latitude": 10.52757,
+    "longitude": 76.2436
+   },
+   "markerPrice": "₹ 33.3 L"
+  },
+  {
+   "id": "sample-0017",
+   "coordinates": {
+    "latitude": 10.35174,
+    "longitude": 76.16772
+   },
+   "markerPrice": "₹ 144.2 L"
+  },
+  {
+   "id": "sample-0018",
+   "coordinates": {
+    "latitude": 10.51449,
+    "longitude": 76.19216
+   },
+   "markerPrice": "₹ 168.3 L"
+  },
+  {
+   "id": "sample-0019",
+   "coordinates": {
+    "latitude": 10.52164,
+    "longitude": 76.21068
+   },
+   "markerPrice": "₹ 176.7 L"
+  },
+  {
+   "id": "sample-0020",
+   "coordinates": {
+    "latitude": 10.53237,
+    "longitude": 76.21369
+   },
+   "markerPrice": "₹ 27.0 L"
+  },
+  {
+   "id": "sample-0021",
+   "coordinates": {
+    "latitude": 10.34448,
+    "longitude": 76.12083
+   },
+   "markerPrice": "₹ 50.7 L"
+  },
+  {
+   "id": "sample-0022",
+   "coordinates": {
+    "latitude": 10.40333,
+    "longitude": 76.16451
+   },
+   "markerPrice": "₹ 67.2 L"
+  },
+  {
+   "id": "sample-0023",
+   "coordinates": {
+    "latitude": 10.67642,
+    "longitude": 76.10929
+   },
+   "markerPrice": "₹ 92.4 L"
+  },
+  {
+   "id": "sample-0024",
+   "coordinates": {
+    "latitude": 10.62447,
+    "longitude": 76.50776
+   },
+   "markerPrice": "₹ 32.5 L"
+  },
+  {
+   "id": "sample-0025",
+   "coordinates": {
+    "latitude": 10.52893,
+    "longitude": 76.24444
+   },
+   "markerPrice": "₹ 20.2 L"
+  },
+  {
+   "id": "sample-0026",
+   "coordinates": {
+    "latitude": 10.73886,
+    "longitude": 76.33244
+   },
+   "markerPrice": "₹ 34.1 L"
+  },
+  {
+   "id": "sample-0027",
+   "coordinates": {
+    "latitude": 10.25443,
+    "longitude": 76.19172
+   },
+   "markerPrice": "₹ 9.1 L"
+  },
+  {
+   "id": "sample-0028",
+   "coordinates": {
+    "latitude": 10.61414,
+    "longitude": 76.46891
+   },
+   "markerPrice": "₹ 68.2 L"
+  },
+  {
+   "id": "sample-0029",
+   "coordinates": {
+    "latitude": 10.60009,
+    "longitude": 76.1096
+   },
+   "markerPrice": "₹ 12.4 L"
+  },
+  {
+   "id": "sample-0030",
+   "coordinates": {
+    "latitude": 10.5312,
+    "longitude": 76.21622
+   },
+   "markerPrice": "₹ 131.2 L"
+  },
+  {
+   "id": "sample-0031",
+   "coordinates": {
+    "latitude": 10.67947,
+    "longitude": 76.07088
+   },
+   "markerPrice": "₹ 38.8 L"
+  },
+  {
+   "id": "sample-0032",
+   "coordinates": {
+    "latitude": 10.26122,
+    "longitude": 76.1874
+   },
+   "markerPrice": "₹ 29.4 L"
+  },
+  {
+   "id": "sample-0033",
+   "coordinates": {
+    "latitude": 10.64805,
+    "longitude": 76.06506
+   },
+   "markerPrice": "₹ 125.9 L"
+  },
+  {
+   "id": "sample-0034",
+   "coordinates": {
+    "latitude": 10.53939,
+    "longitude": 76.2272
+   },
+   "markerPrice": "₹ 146.1 L"
+  },
+  {
+   "id": "sample-0035",
+   "coordinates": {
+    "latitude": 10.2559,
+    "longitude": 76.20493
+   },
+   "markerPrice": "₹ 10.5 L"
+  },
+  {
+   "id": "sample-0036",
+   "coordinates": {
+    "latitude": 10.52953,
+    "longitude": 76.23068
+   },
+   "markerPrice": "₹ 104.8 L"
+  },
+  {
+   "id": "sample-0037",
+   "coordinates": {
+    "latitude": 10.54518,
+    "longitude": 76.22139
+   },
+   "markerPrice": "₹ 114.1 L"
+  },
+  {
+   "id": "sample-0038",
+   "coordinates": {
+    "latitude": 10.26604,
+    "longitude": 76.22534
+   },
+   "markerPrice": "₹ 187.9 L"
+  },
+  {
+   "id": "sample-0039",
+   "coordinates": {
+    "latitude": 10.61684,
+    "longitude": 76.48206
+   },
+   "markerPrice": "₹ 65.9 L"
+  },
+  {
+   "id": "sample-0040",
+   "coordinates": {
+    "latitude": 10.53282,
+    "longitude": 76.21182
+   },
+   "markerPrice": "₹ 112.9 L"
+  },
+  {
+   "id": "sample-0041",
+   "coordinates": {
+    "latitude": 10.51498,
+    "longitude": 76.19978
+   },
+   "markerPrice": "₹ 161.4 L"
+  },
+  {
+   "id": "sample-0042",
+   "coordinates": {
+    "latitude": 10.70818,
+    "longitude": 76.34944
+   },
+   "markerPrice": "₹ 23.4 L"
+  },
+  {
+   "id": "sample-0043",
+   "coordinates": {
+    "latitude": 10.53132,
+    "longitude": 76.22207
+   },
+   "markerPrice": "₹ 176.6 L"
+  },
+  {
+   "id": "sample-0044",
+   "coordinates": {
+    "latitude": 10.72776,
+    "longitude": 76.38398
+   },
+   "markerPrice": "₹ 97.8 L"
+  },
+  {
+   "id": "sample-0045",
+   "coordinates": {
+    "latitude": 10.52606,
+    "longitude": 76.2077
+   },
+   "markerPrice": "₹ 39.9 L"
+  },
+  {
+   "id": "sample-0046",
+   "coordinates": {
+    "latitude": 10.53204,
+    "longitude": 76.22289
+   },
+   "markerPrice": "₹ 33.3 L"
+  },
+  {
+   "id": "sample-0047",
+   "coordinates": {
+    "latitude": 10.36192,
+    "longitude": 76.14323
+   },
+   "markerPrice": "₹ 19.2 L"
+  },
+  {
+   "id": "sample-0048",
+   "coordinates": {
+    "latitude": 10.60717,
+    "longitude": 76.06729
+   },
+   "markerPrice": "₹ 26.1 L"
+  },
+  {
+   "id": "sample-0049",
+   "coordinates": {
+    "latitude": 10.75812,
+    "longitude": 76.37111
+   },
+   "markerPrice": "₹ 65.4 L"
+  },
+  {
+   "id": "sample-0050",
+   "coordinates": {
+    "latitude": 10.53502,
+    "longitude": 76.23949
+   },
+   "markerPrice": "₹ 8.7 L"
+  },
+  {
+   "id": "sample-0051",
+   "coordinates": {
+    "latitude": 10.529,
+    "longitude": 76.2417
+   },
+   "markerPrice": "₹ 112.4 L"
+  },
+  {
+   "id": "sample-0052",
+   "coordinates": {
+    "latitude": 10.53427,
+    "longitude": 76.23507
+   },
+   "markerPrice": "₹ 22.4 L"
+  },
+  {
+   "id": "sample-0053",
+   "coordinates": {
+    "latitude": 10.53154,
+    "longitude": 76.21927
+   },
+   "markerPrice": "₹ 73.5 L"
+  },
+  {
+   "id": "sample-0054",
+   "coordinates": {
+    "latitude": 10.51566,
+    "longitude": 76.20765
+   },
+   "markerPrice": "₹ 107.1 L"
+  },
+  {
+   "id": "sample-0055",
+   "coordinates": {
+    "latitude": 10.51498,
+    "longitude": 76.21786
+   },
+   "markerPrice": "₹ 73.1 L"
+  },
+  {
+   "id": "sample-0056",
+   "coordinates": {
+    "latitude": 10.53009,
+    "longitude": 76.21693
+   },
+   "markerPrice": "₹ 66.2 L"
+  },
+  {
+   "id": "sample-0057",
+   "coordinates": {
+    "latitude": 10.53403,
+    "longitude": 76.21997
+   },
+   "markerPrice": "₹ 16.0 L"
+  },
+  {
+   "id": "sample-0058",
+   "coordinates": {
+    "latitude": 10.54186,
+    "longitude": 76.20357
+   },
+   "markerPrice": "₹ 8.9 L"
+  },
+  {
+   "id": "sample-0059",
+   "coordinates": {
+    "latitude": 10.54025,
+    "longitude": 76.21696
+   },
+   "markerPrice": "₹ 112.1 L"
+  },
+  {
+   "id": "sample-0060",
+   "coordinates": {
+    "latitude": 10.6622,
+    "longitude": 76.05718
+   },
+   "markerPrice": "₹ 47.8 L"
+  },
+  {
+   "id": "sample-0061",
+   "coordinates": {
+    "latitude": 10.30592,
+    "longitude": 76.20909
+   },
+   "markerPrice": "₹ 17.3 L"
+  },
+  {
+   "id": "sample-0062",
+   "coordinates": {
+    "latitude": 10.53128,
+    "longitude": 76.23343
+   },
+   "markerPrice": "₹ 53.4 L"
+  },
+  {
+   "id": "sample-0063",
+   "coordinates": {
+    "latitude": 10.51947,
+    "longitude": 76.22655
+   },
+   "markerPrice": "₹ 11.1 L"
+  },
+  {
+   "id": "sample-0064",
+   "coordinates": {
+    "latitude": 10.54222,
+    "longitude": 76.21043
+   },
+   "markerPrice": "₹ 184.6 L"
+  },
+  {
+   "id": "sample-0065",
+   "coordinates": {
+    "latitude": 10.58703,
+    "longitude": 76.47862
+   },
+   "markerPrice": "₹ 70.3 L"
+  },
+  {
+   "id": "sample-0066",
+   "coordinates": {
+    "latitude": 10.40544,
+    "longitude": 76.16576
+   },
+   "markerPrice": "₹ 35.2 L"
+  },
+  {
+   "id": "sample-0067",
+   "coordinates": {
+    "latitude": 10.33152,
+    "longitude": 76.13563
+   },
+   "markerPrice": "₹ 78.5 L"
+  },
+  {
+   "id": "sample-0068",
+   "coordinates": {
+    "latitude": 10.50641,
+    "longitude": 76.1913
+   },
+   "markerPrice": "₹ 177.3 L"
+  },
+  {
+   "id": "sample-0069",
+   "coordinates": {
+    "latitude": 10.35342,
+    "longitude": 76.15368
+   },
+   "markerPrice": "₹ 92.9 L"
+  },
+  {
+   "id": "sample-0070",
+   "coordinates": {
+    "latitude": 10.53898,
+    "longitude": 76.23118
+   },
+   "markerPrice": "₹ 160.3 L"
+  },
+  {
+   "id": "sample-0071",
+   "coordinates": {
+    "latitude": 10.30513,
+    "longitude": 76.20072
+   },
+   "markerPrice": "₹ 125.9 L"
+  },
+  {
+   "id": "sample-0072",
+   "coordinates": {
+    "latitude": 10.51669,
+    "longitude": 76.19784
+   },
+   "markerPrice": "₹ 166.4 L"
+  },
+  {
+   "id": "sample-0073",
+   "coordinates": {
+    "latitude": 10.56506,
+    "longitude": 76.46609
+   },
+   "markerPrice": "₹ 164.3 L"
+  },
+  {
+   "id": "sample-0074",
+   "coordinates": {
+    "latitude": 10.66285,
+    "longitude": 76.04496
+   },
+   "markerPrice": "₹ 22.5 L"
+  },
+  {
+   "id": "sample-0075",
+   "coordinates": {
+    "latitude": 10.51946,
+    "longitude": 76.21911
+   },
+   "markerPrice": "₹ 64.0 L"
+  },
+  {
+   "id": "sample-0076",
+   "coordinates": {
+    "latitude": 10.60821,
+    "longitude": 76.10461
+   },
+   "markerPrice": "₹ 68.2 L"
+  },
+  {
+   "id": "sample-0077",
+   "coordinates": {
+    "latitude": 10.53931,
+    "longitude": 76.23952
+   },
+   "markerPrice": "₹ 41.0 L"
+  },
+  {
+   "id": "sample-0078",
+   "coordinates": {
+    "latitude": 10.5406,
+    "longitude": 76.21197
+   },
+   "markerPrice": "₹ 99.7 L"
+  },
+  {
+   "id": "sample-0079",
+   "coordinates": {
+    "latitude": 10.67876,
+    "longitude": 76.07941
+   },
+   "markerPrice": "₹ 139.1 L"
+  },
+  {
+   "id": "sample-0080",
+   "coordinates": {
+    "latitude": 10.57404,
+    "longitude": 76.51222
+   },
+   "markerPrice": "₹ 171.0 L"
+  },
+  {
+   "id": "sample-0081",
+   "coordinates": {
+    "latitude": 10.39401,
+    "longitude": 76.16146
+   },
+   "markerPrice": "₹ 113.3 L"
+  },
+  {
+   "id": "sample-0082",
+   "coordinates": {
+    "latitude": 10.35137,
+    "longitude": 76.17807
+   },
+   "markerPrice": "₹ 10.0 L"
+  },
+  {
+   "id": "sample-0083",
+   "coordinates": {
+    "latitude": 10.50239,
+    "longitude": 76.19806
+   },
+   "markerPrice": "₹ 89.6 L"
+  },
+  {
+   "id": "sample-0084",
+   "coordinates": {
+    "latitude": 10.51459,
+    "longitude": 76.20795
+   },
+   "markerPrice": "₹ 111.8 L"
+  },
+  {
+   "id": "sample-0085",
+   "coordinates": {
+    "latitude": 10.35305,
+    "longitude": 76.16212
+   },
+   "markerPrice": "₹ 21.4 L"
+  },
+  {
+   "id": "sample-0086",
+   "coordinates": {
+    "latitude": 10.67205,
+    "longitude": 76.07376
+   },
+   "markerPrice": "₹ 188.0 L"
+  },
+  {
+   "id": "sample-0087",
+   "coordinates": {
+    "latitude": 10.53156,
+    "longitude": 76.22813
+   },
+   "markerPrice": "₹ 101.6 L"
+  },
+  {
+   "id": "sample-0088",
+   "coordinates": {
+    "latitude": 10.33502,
+    "longitude": 76.17837
+   },
+   "markerPrice": "₹ 12.0 L"
+  },
+  {
+   "id": "sample-0089",
+   "coordinates": {
+    "latitude": 10.52107,
+    "longitude": 76.20515
+   },
+   "markerPrice": "₹ 151.5 L"
+  },
+  {
+   "id": "sample-0090",
+   "coordinates": {
+    "latitude": 10.54434,
+    "longitude": 76.21867
+   },
+   "markerPrice": "₹ 141.0 L"
+  },
+  {
+   "id": "sample-0091",
+   "coordinates": {
+    "latitude": 10.53489,
+    "longitude": 76.23379
+   },
+   "markerPrice": "₹ 145.7 L"
+  },
+  {
+   "id": "sample-0092",
+   "coordinates": {
+    "latitude": 10.51327,
+    "longitude": 76.22318
+   },
+   "markerPrice": "₹ 173.8 L"
+  },
+  {
+   "id": "sample-0093",
+   "coordinates": {
+    "latitude": 10.34073,
+    "longitude": 76.17863
+   },
+   "markerPrice": "₹ 72.7 L"
+  },
+  {
+   "id": "sample-0094",
+   "coordinates": {
+    "latitude": 10.53995,
+    "longitude": 76.21276
+   },
+   "markerPrice": "₹ 125.3 L"
+  },
+  {
+   "id": "sample-0095",
+   "coordinates": {
+    "latitude": 10.51032,
+    "longitude": 76.19932
+   },
+   "markerPrice": "₹ 33.0 L"
+  },
+  {
+   "id": "sample-0096",
+   "coordinates": {
+    "latitude": 10.5427,
+    "longitude": 76.23019
+   },
+   "markerPrice": "₹ 56.7 L"
+  },
+  {
+   "id": "sample-0097",
+   "coordinates": {
+    "latitude": 10.53395,
+    "longitude": 76.20944
+   },
+   "markerPrice": "₹ 32.3 L"
+  },
+  {
+   "id": "sample-0098",
+   "coordinates": {
+    "latitude": 10.3924,
+    "longitude": 76.16462
+   },
+   "markerPrice": "₹ 122.5 L"
+  },
+  {
+   "id": "sample-0099",
+   "coordinates": {
+    "latitude": 10.69837,
+    "longitude": 76.38462
+   },
+   "markerPrice": "₹ 11.5 L"
+  },
+  {
+   "id": "sample-0100",
+   "coordinates": {
+    "latitude": 10.73118,
+    "longitude": 76.34682
+   },
+   "markerPrice": "₹ 133.5 L"
+  },
+  {
+   "id": "sample-0101",
+   "coordinates": {
+    "latitude": 10.54025,
+    "longitude": 76.22021
+   },
+   "markerPrice": "₹ 112.8 L"
+  },
+  {
+   "id": "sample-0102",
+   "coordinates": {
+    "latitude": 10.40386,
+    "longitude": 76.15368
+   },
+   "markerPrice": "₹ 75.8 L"
+  },
+  {
+   "id": "sample-0103",
+   "coordinates": {
+    "latitude": 10.62259,
+    "longitude": 76.08295
+   },
+   "markerPrice": "₹ 102.2 L"
+  },
+  {
+   "id": "sample-0104",
+   "coordinates": {
+    "latitude": 10.52261,
+    "longitude": 76.2148
+   },
+   "markerPrice": "₹ 146.7 L"
+  },
+  {
+   "id": "sample-0105",
+   "coordinates": {
+    "latitude": 10.58824,
+    "longitude": 76.47396
+   },
+   "markerPrice": "₹ 108.0 L"
+  },
+  {
+   "id": "sample-0106",
+   "coordinates": {
+    "latitude": 10.52034,
+    "longitude": 76.1975
+   },
+   "markerPrice": "₹ 126.1 L"
+  },
+  {
+   "id": "sample-0107",
+   "coordinates": {
+    "latitude": 10.60415,
+    "longitude": 76.11773
+   },
+   "markerPrice": "₹ 155.5 L"
+  },
+  {
+   "id": "sample-0108",
+   "coordinates": {
+    "latitude": 10.35925,
+    "longitude": 76.13583
+   },
+   "markerPrice": "₹ 64.6 L"
+  },
+  {
+   "id": "sample-0109",
+   "coordinates": {
+    "latitude": 10.73297,
+    "longitude": 76.37814
+   },
+   "markerPrice": "₹ 118.7 L"
+  },
+  {
+   "id": "sample-0110",
+   "coordinates": {
+    "latitude": 10.54394,
+    "longitude": 76.22097
+   },
+   "markerPrice": "₹ 128.1 L"
+  },
+  {
+   "id": "sample-0111",
+   "coordinates": {
+    "latitude": 10.64201,
+    "longitude": 76.09102
+   },
+   "markerPrice": "₹ 87.2 L"
+  },
+  {
+   "id": "sample-0112",
+   "coordinates": {
+    "latitude": 10.61228,
+    "longitude": 76.47699
+   },
+   "markerPrice": "₹ 137.7 L"
+  },
+  {
+   "id": "sample-0113",
+   "coordinates": {
+    "latitude": 10.57072,
+    "longitude": 76.45188
+   },
+   "markerPrice": "₹ 70.0 L"
+  },
+  {
+   "id": "sample-0114",
+   "coordinates": {
+    "latitude": 10.52009,
+    "longitude": 76.19429
+   },
+   "markerPrice": "₹ 67.0 L"
+  },
+  {
+   "id": "sample-0115",
+   "coordinates": {
+    "latitude": 10.52803,
+    "longitude": 76.23419
+   },
+   "markerPrice": "₹ 115.1 L"
+  },
+  {
+   "id": "sample-0116",
+   "coordinates": {
+    "latitude": 10.66689,
+    "longitude": 76.0752
+   },
+   "markerPrice": "₹ 54.8 L"
+  },
+  {
+   "id": "sample-0117",
+   "coordinates": {
+    "latitude": 10.67278,
+    "longitude": 76.07632
+   },
+   "markerPrice": "₹ 126.4 L"
+  },
+  {
+   "id": "sample-0118",
+   "coordinates": {
+    "latitude": 10.53228,
+    "longitude": 76.23953
+   },
+   "markerPrice": "₹ 114.4 L"
+  },
+  {
+   "id": "sample-0119",
+   "coordinates": {
+    "latitude": 10.53686,
+    "longitude": 76.22012
+   },
+   "markerPrice": "₹ 95.0 L"
+  },
+  {
+   "id": "sample-0120",
+   "coordinates": {
+    "latitude": 10.59451,
+    "longitude": 76.50165
+   },
+   "markerPrice": "₹ 79.3 L"
+  },
+  {
+   "id": "sample-0121",
+   "coordinates": {
+    "latitude": 10.67029,
+    "longitude": 76.08089
+   },
+   "markerPrice": "₹ 28.8 L"
+  },
+  {
+   "id": "sample-0122",
+   "coordinates": {
+    "latitude": 10.60673,
+    "longitude": 76.11673
+   },
+   "markerPrice": "₹ 144.7 L"
+  },
+  {
+   "id": "sample-0123",
+   "coordinates": {
+    "latitude": 10.2917,
+    "longitude": 76.2219
+   },
+   "markerPrice": "₹ 116.9 L"
+  },
+  {
+   "id": "sample-0124",
+   "coordinates": {
+    "latitude": 10.50624,
+    "longitude": 76.19404
+   },
+   "markerPrice": "₹ 25.6 L"
+  },
+  {
+   "id": "sample-0125",
+   "coordinates": {
+    "latitude": 10.52356,
+    "longitude": 76.22086
+   },
+   "markerPrice": "₹ 50.7 L"
+  },
+  {
+   "id": "sample-0126",
+   "coordinates": {
+    "latitude": 10.65513,
+    "longitude": 76.09722
+   },
+   "markerPrice": "₹ 151.2 L"
+  },
+  {
+   "id": "sample-0127",
+   "coordinates": {
+    "latitude": 10.54225,
+    "longitude": 76.22041
+   },
+   "markerPrice": "₹ 21.5 L"
+  },
+  {
+   "id": "sample-0128",
+   "coordinates": {
+    "latitude": 10.60905,
+    "longitude": 76.10342
+   },
+   "markerPrice": "₹ 35.2 L"
+  },
+  {
+   "id": "sample-0129",
+   "coordinates": {
+    "latitude": 10.54342,
+    "longitude": 76.21556
+   },
+   "markerPrice": "₹ 154.1 L"
+  },
+  {
+   "id": "sample-0130",
+   "coordinates": {
+    "latitude": 10.522,
+    "longitude": 76.22172
+   },
+   "markerPrice": "₹ 122.7 L"
+  },
+  {
+   "id": "sample-0131",
+   "coordinates": {
+    "latitude": 10.29163,
+    "longitude": 76.21988
+   },
+   "markerPrice": "₹ 176.4 L"
+  },
+  {
+   "id": "sample-0132",
+   "coordinates": {
+    "latitude": 10.53737,
+    "longitude": 76.23211
+   },
+   "markerPrice": "₹ 93.0 L"
+  },
+  {
+   "id": "sample-0133",
+   "coordinates": {
+    "latitude": 10.62328,
+    "longitude": 76.49672
+   },
+   "markerPrice": "₹ 45.9 L"
+  },
+  {
+   "id": "sample-0134",
+   "coordinates": {
+    "latitude": 10.52884,
+    "longitude": 76.23463
+   },
+   "markerPrice": "₹ 99.2 L"
+  },
+  {
+   "id": "sample-0135",
+   "coordinates": {
+    "latitude": 10.62376,
+    "longitude": 76.4944
+   },
+   "markerPrice": "₹ 92.0 L"
+  },
+  {
+   "id": "sample-0136",
+   "coordinates": {
+    "latitude": 10.69649,
+    "longitude": 76.37329
+   },
+   "markerPrice": "₹ 83.4 L"
+  },
+  {
+   "id": "sample-0137",
+   "coordinates": {
+    "latitude": 10.30404,
+    "longitude": 76.18668
+   },
+   "markerPrice": "₹ 134.4 L"
+  },
+  {
+   "id": "sample-0138",
+   "coordinates": {
+    "latitude": 10.40725,
+    "longitude": 76.15661
+   },
+   "markerPrice": "₹ 48.6 L"
+  },
+  {
+   "id": "sample-0139",
+   "coordinates": {
+    "latitude": 10.52187,
+    "longitude": 76.18999
+   },
+   "markerPrice": "₹ 98.2 L"
+  },
+  {
+   "id": "sample-0140",
+   "coordinates": {
+    "latitude": 10.61729,
+    "longitude": 76.45429
+   },
+   "markerPrice": "₹ 26.7 L"
+  },
+  {
+   "id": "sample-0141",
+   "coordinates": {
+    "latitude": 10.53245,
+    "longitude": 76.21159
+   },
+   "markerPrice": "₹ 145.1 L"
+  },
+  {
+   "id": "sample-0142",
+   "coordinates": {
+    "latitude": 10.51069,
+    "longitude": 76.19644
+   },
+   "markerPrice": "₹ 102.8 L"
+  },
+  {
+   "id": "sample-0143",
+   "coordinates": {
+    "latitude": 10.25174,
+    "longitude": 76.17464
+   },
+   "markerPrice": "₹ 140.5 L"
+  },
+  {
+   "id": "sample-0144",
+   "coordinates": {
+    "latitude": 10.75528,
+    "longitude": 76.35405
+   },
+   "markerPrice": "₹ 135.6 L"
+  },
+  {
+   "id": "sample-0145",
+   "coordinates": {
+    "latitude": 10.52559,
+    "longitude": 76.20369
+   },
+   "markerPrice": "₹ 77.4 L"
+  },
+  {
+   "id": "sample-0146",
+   "coordinates": {
+    "latitude": 10.54049,
+    "longitude": 76.21717
+   },
+   "markerPrice": "₹ 74.0 L"
+  },
+  {
+   "id": "sample-0147",
+   "coordinates": {
+    "latitude": 10.50576,
+    "longitude": 76.19954
+   },
+   "markerPrice": "₹ 16.1 L"
+  },
+  {
+   "id": "sample-0148",
+   "coordinates": {
+    "latitude": 10.30023,
+    "longitude": 76.22154
+   },
+   "markerPrice": "₹ 150.7 L"
+  },
+  {
+   "id": "sample-0149",
+   "coordinates": {
+    "latitude": 10.52931,
+    "longitude": 76.2387
+   },
+   "markerPrice": "₹ 80.5 L"
+  },
+  {
+   "id": "sample-0150",
+   "coordinates": {
+    "latitude": 10.51922,
+    "longitude": 76.22938
+   },
+   "markerPrice": "₹ 50.8 L"
+  },
+  {
+   "id": "sample-0151",
+   "coordinates": {
+    "latitude": 10.58506,
+    "longitude": 76.46038
+   },
+   "markerPrice": "₹ 150.3 L"
+  },
+  {
+   "id": "sample-0152",
+   "coordinates": {
+    "latitude": 10.50642,
+    "longitude": 76.20399
+   },
+   "markerPrice": "₹ 117.7 L"
+  },
+  {
+   "id": "sample-0153",
+   "coordinates": {
+    "latitude": 10.51855,
+    "longitude": 76.22215
+   },
+   "markerPrice": "₹ 149.9 L"
+  },
+  {
+   "id": "sample-0154",
+   "coordinates": {
+    "latitude": 10.73767,
+    "longitude": 76.37399
+   },
+   "markerPrice": "₹ 94.6 L"
+  },
+  {
+   "id": "sample-0155",
+   "coordinates": {
+    "latitude": 10.59954,
+    "longitude": 76.45373
+   },
+   "markerPrice": "₹ 32.8 L"
+  },
+  {
+   "id": "sample-0156",
+   "coordinates": {
+    "latitude": 10.62353,
+    "longitude": 76.51283
+   },
+   "markerPrice": "₹ 82.9 L"
+  },
+  {
+   "id": "sample-0157",
+   "coordinates": {
+    "latitude": 10.58183,
+    "longitude": 76.49406
+   },
+   "markerPrice": "₹ 183.4 L"
+  },
+  {
+   "id": "sample-0158",
+   "coordinates": {
+    "latitude": 10.5404,
+    "longitude": 76.2388
+   },
+   "markerPrice": "₹ 115.9 L"
+  },
+  {
+   "id": "sample-0159",
+   "coordinates": {
+    "latitude": 10.60231,
+    "longitude": 76.49543
+   },
+   "markerPrice": "₹ 73.8 L"
+  },
+  {
+   "id": "sample-0160",
+   "coordinates": {
+    "latitude": 10.53606,
+    "longitude": 76.2394
+   },
+   "markerPrice": "₹ 149.8 L"
+  },
+  {
+   "id": "sample-0161",
+   "coordinates": {
+    "latitude": 10.27657,
+    "longitude": 76.20073
+   },
+   "markerPrice": "₹ 37.7 L"
+  },
+  {
+   "id": "sample-0162",
+   "coordinates": {
+    "latitude": 10.52052,
+    "longitude": 76.20014
+   },
+   "markerPrice": "₹ 110.2 L"
+  },
+  {
+   "id": "sample-0163",
+   "coordinates": {
+    "latitude": 10.72747,
+    "longitude": 76.354
+   },
+   "markerPrice": "₹ 40.2 L"
+  },
+  {
+   "id": "sample-0164",
+   "coordinates": {
+    "latitude": 10.51554,
+    "longitude": 76.19498
+   },
+   "markerPrice": "₹ 175.3 L"
+  },
+  {
+   "id": "sample-0165",
+   "coordinates": {
+    "latitude": 10.28539,
+    "longitude": 76.19149
+   },
+   "markerPrice": "₹ 124.2 L"
+  },
+  {
+   "id": "sample-0166",
+   "coordinates": {
+    "latitude": 10.60265,
+    "longitude": 76.46841
+   },
+   "markerPrice": "₹ 34.8 L"
+  },
+  {
+   "id": "sample-0167",
+   "coordinates": {
+    "latitude": 10.33209,
+    "longitude": 76.10961
+   },
+   "markerPrice": "₹ 12.2 L"
+  },
+  {
+   "id": "sample-0168",
+   "coordinates": {
+    "latitude": 10.40439,
+    "longitude": 76.11409
+   },
+   "markerPrice": "₹ 185.9 L"
+  },
+  {
+   "id": "sample-0169",
+   "coordinates": {
+    "latitude": 10.29072,
+    "longitude": 76.18475
+   },
+   "markerPrice": "₹ 25.6 L"
+  },
+  {
+   "id": "sample-0170",
+   "coordinates": {
+    "latitude": 10.53728,
+    "longitude": 76.22573
+   },
+   "markerPrice": "₹ 44.6 L"
+  },
+  {
+   "id": "sample-0171",
+   "coordinates": {
+    "latitude": 10.54223,
+    "longitude": 76.22383
+   },
+   "markerPrice": "₹ 79.1 L"
+  },
+  {
+   "id": "sample-0172",
+   "coordinates": {
+    "latitude": 10.52185,
+    "longitude": 76.20206
+   },
+   "markerPrice": "₹ 74.0 L"
+  },
+  {
+   "id": "sample-0173",
+   "coordinates": {
+    "latitude": 10.62144,
+    "longitude": 76.10687
+   },
+   "markerPrice": "₹ 172.1 L"
+  },
+  {
+   "id": "sample-0174",
+   "coordinates": {
+    "latitude": 10.65809,
+    "longitude": 76.06357
+   },
+   "markerPrice": "₹ 8.5 L"
+  },
+  {
+   "id": "sample-0175",
+   "coordinates": {
+    "latitude": 10.37031,
+    "longitude": 76.17302
+   },
+   "markerPrice": "₹ 36.0 L"
+  },
+  {
+   "id": "sample-0176",
+   "coordinates": {
+    "latitude": 10.282,
+    "longitude": 76.22937
+   },
+   "markerPrice": "₹ 14.2 L"
+  },
+  {
+   "id": "sample-0177",
+   "coordinates": {
+    "latitude": 10.51566,
+    "longitude": 76.19308
+   },
+   "markerPrice": "₹ 97.6 L"
+  },
+  {
+   "id": "sample-0178",
+   "coordinates": {
+    "latitude": 10.53638,
+    "longitude": 76.24228
+   },
+   "markerPrice": "₹ 105.7 L"
+  },
+  {
+   "id": "sample-0179",
+   "coordinates": {
+    "latitude": 10.73598,
+    "longitude": 76.32184
+   },
+   "markerPrice": "₹ 159.5 L"
+  },
+  {
+   "id": "sample-0180",
+   "coordinates": {
+    "latitude": 10.50731,
+    "longitude": 76.19761
+   },
+   "markerPrice": "₹ 159.2 L"
+  },
+  {
+   "id": "sample-0181",
+   "coordinates": {
+    "latitude": 10.52667,
+    "longitude": 76.24408
+   },
+   "markerPrice": "₹ 115.8 L"
+  },
+  {
+   "id": "sample-0182",
+   "coordinates": {
+    "latitude": 10.52683,
+    "longitude": 76.23185
+   },
+   "markerPrice": "₹ 161.8 L"
+  },
+  {
+   "id": "sample-0183",
+   "coordinates": {
+    "latitude": 10.53955,
+    "longitude": 76.21575
+   },
+   "markerPrice": "₹ 184.7 L"
+  },
+  {
+   "id": "sample-0184",
+   "coordinates": {
+    "latitude": 10.51755,
+    "longitude": 76.21973
+   },
+   "markerPrice": "₹ 156.7 L"
+  },
+  {
+   "id": "sample-0185",
+   "coordinates": {
+    "latitude": 10.52757,
+    "longitude": 76.20794
+   },
+   "markerPrice": "₹ 116.8 L"
+  },
+  {
+   "id": "sample-0186",
+   "coordinates": {
+    "latitude": 10.5349,
+    "longitude": 76.23066
+   },
+   "markerPrice": "₹ 65.3 L"
+  },
+  {
+   "id": "sample-0187",
+   "coordinates": {
+    "latitude": 10.53987,
+    "longitude": 76.2395
+   },
+   "markerPrice": "₹ 80.5 L"
+  },
+  {
+   "id": "sample-0188",
+   "coordinates": {
+    "latitude": 10.5413,
+    "longitude": 76.20002
+   },
+   "markerPrice": "₹ 105.1 L"
+  },
+  {
+   "id": "sample-0189",
+   "coordinates": {
+    "latitude": 10.52092,
+    "longitude": 76.20382
+   },
+   "markerPrice": "₹ 162.8 L"
+  },
+  {
+   "id": "sample-0190",
+   "coordinates": {
+    "latitude": 10.57201,
+    "longitude": 76.45057
+   },
+   "markerPrice": "₹ 183.7 L"
+  },
+  {
+   "id": "sample-0191",
+   "coordinates": {
+    "latitude": 10.60849,
+    "longitude": 76.47418
+   },
+   "markerPrice": "₹ 106.7 L"
+  },
+  {
+   "id": "sample-0192",
+   "coordinates": {
+    "latitude": 10.54082,
+    "longitude": 76.21275
+   },
+   "markerPrice": "₹ 69.8 L"
+  },
+  {
+   "id": "sample-0193",
+   "coordinates": {
+    "latitude": 10.53203,
+    "longitude": 76.23857
+   },
+   "markerPrice": "₹ 185.1 L"
+  },
+  {
+   "id": "sample-0194",
+   "coordinates": {
+    "latitude": 10.51261,
+    "longitude": 76.21061
+   },
+   "markerPrice": "₹ 159.6 L"
+  },
+  {
+   "id": "sample-0195",
+   "coordinates": {
+    "latitude": 10.53858,
+    "longitude": 76.22261
+   },
+   "markerPrice": "₹ 150.0 L"
+  },
+  {
+   "id": "sample-0196",
+   "coordinates": {
+    "latitude": 10.53679,
+    "longitude": 76.21162
+   },
+   "markerPrice": "₹ 139.9 L"
+  },
+  {
+   "id": "sample-0197",
+   "coordinates": {
+    "latitude": 10.33507,
+    "longitude": 76.11358
+   },
+   "markerPrice": "₹ 39.6 L"
+  },
+  {
+   "id": "sample-0198",
+   "coordinates": {
+    "latitude": 10.52819,
+    "longitude": 76.23538
+   },
+   "markerPrice": "₹ 47.3 L"
+  },
+  {
+   "id": "sample-0199",
+   "coordinates": {
+    "latitude": 10.63375,
+    "longitude": 76.11054
+   },
+   "markerPrice": "₹ 139.9 L"
+  },
+  {
+   "id": "sample-0200",
+   "coordinates": {
+    "latitude": 10.53485,
+    "longitude": 76.2164
+   },
+   "markerPrice": "₹ 123.8 L"
+  },
+  {
+   "id": "sample-0201",
+   "coordinates": {
+    "latitude": 10.33535,
+    "longitude": 76.1535
+   },
+   "markerPrice": "₹ 103.6 L"
+  },
+  {
+   "id": "sample-0202",
+   "coordinates": {
+    "latitude": 10.53067,
+    "longitude": 76.23856
+   },
+   "markerPrice": "₹ 8.6 L"
+  },
+  {
+   "id": "sample-0203",
+   "coordinates": {
+    "latitude": 10.71344,
+    "longitude": 76.32897
+   },
+   "markerPrice": "₹ 105.3 L"
+  },
+  {
+   "id": "sample-0204",
+   "coordinates": {
+    "latitude": 10.5202,
+    "longitude": 76.21568
+   },
+   "markerPrice": "₹ 146.0 L"
+  },
+  {
+   "id": "sample-0205",
+   "coordinates": {
+    "latitude": 10.75711,
+    "longitude": 76.32707
+   },
+   "markerPrice": "₹ 71.9 L"
+  },
+  {
+   "id": "sample-0206",
+   "coordinates": {
+    "latitude": 10.58331,
+    "longitude": 76.48652
+   },
+   "markerPrice": "₹ 9.6 L"
+  },
+  {
+   "id": "sample-0207",
+   "coordinates": {
+    "latitude": 10.55015,
+    "longitude": 76.21591
+   },
+   "markerPrice": "₹ 50.7 L"
+  },
+  {
+   "id": "sample-0208",
+   "coordinates": {
+    "latitude": 10.54002,
+    "longitude": 76.23768
+   },
+   "markerPrice": "₹ 163.0 L"
+  },
+  {
+   "id": "sample-0209",
+   "coordinates": {
+    "latitude": 10.50666,
+    "longitude": 76.20367
+   },
+   "markerPrice": "₹ 92.7 L"
+  },
+  {
+   "id": "sample-0210",
+   "coordinates": {
+    "latitude": 10.54448,
+    "longitude": 76.22839
+   },
+   "markerPrice": "₹ 56.5 L"
+  },
+  {
+   "id": "sample-0211",
+   "coordinates": {
+    "latitude": 10.66952,
+    "longitude": 76.07282
+   },
+   "markerPrice": "₹ 12.5 L"
+  },
+  {
+   "id": "sample-0212",
+   "coordinates": {
+    "latitude": 10.39029,
+    "longitude": 76.14255
+   },
+   "markerPrice": "₹ 19.8 L"
+  },
+  {
+   "id": "sample-0213",
+   "coordinates": {
+    "latitude": 10.52761,
+    "longitude": 76.23624
+   },
+   "markerPrice": "₹ 104.4 L"
+  },
+  {
+   "id": "sample-0214",
+   "coordinates": {
+    "latitude": 10.40513,
+    "longitude": 76.12806
+   },
+   "markerPrice": "₹ 71.9 L"
+  },
+  {
+   "id": "sample-0215",
+   "coordinates": {
+    "latitude": 10.61783,
+    "longitude": 76.10145
+   },
+   "markerPrice": "₹ 115.0 L"
+  },
+  {
+   "id": "sample-0216",
+   "coordinates": {
+    "latitude": 10.37236,
+    "longitude": 76.11356
+   },
+   "markerPrice": "₹ 45.9 L"
+  },
+  {
+   "id": "sample-0217",
+   "coordinates": {
+    "latitude": 10.55773,
+    "longitude": 76.47594
+   },
+   "markerPrice": "₹ 71.5 L"
+  },
+  {
+   "id": "sample-0218",
+   "coordinates": {
+    "latitude": 10.52812,
+    "longitude": 76.21258
+   },
+   "markerPrice": "₹ 131.3 L"
+  },
+  {
+   "id": "sample-0219",
+   "coordinates": {
+    "latitude": 10.5667,
+    "longitude": 76.5074
+   },
+   "markerPrice": "₹ 86.9 L"
+  },
+  {
+   "id": "sample-0220",
+   "coordinates": {
+    "latitude": 10.53716,
+    "longitude": 76.24075
+   },
+   "markerPrice": "₹ 31.8 L"
+  },
+  {
+   "id": "sample-0221",
+   "coordinates": {
+    "latitude": 10.61179,
+    "longitude": 76.50358
+   },
+   "markerPrice": "₹ 40.9 L"
+  },
+  {
+   "id": "sample-0222",
+   "coordinates": {
+    "latitude": 10.53742,
+    "longitude": 76.2264
+   },
+   "markerPrice": "₹ 159.3 L"
+  },
+  {
+   "id": "sample-0223",
+   "coordinates": {
+    "latitude": 10.5477,
+    "longitude": 76.22423
+   },
+   "markerPrice": "₹ 37.5 L"
+  },
+  {
+   "id": "sample-0224",
+   "coordinates": {
+    "latitude": 10.54312,
+    "longitude": 76.21106
+   },
+   "markerPrice": "₹ 184.9 L"
+  },
+  {
+   "id": "sample-0225",
+   "coordinates": {
+    "latitude": 10.53835,
+    "longitude": 76.24037
+   },
+   "markerPrice": "₹ 18.3 L"
+  },
+  {
+   "id": "sample-0226",
+   "coordinates": {
+    "latitude": 10.30517,
+    "longitude": 76.17122
+   },
+   "markerPrice": "₹ 165.5 L"
+  },
+  {
+   "id": "sample-0227",
+   "coordinates": {
+    "latitude": 10.63264,
+    "longitude": 76.0466
+   },
+   "markerPrice": "₹ 152.8 L"
+  },
+  {
+   "id": "sample-0228",
+   "coordinates": {
+    "latitude": 10.66495,
+    "longitude": 76.08065
+   },
+   "markerPrice": "₹ 106.4 L"
+  },
+  {
+   "id": "sample-0229",
+   "coordinates": {
+    "latitude": 10.61232,
+    "longitude": 76.04202
+   },
+   "markerPrice": "₹ 24.2 L"
+  },
+  {
+   "id": "sample-0230",
+   "coordinates": {
+    "latitude": 10.37819,
+    "longitude": 76.15801
+   },
+   "markerPrice": "₹ 121.1 L"
+  },
+  {
+   "id": "sample-0231",
+   "coordinates": {
+    "latitude": 10.5674,
+    "longitude": 76.45144
+   },
+   "markerPrice": "₹ 32.1 L"
+  },
+  {
+   "id": "sample-0232",
+   "coordinates": {
+    "latitude": 10.67537,
+    "longitude": 76.10732
+   },
+   "markerPrice": "₹ 106.7 L"
+  },
+  {
+   "id": "sample-0233",
+   "coordinates": {
+    "latitude": 10.62583,
+    "longitude": 76.11186
+   },
+   "markerPrice": "₹ 150.5 L"
+  },
+  {
+   "id": "sample-0234",
+   "coordinates": {
+    "latitude": 10.27648,
+    "longitude": 76.17529
+   },
+   "markerPrice": "₹ 15.2 L"
+  },
+  {
+   "id": "sample-0235",
+   "coordinates": {
+    "latitude": 10.37858,
+    "longitude": 76.13004
+   },
+   "markerPrice": "₹ 183.7 L"
+  },
+  {
+   "id": "sample-0236",
+   "coordinates": {
+    "latitude": 10.35867,
+    "longitude": 76.15766
+   },
+   "markerPrice": "₹ 182.3 L"
+  },
+  {
+   "id": "sample-0237",
+   "coordinates": {
+    "latitude": 10.29128,
+    "longitude": 76.22344
+   },
+   "markerPrice": "₹ 76.4 L"
+  },
+  {
+   "id": "sample-0238",
+   "coordinates": {
+    "latitude": 10.35819,
+    "longitude": 76.16355
+   },
+   "markerPrice": "₹ 90.8 L"
+  },
+  {
+   "id": "sample-0239",
+   "coordinates": {
+    "latitude": 10.72284,
+    "longitude": 76.32744
+   },
+   "markerPrice": "₹ 101.7 L"
+  },
+  {
+   "id": "sample-0240",
+   "coordinates": {
+    "latitude": 10.71582,
+    "longitude": 76.3676
+   },
+   "markerPrice": "₹ 71.7 L"
+  },
+  {
+   "id": "sample-0241",
+   "coordinates": {
+    "latitude": 10.5306,
+    "longitude": 76.23173
+   },
+   "markerPrice": "₹ 24.6 L"
+  },
+  {
+   "id": "sample-0242",
+   "coordinates": {
+    "latitude": 10.34273,
+    "longitude": 76.16581
+   },
+   "markerPrice": "₹ 181.0 L"
+  },
+  {
+   "id": "sample-0243",
+   "coordinates": {
+    "latitude": 10.51293,
+    "longitude": 76.19031
+   },
+   "markerPrice": "₹ 121.9 L"
+  },
+  {
+   "id": "sample-0244",
+   "coordinates": {
+    "latitude": 10.67479,
+    "longitude": 76.05912
+   },
+   "markerPrice": "₹ 32.0 L"
+  },
+  {
+   "id": "sample-0245",
+   "coordinates": {
+    "latitude": 10.52848,
+    "longitude": 76.24294
+   },
+   "markerPrice": "₹ 98.2 L"
+  },
+  {
+   "id": "sample-0246",
+   "coordinates": {
+    "latitude": 10.38239,
+    "longitude": 76.12066
+   },
+   "markerPrice": "₹ 125.6 L"
+  },
+  {
+   "id": "sample-0247",
+   "coordinates": {
+    "latitude": 10.36287,
+    "longitude": 76.17927
+   },
+   "markerPrice": "₹ 38.3 L"
+  },
+  {
+   "id": "sample-0248",
+   "coordinates": {
+    "latitude": 10.53995,
+    "longitude": 76.21104
+   },
+   "markerPrice": "₹ 174.8 L"
+  },
+  {
+   "id": "sample-0249",
+   "coordinates": {
+    "latitude": 10.53252,
+    "longitude": 76.22263
+   },
+   "markerPrice": "₹ 156.1 L"
+  },
+  {
+   "id": "sample-0250",
+   "coordinates": {
+    "latitude": 10.5153,
+    "longitude": 76.19012
+   },
+   "markerPrice": "₹ 187.1 L"
+  },
+  {
+   "id": "sample-0251",
+   "coordinates": {
+    "latitude": 10.51745,
+    "longitude": 76.20003
+   },
+   "markerPrice": "₹ 59.0 L"
+  },
+  {
+   "id": "sample-0252",
+   "coordinates": {
+    "latitude": 10.33597,
+    "longitude": 76.11468
+   },
+   "markerPrice": "₹ 162.4 L"
+  },
+  {
+   "id": "sample-0253",
+   "coordinates": {
+    "latitude": 10.60658,
+    "longitude": 76.49332
+   },
+   "markerPrice": "₹ 49.7 L"
+  },
+  {
+   "id": "sample-0254",
+   "coordinates": {
+    "latitude": 10.50419,
+    "longitude": 76.19002
+   },
+   "markerPrice": "₹ 27.1 L"
+  },
+  {
+   "id": "sample-0255",
+   "coordinates": {
+    "latitude": 10.61776,
+    "longitude": 76.48395
+   },
+   "markerPrice": "₹ 143.0 L"
+  },
+  {
+   "id": "sample-0256",
+   "coordinates": {
+    "latitude": 10.34464,
+    "longitude": 76.10521
+   },
+   "markerPrice": "₹ 164.6 L"
+  },
+  {
+   "id": "sample-0257",
+   "coordinates": {
+    "latitude": 10.52129,
+    "longitude": 76.19246
+   },
+   "markerPrice": "₹ 39.4 L"
+  },
+  {
+   "id": "sample-0258",
+   "coordinates": {
+    "latitude": 10.53232,
+    "longitude": 76.22147
+   },
+   "markerPrice": "₹ 22.3 L"
+  },
+  {
+   "id": "sample-0259",
+   "coordinates": {
+    "latitude": 10.73684,
+    "longitude": 76.32096
+   },
+   "markerPrice": "₹ 55.7 L"
+  },
+  {
+   "id": "sample-0260",
+   "coordinates": {
+    "latitude": 10.35614,
+    "longitude": 76.17025
+   },
+   "markerPrice": "₹ 14.2 L"
+  },
+  {
+   "id": "sample-0261",
+   "coordinates": {
+    "latitude": 10.51439,
+    "longitude": 76.20352
+   },
+   "markerPrice": "₹ 130.2 L"
+  },
+  {
+   "id": "sample-0262",
+   "coordinates": {
+    "latitude": 10.29991,
+    "longitude": 76.17058
+   },
+   "markerPrice": "₹ 60.8 L"
+  },
+  {
+   "id": "sample-0263",
+   "coordinates": {
+    "latitude": 10.576,
+    "longitude": 76.50467
+   },
+   "markerPrice": "₹ 145.8 L"
+  },
+  {
+   "id": "sample-0264",
+   "coordinates": {
+    "latitude": 10.53723,
+    "longitude": 76.22333
+   },
+   "markerPrice": "₹ 164.0 L"
+  },
+  {
+   "id": "sample-0265",
+   "coordinates": {
+    "latitude": 10.60433,
+    "longitude": 76.46501
+   },
+   "markerPrice": "₹ 128.3 L"
+  },
+  {
+   "id": "sample-0266",
+   "coordinates": {
+    "latitude": 10.52172,
+    "longitude": 76.19529
+   },
+   "markerPrice": "₹ 138.9 L"
+  },
+  {
+   "id": "sample-0267",
+   "coordinates": {
+    "latitude": 10.70205,
+    "longitude": 76.36893
+   },
+   "markerPrice": "₹ 141.4 L"
+  },
+  {
+   "id": "sample-0268",
+   "coordinates": {
+    "latitude": 10.62046,
+    "longitude": 76.10799
+   },
+   "markerPrice": "₹ 122.3 L"
+  },
+  {
+   "id": "sample-0269",
+   "coordinates": {
+    "latitude": 10.72495,
+    "longitude": 76.37396
+   },
+   "markerPrice": "₹ 57.6 L"
+  },
+  {
+   "id": "sample-0270",
+   "coordinates": {
+    "latitude": 10.36621,
+    "longitude": 76.12997
+   },
+   "markerPrice": "₹ 56.4 L"
+  },
+  {
+   "id": "sample-0271",
+   "coordinates": {
+    "latitude": 10.51865,
+    "longitude": 76.20421
+   },
+   "markerPrice": "₹ 106.0 L"
+  },
+  {
+   "id": "sample-0272",
+   "coordinates": {
+    "latitude": 10.53532,
+    "longitude": 76.23852
+   },
+   "markerPrice": "₹ 129.8 L"
+  },
+  {
+   "id": "sample-0273",
+   "coordinates": {
+    "latitude": 10.52047,
+    "longitude": 76.21444
+   },
+   "markerPrice": "₹ 35.4 L"
+  },
+  {
+   "id": "sample-0274",
+   "coordinates": {
+    "latitude": 10.64505,
+    "longitude": 76.08964
+   },
+   "markerPrice": "₹ 13.7 L"
+  },
+  {
+   "id": "sample-0275",
+   "coordinates": {
+    "latitude": 10.70377,
+    "longitude": 76.3721
+   },
+   "markerPrice": "₹ 134.9 L"
+  },
+  {
+   "id": "sample-0276",
+   "coordinates": {
+    "latitude": 10.58592,
+    "longitude": 76.50301
+   },
+   "markerPrice": "₹ 135.4 L"
+  },
+  {
+   "id": "sample-0277",
+   "coordinates": {
+    "latitude": 10.53121,
+    "longitude": 76.21295
+   },
+   "markerPrice": "₹ 149.2 L"
+  },
+  {
+   "id": "sample-0278",
+   "coordinates": {
+    "latitude": 10.7033,
+    "longitude": 76.33523
+   },
+   "markerPrice": "₹ 127.5 L"
+  },
+  {
+   "id": "sample-0279",
+   "coordinates": {
+    "latitude": 10.63763,
+    "longitude": 76.06517
+   },
+   "markerPrice": "₹ 51.7 L"
+  },
+  {
+   "id": "sample-0280",
+   "coordinates": {
+    "latitude": 10.53202,
+    "longitude": 76.22903
+   },
+   "markerPrice": "₹ 32.9 L"
+  },
+  {
+   "id": "sample-0281",
+   "coordinates": {
+    "latitude": 10.54834,
+    "longitude": 76.2121
+   },
+   "markerPrice": "₹ 152.5 L"
+  },
+  {
+   "id": "sample-0282",
+   "coordinates": {
+    "latitude": 10.72666,
+    "longitude": 76.38404
+   },
+   "markerPrice": "₹ 127.3 L"
+  },
+  {
+   "id": "sample-0283",
+   "coordinates": {
+    "latitude": 10.52103,
+    "longitude": 76.20936
+   },
+   "markerPrice": "₹ 184.0 L"
+  },
+  {
+   "id": "sample-0284",
+   "coordinates": {
+    "latitude": 10.72864,
+    "longitude": 76.36736
+   },
+   "markerPrice": "₹ 76.7 L"
+  },
+  {
+   "id": "sample-0285",
+   "coordinates": {
+    "latitude": 10.54061,
+    "longitude": 76.21506
+   },
+   "markerPrice": "₹ 61.4 L"
+  },
+  {
+   "id": "sample-0286",
+   "coordinates": {
+    "latitude": 10.51184,
+    "longitude": 76.19899
+   },
+   "markerPrice": "₹ 131.7 L"
+  },
+  {
+   "id": "sample-0287",
+   "coordinates": {
+    "latitude": 10.53984,
+    "longitude": 76.23354
+   },
+   "markerPrice": "₹ 160.3 L"
+  },
+  {
+   "id": "sample-0288",
+   "coordinates": {
+    "latitude": 10.27125,
+    "longitude": 76.17007
+   },
+   "markerPrice": "₹ 38.4 L"
+  },
+  {
+   "id": "sample-0289",
+   "coordinates": {
+    "latitude": 10.52574,
+    "longitude": 76.23928
+   },
+   "markerPrice": "₹ 30.4 L"
+  },
+  {
+   "id": "sample-0290",
+   "coordinates": {
+    "latitude": 10.75262,
+    "longitude": 76.37521
+   },
+   "markerPrice": "₹ 164.5 L"
+  },
+  {
+   "id": "sample-0291",
+   "coordinates": {
+    "latitude": 10.67543,
+    "longitude": 76.07064
+   },
+   "markerPrice": "₹ 45.6 L"
+  },
+  {
+   "id": "sample-0292",
+   "coordinates": {
+    "latitude": 10.54211,
+    "longitude": 76.22172
+   },
+   "markerPrice": "₹ 163.0 L"
+  },
+  {
+   "id": "sample-0293",
+   "coordinates": {
+    "latitude": 10.5702,
+    "longitude": 76.46419
+   },
+   "markerPrice": "₹ 49.4 L"
+  },
+  {
+   "id": "sample-0294",
+   "coordinates": {
+    "latitude": 10.53512,
+    "longitude": 76.21907
+   },
+   "markerPrice": "₹ 31.0 L"
+  },
+  {
+   "id": "sample-0295",
+   "coordinates": {
+    "latitude": 10.61086,
+    "longitude": 76.46354
+   },
+   "markerPrice": "₹ 38.1 L"
+  },
+  {
+   "id": "sample-0296",
+   "coordinates": {
+    "latitude": 10.51066,
+    "longitude": 76.19444
+   },
+   "markerPrice": "₹ 145.3 L"
+  },
+  {
+   "id": "sample-0297",
+   "coordinates": {
+    "latitude": 10.53255,
+    "longitude": 76.23325
+   },
+   "markerPrice": "₹ 179.0 L"
+  },
+  {
+   "id": "sample-0298",
+   "coordinates": {
+    "latitude": 10.52345,
+    "longitude": 76.2097
+   },
+   "markerPrice": "₹ 94.2 L"
+  },
+  {
+   "id": "sample-0299",
+   "coordinates": {
+    "latitude": 10.35013,
+    "longitude": 76.1789
+   },
+   "markerPrice": "₹ 165.4 L"
+  },
+  {
+   "id": "sample-0300",
+   "coordinates": {
+    "latitude": 10.73549,
+    "longitude": 76.32594
+   },
+   "markerPrice": "₹ 85.6 L"
+  },
+  {
+   "id": "sample-0301",
+   "coordinates": {
+    "latitude": 10.53847,
+    "longitude": 76.24368
+   },
+   "markerPrice": "₹ 67.6 L"
+  },
+  {
+   "id": "sample-0302",
+   "coordinates": {
+    "latitude": 10.53024,
+    "longitude": 76.22372
+   },
+   "markerPrice": "₹ 71.1 L"
+  },
+  {
+   "id": "sample-0303",
+   "coordinates": {
+    "latitude": 10.53638,
+    "longitude": 76.21591
+   },
+   "markerPrice": "₹ 160.6 L"
+  },
+  {
+   "id": "sample-0304",
+   "coordinates": {
+    "latitude": 10.52809,
+    "longitude": 76.23883
+   },
+   "markerPrice": "₹ 186.7 L"
+  },
+  {
+   "id": "sample-0305",
+   "coordinates": {
+    "latitude": 10.71303,
+    "longitude": 76.34255
+   },
+   "markerPrice": "₹ 87.2 L"
+  },
+  {
+   "id": "sample-0306",
+   "coordinates": {
+    "latitude": 10.50738,
+    "longitude": 76.1928
+   },
+   "markerPrice": "₹ 169.1 L"
+  },
+  {
+   "id": "sample-0307",
+   "coordinates": {
+    "latitude": 10.6091,
+    "longitude": 76.04896
+   },
+   "markerPrice": "₹ 58.5 L"
+  },
+  {
+   "id": "sample-0308",
+   "coordinates": {
+    "latitude": 10.40257,
+    "longitude": 76.14219
+   },
+   "markerPrice": "₹ 89.5 L"
+  },
+  {
+   "id": "sample-0309",
+   "coordinates": {
+    "latitude": 10.57837,
+    "longitude": 76.44767
+   },
+   "markerPrice": "₹ 129.6 L"
+  },
+  {
+   "id": "sample-0310",
+   "coordinates": {
+    "latitude": 10.2628,
+    "longitude": 76.22518
+   },
+   "markerPrice": "₹ 62.0 L"
+  },
+  {
+   "id": "sample-0311",
+   "coordinates": {
+    "latitude": 10.51018,
+    "longitude": 76.20482
+   },
+   "markerPrice": "₹ 72.2 L"
+  },
+  {
+   "id": "sample-0312",
+   "coordinates": {
+    "latitude": 10.72816,
+    "longitude": 76.35662
+   },
+   "markerPrice": "₹ 9.8 L"
+  },
+  {
+   "id": "sample-0313",
+   "coordinates": {
+    "latitude": 10.65368,
+    "longitude": 76.05713
+   },
+   "markerPrice": "₹ 23.0 L"
+  },
+  {
+   "id": "sample-0314",
+   "coordinates": {
+    "latitude": 10.26572,
+    "longitude": 76.17344
+   },
+   "markerPrice": "₹ 26.3 L"
+  },
+  {
+   "id": "sample-0315",
+   "coordinates": {
+    "latitude": 10.56908,
+    "longitude": 76.49286
+   },
+   "markerPrice": "₹ 108.9 L"
+  },
+  {
+   "id": "sample-0316",
+   "coordinates": {
+    "latitude": 10.53492,
+    "longitude": 76.23955
+   },
+   "markerPrice": "₹ 74.0 L"
+  },
+  {
+   "id": "sample-0317",
+   "coordinates": {
+    "latitude": 10.75102,
+    "longitude": 76.33084
+   },
+   "markerPrice": "₹ 127.8 L"
+  },
+  {
+   "id": "sample-0318",
+   "coordinates": {
+    "latitude": 10.53802,
+    "longitude": 76.22284
+   },
+   "markerPrice": "₹ 97.7 L"
+  },
+  {
+   "id": "sample-0319",
+   "coordinates": {
+    "latitude": 10.69655,
+    "longitude": 76.36411
+   },
+   "markerPrice": "₹ 186.4 L"
+  },
+  {
+   "id": "sample-0320",
+   "coordinates": {
+    "latitude": 10.50705,
+    "longitude": 76.19875
+   },
+   "markerPrice": "₹ 15.8 L"
+  },
+  {
+   "id": "sample-0321",
+   "coordinates": {
+    "latitude": 10.53639,
+    "longitude": 76.21291
+   },
+   "markerPrice": "₹ 133.4 L"
+  },
+  {
+   "id": "sample-0322",
+   "coordinates": {
+    "latitude": 10.59514,
+    "longitude": 76.44545
+   },
+   "markerPrice": "₹ 126.8 L"
+  },
+  {
+   "id": "sample-0323",
+   "coordinates": {
+    "latitude": 10.53977,
+    "longitude": 76.23917
+   },
+   "markerPrice": "₹ 129.6 L"
+  },
+  {
+   "id": "sample-0324",
+   "coordinates": {
+    "latitude": 10.72411,
+    "longitude": 76.33826
+   },
+   "markerPrice": "₹ 132.3 L"
+  },
+  {
+   "id": "sample-0325",
+   "coordinates": {
+    "latitude": 10.65643,
+    "longitude": 76.06966
+   },
+   "markerPrice": "₹ 13.9 L"
+  },
+  {
+   "id": "sample-0326",
+   "coordinates": {
+    "latitude": 10.52913,
+    "longitude": 76.2326
+   },
+   "markerPrice": "₹ 16.1 L"
+  },
+  {
+   "id": "sample-0327",
+   "coordinates": {
+    "latitude": 10.60254,
+    "longitude": 76.47513
+   },
+   "markerPrice": "₹ 166.0 L"
+  },
+  {
+   "id": "sample-0328",
+   "coordinates": {
+    "latitude": 10.5108,
+    "longitude": 76.20169
+   },
+   "markerPrice": "₹ 80.1 L"
+  },
+  {
+   "id": "sample-0329",
+   "coordinates": {
+    "latitude": 10.53865,
+    "longitude": 76.24463
+   },
+   "markerPrice": "₹ 84.7 L"
+  },
+  {
+   "id": "sample-0330",
+   "coordinates": {
+    "latitude": 10.30708,
+    "longitude": 76.17005
+   },
+   "markerPrice": "₹ 135.6 L"
+  },
+  {
+   "id": "sample-0331",
+   "coordinates": {
+    "latitude": 10.52964,
+    "longitude": 76.21813
+   },
+   "markerPrice": "₹ 82.8 L"
+  },
+  {
+   "id": "sample-0332",
+   "coordinates": {
+    "latitude": 10.62215,
+    "longitude": 76.50567
+   },
+   "markerPrice": "₹ 11.7 L"
+  },
+  {
+   "id": "sample-0333",
+   "coordinates": {
+    "latitude": 10.74796,
+    "longitude": 76.37463
+   },
+   "markerPrice": "₹ 158.5 L"
+  },
+  {
+   "id": "sample-0334",
+   "coordinates": {
+    "latitude": 10.5999,
+    "longitude": 76.48551
+   },
+   "markerPrice": "₹ 119.4 L"
+  },
+  {
+   "id": "sample-0335",
+   "coordinates": {
+    "latitude": 10.65728,
+    "longitude": 76.08672
+   },
+   "markerPrice": "₹ 182.5 L"
+  },
+  {
+   "id": "sample-0336",
+   "coordinates": {
+    "latitude": 10.52168,
+    "longitude": 76.19878
+   },
+   "markerPrice": "₹ 92.0 L"
+  },
+  {
+   "id": "sample-0337",
+   "coordinates": {
+    "latitude": 10.28502,
+    "longitude": 76.1766
+   },
+   "markerPrice": "₹ 141.9 L"
+  },
+  {
+   "id": "sample-0338",
+   "coordinates": {
+    "latitude": 10.38275,
+    "longitude": 76.15258
+   },
+   "markerPrice": "₹ 181.9 L"
+  },
+  {
+   "id": "sample-0339",
+   "coordinates": {
+    "latitude": 10.50239,
+    "longitude": 76.20012
+   },
+   "markerPrice": "₹ 79.7 L"
+  },
+  {
+   "id": "sample-0340",
+   "coordinates": {
+    "latitude": 10.67711,
+    "longitude": 76.08495
+   },
+   "markerPrice": "₹ 13.8 L"
+  },
+  {
+   "id": "sample-0341",
+   "coordinates": {
+    "latitude": 10.5394,
+    "longitude": 76.23805
+   },
+   "markerPrice": "₹ 91.3 L"
+  },
+  {
+   "id": "sample-0342",
+   "coordinates": {
+    "latitude": 10.54743,
+    "longitude": 76.22353
+   },
+   "markerPrice": "₹ 93.8 L"
+  },
+  {
+   "id": "sample-0343",
+   "coordinates": {
+    "latitude": 10.52902,
+    "longitude": 76.24057
+   },
+   "markerPrice": "₹ 16.8 L"
+  },
+  {
+   "id": "sample-0344",
+   "coordinates": {
+    "latitude": 10.53822,
+    "longitude": 76.24262
+   },
+   "markerPrice": "₹ 134.9 L"
+  },
+  {
+   "id": "sample-0345",
+   "coordinates": {
+    "latitude": 10.53668,
+    "longitude": 76.23665
+   },
+   "markerPrice": "₹ 89.4 L"
+  },
+  {
+   "id": "sample-0346",
+   "coordinates": {
+    "latitude": 10.54054,
+    "longitude": 76.21691
+   },
+   "markerPrice": "₹ 138.8 L"
+  },
+  {
+   "id": "sample-0347",
+   "coordinates": {
+    "latitude": 10.25243,
+    "longitude": 76.18551
+   },
+   "markerPrice": "₹ 20.6 L"
+  },
+  {
+   "id": "sample-0348",
+   "coordinates": {
+    "latitude": 10.34204,
+    "longitude": 76.17805
+   },
+   "markerPrice": "₹ 93.9 L"
+  },
+  {
+   "id": "sample-0349",
+   "coordinates": {
+    "latitude": 10.51107,
+    "longitude": 76.20024
+   },
+   "markerPrice": "₹ 121.1 L"
+  },
+  {
+   "id": "sample-0350",
+   "coordinates": {
+    "latitude": 10.52969,
+    "longitude": 76.22055
+   },
+   "markerPrice": "₹ 89.5 L"
+  },
+  {
+   "id": "sample-0351",
+   "coordinates": {
+    "latitude": 10.53304,
+    "longitude": 76.2141
+   },
+   "markerPrice": "₹ 138.5 L"
+  },
+  {
+   "id": "sample-0352",
+   "coordinates": {
+    "latitude": 10.53121,
+    "longitude": 76.21901
+   },
+   "markerPrice": "₹ 126.4 L"
+  },
+  {
+   "id": "sample-0353",
+   "coordinates": {
+    "latitude": 10.52165,
+    "longitude": 76.19012
+   },
+   "markerPrice": "₹ 130.4 L"
+  },
+  {
+   "id": "sample-0354",
+   "coordinates": {
+    "latitude": 10.65597,
+    "longitude": 76.11513
+   },
+   "markerPrice": "₹ 163.6 L"
+  },
+  {
+   "id": "sample-0355",
+   "coordinates": {
+    "latitude": 10.50462,
+    "longitude": 76.19342
+   },
+   "markerPrice": "₹ 134.7 L"
+  },
+  {
+   "id": "sample-0356",
+   "coordinates": {
+    "latitude": 10.62044,
+    "longitude": 76.10955
+   },
+   "markerPrice": "₹ 41.5 L"
+  },
+  {
+   "id": "sample-0357",
+   "coordinates": {
+    "latitude": 10.75394,
+    "longitude": 76.37922
+   },
+   "markerPrice": "₹ 75.8 L"
+  },
+  {
+   "id": "sample-0358",
+   "coordinates": {
+    "latitude": 10.26128,
+    "longitude": 76.22633
+   },
+   "markerPrice": "₹ 180.7 L"
+  },
+  {
+   "id": "sample-0359",
+   "coordinates": {
+    "latitude": 10.52102,
+    "longitude": 76.19702
+   },
+   "markerPrice": "₹ 86.6 L"
+  },
+  {
+   "id": "sample-0360",
+   "coordinates": {
+    "latitude": 10.53247,
+    "longitude": 76.23696
+   },
+   "markerPrice": "₹ 177.9 L"
+  },
+  {
+   "id": "sample-0361",
+   "coordinates": {
+    "latitude": 10.53466,
+    "longitude": 76.22927
+   },
+   "markerPrice": "₹ 167.3 L"
+  },
+  {
+   "id": "sample-0362",
+   "coordinates": {
+    "latitude": 10.53375,
+    "longitude": 76.21728
+   },
+   "markerPrice": "₹ 157.7 L"
+  },
+  {
+   "id": "sample-0363",
+   "coordinates": {
+    "latitude": 10.37459,
+    "longitude": 76.12291
+   },
+   "markerPrice": "₹ 80.6 L"
+  },
+  {
+   "id": "sample-0364",
+   "coordinates": {
+    "latitude": 10.55717,
+    "longitude": 76.45955
+   },
+   "markerPrice": "₹ 20.3 L"
+  },
+  {
+   "id": "sample-0365",
+   "coordinates": {
+    "latitude": 10.39889,
+    "longitude": 76.14904
+   },
+   "markerPrice": "₹ 22.2 L"
+  },
+  {
+   "id": "sample-0366",
+   "coordinates": {
+    "latitude": 10.53294,
+    "longitude": 76.23283
+   },
+   "markerPrice": "₹ 185.8 L"
+  },
+  {
+   "id": "sample-0367",
+   "coordinates": {
+    "latitude": 10.34446,
+    "longitude": 76.17423
+   },
+   "markerPrice": "₹ 88.9 L"
+  },
+  {
+   "id": "sample-0368",
+   "coordinates": {
+    "latitude": 10.50644,
+    "longitude": 76.19226
+   },
+   "markerPrice": "₹ 55.2 L"
+  },
+  {
+   "id": "sample-0369",
+   "coordinates": {
+    "latitude": 10.58989,
+    "longitude": 76.44515
+   },
+   "markerPrice": "₹ 161.6 L"
+  },
+  {
+   "id": "sample-0370",
+   "coordinates": {
+    "latitude": 10.51612,
+    "longitude": 76.22488
+   },
+   "markerPrice": "₹ 126.4 L"
+  },
+  {
+   "id": "sample-0371",
+   "coordinates": {
+    "latitude": 10.27101,
+    "longitude": 76.22395
+   },
+   "markerPrice": "₹ 25.5 L"
+  },
+  {
+   "id": "sample-0372",
+   "coordinates": {
+    "latitude": 10.50689,
+    "longitude": 76.19117
+   },
+   "markerPrice": "₹ 27.8 L"
+  },
+  {
+   "id": "sample-0373",
+   "coordinates": {
+    "latitude": 10.37371,
+    "longitude": 76.12756
+   },
+   "markerPrice": "₹ 86.4 L"
+  },
+  {
+   "id": "sample-0374",
+   "coordinates": {
+    "latitude": 10.39612,
+    "longitude": 76.17091
+   },
+   "markerPrice": "₹ 27.3 L"
+  },
+  {
+   "id": "sample-0375",
+   "coordinates": {
+    "latitude": 10.76184,
+    "longitude": 76.37853
+   },
+   "markerPrice": "₹ 162.5 L"
+  },
+  {
+   "id": "sample-0376",
+   "coordinates": {
+    "latitude": 10.5301,
+    "longitude": 76.23452
+   },
+   "markerPrice": "₹ 77.9 L"
+  },
+  {
+   "id": "sample-0377",
+   "coordinates": {
+    "latitude": 10.62779,
+    "longitude": 76.1196
+   },
+   "markerPrice": "₹ 133.8 L"
+  },
+  {
+   "id": "sample-0378",
+   "coordinates": {
+    "latitude": 10.53271,
+    "longitude": 76.24066
+   },
+   "markerPrice": "₹ 179.2 L"
+  },
+  {
+   "id": "sample-0379",
+   "coordinates": {
+    "latitude": 10.53714,
+    "longitude": 76.22416
+   },
+   "markerPrice": "₹ 106.2 L"
+  },
+  {
+   "id": "sample-0380",
+   "coordinates": {
+    "latitude": 10.533,
+    "longitude": 76.20216
+   },
+   "markerPrice": "₹ 75.9 L"
+  },
+  {
+   "id": "sample-0381",
+   "coordinates": {
+    "latitude": 10.51856,
+    "longitude": 76.20574
+   },
+   "markerPrice": "₹ 93.3 L"
+  },
+  {
+   "id": "sample-0382",
+   "coordinates": {
+    "latitude": 10.51351,
+    "longitude": 76.21035
+   },
+   "markerPrice": "₹ 91.6 L"
+  },
+  {
+   "id": "sample-0383",
+   "coordinates": {
+    "latitude": 10.56924,
+    "longitude": 76.49154
+   },
+   "markerPrice": "₹ 113.4 L"
+  },
+  {
+   "id": "sample-0384",
+   "coordinates": {
+    "latitude": 10.29566,
+    "longitude": 76.18904
+   },
+   "markerPrice": "₹ 39.7 L"
+  },
+  {
+   "id": "sample-0385",
+   "coordinates": {
+    "latitude": 10.27481,
+    "longitude": 76.22806
+   },
+   "markerPrice": "₹ 163.3 L"
+  },
+  {
+   "id": "sample-0386",
+   "coordinates": {
+    "latitude": 10.28508,
+    "longitude": 76.20808
+   },
+   "markerPrice": "₹ 169.5 L"
+  },
+  {
+   "id": "sample-0387",
+   "coordinates": {
+    "latitude": 10.76429,
+    "longitude": 76.31952
+   },
+   "markerPrice": "₹ 68.0 L"
+  },
+  {
+   "id": "sample-0388",
+   "coordinates": {
+    "latitude": 10.51667,
+    "longitude": 76.21686
+   },
+   "markerPrice": "₹ 10.2 L"
+  },
+  {
+   "id": "sample-0389",
+   "coordinates": {
+    "latitude": 10.72191,
+    "longitude": 76.36861
+   },
+   "markerPrice": "₹ 107.1 L"
+  },
+  {
+   "id": "sample-0390",
+   "coordinates": {
+    "latitude": 10.63778,
+    "longitude": 76.08231
+   },
+   "markerPrice": "₹ 149.3 L"
+  },
+  {
+   "id": "sample-0391",
+   "coordinates": {
+    "latitude": 10.53125,
+    "longitude": 76.21225
+   },
+   "markerPrice": "₹ 76.8 L"
+  },
+  {
+   "id": "sample-0392",
+   "coordinates": {
+    "latitude": 10.59986,
+    "longitude": 76.46505
+   },
+   "markerPrice": "₹ 108.4 L"
+  },
+  {
+   "id": "sample-0393",
+   "coordinates": {
+    "latitude": 10.53519,
+    "longitude": 76.23724
+   },
+   "markerPrice": "₹ 29.0 L"
+  },
+  {
+   "id": "sample-0394",
+   "coordinates": {
+    "latitude": 10.71624,
+    "longitude": 76.33313
+   },
+   "markerPrice": "₹ 55.0 L"
+  },
+  {
+   "id": "sample-0395",
+   "coordinates": {
+    "latitude": 10.54555,
+    "longitude": 76.22247
+   },
+   "markerPrice": "₹ 165.8 L"
+  },
+  {
+   "id": "sample-0396",
+   "coordinates": {
+    "latitude": 10.72486,
+    "longitude": 76.34342
+   },
+   "markerPrice": "₹ 50.7 L"
+  },
+  {
+   "id": "sample-0397",
+   "coordinates": {
+    "latitude": 10.54972,
+    "longitude": 76.21127
+   },
+   "markerPrice": "₹ 70.8 L"
+  },
+  {
+   "id": "sample-0398",
+   "coordinates": {
+    "latitude": 10.60268,
+    "longitude": 76.04144
+   },
+   "markerPrice": "₹ 74.9 L"
+  },
+  {
+   "id": "sample-0399",
+   "coordinates": {
+    "latitude": 10.38369,
+    "longitude": 76.1303
+   },
+   "markerPrice": "₹ 156.7 L"
+  },
+  {
+   "id": "sample-0400",
+   "coordinates": {
+    "latitude": 10.33151,
+    "longitude": 76.12432
+   },
+   "markerPrice": "₹ 105.9 L"
+  },
+  {
+   "id": "sample-0401",
+   "coordinates": {
+    "latitude": 10.50719,
+    "longitude": 76.19643
+   },
+   "markerPrice": "₹ 108.3 L"
+  },
+  {
+   "id": "sample-0402",
+   "coordinates": {
+    "latitude": 10.51336,
+    "longitude": 76.22317
+   },
+   "markerPrice": "₹ 77.3 L"
+  },
+  {
+   "id": "sample-0403",
+   "coordinates": {
+    "latitude": 10.28683,
+    "longitude": 76.20559
+   },
+   "markerPrice": "₹ 83.1 L"
+  },
+  {
+   "id": "sample-0404",
+   "coordinates": {
+    "latitude": 10.27295,
+    "longitude": 76.20263
+   },
+   "markerPrice": "₹ 71.2 L"
+  },
+  {
+   "id": "sample-0405",
+   "coordinates": {
+    "latitude": 10.40608,
+    "longitude": 76.13305
+   },
+   "markerPrice": "₹ 166.9 L"
+  },
+  {
+   "id": "sample-0406",
+   "coordinates": {
+    "latitude": 10.50421,
+    "longitude": 76.19152
+   },
+   "markerPrice": "₹ 27.1 L"
+  },
+  {
+   "id": "sample-0407",
+   "coordinates": {
+    "latitude": 10.37623,
+    "longitude": 76.15208
+   },
+   "markerPrice": "₹ 66.5 L"
+  },
+  {
+   "id": "sample-0408",
+   "coordinates": {
+    "latitude": 10.62382,
+    "longitude": 76.49411
+   },
+   "markerPrice": "₹ 48.2 L"
+  },
+  {
+   "id": "sample-0409",
+   "coordinates": {
+    "latitude": 10.51671,
+    "longitude": 76.1944
+   },
+   "markerPrice": "₹ 118.2 L"
+  },
+  {
+   "id": "sample-0410",
+   "coordinates": {
+    "latitude": 10.53223,
+    "longitude": 76.2048
+   },
+   "markerPrice": "₹ 42.1 L"
+  },
+  {
+   "id": "sample-0411",
+   "coordinates": {
+    "latitude": 10.73056,
+    "longitude": 76.34886
+   },
+   "markerPrice": "₹ 12.7 L"
+  },
+  {
+   "id": "sample-0412",
+   "coordinates": {
+    "latitude": 10.66797,
+    "longitude": 76.05429
+   },
+   "markerPrice": "₹ 139.6 L"
+  },
+  {
+   "id": "sample-0413",
+   "coordinates": {
+    "latitude": 10.29758,
+    "longitude": 76.22257
+   },
+   "markerPrice": "₹ 96.4 L"
+  },
+  {
+   "id": "sample-0414",
+   "coordinates": {
+    "latitude": 10.51432,
+    "longitude": 76.18898
+   },
+   "markerPrice": "₹ 88.7 L"
+  },
+  {
+   "id": "sample-0415",
+   "coordinates": {
+    "latitude": 10.53769,
+    "longitude": 76.21765
+   },
+   "markerPrice": "₹ 28.3 L"
+  },
+  {
+   "id": "sample-0416",
+   "coordinates": {
+    "latitude": 10.38098,
+    "longitude": 76.10111
+   },
+   "markerPrice": "₹ 145.2 L"
+  },
+  {
+   "id": "sample-0417",
+   "coordinates": {
+    "latitude": 10.39557,
+    "longitude": 76.1026
+   },
+   "markerPrice": "₹ 14.3 L"
+  },
+  {
+   "id": "sample-0418",
+   "coordinates": {
+    "latitude": 10.7378,
+    "longitude": 76.31988
+   },
+   "markerPrice": "₹ 39.0 L"
+  },
+  {
+   "id": "sample-0419",
+   "coordinates": {
+    "latitude": 10.60283,
+    "longitude": 76.08477
+   },
+   "markerPrice": "₹ 116.5 L"
+  },
+  {
+   "id": "sample-0420",
+   "coordinates": {
+    "latitude": 10.51579,
+    "longitude": 76.20194
+   },
+   "markerPrice": "₹ 158.0 L"
+  },
+  {
+   "id": "sample-0421",
+   "coordinates": {
+    "latitude": 10.50382,
+    "longitude": 76.20335
+   },
+   "markerPrice": "₹ 159.8 L"
+  },
+  {
+   "id": "sample-0422",
+   "coordinates": {
+    "latitude": 10.67817,
+    "longitude": 76.07093
+   },
+   "markerPrice": "₹ 86.4 L"
+  },
+  {
+   "id": "sample-0423",
+   "coordinates": {
+    "latitude": 10.53599,
+    "longitude": 76.23745
+   },
+   "markerPrice": "₹ 53.7 L"
+  },
+  {
+   "id": "sample-0424",
+   "coordinates": {
+    "latitude": 10.52701,
+    "longitude": 76.24519
+   },
+   "markerPrice": "₹ 80.9 L"
+  },
+  {
+   "id": "sample-0425",
+   "coordinates": {
+    "latitude": 10.64189,
+    "longitude": 76.11208
+   },
+   "markerPrice": "₹ 171.6 L"
+  },
+  {
+   "id": "sample-0426",
+   "coordinates": {
+    "latitude": 10.61321,
+    "longitude": 76.50189
+   },
+   "markerPrice": "₹ 82.1 L"
+  },
+  {
+   "id": "sample-0427",
+   "coordinates": {
+    "latitude": 10.54273,
+    "longitude": 76.21276
+   },
+   "markerPrice": "₹ 165.4 L"
+  },
+  {
+   "id": "sample-0428",
+   "coordinates": {
+    "latitude": 10.53596,
+    "longitude": 76.22004
+   },
+   "markerPrice": "₹ 42.5 L"
+  },
+  {
+   "id": "sample-0429",
+   "coordinates": {
+    "latitude": 10.54578,
+    "longitude": 76.22911
+   },
+   "markerPrice": "₹ 176.4 L"
+  },
+  {
+   "id": "sample-0430",
+   "coordinates": {
+    "latitude": 10.50476,
+    "longitude": 76.20084
+   },
+   "markerPrice": "₹ 131.2 L"
+  },
+  {
+   "id": "sample-0431",
+   "coordinates": {
+    "latitude": 10.70864,
+    "longitude": 76.31767
+   },
+   "markerPrice": "₹ 122.9 L"
+  },
+  {
+   "id": "sample-0432",
+   "coordinates": {
+    "latitude": 10.28046,
+    "longitude": 76.20228
+   },
+   "markerPrice": "₹ 93.6 L"
+  },
+  {
+   "id": "sample-0433",
+   "coordinates": {
+    "latitude": 10.61002,
+    "longitude": 76.09758
+   },
+   "markerPrice": "₹ 124.1 L"
+  },
+  {
+   "id": "sample-0434",
+   "coordinates": {
+    "latitude": 10.53699,
+    "longitude": 76.23745
+   },
+   "markerPrice": "₹ 109.1 L"
+  },
+  {
+   "id": "sample-0435",
+   "coordinates": {
+    "latitude": 10.52214,
+    "longitude": 76.20809
+   },
+   "markerPrice": "₹ 79.3 L"
+  },
+  {
+   "id": "sample-0436",
+   "coordinates": {
+    "latitude": 10.5129,
+    "longitude": 76.22773
+   },
+   "markerPrice": "₹ 83.3 L"
+  },
+  {
+   "id": "sample-0437",
+   "coordinates": {
+    "latitude": 10.54897,
+    "longitude": 76.22222
+   },
+   "markerPrice": "₹ 24.8 L"
+  },
+  {
+   "id": "sample-0438",
+   "coordinates": {
+    "latitude": 10.51314,
+    "longitude": 76.20742
+   },
+   "markerPrice": "₹ 77.8 L"
+  },
+  {
+   "id": "sample-0439",
+   "coordinates": {
+    "latitude": 10.52717,
+    "longitude": 76.23055
+   },
+   "markerPrice": "₹ 185.6 L"
+  },
+  {
+   "id": "sample-0440",
+   "coordinates": {
+    "latitude": 10.33075,
+    "longitude": 76.16679
+   },
+   "markerPrice": "₹ 75.4 L"
+  },
+  {
+   "id": "sample-0441",
+   "coordinates": {
+    "latitude": 10.56672,
+    "longitude": 76.49656
+   },
+   "markerPrice": "₹ 184.6 L"
+  },
+  {
+   "id": "sample-0442",
+   "coordinates": {
+    "latitude": 10.72176,
+    "longitude": 76.36954
+   },
+   "markerPrice": "₹ 161.9 L"
+  },
+  {
+   "id": "sample-0443",
+   "coordinates": {
+    "latitude": 10.50504,
+    "longitude": 76.19474
+   },
+   "markerPrice": "₹ 107.2 L"
+  },
+  {
+   "id": "sample-0444",
+   "coordinates": {
+    "latitude": 10.52137,
+    "longitude": 76.21327
+   },
+   "markerPrice": "₹ 44.5 L"
+  },
+  {
+   "id": "sample-0445",
+   "coordinates": {
+    "latitude": 10.40956,
+    "longitude": 76.13664
+   },
+   "markerPrice": "₹ 182.4 L"
+  },
+  {
+   "id": "sample-0446",
+   "coordinates": {
+    "latitude": 10.34675,
+    "longitude": 76.11861
+   },
+   "markerPrice": "₹ 65.3 L"
+  },
+  {
+   "id": "sample-0447",
+   "coordinates": {
+    "latitude": 10.54106,
+    "longitude": 76.21618
+   },
+   "markerPrice": "₹ 160.2 L"
+  },
+  {
+   "id": "sample-0448",
+   "coordinates": {
+    "latitude": 10.29631,
+    "longitude": 76.18302
+   },
+   "markerPrice": "₹ 112.4 L"
+  },
+  {
+   "id": "sample-0449",
+   "coordinates": {
+    "latitude": 10.27753,
+    "longitude": 76.20912
+   },
+   "markerPrice": "₹ 185.4 L"
+  },
+  {
+   "id": "sample-0450",
+   "coordinates": {
+    "latitude": 10.343,
+    "longitude": 76.11766
+   },
+   "markerPrice": "₹ 26.7 L"
+  },
+  {
+   "id": "sample-0451",
+   "coordinates": {
+    "latitude": 10.54651,
+    "longitude": 76.21816
+   },
+   "markerPrice": "₹ 107.3 L"
+  },
+  {
+   "id": "sample-0452",
+   "coordinates": {
+    "latitude": 10.52907,
+    "longitude": 76.2126
+   },
+   "markerPrice": "₹ 64.4 L"
+  },
+  {
+   "id": "sample-0453",
+   "coordinates": {
+    "latitude": 10.6575,
+    "longitude": 76.10194
+   },
+   "markerPrice": "₹ 105.9 L"
+  },
+  {
+   "id": "sample-0454",
+   "coordinates": {
+    "latitude": 10.59599,
+    "longitude": 76.51422
+   },
+   "markerPrice": "₹ 156.7 L"
+  },
+  {
+   "id": "sample-0455",
+   "coordinates": {
+    "latitude": 10.70834,
+    "longitude": 76.36107
+   },
+   "markerPrice": "₹ 114.3 L"
+  },
+  {
+   "id": "sample-0456",
+   "coordinates": {
+    "latitude": 10.62336,
+    "longitude": 76.46144
+   },
+   "markerPrice": "₹ 125.1 L"
+  },
+  {
+   "id": "sample-0457",
+   "coordinates": {
+    "latitude": 10.70018,
+    "longitude": 76.35843
+   },
+   "markerPrice": "₹ 17.4 L"
+  },
+  {
+   "id": "sample-0458",
+   "coordinates": {
+    "latitude": 10.52707,
+    "longitude": 76.24477
+   },
+   "markerPrice": "₹ 133.4 L"
+  },
+  {
+   "id": "sample-0459",
+   "coordinates": {
+    "latitude": 10.38138,
+    "longitude": 76.13449
+   },
+   "markerPrice": "₹ 86.6 L"
+  },
+  {
+   "id": "sample-0460",
+   "coordinates": {
+    "latitude": 10.3876,
+    "longitude": 76.1224
+   },
+   "markerPrice": "₹ 115.3 L"
+  },
+  {
+   "id": "sample-0461",
+   "coordinates": {
+    "latitude": 10.33228,
+    "longitude": 76.1112
+   },
+   "markerPrice": "₹ 30.9 L"
+  },
+  {
+   "id": "sample-0462",
+   "coordinates": {
+    "latitude": 10.74339,
+    "longitude": 76.35034
+   },
+   "markerPrice": "₹ 159.1 L"
+  },
+  {
+   "id": "sample-0463",
+   "coordinates": {
+    "latitude": 10.5354,
+    "longitude": 76.19962
+   },
+   "markerPrice": "₹ 84.7 L"
+  },
+  {
+   "id": "sample-0464",
+   "coordinates": {
+    "latitude": 10.54742,
+    "longitude": 76.22384
+   },
+   "markerPrice": "₹ 47.8 L"
+  },
+  {
+   "id": "sample-0465",
+   "coordinates": {
+    "latitude": 10.5797,
+    "longitude": 76.46239
+   },
+   "markerPrice": "₹ 170.9 L"
+  },
+  {
+   "id": "sample-0466",
+   "coordinates": {
+    "latitude": 10.65784,
+    "longitude": 76.10709
+   },
+   "markerPrice": "₹ 116.2 L"
+  },
+  {
+   "id": "sample-0467",
+   "coordinates": {
+    "latitude": 10.54173,
+    "longitude": 76.2171
+   },
+   "markerPrice": "₹ 21.3 L"
+  },
+  {
+   "id": "sample-0468",
+   "coordinates": {
+    "latitude": 10.39082,
+    "longitude": 76.14697
+   },
+   "markerPrice": "₹ 183.8 L"
+  },
+  {
+   "id": "sample-0469",
+   "coordinates": {
+    "latitude": 10.50493,
+    "longitude": 76.20078
+   },
+   "markerPrice": "₹ 72.1 L"
+  },
+  {
+   "id": "sample-0470",
+   "coordinates": {
+    "latitude": 10.69837,
+    "longitude": 76.36744
+   },
+   "markerPrice": "₹ 163.7 L"
+  },
+  {
+   "id": "sample-0471",
+   "coordinates": {
+    "latitude": 10.52949,
+    "longitude": 76.20138
+   },
+   "markerPrice": "₹ 77.0 L"
+  },
+  {
+   "id": "sample-0472",
+   "coordinates": {
+    "latitude": 10.64148,
+    "longitude": 76.07158
+   },
+   "markerPrice": "₹ 9.0 L"
+  },
+  {
+   "id": "sample-0473",
+   "coordinates": {
+    "latitude": 10.54902,
+    "longitude": 76.22293
+   },
+   "markerPrice": "₹ 115.2 L"
+  },
+  {
+   "id": "sample-0474",
+   "coordinates": {
+    "latitude": 10.514,
+    "longitude": 76.21296
+   },
+   "markerPrice": "₹ 73.4 L"
+  },
+  {
+   "id": "sample-0475",
+   "coordinates": {
+    "latitude": 10.53669,
+    "longitude": 76.2428
+   },
+   "markerPrice": "₹ 36.7 L"
+  },
+  {
+   "id": "sample-0476",
+   "coordinates": {
+    "latitude": 10.54381,
+    "longitude": 76.21439
+   },
+   "markerPrice": "₹ 90.1 L"
+  },
+  {
+   "id": "sample-0477",
+   "coordinates": {
+    "latitude": 10.51322,
+    "longitude": 76.20416
+   },
+   "markerPrice": "₹ 43.4 L"
+  },
+  {
+   "id": "sample-0478",
+   "coordinates": {
+    "latitude": 10.51587,
+    "longitude": 76.19587
+   },
+   "markerPrice": "₹ 185.8 L"
+  },
+  {
+   "id": "sample-0479",
+   "coordinates": {
+    "latitude": 10.60517,
+    "longitude": 76.48324
+   },
+   "markerPrice": "₹ 66.1 L"
+  },
+  {
+   "id": "sample-0480",
+   "coordinates": {
+    "latitude": 10.71582,
+    "longitude": 76.36073
+   },
+   "markerPrice": "₹ 151.0 L"
+  },
+  {
+   "id": "sample-0481",
+   "coordinates": {
+    "latitude": 10.53028,
+    "longitude": 76.20473
+   },
+   "markerPrice": "₹ 98.5 L"
+  },
+  {
+   "id": "sample-0482",
+   "coordinates": {
+    "latitude": 10.53122,
+    "longitude": 76.20133
+   },
+   "markerPrice": "₹ 27.0 L"
+  },
+  {
+   "id": "sample-0483",
+   "coordinates": {
+    "latitude": 10.38744,
+    "longitude": 76.10486
+   },
+   "markerPrice": "₹ 47.3 L"
+  },
+  {
+   "id": "sample-0484",
+   "coordinates": {
+    "latitude": 10.52303,
+    "longitude": 76.20056
+   },
+   "markerPrice": "₹ 28.9 L"
+  },
+  {
+   "id": "sample-0485",
+   "coordinates": {
+    "latitude": 10.50253,
+    "longitude": 76.20074
+   },
+   "markerPrice": "₹ 177.5 L"
+  },
+  {
+   "id": "sample-0486",
+   "coordinates": {
+    "latitude": 10.70762,
+    "longitude": 76.37183
+   },
+   "markerPrice": "₹ 164.5 L"
+  },
+  {
+   "id": "sample-0487",
+   "coordinates": {
+    "latitude": 10.51573,
+    "longitude": 76.20283
+   },
+   "markerPrice": "₹ 175.7 L"
+  },
+  {
+   "id": "sample-0488",
+   "coordinates": {
+    "latitude": 10.52466,
+    "longitude": 76.22281
+   },
+   "markerPrice": "₹ 90.5 L"
+  },
+  {
+   "id": "sample-0489",
+   "coordinates": {
+    "latitude": 10.73384,
+    "longitude": 76.38212
+   },
+   "markerPrice": "₹ 68.3 L"
+  },
+  {
+   "id": "sample-0490",
+   "coordinates": {
+    "latitude": 10.28036,
+    "longitude": 76.20913
+   },
+   "markerPrice": "₹ 103.6 L"
+  },
+  {
+   "id": "sample-0491",
+   "coordinates": {
+    "latitude": 10.58315,
+    "longitude": 76.4593
+   },
+   "markerPrice": "₹ 116.2 L"
+  },
+  {
+   "id": "sample-0492",
+   "coordinates": {
+    "latitude": 10.53875,
+    "longitude": 76.23663
+   },
+   "markerPrice": "₹ 28.7 L"
+  },
+  {
+   "id": "sample-0493",
+   "coordinates": {
+    "latitude": 10.64494,
+    "longitude": 76.08551
+   },
+   "markerPrice": "₹ 46.4 L"
+  },
+  {
+   "id": "sample-0494",
+   "coordinates": {
+    "latitude": 10.54253,
+    "longitude": 76.21265
+   },
+   "markerPrice": "₹ 143.3 L"
+  },
+  {
+   "id": "sample-0495",
+   "coordinates": {
+    "latitude": 10.27245,
+    "longitude": 76.1933
+   },
+   "markerPrice": "₹ 138.9 L"
+  },
+  {
+   "id": "sample-0496",
+   "coordinates": {
+    "latitude": 10.25553,
+    "longitude": 76.19053
+   },
+   "markerPrice": "₹ 178.1 L"
+  }
+ ],
+ "total": 496,
+ "binned": false,
+ "sampled": false
+}

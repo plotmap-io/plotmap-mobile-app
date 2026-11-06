@@ -1,0 +1,5109 @@
+{
+ "listings": [
+  {
+   "id": "bin:210:1524",
+   "coordinates": {
+    "latitude": 10.53172,
+    "longitude": 76.24384
+   },
+   "count": 349,
+   "bbox": {
+    "south": 10.5025,
+    "west": 76.20012,
+    "north": 10.54967,
+    "east": 76.24524
+   },
+   "mode": "sale",
+   "priceLo": "₹ 8.1 L",
+   "priceHi": "₹ 188.0 L",
+   "priceLoAmount": 810000,
+   "priceHiAmount": 18800000,
+   "samples": [
+    {
+     "id": "sample-0001",
+     "coordinates": {
+      "latitude": 10.53172,
+      "longitude": 76.24384
+     },
+     "markerPrice": "₹ 56.9 L"
+    },
+    {
+     "id": "sample-0012",
+     "coordinates": {
+      "latitude": 10.51848,
+      "longitude": 76.22689
+     },
+     "markerPrice": "₹ 32.3 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:207:1523",
+   "coordinates": {
+    "latitude": 10.37544,
+    "longitude": 76.16985
+   },
+   "count": 25,
+   "bbox": {
+    "south": 10.35065,
+    "west": 76.15291,
+    "north": 10.39606,
+    "east": 76.17984
+   },
+   "mode": "sale",
+   "priceLo": "₹ 8.4 L",
+   "priceHi": "₹ 186.2 L",
+   "priceLoAmount": 840000,
+   "priceHiAmount": 18620000,
+   "samples": [
+    {
+     "id": "sample-0002",
+     "coordinates": {
+      "latitude": 10.37544,
+      "longitude": 76.16985
+     },
+     "markerPrice": "₹ 61.3 L"
+    },
+    {
+     "id": "sample-0030",
+     "coordinates": {
+      "latitude": 10.39452,
+      "longitude": 76.1609
+     },
+     "markerPrice": "₹ 42.2 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:213:1521",
+   "coordinates": {
+    "latitude": 10.66157,
+    "longitude": 76.06691
+   },
+   "count": 18,
+   "bbox": {
+    "south": 10.6505,
+    "west": 76.05452,
+    "north": 10.67718,
+    "east": 76.0978
+   },
+   "mode": "sale",
+   "priceLo": "₹ 9.4 L",
+   "priceHi": "₹ 185.7 L",
+   "priceLoAmount": 940000,
+   "priceHiAmount": 18570000,
+   "samples": [
+    {
+     "id": "sample-0003",
+     "coordinates": {
+      "latitude": 10.66157,
+      "longitude": 76.06691
+     },
+     "markerPrice": "₹ 94.0 L"
+    },
+    {
+     "id": "sample-0159",
+     "coordinates": {
+      "latitude": 10.65498,
+      "longitude": 76.07796
+     },
+     "markerPrice": "₹ 179.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:225:1517",
+   "coordinates": {
+    "latitude": 11.26918,
+    "longitude": 75.87937
+   },
+   "count": 2,
+   "bbox": {
+    "south": 11.26918,
+    "west": 75.86727,
+    "north": 11.27838,
+    "east": 75.87937
+   },
+   "mode": "sale",
+   "priceLo": "₹ 48.3 L",
+   "priceHi": "₹ 61.1 L",
+   "priceLoAmount": 4830000,
+   "priceHiAmount": 6110000,
+   "samples": [
+    {
+     "id": "sample-0004",
+     "coordinates": {
+      "latitude": 11.26918,
+      "longitude": 75.87937
+     },
+     "markerPrice": "₹ 61.1 L"
+    },
+    {
+     "id": "sample-0658",
+     "coordinates": {
+      "latitude": 11.27838,
+      "longitude": 75.86727
+     },
+     "markerPrice": "₹ 48.3 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:169:1540",
+   "coordinates": {
+    "latitude": 8.45842,
+    "longitude": 77.03871
+   },
+   "count": 3,
+   "bbox": {
+    "south": 8.45644,
+    "west": 77.03312,
+    "north": 8.45842,
+    "east": 77.04203
+   },
+   "mode": "sale",
+   "priceLo": "₹ 77.6 L",
+   "priceHi": "₹ 154.4 L",
+   "priceLoAmount": 7759999.999999999,
+   "priceHiAmount": 15440000,
+   "samples": [
+    {
+     "id": "sample-0005",
+     "coordinates": {
+      "latitude": 8.45842,
+      "longitude": 77.03871
+     },
+     "markerPrice": "₹ 154.4 L"
+    },
+    {
+     "id": "sample-0450",
+     "coordinates": {
+      "latitude": 8.45819,
+      "longitude": 77.04203
+     },
+     "markerPrice": "₹ 77.6 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:212:1521",
+   "coordinates": {
+    "latitude": 10.64144,
+    "longitude": 76.08909
+   },
+   "count": 42,
+   "bbox": {
+    "south": 10.6016,
+    "west": 76.05137,
+    "north": 10.64977,
+    "east": 76.09987
+   },
+   "mode": "sale",
+   "priceLo": "₹ 28.7 L",
+   "priceHi": "₹ 187.6 L",
+   "priceLoAmount": 2870000,
+   "priceHiAmount": 18760000,
+   "samples": [
+    {
+     "id": "sample-0006",
+     "coordinates": {
+      "latitude": 10.64144,
+      "longitude": 76.08909
+     },
+     "markerPrice": "₹ 28.7 L"
+    },
+    {
+     "id": "sample-0020",
+     "coordinates": {
+      "latitude": 10.61247,
+      "longitude": 76.05939
+     },
+     "markerPrice": "₹ 100.3 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:246:1503",
+   "coordinates": {
+    "latitude": 12.32707,
+    "longitude": 75.18214
+   },
+   "count": 10,
+   "bbox": {
+    "south": 12.30423,
+    "west": 75.16304,
+    "north": 12.34872,
+    "east": 75.19647
+   },
+   "mode": "sale",
+   "priceLo": "₹ 12.6 L",
+   "priceHi": "₹ 160.1 L",
+   "priceLoAmount": 1260000,
+   "priceHiAmount": 16010000,
+   "samples": [
+    {
+     "id": "sample-0007",
+     "coordinates": {
+      "latitude": 12.32707,
+      "longitude": 75.18214
+     },
+     "markerPrice": "₹ 160.1 L"
+    },
+    {
+     "id": "sample-0110",
+     "coordinates": {
+      "latitude": 12.3326,
+      "longitude": 75.17915
+     },
+     "markerPrice": "₹ 46.8 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:210:1523",
+   "coordinates": {
+    "latitude": 10.51668,
+    "longitude": 76.19082
+   },
+   "count": 68,
+   "bbox": {
+    "south": 10.5027,
+    "west": 76.18802,
+    "north": 10.53685,
+    "east": 76.19989
+   },
+   "mode": "sale",
+   "priceLo": "₹ 14.5 L",
+   "priceHi": "₹ 187.5 L",
+   "priceLoAmount": 1450000,
+   "priceHiAmount": 18750000,
+   "samples": [
+    {
+     "id": "sample-0008",
+     "coordinates": {
+      "latitude": 10.51668,
+      "longitude": 76.19082
+     },
+     "markerPrice": "₹ 98.9 L"
+    },
+    {
+     "id": "sample-0009",
+     "coordinates": {
+      "latitude": 10.50409,
+      "longitude": 76.18952
+     },
+     "markerPrice": "₹ 77.8 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:245:1501",
+   "coordinates": {
+    "latitude": 12.29987,
+    "longitude": 75.07699
+   },
+   "count": 7,
+   "bbox": {
+    "south": 12.25539,
+    "west": 75.054,
+    "north": 12.29987,
+    "east": 75.09264
+   },
+   "mode": "sale",
+   "priceLo": "₹ 54.6 L",
+   "priceHi": "₹ 119.5 L",
+   "priceLoAmount": 5460000,
+   "priceHiAmount": 11950000,
+   "samples": [
+    {
+     "id": "sample-0010",
+     "coordinates": {
+      "latitude": 12.29987,
+      "longitude": 75.07699
+     },
+     "markerPrice": "₹ 61.7 L"
+    },
+    {
+     "id": "sample-0342",
+     "coordinates": {
+      "latitude": 12.29827,
+      "longitude": 75.086
+     },
+     "markerPrice": "₹ 115.8 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:206:1522",
+   "coordinates": {
+    "latitude": 10.33493,
+    "longitude": 76.1146
+   },
+   "count": 17,
+   "bbox": {
+    "south": 10.3301,
+    "west": 76.10934,
+    "north": 10.34934,
+    "east": 76.1495
+   },
+   "mode": "sale",
+   "priceLo": "₹ 8.0 L",
+   "priceHi": "₹ 166.2 L",
+   "priceLoAmount": 800000,
+   "priceHiAmount": 16619999.999999998,
+   "samples": [
+    {
+     "id": "sample-0011",
+     "coordinates": {
+      "latitude": 10.33493,
+      "longitude": 76.1146
+     },
+     "markerPrice": "₹ 87.8 L"
+    },
+    {
+     "id": "sample-0196",
+     "coordinates": {
+      "latitude": 10.33194,
+      "longitude": 76.14103
+     },
+     "markerPrice": "₹ 112.1 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:205:1523",
+   "coordinates": {
+    "latitude": 10.26196,
+    "longitude": 76.18095
+   },
+   "count": 43,
+   "bbox": {
+    "south": 10.25117,
+    "west": 76.17111,
+    "north": 10.29931,
+    "east": 76.19827
+   },
+   "mode": "sale",
+   "priceLo": "₹ 9.3 L",
+   "priceHi": "₹ 186.9 L",
+   "priceLoAmount": 930000.0000000001,
+   "priceHiAmount": 18690000,
+   "samples": [
+    {
+     "id": "sample-0014",
+     "coordinates": {
+      "latitude": 10.26196,
+      "longitude": 76.18095
+     },
+     "markerPrice": "₹ 51.8 L"
+    },
+    {
+     "id": "sample-0096",
+     "coordinates": {
+      "latitude": 10.28611,
+      "longitude": 76.17758
+     },
+     "markerPrice": "₹ 144.9 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:205:1524",
+   "coordinates": {
+    "latitude": 10.258,
+    "longitude": 76.20491
+   },
+   "count": 33,
+   "bbox": {
+    "south": 10.25035,
+    "west": 76.2012,
+    "north": 10.29909,
+    "east": 76.22962
+   },
+   "mode": "sale",
+   "priceLo": "₹ 8.2 L",
+   "priceHi": "₹ 181.1 L",
+   "priceLoAmount": 819999.9999999999,
+   "priceHiAmount": 18110000,
+   "samples": [
+    {
+     "id": "sample-0016",
+     "coordinates": {
+      "latitude": 10.258,
+      "longitude": 76.20491
+     },
+     "markerPrice": "₹ 59.5 L"
+    },
+    {
+     "id": "sample-0144",
+     "coordinates": {
+      "latitude": 10.29909,
+      "longitude": 76.21965
+     },
+     "markerPrice": "₹ 84.9 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:168:1540",
+   "coordinates": {
+    "latitude": 8.41064,
+    "longitude": 77.03
+   },
+   "count": 4,
+   "bbox": {
+    "south": 8.41064,
+    "west": 77.00179,
+    "north": 8.44347,
+    "east": 77.03
+   },
+   "mode": "sale",
+   "priceLo": "₹ 56.5 L",
+   "priceHi": "₹ 131.6 L",
+   "priceLoAmount": 5650000,
+   "priceHiAmount": 13160000,
+   "samples": [
+    {
+     "id": "sample-0018",
+     "coordinates": {
+      "latitude": 8.41064,
+      "longitude": 77.03
+     },
+     "markerPrice": "₹ 56.5 L"
+    },
+    {
+     "id": "sample-0156",
+     "coordinates": {
+      "latitude": 8.42962,
+      "longitude": 77.02168
+     },
+     "markerPrice": "₹ 64.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:190:1530",
+   "coordinates": {
+    "latitude": 9.53518,
+    "longitude": 76.54281
+   },
+   "count": 11,
+   "bbox": {
+    "south": 9.5008,
+    "west": 76.50637,
+    "north": 9.54971,
+    "east": 76.54316
+   },
+   "mode": "sale",
+   "priceLo": "₹ 47.3 L",
+   "priceHi": "₹ 177.5 L",
+   "priceLoAmount": 4730000,
+   "priceHiAmount": 17750000,
+   "samples": [
+    {
+     "id": "sample-0019",
+     "coordinates": {
+      "latitude": 9.53518,
+      "longitude": 76.54281
+     },
+     "markerPrice": "₹ 54.0 L"
+    },
+    {
+     "id": "sample-0135",
+     "coordinates": {
+      "latitude": 9.54971,
+      "longitude": 76.50637
+     },
+     "markerPrice": "₹ 85.6 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:244:1503",
+   "coordinates": {
+    "latitude": 12.23118,
+    "longitude": 75.17896
+   },
+   "count": 10,
+   "bbox": {
+    "south": 12.20261,
+    "west": 75.15866,
+    "north": 12.23183,
+    "east": 75.19513
+   },
+   "mode": "sale",
+   "priceLo": "₹ 55.3 L",
+   "priceHi": "₹ 167.8 L",
+   "priceLoAmount": 5530000,
+   "priceHiAmount": 16780000,
+   "samples": [
+    {
+     "id": "sample-0022",
+     "coordinates": {
+      "latitude": 12.23118,
+      "longitude": 75.17896
+     },
+     "markerPrice": "₹ 130.8 L"
+    },
+    {
+     "id": "sample-0026",
+     "coordinates": {
+      "latitude": 12.2037,
+      "longitude": 75.15993
+     },
+     "markerPrice": "₹ 158.2 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:168:1537",
+   "coordinates": {
+    "latitude": 8.42137,
+    "longitude": 76.8885
+   },
+   "count": 5,
+   "bbox": {
+    "south": 8.40721,
+    "west": 76.85126,
+    "north": 8.44618,
+    "east": 76.8885
+   },
+   "mode": "sale",
+   "priceLo": "₹ 14.9 L",
+   "priceHi": "₹ 172.1 L",
+   "priceLoAmount": 1490000,
+   "priceHiAmount": 17210000,
+   "samples": [
+    {
+     "id": "sample-0024",
+     "coordinates": {
+      "latitude": 8.42137,
+      "longitude": 76.8885
+     },
+     "markerPrice": "₹ 167.6 L"
+    },
+    {
+     "id": "sample-0257",
+     "coordinates": {
+      "latitude": 8.40898,
+      "longitude": 76.85126
+     },
+     "markerPrice": "₹ 14.9 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:225:1516",
+   "coordinates": {
+    "latitude": 11.27023,
+    "longitude": 75.81313
+   },
+   "count": 6,
+   "bbox": {
+    "south": 11.2544,
+    "west": 75.80268,
+    "north": 11.2871,
+    "east": 75.84691
+   },
+   "mode": "sale",
+   "priceLo": "₹ 87.2 L",
+   "priceHi": "₹ 165.5 L",
+   "priceLoAmount": 8720000,
+   "priceHiAmount": 16550000,
+   "samples": [
+    {
+     "id": "sample-0025",
+     "coordinates": {
+      "latitude": 11.27023,
+      "longitude": 75.81313
+     },
+     "markerPrice": "₹ 101.6 L"
+    },
+    {
+     "id": "sample-0563",
+     "coordinates": {
+      "latitude": 11.27953,
+      "longitude": 75.83434
+     },
+     "markerPrice": "₹ 165.5 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:207:1522",
+   "coordinates": {
+    "latitude": 10.37998,
+    "longitude": 76.10466
+   },
+   "count": 44,
+   "bbox": {
+    "south": 10.35027,
+    "west": 76.10238,
+    "north": 10.39694,
+    "east": 76.14849
+   },
+   "mode": "sale",
+   "priceLo": "₹ 10.0 L",
+   "priceHi": "₹ 186.8 L",
+   "priceLoAmount": 1000000,
+   "priceHiAmount": 18680000,
+   "samples": [
+    {
+     "id": "sample-0027",
+     "coordinates": {
+      "latitude": 10.37998,
+      "longitude": 76.10466
+     },
+     "markerPrice": "₹ 147.8 L"
+    },
+    {
+     "id": "sample-0028",
+     "coordinates": {
+      "latitude": 10.39292,
+      "longitude": 76.10443
+     },
+     "markerPrice": "₹ 18.3 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:214:1526",
+   "coordinates": {
+    "latitude": 10.71089,
+    "longitude": 76.31688
+   },
+   "count": 41,
+   "bbox": {
+    "south": 10.70108,
+    "west": 76.31632,
+    "north": 10.74951,
+    "east": 76.34979
+   },
+   "mode": "sale",
+   "priceLo": "₹ 13.9 L",
+   "priceHi": "₹ 187.8 L",
+   "priceLoAmount": 1390000,
+   "priceHiAmount": 18780000,
+   "samples": [
+    {
+     "id": "sample-0029",
+     "coordinates": {
+      "latitude": 10.71089,
+      "longitude": 76.31688
+     },
+     "markerPrice": "₹ 179.2 L"
+    },
+    {
+     "id": "sample-0076",
+     "coordinates": {
+      "latitude": 10.70754,
+      "longitude": 76.34979
+     },
+     "markerPrice": "₹ 102.2 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:247:1502",
+   "coordinates": {
+    "latitude": 12.3601,
+    "longitude": 75.13303
+   },
+   "count": 3,
+   "bbox": {
+    "south": 12.35439,
+    "west": 75.10425,
+    "north": 12.3601,
+    "east": 75.13303
+   },
+   "mode": "sale",
+   "priceLo": "₹ 69.5 L",
+   "priceHi": "₹ 124.5 L",
+   "priceLoAmount": 6950000,
+   "priceHiAmount": 12450000,
+   "samples": [
+    {
+     "id": "sample-0031",
+     "coordinates": {
+      "latitude": 12.3601,
+      "longitude": 75.13303
+     },
+     "markerPrice": "₹ 69.5 L"
+    },
+    {
+     "id": "sample-0088",
+     "coordinates": {
+      "latitude": 12.35439,
+      "longitude": 75.10425
+     },
+     "markerPrice": "₹ 76.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:246:1500",
+   "coordinates": {
+    "latitude": 12.32818,
+    "longitude": 75.01568
+   },
+   "count": 4,
+   "bbox": {
+    "south": 12.31543,
+    "west": 75.00481,
+    "north": 12.34108,
+    "east": 75.01568
+   },
+   "mode": "sale",
+   "priceLo": "₹ 60.2 L",
+   "priceHi": "₹ 172.0 L",
+   "priceLoAmount": 6020000,
+   "priceHiAmount": 17200000,
+   "samples": [
+    {
+     "id": "sample-0038",
+     "coordinates": {
+      "latitude": 12.32818,
+      "longitude": 75.01568
+     },
+     "markerPrice": "₹ 60.2 L"
+    },
+    {
+     "id": "sample-0255",
+     "coordinates": {
+      "latitude": 12.34108,
+      "longitude": 75.00481
+     },
+     "markerPrice": "₹ 67.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:196:1525",
+   "coordinates": {
+    "latitude": 9.81866,
+    "longitude": 76.25118
+   },
+   "count": 7,
+   "bbox": {
+    "south": 9.8102,
+    "west": 76.25118,
+    "north": 9.8474,
+    "east": 76.29315
+   },
+   "mode": "sale",
+   "priceLo": "₹ 25.7 L",
+   "priceHi": "₹ 159.5 L",
+   "priceLoAmount": 2570000,
+   "priceHiAmount": 15950000,
+   "samples": [
+    {
+     "id": "sample-0039",
+     "coordinates": {
+      "latitude": 9.81866,
+      "longitude": 76.25118
+     },
+     "markerPrice": "₹ 108.7 L"
+    },
+    {
+     "id": "sample-0098",
+     "coordinates": {
+      "latitude": 9.84099,
+      "longitude": 76.28741
+     },
+     "markerPrice": "₹ 149.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:170:1536",
+   "coordinates": {
+    "latitude": 8.52137,
+    "longitude": 76.81386
+   },
+   "count": 2,
+   "bbox": {
+    "south": 8.52137,
+    "west": 76.81386,
+    "north": 8.54227,
+    "east": 76.83846
+   },
+   "mode": "sale",
+   "priceLo": "₹ 150.1 L",
+   "priceHi": "₹ 162.3 L",
+   "priceLoAmount": 15010000,
+   "priceHiAmount": 16230000.000000002,
+   "samples": [
+    {
+     "id": "sample-0040",
+     "coordinates": {
+      "latitude": 8.52137,
+      "longitude": 76.81386
+     },
+     "markerPrice": "₹ 162.3 L"
+    },
+    {
+     "id": "sample-0901",
+     "coordinates": {
+      "latitude": 8.54227,
+      "longitude": 76.83846
+     },
+     "markerPrice": "₹ 150.1 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:170:1537",
+   "coordinates": {
+    "latitude": 8.54213,
+    "longitude": 76.86512
+   },
+   "count": 6,
+   "bbox": {
+    "south": 8.50486,
+    "west": 76.85247,
+    "north": 8.54415,
+    "east": 76.88711
+   },
+   "mode": "sale",
+   "priceLo": "₹ 9.9 L",
+   "priceHi": "₹ 175.7 L",
+   "priceLoAmount": 990000,
+   "priceHiAmount": 17570000,
+   "samples": [
+    {
+     "id": "sample-0041",
+     "coordinates": {
+      "latitude": 8.54213,
+      "longitude": 76.86512
+     },
+     "markerPrice": "₹ 109.7 L"
+    },
+    {
+     "id": "sample-0299",
+     "coordinates": {
+      "latitude": 8.52583,
+      "longitude": 76.85247
+     },
+     "markerPrice": "₹ 140.3 L"
+    }
+   ]
+  },
+  {
+   "id": "sample-0042",
+   "coordinates": {
+    "latitude": 8.49803,
+    "longitude": 76.84525
+   },
+   "markerPrice": "₹ 21.6 L"
+  },
+  {
+   "id": "bin:206:1523",
+   "coordinates": {
+    "latitude": 10.30853,
+    "longitude": 76.19453
+   },
+   "count": 13,
+   "bbox": {
+    "south": 10.30055,
+    "west": 76.15436,
+    "north": 10.3451,
+    "east": 76.19961
+   },
+   "mode": "sale",
+   "priceLo": "₹ 15.7 L",
+   "priceHi": "₹ 183.5 L",
+   "priceLoAmount": 1570000,
+   "priceHiAmount": 18350000,
+   "samples": [
+    {
+     "id": "sample-0048",
+     "coordinates": {
+      "latitude": 10.30853,
+      "longitude": 76.19453
+     },
+     "markerPrice": "₹ 16.8 L"
+    },
+    {
+     "id": "sample-0121",
+     "coordinates": {
+      "latitude": 10.30283,
+      "longitude": 76.18322
+     },
+     "markerPrice": "₹ 147.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:208:1522",
+   "coordinates": {
+    "latitude": 10.40539,
+    "longitude": 76.14063
+   },
+   "count": 10,
+   "bbox": {
+    "south": 10.40069,
+    "west": 76.10835,
+    "north": 10.40963,
+    "east": 76.14259
+   },
+   "mode": "sale",
+   "priceLo": "₹ 10.6 L",
+   "priceHi": "₹ 165.2 L",
+   "priceLoAmount": 1060000,
+   "priceHiAmount": 16519999.999999998,
+   "samples": [
+    {
+     "id": "sample-0050",
+     "coordinates": {
+      "latitude": 10.40539,
+      "longitude": 76.14063
+     },
+     "markerPrice": "₹ 157.4 L"
+    },
+    {
+     "id": "sample-0077",
+     "coordinates": {
+      "latitude": 10.40963,
+      "longitude": 76.12608
+     },
+     "markerPrice": "₹ 139.7 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:226:1516",
+   "coordinates": {
+    "latitude": 11.31771,
+    "longitude": 75.80028
+   },
+   "count": 4,
+   "bbox": {
+    "south": 11.31771,
+    "west": 75.80028,
+    "north": 11.34817,
+    "east": 75.8489
+   },
+   "mode": "sale",
+   "priceLo": "₹ 42.1 L",
+   "priceHi": "₹ 151.4 L",
+   "priceLoAmount": 4210000,
+   "priceHiAmount": 15140000,
+   "samples": [
+    {
+     "id": "sample-0054",
+     "coordinates": {
+      "latitude": 11.31771,
+      "longitude": 75.80028
+     },
+     "markerPrice": "₹ 42.1 L"
+    },
+    {
+     "id": "sample-0386",
+     "coordinates": {
+      "latitude": 11.32952,
+      "longitude": 75.84228
+     },
+     "markerPrice": "₹ 151.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:212:1520",
+   "coordinates": {
+    "latitude": 10.63674,
+    "longitude": 76.04888
+   },
+   "count": 7,
+   "bbox": {
+    "south": 10.60202,
+    "west": 76.04265,
+    "north": 10.63674,
+    "east": 76.04888
+   },
+   "mode": "sale",
+   "priceLo": "₹ 73.0 L",
+   "priceHi": "₹ 179.3 L",
+   "priceLoAmount": 7300000,
+   "priceHiAmount": 17930000,
+   "samples": [
+    {
+     "id": "sample-0055",
+     "coordinates": {
+      "latitude": 10.63674,
+      "longitude": 76.04888
+     },
+     "markerPrice": "₹ 179.3 L"
+    },
+    {
+     "id": "sample-0064",
+     "coordinates": {
+      "latitude": 10.60202,
+      "longitude": 76.04371
+     },
+     "markerPrice": "₹ 167.6 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:211:1530",
+   "coordinates": {
+    "latitude": 10.5622,
+    "longitude": 76.51092
+   },
+   "count": 14,
+   "bbox": {
+    "south": 10.56131,
+    "west": 76.50036,
+    "north": 10.59921,
+    "east": 76.51234
+   },
+   "mode": "sale",
+   "priceLo": "₹ 9.9 L",
+   "priceHi": "₹ 172.5 L",
+   "priceLoAmount": 990000,
+   "priceHiAmount": 17250000,
+   "samples": [
+    {
+     "id": "sample-0056",
+     "coordinates": {
+      "latitude": 10.5622,
+      "longitude": 76.51092
+     },
+     "markerPrice": "₹ 134.1 L"
+    },
+    {
+     "id": "sample-0060",
+     "coordinates": {
+      "latitude": 10.56702,
+      "longitude": 76.51234
+     },
+     "markerPrice": "₹ 148.7 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:211:1529",
+   "coordinates": {
+    "latitude": 10.58516,
+    "longitude": 76.48262
+   },
+   "count": 37,
+   "bbox": {
+    "south": 10.55526,
+    "west": 76.4524,
+    "north": 10.59913,
+    "east": 76.49881
+   },
+   "mode": "sale",
+   "priceLo": "₹ 8.8 L",
+   "priceHi": "₹ 185.5 L",
+   "priceLoAmount": 880000.0000000001,
+   "priceHiAmount": 18550000,
+   "samples": [
+    {
+     "id": "sample-0057",
+     "coordinates": {
+      "latitude": 10.58516,
+      "longitude": 76.48262
+     },
+     "markerPrice": "₹ 43.1 L"
+    },
+    {
+     "id": "sample-0103",
+     "coordinates": {
+      "latitude": 10.59615,
+      "longitude": 76.49664
+     },
+     "markerPrice": "₹ 137.5 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:214:1527",
+   "coordinates": {
+    "latitude": 10.73742,
+    "longitude": 76.37027
+   },
+   "count": 36,
+   "bbox": {
+    "south": 10.70022,
+    "west": 76.35122,
+    "north": 10.74997,
+    "east": 76.38371
+   },
+   "mode": "sale",
+   "priceLo": "₹ 9.2 L",
+   "priceHi": "₹ 185.8 L",
+   "priceLoAmount": 919999.9999999999,
+   "priceHiAmount": 18580000,
+   "samples": [
+    {
+     "id": "sample-0078",
+     "coordinates": {
+      "latitude": 10.73742,
+      "longitude": 76.37027
+     },
+     "markerPrice": "₹ 114.7 L"
+    },
+    {
+     "id": "sample-0084",
+     "coordinates": {
+      "latitude": 10.74979,
+      "longitude": 76.3564
+     },
+     "markerPrice": "₹ 37.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:196:1523",
+   "coordinates": {
+    "latitude": 9.84021,
+    "longitude": 76.18693
+   },
+   "count": 3,
+   "bbox": {
+    "south": 9.82547,
+    "west": 76.1701,
+    "north": 9.84514,
+    "east": 76.19573
+   },
+   "mode": "sale",
+   "priceLo": "₹ 89.9 L",
+   "priceHi": "₹ 168.8 L",
+   "priceLoAmount": 8990000,
+   "priceHiAmount": 16880000,
+   "samples": [
+    {
+     "id": "sample-0080",
+     "coordinates": {
+      "latitude": 9.84021,
+      "longitude": 76.18693
+     },
+     "markerPrice": "₹ 95.8 L"
+    },
+    {
+     "id": "sample-0799",
+     "coordinates": {
+      "latitude": 9.84514,
+      "longitude": 76.19573
+     },
+     "markerPrice": "₹ 89.9 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:206:1524",
+   "coordinates": {
+    "latitude": 10.30659,
+    "longitude": 76.20402
+   },
+   "count": 10,
+   "bbox": {
+    "south": 10.3008,
+    "west": 76.20402,
+    "north": 10.30697,
+    "east": 76.22583
+   },
+   "mode": "sale",
+   "priceLo": "₹ 12.5 L",
+   "priceHi": "₹ 177.1 L",
+   "priceLoAmount": 1250000,
+   "priceHiAmount": 17710000,
+   "samples": [
+    {
+     "id": "sample-0081",
+     "coordinates": {
+      "latitude": 10.30659,
+      "longitude": 76.20402
+     },
+     "markerPrice": "₹ 66.4 L"
+    },
+    {
+     "id": "sample-0114",
+     "coordinates": {
+      "latitude": 10.30097,
+      "longitude": 76.22583
+     },
+     "markerPrice": "₹ 86.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:191:1529",
+   "coordinates": {
+    "latitude": 9.5602,
+    "longitude": 76.47288
+   },
+   "count": 9,
+   "bbox": {
+    "south": 9.55039,
+    "west": 76.45499,
+    "north": 9.59802,
+    "east": 76.48737
+   },
+   "mode": "sale",
+   "priceLo": "₹ 13.2 L",
+   "priceHi": "₹ 175.2 L",
+   "priceLoAmount": 1320000,
+   "priceHiAmount": 17520000,
+   "samples": [
+    {
+     "id": "sample-0082",
+     "coordinates": {
+      "latitude": 9.5602,
+      "longitude": 76.47288
+     },
+     "markerPrice": "₹ 136.9 L"
+    },
+    {
+     "id": "sample-0262",
+     "coordinates": {
+      "latitude": 9.56703,
+      "longitude": 76.47534
+     },
+     "markerPrice": "₹ 117.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:171:1537",
+   "coordinates": {
+    "latitude": 8.58971,
+    "longitude": 76.86322
+   },
+   "count": 5,
+   "bbox": {
+    "south": 8.56029,
+    "west": 76.86322,
+    "north": 8.59717,
+    "east": 76.89996
+   },
+   "mode": "sale",
+   "priceLo": "₹ 18.9 L",
+   "priceHi": "₹ 145.7 L",
+   "priceLoAmount": 1889999.9999999998,
+   "priceHiAmount": 14569999.999999998,
+   "samples": [
+    {
+     "id": "sample-0087",
+     "coordinates": {
+      "latitude": 8.58971,
+      "longitude": 76.86322
+     },
+     "markerPrice": "₹ 145.7 L"
+    },
+    {
+     "id": "sample-0111",
+     "coordinates": {
+      "latitude": 8.57972,
+      "longitude": 76.86781
+     },
+     "markerPrice": "₹ 116.8 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:191:1530",
+   "coordinates": {
+    "latitude": 9.55044,
+    "longitude": 76.53409
+   },
+   "count": 3,
+   "bbox": {
+    "south": 9.55044,
+    "west": 76.52932,
+    "north": 9.595,
+    "east": 76.53968
+   },
+   "mode": "sale",
+   "priceLo": "₹ 145.0 L",
+   "priceHi": "₹ 184.3 L",
+   "priceLoAmount": 14500000,
+   "priceHiAmount": 18430000,
+   "samples": [
+    {
+     "id": "sample-0091",
+     "coordinates": {
+      "latitude": 9.55044,
+      "longitude": 76.53409
+     },
+     "markerPrice": "₹ 184.3 L"
+    },
+    {
+     "id": "sample-0346",
+     "coordinates": {
+      "latitude": 9.595,
+      "longitude": 76.53968
+     },
+     "markerPrice": "₹ 145.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:224:1517",
+   "coordinates": {
+    "latitude": 11.2148,
+    "longitude": 75.8712
+   },
+   "count": 3,
+   "bbox": {
+    "south": 11.2148,
+    "west": 75.8712,
+    "north": 11.24924,
+    "east": 75.89768
+   },
+   "mode": "sale",
+   "priceLo": "₹ 35.7 L",
+   "priceHi": "₹ 68.3 L",
+   "priceLoAmount": 3570000.0000000005,
+   "priceHiAmount": 6830000,
+   "samples": [
+    {
+     "id": "sample-0094",
+     "coordinates": {
+      "latitude": 11.2148,
+      "longitude": 75.8712
+     },
+     "markerPrice": "₹ 68.3 L"
+    },
+    {
+     "id": "sample-1119",
+     "coordinates": {
+      "latitude": 11.24924,
+      "longitude": 75.89768
+     },
+     "markerPrice": "₹ 35.7 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:245:1502",
+   "coordinates": {
+    "latitude": 12.27965,
+    "longitude": 75.10577
+   },
+   "count": 7,
+   "bbox": {
+    "south": 12.25527,
+    "west": 75.10577,
+    "north": 12.29533,
+    "east": 75.14709
+   },
+   "mode": "sale",
+   "priceLo": "₹ 11.4 L",
+   "priceHi": "₹ 152.7 L",
+   "priceLoAmount": 1140000,
+   "priceHiAmount": 15269999.999999998,
+   "samples": [
+    {
+     "id": "sample-0095",
+     "coordinates": {
+      "latitude": 12.27965,
+      "longitude": 75.10577
+     },
+     "markerPrice": "₹ 103.7 L"
+    },
+    {
+     "id": "sample-0689",
+     "coordinates": {
+      "latitude": 12.2593,
+      "longitude": 75.11531
+     },
+     "markerPrice": "₹ 48.7 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:246:1502",
+   "coordinates": {
+    "latitude": 12.34637,
+    "longitude": 75.14348
+   },
+   "count": 10,
+   "bbox": {
+    "south": 12.30812,
+    "west": 75.10088,
+    "north": 12.34637,
+    "east": 75.14348
+   },
+   "mode": "sale",
+   "priceLo": "₹ 35.4 L",
+   "priceHi": "₹ 184.7 L",
+   "priceLoAmount": 3540000,
+   "priceHiAmount": 18470000,
+   "samples": [
+    {
+     "id": "sample-0099",
+     "coordinates": {
+      "latitude": 12.34637,
+      "longitude": 75.14348
+     },
+     "markerPrice": "₹ 47.6 L"
+    },
+    {
+     "id": "sample-0155",
+     "coordinates": {
+      "latitude": 12.33293,
+      "longitude": 75.103
+     },
+     "markerPrice": "₹ 182.5 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:171:1540",
+   "coordinates": {
+    "latitude": 8.56586,
+    "longitude": 77.02175
+   },
+   "count": 6,
+   "bbox": {
+    "south": 8.56586,
+    "west": 77.00658,
+    "north": 8.59771,
+    "east": 77.04784
+   },
+   "mode": "sale",
+   "priceLo": "₹ 13.7 L",
+   "priceHi": "₹ 173.4 L",
+   "priceLoAmount": 1370000,
+   "priceHiAmount": 17340000,
+   "samples": [
+    {
+     "id": "sample-0104",
+     "coordinates": {
+      "latitude": 8.56586,
+      "longitude": 77.02175
+     },
+     "markerPrice": "₹ 13.7 L"
+    },
+    {
+     "id": "sample-0136",
+     "coordinates": {
+      "latitude": 8.59736,
+      "longitude": 77.04784
+     },
+     "markerPrice": "₹ 74.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:197:1526",
+   "coordinates": {
+    "latitude": 9.86163,
+    "longitude": 76.34662
+   },
+   "count": 2,
+   "bbox": {
+    "south": 9.86163,
+    "west": 76.34622,
+    "north": 9.89379,
+    "east": 76.34662
+   },
+   "mode": "sale",
+   "priceLo": "₹ 21.5 L",
+   "priceHi": "₹ 168.0 L",
+   "priceLoAmount": 2150000,
+   "priceHiAmount": 16800000,
+   "samples": [
+    {
+     "id": "sample-0105",
+     "coordinates": {
+      "latitude": 9.86163,
+      "longitude": 76.34662
+     },
+     "markerPrice": "₹ 21.5 L"
+    },
+    {
+     "id": "sample-0818",
+     "coordinates": {
+      "latitude": 9.89379,
+      "longitude": 76.34622
+     },
+     "markerPrice": "₹ 168.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:212:1529",
+   "coordinates": {
+    "latitude": 10.60452,
+    "longitude": 76.49926
+   },
+   "count": 20,
+   "bbox": {
+    "south": 10.60036,
+    "west": 76.45053,
+    "north": 10.62273,
+    "east": 76.49943
+   },
+   "mode": "sale",
+   "priceLo": "₹ 15.8 L",
+   "priceHi": "₹ 182.0 L",
+   "priceLoAmount": 1580000,
+   "priceHiAmount": 18200000,
+   "samples": [
+    {
+     "id": "sample-0107",
+     "coordinates": {
+      "latitude": 10.60452,
+      "longitude": 76.49926
+     },
+     "markerPrice": "₹ 123.7 L"
+    },
+    {
+     "id": "sample-0119",
+     "coordinates": {
+      "latitude": 10.61802,
+      "longitude": 76.45076
+     },
+     "markerPrice": "₹ 94.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:244:1502",
+   "coordinates": {
+    "latitude": 12.22097,
+    "longitude": 75.10185
+   },
+   "count": 4,
+   "bbox": {
+    "south": 12.21397,
+    "west": 75.10077,
+    "north": 12.23657,
+    "east": 75.1308
+   },
+   "mode": "sale",
+   "priceLo": "₹ 30.4 L",
+   "priceHi": "₹ 186.0 L",
+   "priceLoAmount": 3040000,
+   "priceHiAmount": 18600000,
+   "samples": [
+    {
+     "id": "sample-0108",
+     "coordinates": {
+      "latitude": 12.22097,
+      "longitude": 75.10185
+     },
+     "markerPrice": "₹ 186.0 L"
+    },
+    {
+     "id": "sample-0620",
+     "coordinates": {
+      "latitude": 12.23657,
+      "longitude": 75.1308
+     },
+     "markerPrice": "₹ 142.3 L"
+    }
+   ]
+  },
+  {
+   "id": "sample-0112",
+   "coordinates": {
+    "latitude": 8.6407,
+    "longitude": 76.92692
+   },
+   "markerPrice": "₹ 163.1 L"
+  },
+  {
+   "id": "bin:172:1537",
+   "coordinates": {
+    "latitude": 8.62736,
+    "longitude": 76.89704
+   },
+   "count": 8,
+   "bbox": {
+    "south": 8.60869,
+    "west": 76.8511,
+    "north": 8.64394,
+    "east": 76.89704
+   },
+   "mode": "sale",
+   "priceLo": "₹ 14.4 L",
+   "priceHi": "₹ 161.6 L",
+   "priceLoAmount": 1440000,
+   "priceHiAmount": 16160000,
+   "samples": [
+    {
+     "id": "sample-0116",
+     "coordinates": {
+      "latitude": 8.62736,
+      "longitude": 76.89704
+     },
+     "markerPrice": "₹ 161.6 L"
+    },
+    {
+     "id": "sample-0370",
+     "coordinates": {
+      "latitude": 8.62453,
+      "longitude": 76.89145
+     },
+     "markerPrice": "₹ 30.5 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:200:1523",
+   "coordinates": {
+    "latitude": 10.04389,
+    "longitude": 76.1769
+   },
+   "count": 3,
+   "bbox": {
+    "south": 10.00804,
+    "west": 76.16973,
+    "north": 10.04389,
+    "east": 76.19369
+   },
+   "mode": "sale",
+   "priceLo": "₹ 41.3 L",
+   "priceHi": "₹ 138.8 L",
+   "priceLoAmount": 4129999.9999999995,
+   "priceHiAmount": 13880000.000000002,
+   "samples": [
+    {
+     "id": "sample-0123",
+     "coordinates": {
+      "latitude": 10.04389,
+      "longitude": 76.1769
+     },
+     "markerPrice": "₹ 41.3 L"
+    },
+    {
+     "id": "sample-0303",
+     "coordinates": {
+      "latitude": 10.03498,
+      "longitude": 76.16973
+     },
+     "markerPrice": "₹ 100.1 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:193:1529",
+   "coordinates": {
+    "latitude": 9.68919,
+    "longitude": 76.47903
+   },
+   "count": 4,
+   "bbox": {
+    "south": 9.67929,
+    "west": 76.4747,
+    "north": 9.68919,
+    "east": 76.48993
+   },
+   "mode": "sale",
+   "priceLo": "₹ 35.3 L",
+   "priceHi": "₹ 172.0 L",
+   "priceLoAmount": 3529999.9999999995,
+   "priceHiAmount": 17200000,
+   "samples": [
+    {
+     "id": "sample-0124",
+     "coordinates": {
+      "latitude": 9.68919,
+      "longitude": 76.47903
+     },
+     "markerPrice": "₹ 35.3 L"
+    },
+    {
+     "id": "sample-0313",
+     "coordinates": {
+      "latitude": 9.68684,
+      "longitude": 76.48058
+     },
+     "markerPrice": "₹ 172.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:244:1501",
+   "coordinates": {
+    "latitude": 12.21543,
+    "longitude": 75.09536
+   },
+   "count": 9,
+   "bbox": {
+    "south": 12.20821,
+    "west": 75.06433,
+    "north": 12.23306,
+    "east": 75.09677
+   },
+   "mode": "sale",
+   "priceLo": "₹ 16.9 L",
+   "priceHi": "₹ 182.4 L",
+   "priceLoAmount": 1689999.9999999998,
+   "priceHiAmount": 18240000,
+   "samples": [
+    {
+     "id": "sample-0125",
+     "coordinates": {
+      "latitude": 12.21543,
+      "longitude": 75.09536
+     },
+     "markerPrice": "₹ 31.5 L"
+    },
+    {
+     "id": "sample-0161",
+     "coordinates": {
+      "latitude": 12.21281,
+      "longitude": 75.06433
+     },
+     "markerPrice": "₹ 80.8 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:224:1515",
+   "coordinates": {
+    "latitude": 11.23095,
+    "longitude": 75.77344
+   },
+   "count": 6,
+   "bbox": {
+    "south": 11.20061,
+    "west": 75.75468,
+    "north": 11.24424,
+    "east": 75.78893
+   },
+   "mode": "sale",
+   "priceLo": "₹ 48.5 L",
+   "priceHi": "₹ 153.3 L",
+   "priceLoAmount": 4850000,
+   "priceHiAmount": 15330000.000000002,
+   "samples": [
+    {
+     "id": "sample-0126",
+     "coordinates": {
+      "latitude": 11.23095,
+      "longitude": 75.77344
+     },
+     "markerPrice": "₹ 118.0 L"
+    },
+    {
+     "id": "sample-0493",
+     "coordinates": {
+      "latitude": 11.20061,
+      "longitude": 75.75468
+     },
+     "markerPrice": "₹ 60.6 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:211:1528",
+   "coordinates": {
+    "latitude": 10.55667,
+    "longitude": 76.44532
+   },
+   "count": 4,
+   "bbox": {
+    "south": 10.55667,
+    "west": 76.44532,
+    "north": 10.5903,
+    "east": 76.44994
+   },
+   "mode": "sale",
+   "priceLo": "₹ 34.4 L",
+   "priceHi": "₹ 130.7 L",
+   "priceLoAmount": 3440000,
+   "priceHiAmount": 13069999.999999998,
+   "samples": [
+    {
+     "id": "sample-0128",
+     "coordinates": {
+      "latitude": 10.55667,
+      "longitude": 76.44532
+     },
+     "markerPrice": "₹ 43.6 L"
+    },
+    {
+     "id": "sample-0659",
+     "coordinates": {
+      "latitude": 10.55825,
+      "longitude": 76.44855
+     },
+     "markerPrice": "₹ 130.7 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:226:1515",
+   "coordinates": {
+    "latitude": 11.30234,
+    "longitude": 75.75687
+   },
+   "count": 7,
+   "bbox": {
+    "south": 11.30234,
+    "west": 75.75687,
+    "north": 11.34986,
+    "east": 75.79731
+   },
+   "mode": "sale",
+   "priceLo": "₹ 27.8 L",
+   "priceHi": "₹ 159.2 L",
+   "priceLoAmount": 2780000,
+   "priceHiAmount": 15919999.999999998,
+   "samples": [
+    {
+     "id": "sample-0130",
+     "coordinates": {
+      "latitude": 11.30234,
+      "longitude": 75.75687
+     },
+     "markerPrice": "₹ 27.8 L"
+    },
+    {
+     "id": "sample-0140",
+     "coordinates": {
+      "latitude": 11.33161,
+      "longitude": 75.77287
+     },
+     "markerPrice": "₹ 124.1 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:223:1515",
+   "coordinates": {
+    "latitude": 11.18261,
+    "longitude": 75.75406
+   },
+   "count": 6,
+   "bbox": {
+    "south": 11.15119,
+    "west": 75.75275,
+    "north": 11.19607,
+    "east": 75.76657
+   },
+   "mode": "sale",
+   "priceLo": "₹ 39.8 L",
+   "priceHi": "₹ 185.9 L",
+   "priceLoAmount": 3979999.9999999995,
+   "priceHiAmount": 18590000,
+   "samples": [
+    {
+     "id": "sample-0131",
+     "coordinates": {
+      "latitude": 11.18261,
+      "longitude": 75.75406
+     },
+     "markerPrice": "₹ 83.1 L"
+    },
+    {
+     "id": "sample-0434",
+     "coordinates": {
+      "latitude": 11.15462,
+      "longitude": 75.75636
+     },
+     "markerPrice": "₹ 39.8 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:243:1502",
+   "coordinates": {
+    "latitude": 12.18079,
+    "longitude": 75.11166
+   },
+   "count": 2,
+   "bbox": {
+    "south": 12.18079,
+    "west": 75.11166,
+    "north": 12.19801,
+    "east": 75.13949
+   },
+   "mode": "sale",
+   "priceLo": "₹ 69.9 L",
+   "priceHi": "₹ 72.7 L",
+   "priceLoAmount": 6990000.000000001,
+   "priceHiAmount": 7270000,
+   "samples": [
+    {
+     "id": "sample-0134",
+     "coordinates": {
+      "latitude": 12.18079,
+      "longitude": 75.11166
+     },
+     "markerPrice": "₹ 69.9 L"
+    },
+    {
+     "id": "sample-1026",
+     "coordinates": {
+      "latitude": 12.19801,
+      "longitude": 75.13949
+     },
+     "markerPrice": "₹ 72.7 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:169:1539",
+   "coordinates": {
+    "latitude": 8.48832,
+    "longitude": 76.97986
+   },
+   "count": 3,
+   "bbox": {
+    "south": 8.48832,
+    "west": 76.97986,
+    "north": 8.49814,
+    "east": 76.99762
+   },
+   "mode": "sale",
+   "priceLo": "₹ 39.2 L",
+   "priceHi": "₹ 103.0 L",
+   "priceLoAmount": 3920000.0000000005,
+   "priceHiAmount": 10300000,
+   "samples": [
+    {
+     "id": "sample-0137",
+     "coordinates": {
+      "latitude": 8.48832,
+      "longitude": 76.97986
+     },
+     "markerPrice": "₹ 39.2 L"
+    },
+    {
+     "id": "sample-0325",
+     "coordinates": {
+      "latitude": 8.49814,
+      "longitude": 76.99762
+     },
+     "markerPrice": "₹ 103.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:247:1501",
+   "coordinates": {
+    "latitude": 12.37218,
+    "longitude": 75.05833
+   },
+   "count": 5,
+   "bbox": {
+    "south": 12.35019,
+    "west": 75.05833,
+    "north": 12.37304,
+    "east": 75.07446
+   },
+   "mode": "sale",
+   "priceLo": "₹ 56.0 L",
+   "priceHi": "₹ 184.8 L",
+   "priceLoAmount": 5600000,
+   "priceHiAmount": 18480000,
+   "samples": [
+    {
+     "id": "sample-0138",
+     "coordinates": {
+      "latitude": 12.37218,
+      "longitude": 75.05833
+     },
+     "markerPrice": "₹ 76.4 L"
+    },
+    {
+     "id": "sample-0157",
+     "coordinates": {
+      "latitude": 12.37304,
+      "longitude": 75.06775
+     },
+     "markerPrice": "₹ 56.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:192:1529",
+   "coordinates": {
+    "latitude": 9.64371,
+    "longitude": 76.4897
+   },
+   "count": 5,
+   "bbox": {
+    "south": 9.60852,
+    "west": 76.45125,
+    "north": 9.64371,
+    "east": 76.4897
+   },
+   "mode": "sale",
+   "priceLo": "₹ 34.4 L",
+   "priceHi": "₹ 118.2 L",
+   "priceLoAmount": 3440000,
+   "priceHiAmount": 11820000,
+   "samples": [
+    {
+     "id": "sample-0142",
+     "coordinates": {
+      "latitude": 9.64371,
+      "longitude": 76.4897
+     },
+     "markerPrice": "₹ 34.4 L"
+    },
+    {
+     "id": "sample-0619",
+     "coordinates": {
+      "latitude": 9.62982,
+      "longitude": 76.47402
+     },
+     "markerPrice": "₹ 43.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:190:1531",
+   "coordinates": {
+    "latitude": 9.53917,
+    "longitude": 76.5997
+   },
+   "count": 4,
+   "bbox": {
+    "south": 9.50288,
+    "west": 76.56288,
+    "north": 9.53917,
+    "east": 76.5997
+   },
+   "mode": "sale",
+   "priceLo": "₹ 60.9 L",
+   "priceHi": "₹ 187.3 L",
+   "priceLoAmount": 6090000,
+   "priceHiAmount": 18730000,
+   "samples": [
+    {
+     "id": "sample-0152",
+     "coordinates": {
+      "latitude": 9.53917,
+      "longitude": 76.5997
+     },
+     "markerPrice": "₹ 74.4 L"
+    },
+    {
+     "id": "sample-0336",
+     "coordinates": {
+      "latitude": 9.50499,
+      "longitude": 76.56481
+     },
+     "markerPrice": "₹ 60.9 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:198:1524",
+   "coordinates": {
+    "latitude": 9.92317,
+    "longitude": 76.22591
+   },
+   "count": 5,
+   "bbox": {
+    "south": 9.90636,
+    "west": 76.21692,
+    "north": 9.94924,
+    "east": 76.24081
+   },
+   "mode": "sale",
+   "priceLo": "₹ 48.1 L",
+   "priceHi": "₹ 126.3 L",
+   "priceLoAmount": 4810000,
+   "priceHiAmount": 12630000,
+   "samples": [
+    {
+     "id": "sample-0154",
+     "coordinates": {
+      "latitude": 9.92317,
+      "longitude": 76.22591
+     },
+     "markerPrice": "₹ 67.9 L"
+    },
+    {
+     "id": "sample-0834",
+     "coordinates": {
+      "latitude": 9.90636,
+      "longitude": 76.22358
+     },
+     "markerPrice": "₹ 126.3 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:222:1517",
+   "coordinates": {
+    "latitude": 11.13405,
+    "longitude": 75.86173
+   },
+   "count": 4,
+   "bbox": {
+    "south": 11.13405,
+    "west": 75.85741,
+    "north": 11.14587,
+    "east": 75.87765
+   },
+   "mode": "sale",
+   "priceLo": "₹ 9.9 L",
+   "priceHi": "₹ 87.7 L",
+   "priceLoAmount": 990000,
+   "priceHiAmount": 8770000,
+   "samples": [
+    {
+     "id": "sample-0169",
+     "coordinates": {
+      "latitude": 11.13405,
+      "longitude": 75.86173
+     },
+     "markerPrice": "₹ 9.9 L"
+    },
+    {
+     "id": "sample-0176",
+     "coordinates": {
+      "latitude": 11.14457,
+      "longitude": 75.86722
+     },
+     "markerPrice": "₹ 87.7 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:227:1517",
+   "coordinates": {
+    "latitude": 11.36977,
+    "longitude": 75.85407
+   },
+   "count": 4,
+   "bbox": {
+    "south": 11.36255,
+    "west": 75.85407,
+    "north": 11.38119,
+    "east": 75.86427
+   },
+   "mode": "sale",
+   "priceLo": "₹ 12.9 L",
+   "priceHi": "₹ 164.8 L",
+   "priceLoAmount": 1290000,
+   "priceHiAmount": 16480000.000000002,
+   "samples": [
+    {
+     "id": "sample-0171",
+     "coordinates": {
+      "latitude": 11.36977,
+      "longitude": 75.85407
+     },
+     "markerPrice": "₹ 164.8 L"
+    },
+    {
+     "id": "sample-0755",
+     "coordinates": {
+      "latitude": 11.36857,
+      "longitude": 75.86294
+     },
+     "markerPrice": "₹ 48.7 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:200:1524",
+   "coordinates": {
+    "latitude": 10.01581,
+    "longitude": 76.23923
+   },
+   "count": 4,
+   "bbox": {
+    "south": 10.01401,
+    "west": 76.20198,
+    "north": 10.04694,
+    "east": 76.23923
+   },
+   "mode": "sale",
+   "priceLo": "₹ 94.4 L",
+   "priceHi": "₹ 175.7 L",
+   "priceLoAmount": 9440000,
+   "priceHiAmount": 17570000,
+   "samples": [
+    {
+     "id": "sample-0177",
+     "coordinates": {
+      "latitude": 10.01581,
+      "longitude": 76.23923
+     },
+     "markerPrice": "₹ 94.4 L"
+    },
+    {
+     "id": "sample-0194",
+     "coordinates": {
+      "latitude": 10.02384,
+      "longitude": 76.23305
+     },
+     "markerPrice": "₹ 108.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:225:1514",
+   "coordinates": {
+    "latitude": 11.28041,
+    "longitude": 75.74548
+   },
+   "count": 6,
+   "bbox": {
+    "south": 11.25339,
+    "west": 75.70018,
+    "north": 11.28902,
+    "east": 75.74548
+   },
+   "mode": "sale",
+   "priceLo": "₹ 66.5 L",
+   "priceHi": "₹ 178.0 L",
+   "priceLoAmount": 6650000,
+   "priceHiAmount": 17800000,
+   "samples": [
+    {
+     "id": "sample-0178",
+     "coordinates": {
+      "latitude": 11.28041,
+      "longitude": 75.74548
+     },
+     "markerPrice": "₹ 80.9 L"
+    },
+    {
+     "id": "sample-0239",
+     "coordinates": {
+      "latitude": 11.25339,
+      "longitude": 75.71865
+     },
+     "markerPrice": "₹ 178.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:246:1501",
+   "coordinates": {
+    "latitude": 12.30983,
+    "longitude": 75.06767
+   },
+   "count": 7,
+   "bbox": {
+    "south": 12.30983,
+    "west": 75.06378,
+    "north": 12.34837,
+    "east": 75.09851
+   },
+   "mode": "sale",
+   "priceLo": "₹ 63.7 L",
+   "priceHi": "₹ 181.2 L",
+   "priceLoAmount": 6370000,
+   "priceHiAmount": 18120000,
+   "samples": [
+    {
+     "id": "sample-0179",
+     "coordinates": {
+      "latitude": 12.30983,
+      "longitude": 75.06767
+     },
+     "markerPrice": "₹ 63.7 L"
+    },
+    {
+     "id": "sample-0181",
+     "coordinates": {
+      "latitude": 12.32807,
+      "longitude": 75.07426
+     },
+     "markerPrice": "₹ 155.2 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:192:1530",
+   "coordinates": {
+    "latitude": 9.60005,
+    "longitude": 76.50626
+   },
+   "count": 6,
+   "bbox": {
+    "south": 9.60005,
+    "west": 76.50626,
+    "north": 9.63988,
+    "east": 76.54071
+   },
+   "mode": "sale",
+   "priceLo": "₹ 18.1 L",
+   "priceHi": "₹ 181.4 L",
+   "priceLoAmount": 1810000.0000000002,
+   "priceHiAmount": 18140000,
+   "samples": [
+    {
+     "id": "sample-0188",
+     "coordinates": {
+      "latitude": 9.60005,
+      "longitude": 76.50626
+     },
+     "markerPrice": "₹ 152.4 L"
+    },
+    {
+     "id": "sample-0399",
+     "coordinates": {
+      "latitude": 9.63988,
+      "longitude": 76.54071
+     },
+     "markerPrice": "₹ 25.6 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:213:1520",
+   "coordinates": {
+    "latitude": 10.6794,
+    "longitude": 76.04729
+   },
+   "count": 4,
+   "bbox": {
+    "south": 10.66036,
+    "west": 76.04221,
+    "north": 10.6794,
+    "east": 76.04961
+   },
+   "mode": "sale",
+   "priceLo": "₹ 9.3 L",
+   "priceHi": "₹ 141.6 L",
+   "priceLoAmount": 930000.0000000001,
+   "priceHiAmount": 14160000,
+   "samples": [
+    {
+     "id": "sample-0208",
+     "coordinates": {
+      "latitude": 10.6794,
+      "longitude": 76.04729
+     },
+     "markerPrice": "₹ 37.9 L"
+    },
+    {
+     "id": "sample-0883",
+     "coordinates": {
+      "latitude": 10.66512,
+      "longitude": 76.04961
+     },
+     "markerPrice": "₹ 141.6 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:196:1526",
+   "coordinates": {
+    "latitude": 9.81121,
+    "longitude": 76.33076
+   },
+   "count": 6,
+   "bbox": {
+    "south": 9.8088,
+    "west": 76.31169,
+    "north": 9.84076,
+    "east": 76.34998
+   },
+   "mode": "sale",
+   "priceLo": "₹ 35.7 L",
+   "priceHi": "₹ 163.1 L",
+   "priceLoAmount": 3570000.0000000005,
+   "priceHiAmount": 16310000,
+   "samples": [
+    {
+     "id": "sample-0210",
+     "coordinates": {
+      "latitude": 9.81121,
+      "longitude": 76.33076
+     },
+     "markerPrice": "₹ 128.8 L"
+    },
+    {
+     "id": "sample-0356",
+     "coordinates": {
+      "latitude": 9.81399,
+      "longitude": 76.33403
+     },
+     "markerPrice": "₹ 142.5 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:170:1539",
+   "coordinates": {
+    "latitude": 8.51779,
+    "longitude": 76.96109
+   },
+   "count": 5,
+   "bbox": {
+    "south": 8.50029,
+    "west": 76.96109,
+    "north": 8.53757,
+    "east": 76.99688
+   },
+   "mode": "sale",
+   "priceLo": "₹ 11.5 L",
+   "priceHi": "₹ 164.7 L",
+   "priceLoAmount": 1150000,
+   "priceHiAmount": 16469999.999999998,
+   "samples": [
+    {
+     "id": "sample-0211",
+     "coordinates": {
+      "latitude": 8.51779,
+      "longitude": 76.96109
+     },
+     "markerPrice": "₹ 48.5 L"
+    },
+    {
+     "id": "sample-0331",
+     "coordinates": {
+      "latitude": 8.50029,
+      "longitude": 76.97961
+     },
+     "markerPrice": "₹ 11.5 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:192:1531",
+   "coordinates": {
+    "latitude": 9.64957,
+    "longitude": 76.57008
+   },
+   "count": 8,
+   "bbox": {
+    "south": 9.60637,
+    "west": 76.5574,
+    "north": 9.64957,
+    "east": 76.59074
+   },
+   "mode": "sale",
+   "priceLo": "₹ 64.4 L",
+   "priceHi": "₹ 184.9 L",
+   "priceLoAmount": 6440000.000000001,
+   "priceHiAmount": 18490000,
+   "samples": [
+    {
+     "id": "sample-0212",
+     "coordinates": {
+      "latitude": 9.64957,
+      "longitude": 76.57008
+     },
+     "markerPrice": "₹ 97.0 L"
+    },
+    {
+     "id": "sample-0735",
+     "coordinates": {
+      "latitude": 9.62216,
+      "longitude": 76.5574
+     },
+     "markerPrice": "₹ 64.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:227:1513",
+   "coordinates": {
+    "latitude": 11.37741,
+    "longitude": 75.69241
+   },
+   "count": 2,
+   "bbox": {
+    "south": 11.37137,
+    "west": 75.68827,
+    "north": 11.37741,
+    "east": 75.69241
+   },
+   "mode": "sale",
+   "priceLo": "₹ 11.5 L",
+   "priceHi": "₹ 145.6 L",
+   "priceLoAmount": 1150000,
+   "priceHiAmount": 14560000,
+   "samples": [
+    {
+     "id": "sample-0213",
+     "coordinates": {
+      "latitude": 11.37741,
+      "longitude": 75.69241
+     },
+     "markerPrice": "₹ 11.5 L"
+    },
+    {
+     "id": "sample-0833",
+     "coordinates": {
+      "latitude": 11.37137,
+      "longitude": 75.68827
+     },
+     "markerPrice": "₹ 145.6 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:200:1525",
+   "coordinates": {
+    "latitude": 10.03784,
+    "longitude": 76.27538
+   },
+   "count": 9,
+   "bbox": {
+    "south": 10.0066,
+    "west": 76.25176,
+    "north": 10.04748,
+    "east": 76.28963
+   },
+   "mode": "sale",
+   "priceLo": "₹ 19.4 L",
+   "priceHi": "₹ 153.7 L",
+   "priceLoAmount": 1939999.9999999998,
+   "priceHiAmount": 15369999.999999998,
+   "samples": [
+    {
+     "id": "sample-0219",
+     "coordinates": {
+      "latitude": 10.03784,
+      "longitude": 76.27538
+     },
+     "markerPrice": "₹ 153.7 L"
+    },
+    {
+     "id": "sample-0309",
+     "coordinates": {
+      "latitude": 10.03429,
+      "longitude": 76.28963
+     },
+     "markerPrice": "₹ 50.1 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:190:1528",
+   "coordinates": {
+    "latitude": 9.51162,
+    "longitude": 76.44109
+   },
+   "count": 2,
+   "bbox": {
+    "south": 9.51162,
+    "west": 76.44109,
+    "north": 9.53831,
+    "east": 76.44285
+   },
+   "mode": "sale",
+   "priceLo": "₹ 75.9 L",
+   "priceHi": "₹ 183.1 L",
+   "priceLoAmount": 7590000.000000001,
+   "priceHiAmount": 18310000,
+   "samples": [
+    {
+     "id": "sample-0220",
+     "coordinates": {
+      "latitude": 9.51162,
+      "longitude": 76.44109
+     },
+     "markerPrice": "₹ 75.9 L"
+    },
+    {
+     "id": "sample-0535",
+     "coordinates": {
+      "latitude": 9.53831,
+      "longitude": 76.44285
+     },
+     "markerPrice": "₹ 183.1 L"
+    }
+   ]
+  },
+  {
+   "id": "sample-0222",
+   "coordinates": {
+    "latitude": 9.49649,
+    "longitude": 76.4971
+   },
+   "markerPrice": "₹ 70.4 L"
+  },
+  {
+   "id": "bin:224:1516",
+   "coordinates": {
+    "latitude": 11.23929,
+    "longitude": 75.81896
+   },
+   "count": 2,
+   "bbox": {
+    "south": 11.23504,
+    "west": 75.81394,
+    "north": 11.23929,
+    "east": 75.81896
+   },
+   "mode": "sale",
+   "priceLo": "₹ 49.5 L",
+   "priceHi": "₹ 165.0 L",
+   "priceLoAmount": 4950000,
+   "priceHiAmount": 16500000,
+   "samples": [
+    {
+     "id": "sample-0238",
+     "coordinates": {
+      "latitude": 11.23929,
+      "longitude": 75.81896
+     },
+     "markerPrice": "₹ 165.0 L"
+    },
+    {
+     "id": "sample-0474",
+     "coordinates": {
+      "latitude": 11.23504,
+      "longitude": 75.81394
+     },
+     "markerPrice": "₹ 49.5 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:243:1500",
+   "coordinates": {
+    "latitude": 12.1784,
+    "longitude": 75.02287
+   },
+   "count": 3,
+   "bbox": {
+    "south": 12.1784,
+    "west": 75.006,
+    "north": 12.19588,
+    "east": 75.02287
+   },
+   "mode": "sale",
+   "priceLo": "₹ 43.1 L",
+   "priceHi": "₹ 162.0 L",
+   "priceLoAmount": 4310000,
+   "priceHiAmount": 16200000,
+   "samples": [
+    {
+     "id": "sample-0240",
+     "coordinates": {
+      "latitude": 12.1784,
+      "longitude": 75.02287
+     },
+     "markerPrice": "₹ 162.0 L"
+    },
+    {
+     "id": "sample-0417",
+     "coordinates": {
+      "latitude": 12.18775,
+      "longitude": 75.006
+     },
+     "markerPrice": "₹ 43.1 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:212:1530",
+   "coordinates": {
+    "latitude": 10.6044,
+    "longitude": 76.50659
+   },
+   "count": 13,
+   "bbox": {
+    "south": 10.60163,
+    "west": 76.50266,
+    "north": 10.62414,
+    "east": 76.51291
+   },
+   "mode": "sale",
+   "priceLo": "₹ 8.4 L",
+   "priceHi": "₹ 171.5 L",
+   "priceLoAmount": 840000,
+   "priceHiAmount": 17150000,
+   "samples": [
+    {
+     "id": "sample-0243",
+     "coordinates": {
+      "latitude": 10.6044,
+      "longitude": 76.50659
+     },
+     "markerPrice": "₹ 113.4 L"
+    },
+    {
+     "id": "sample-0416",
+     "coordinates": {
+      "latitude": 10.61701,
+      "longitude": 76.51011
+     },
+     "markerPrice": "₹ 11.5 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:224:1513",
+   "coordinates": {
+    "latitude": 11.2378,
+    "longitude": 75.69422
+   },
+   "count": 4,
+   "bbox": {
+    "south": 11.20475,
+    "west": 75.66069,
+    "north": 11.2378,
+    "east": 75.69422
+   },
+   "mode": "sale",
+   "priceLo": "₹ 66.9 L",
+   "priceHi": "₹ 172.1 L",
+   "priceLoAmount": 6690000.000000001,
+   "priceHiAmount": 17210000,
+   "samples": [
+    {
+     "id": "sample-0244",
+     "coordinates": {
+      "latitude": 11.2378,
+      "longitude": 75.69422
+     },
+     "markerPrice": "₹ 144.1 L"
+    },
+    {
+     "id": "sample-0327",
+     "coordinates": {
+      "latitude": 11.22155,
+      "longitude": 75.66069
+     },
+     "markerPrice": "₹ 172.1 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:191:1528",
+   "coordinates": {
+    "latitude": 9.57501,
+    "longitude": 76.44998
+   },
+   "count": 6,
+   "bbox": {
+    "south": 9.55809,
+    "west": 76.42642,
+    "north": 9.59416,
+    "east": 76.44998
+   },
+   "mode": "sale",
+   "priceLo": "₹ 42.2 L",
+   "priceHi": "₹ 170.1 L",
+   "priceLoAmount": 4220000,
+   "priceHiAmount": 17010000,
+   "samples": [
+    {
+     "id": "sample-0245",
+     "coordinates": {
+      "latitude": 9.57501,
+      "longitude": 76.44998
+     },
+     "markerPrice": "₹ 170.1 L"
+    },
+    {
+     "id": "sample-0525",
+     "coordinates": {
+      "latitude": 9.591,
+      "longitude": 76.4358
+     },
+     "markerPrice": "₹ 159.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:197:1524",
+   "coordinates": {
+    "latitude": 9.88863,
+    "longitude": 76.21635
+   },
+   "count": 4,
+   "bbox": {
+    "south": 9.85406,
+    "west": 76.20161,
+    "north": 9.88863,
+    "east": 76.24538
+   },
+   "mode": "sale",
+   "priceLo": "₹ 31.4 L",
+   "priceHi": "₹ 183.2 L",
+   "priceLoAmount": 3140000,
+   "priceHiAmount": 18320000,
+   "samples": [
+    {
+     "id": "sample-0247",
+     "coordinates": {
+      "latitude": 9.88863,
+      "longitude": 76.21635
+     },
+     "markerPrice": "₹ 183.2 L"
+    },
+    {
+     "id": "sample-0340",
+     "coordinates": {
+      "latitude": 9.86071,
+      "longitude": 76.20161
+     },
+     "markerPrice": "₹ 60.7 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:197:1527",
+   "coordinates": {
+    "latitude": 9.8563,
+    "longitude": 76.36875
+   },
+   "count": 3,
+   "bbox": {
+    "south": 9.8563,
+    "west": 76.3629,
+    "north": 9.89789,
+    "east": 76.37575
+   },
+   "mode": "sale",
+   "priceLo": "₹ 45.6 L",
+   "priceHi": "₹ 140.5 L",
+   "priceLoAmount": 4560000,
+   "priceHiAmount": 14050000,
+   "samples": [
+    {
+     "id": "sample-0256",
+     "coordinates": {
+      "latitude": 9.8563,
+      "longitude": 76.36875
+     },
+     "markerPrice": "₹ 140.5 L"
+    },
+    {
+     "id": "sample-0347",
+     "coordinates": {
+      "latitude": 9.89789,
+      "longitude": 76.3629
+     },
+     "markerPrice": "₹ 59.8 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:192:1528",
+   "coordinates": {
+    "latitude": 9.61399,
+    "longitude": 76.44021
+   },
+   "count": 3,
+   "bbox": {
+    "south": 9.61399,
+    "west": 76.43851,
+    "north": 9.61729,
+    "east": 76.44255
+   },
+   "mode": "sale",
+   "priceLo": "₹ 92.3 L",
+   "priceHi": "₹ 177.3 L",
+   "priceLoAmount": 9230000,
+   "priceHiAmount": 17730000,
+   "samples": [
+    {
+     "id": "sample-0263",
+     "coordinates": {
+      "latitude": 9.61399,
+      "longitude": 76.44021
+     },
+     "markerPrice": "₹ 113.8 L"
+    },
+    {
+     "id": "sample-1025",
+     "coordinates": {
+      "latitude": 9.6145,
+      "longitude": 76.43851
+     },
+     "markerPrice": "₹ 92.3 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:212:1522",
+   "coordinates": {
+    "latitude": 10.61212,
+    "longitude": 76.10738
+   },
+   "count": 6,
+   "bbox": {
+    "south": 10.61212,
+    "west": 76.10425,
+    "north": 10.63703,
+    "east": 76.11625
+   },
+   "mode": "sale",
+   "priceLo": "₹ 58.4 L",
+   "priceHi": "₹ 178.6 L",
+   "priceLoAmount": 5840000,
+   "priceHiAmount": 17860000,
+   "samples": [
+    {
+     "id": "sample-0268",
+     "coordinates": {
+      "latitude": 10.61212,
+      "longitude": 76.10738
+     },
+     "markerPrice": "₹ 69.0 L"
+    },
+    {
+     "id": "sample-0626",
+     "coordinates": {
+      "latitude": 10.61858,
+      "longitude": 76.10612
+     },
+     "markerPrice": "₹ 123.8 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:168:1541",
+   "coordinates": {
+    "latitude": 8.40542,
+    "longitude": 77.06148
+   },
+   "count": 2,
+   "bbox": {
+    "south": 8.40542,
+    "west": 77.05744,
+    "north": 8.44418,
+    "east": 77.06148
+   },
+   "mode": "sale",
+   "priceLo": "₹ 62.8 L",
+   "priceHi": "₹ 67.2 L",
+   "priceLoAmount": 6280000,
+   "priceHiAmount": 6720000,
+   "samples": [
+    {
+     "id": "sample-0274",
+     "coordinates": {
+      "latitude": 8.40542,
+      "longitude": 77.06148
+     },
+     "markerPrice": "₹ 62.8 L"
+    },
+    {
+     "id": "sample-0582",
+     "coordinates": {
+      "latitude": 8.44418,
+      "longitude": 77.05744
+     },
+     "markerPrice": "₹ 67.2 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:223:1514",
+   "coordinates": {
+    "latitude": 11.16933,
+    "longitude": 75.72789
+   },
+   "count": 4,
+   "bbox": {
+    "south": 11.16155,
+    "west": 75.72789,
+    "north": 11.18548,
+    "east": 75.74136
+   },
+   "mode": "sale",
+   "priceLo": "₹ 64.3 L",
+   "priceHi": "₹ 107.4 L",
+   "priceLoAmount": 6430000,
+   "priceHiAmount": 10740000,
+   "samples": [
+    {
+     "id": "sample-0282",
+     "coordinates": {
+      "latitude": 11.16933,
+      "longitude": 75.72789
+     },
+     "markerPrice": "₹ 88.0 L"
+    },
+    {
+     "id": "sample-0609",
+     "coordinates": {
+      "latitude": 11.16911,
+      "longitude": 75.74011
+     },
+     "markerPrice": "₹ 107.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:213:1522",
+   "coordinates": {
+    "latitude": 10.66659,
+    "longitude": 76.1127
+   },
+   "count": 11,
+   "bbox": {
+    "south": 10.65001,
+    "west": 76.10107,
+    "north": 10.67996,
+    "east": 76.11996
+   },
+   "mode": "sale",
+   "priceLo": "₹ 55.0 L",
+   "priceHi": "₹ 176.3 L",
+   "priceLoAmount": 5500000,
+   "priceHiAmount": 17630000,
+   "samples": [
+    {
+     "id": "sample-0286",
+     "coordinates": {
+      "latitude": 10.66659,
+      "longitude": 76.1127
+     },
+     "markerPrice": "₹ 68.9 L"
+    },
+    {
+     "id": "sample-0289",
+     "coordinates": {
+      "latitude": 10.67569,
+      "longitude": 76.11174
+     },
+     "markerPrice": "₹ 69.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:200:1526",
+   "coordinates": {
+    "latitude": 10.04594,
+    "longitude": 76.33898
+   },
+   "count": 4,
+   "bbox": {
+    "south": 10.00071,
+    "west": 76.30383,
+    "north": 10.04594,
+    "east": 76.34579
+   },
+   "mode": "sale",
+   "priceLo": "₹ 80.4 L",
+   "priceHi": "₹ 167.0 L",
+   "priceLoAmount": 8040000.000000001,
+   "priceHiAmount": 16700000,
+   "samples": [
+    {
+     "id": "sample-0287",
+     "coordinates": {
+      "latitude": 10.04594,
+      "longitude": 76.33898
+     },
+     "markerPrice": "₹ 138.0 L"
+    },
+    {
+     "id": "sample-0821",
+     "coordinates": {
+      "latitude": 10.00071,
+      "longitude": 76.34579
+     },
+     "markerPrice": "₹ 80.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:198:1526",
+   "coordinates": {
+    "latitude": 9.90312,
+    "longitude": 76.3227
+   },
+   "count": 5,
+   "bbox": {
+    "south": 9.90141,
+    "west": 76.3047,
+    "north": 9.93951,
+    "east": 76.33636
+   },
+   "mode": "sale",
+   "priceLo": "₹ 8.2 L",
+   "priceHi": "₹ 127.6 L",
+   "priceLoAmount": 819999.9999999999,
+   "priceHiAmount": 12760000,
+   "samples": [
+    {
+     "id": "sample-0291",
+     "coordinates": {
+      "latitude": 9.90312,
+      "longitude": 76.3227
+     },
+     "markerPrice": "₹ 8.2 L"
+    },
+    {
+     "id": "sample-0364",
+     "coordinates": {
+      "latitude": 9.92871,
+      "longitude": 76.31966
+     },
+     "markerPrice": "₹ 52.9 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:215:1526",
+   "coordinates": {
+    "latitude": 10.76149,
+    "longitude": 76.34252
+   },
+   "count": 9,
+   "bbox": {
+    "south": 10.75246,
+    "west": 76.31542,
+    "north": 10.76215,
+    "east": 76.3441
+   },
+   "mode": "sale",
+   "priceLo": "₹ 60.5 L",
+   "priceHi": "₹ 169.6 L",
+   "priceLoAmount": 6050000,
+   "priceHiAmount": 16960000,
+   "samples": [
+    {
+     "id": "sample-0294",
+     "coordinates": {
+      "latitude": 10.76149,
+      "longitude": 76.34252
+     },
+     "markerPrice": "₹ 67.7 L"
+    },
+    {
+     "id": "sample-0395",
+     "coordinates": {
+      "latitude": 10.75764,
+      "longitude": 76.31542
+     },
+     "markerPrice": "₹ 151.9 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:196:1524",
+   "coordinates": {
+    "latitude": 9.80641,
+    "longitude": 76.20869
+   },
+   "count": 4,
+   "bbox": {
+    "south": 9.80641,
+    "west": 76.20869,
+    "north": 9.83762,
+    "east": 76.24956
+   },
+   "mode": "sale",
+   "priceLo": "₹ 46.0 L",
+   "priceHi": "₹ 144.8 L",
+   "priceLoAmount": 4600000,
+   "priceHiAmount": 14480000.000000002,
+   "samples": [
+    {
+     "id": "sample-0302",
+     "coordinates": {
+      "latitude": 9.80641,
+      "longitude": 76.20869
+     },
+     "markerPrice": "₹ 135.8 L"
+    },
+    {
+     "id": "sample-0387",
+     "coordinates": {
+      "latitude": 9.82213,
+      "longitude": 76.2327
+     },
+     "markerPrice": "₹ 46.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:224:1514",
+   "coordinates": {
+    "latitude": 11.22575,
+    "longitude": 75.73954
+   },
+   "count": 3,
+   "bbox": {
+    "south": 11.22575,
+    "west": 75.70031,
+    "north": 11.24144,
+    "east": 75.73954
+   },
+   "mode": "sale",
+   "priceLo": "₹ 39.0 L",
+   "priceHi": "₹ 93.4 L",
+   "priceLoAmount": 3900000,
+   "priceHiAmount": 9340000,
+   "samples": [
+    {
+     "id": "sample-0307",
+     "coordinates": {
+      "latitude": 11.22575,
+      "longitude": 75.73954
+     },
+     "markerPrice": "₹ 39.0 L"
+    },
+    {
+     "id": "sample-0828",
+     "coordinates": {
+      "latitude": 11.24144,
+      "longitude": 75.73128
+     },
+     "markerPrice": "₹ 93.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:243:1501",
+   "coordinates": {
+    "latitude": 12.18149,
+    "longitude": 75.05936
+   },
+   "count": 2,
+   "bbox": {
+    "south": 12.18149,
+    "west": 75.05936,
+    "north": 12.19323,
+    "east": 75.06463
+   },
+   "mode": "sale",
+   "priceLo": "₹ 97.9 L",
+   "priceHi": "₹ 148.9 L",
+   "priceLoAmount": 9790000,
+   "priceHiAmount": 14890000,
+   "samples": [
+    {
+     "id": "sample-0314",
+     "coordinates": {
+      "latitude": 12.18149,
+      "longitude": 75.05936
+     },
+     "markerPrice": "₹ 148.9 L"
+    },
+    {
+     "id": "sample-1104",
+     "coordinates": {
+      "latitude": 12.19323,
+      "longitude": 75.06463
+     },
+     "markerPrice": "₹ 97.9 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:190:1529",
+   "coordinates": {
+    "latitude": 9.50557,
+    "longitude": 76.48927
+   },
+   "count": 6,
+   "bbox": {
+    "south": 9.50324,
+    "west": 76.47053,
+    "north": 9.53544,
+    "east": 76.4946
+   },
+   "mode": "sale",
+   "priceLo": "₹ 8.6 L",
+   "priceHi": "₹ 163.1 L",
+   "priceLoAmount": 860000,
+   "priceHiAmount": 16310000,
+   "samples": [
+    {
+     "id": "sample-0330",
+     "coordinates": {
+      "latitude": 9.50557,
+      "longitude": 76.48927
+     },
+     "markerPrice": "₹ 110.0 L"
+    },
+    {
+     "id": "sample-0463",
+     "coordinates": {
+      "latitude": 9.53485,
+      "longitude": 76.47053
+     },
+     "markerPrice": "₹ 163.1 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:245:1500",
+   "coordinates": {
+    "latitude": 12.2807,
+    "longitude": 75.01364
+   },
+   "count": 6,
+   "bbox": {
+    "south": 12.26198,
+    "west": 75.00914,
+    "north": 12.2953,
+    "east": 75.04772
+   },
+   "mode": "sale",
+   "priceLo": "₹ 15.5 L",
+   "priceHi": "₹ 124.2 L",
+   "priceLoAmount": 1550000,
+   "priceHiAmount": 12420000,
+   "samples": [
+    {
+     "id": "sample-0333",
+     "coordinates": {
+      "latitude": 12.2807,
+      "longitude": 75.01364
+     },
+     "markerPrice": "₹ 112.7 L"
+    },
+    {
+     "id": "sample-1000",
+     "coordinates": {
+      "latitude": 12.26198,
+      "longitude": 75.00914
+     },
+     "markerPrice": "₹ 15.5 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:227:1516",
+   "coordinates": {
+    "latitude": 11.35672,
+    "longitude": 75.82011
+   },
+   "count": 2,
+   "bbox": {
+    "south": 11.35672,
+    "west": 75.81946,
+    "north": 11.37106,
+    "east": 75.82011
+   },
+   "mode": "sale",
+   "priceLo": "₹ 90.5 L",
+   "priceHi": "₹ 186.1 L",
+   "priceLoAmount": 9050000,
+   "priceHiAmount": 18610000,
+   "samples": [
+    {
+     "id": "sample-0338",
+     "coordinates": {
+      "latitude": 11.35672,
+      "longitude": 75.82011
+     },
+     "markerPrice": "₹ 90.5 L"
+    },
+    {
+     "id": "sample-1116",
+     "coordinates": {
+      "latitude": 11.37106,
+      "longitude": 75.81946
+     },
+     "markerPrice": "₹ 186.1 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:226:1513",
+   "coordinates": {
+    "latitude": 11.3186,
+    "longitude": 75.69003
+   },
+   "count": 3,
+   "bbox": {
+    "south": 11.3186,
+    "west": 75.65807,
+    "north": 11.34157,
+    "east": 75.69003
+   },
+   "mode": "sale",
+   "priceLo": "₹ 81.9 L",
+   "priceHi": "₹ 132.2 L",
+   "priceLoAmount": 8190000.000000001,
+   "priceHiAmount": 13219999.999999998,
+   "samples": [
+    {
+     "id": "sample-0348",
+     "coordinates": {
+      "latitude": 11.3186,
+      "longitude": 75.69003
+     },
+     "markerPrice": "₹ 132.2 L"
+    },
+    {
+     "id": "sample-0767",
+     "coordinates": {
+      "latitude": 11.34123,
+      "longitude": 75.65807
+     },
+     "markerPrice": "₹ 91.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:190:1532",
+   "coordinates": {
+    "latitude": 9.54002,
+    "longitude": 76.60291
+   },
+   "count": 2,
+   "bbox": {
+    "south": 9.53972,
+    "west": 76.60291,
+    "north": 9.54002,
+    "east": 76.61211
+   },
+   "mode": "sale",
+   "priceLo": "₹ 95.7 L",
+   "priceHi": "₹ 187.7 L",
+   "priceLoAmount": 9570000,
+   "priceHiAmount": 18770000,
+   "samples": [
+    {
+     "id": "sample-0361",
+     "coordinates": {
+      "latitude": 9.54002,
+      "longitude": 76.60291
+     },
+     "markerPrice": "₹ 187.7 L"
+    },
+    {
+     "id": "sample-0758",
+     "coordinates": {
+      "latitude": 9.53972,
+      "longitude": 76.61211
+     },
+     "markerPrice": "₹ 95.7 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:227:1515",
+   "coordinates": {
+    "latitude": 11.35315,
+    "longitude": 75.75331
+   },
+   "count": 2,
+   "bbox": {
+    "south": 11.35315,
+    "west": 75.75331,
+    "north": 11.36771,
+    "east": 75.79405
+   },
+   "mode": "sale",
+   "priceLo": "₹ 19.2 L",
+   "priceHi": "₹ 30.8 L",
+   "priceLoAmount": 1920000,
+   "priceHiAmount": 3080000,
+   "samples": [
+    {
+     "id": "sample-0365",
+     "coordinates": {
+      "latitude": 11.35315,
+      "longitude": 75.75331
+     },
+     "markerPrice": "₹ 19.2 L"
+    },
+    {
+     "id": "sample-1032",
+     "coordinates": {
+      "latitude": 11.36771,
+      "longitude": 75.79405
+     },
+     "markerPrice": "₹ 30.8 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:172:1539",
+   "coordinates": {
+    "latitude": 8.62725,
+    "longitude": 76.96952
+   },
+   "count": 2,
+   "bbox": {
+    "south": 8.62725,
+    "west": 76.95808,
+    "north": 8.63939,
+    "east": 76.96952
+   },
+   "mode": "sale",
+   "priceLo": "₹ 84.2 L",
+   "priceHi": "₹ 177.3 L",
+   "priceLoAmount": 8420000,
+   "priceHiAmount": 17730000,
+   "samples": [
+    {
+     "id": "sample-0368",
+     "coordinates": {
+      "latitude": 8.62725,
+      "longitude": 76.96952
+     },
+     "markerPrice": "₹ 84.2 L"
+    },
+    {
+     "id": "sample-0906",
+     "coordinates": {
+      "latitude": 8.63939,
+      "longitude": 76.95808
+     },
+     "markerPrice": "₹ 177.3 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:223:1516",
+   "coordinates": {
+    "latitude": 11.19352,
+    "longitude": 75.8108
+   },
+   "count": 6,
+   "bbox": {
+    "south": 11.15852,
+    "west": 75.8108,
+    "north": 11.19539,
+    "east": 75.84957
+   },
+   "mode": "sale",
+   "priceLo": "₹ 21.6 L",
+   "priceHi": "₹ 175.6 L",
+   "priceLoAmount": 2160000,
+   "priceHiAmount": 17560000,
+   "samples": [
+    {
+     "id": "sample-0375",
+     "coordinates": {
+      "latitude": 11.19352,
+      "longitude": 75.8108
+     },
+     "markerPrice": "₹ 93.8 L"
+    },
+    {
+     "id": "sample-0726",
+     "coordinates": {
+      "latitude": 11.16842,
+      "longitude": 75.81725
+     },
+     "markerPrice": "₹ 175.6 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:215:1527",
+   "coordinates": {
+    "latitude": 10.7505,
+    "longitude": 76.35702
+   },
+   "count": 6,
+   "bbox": {
+    "south": 10.7505,
+    "west": 76.35629,
+    "north": 10.76367,
+    "east": 76.37305
+   },
+   "mode": "sale",
+   "priceLo": "₹ 32.2 L",
+   "priceHi": "₹ 141.8 L",
+   "priceLoAmount": 3220000.0000000005,
+   "priceHiAmount": 14180000.000000002,
+   "samples": [
+    {
+     "id": "sample-0393",
+     "coordinates": {
+      "latitude": 10.7505,
+      "longitude": 76.35702
+     },
+     "markerPrice": "₹ 139.3 L"
+    },
+    {
+     "id": "sample-0443",
+     "coordinates": {
+      "latitude": 10.76367,
+      "longitude": 76.35697
+     },
+     "markerPrice": "₹ 103.3 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:193:1532",
+   "coordinates": {
+    "latitude": 9.66132,
+    "longitude": 76.61858
+   },
+   "count": 4,
+   "bbox": {
+    "south": 9.65614,
+    "west": 76.61808,
+    "north": 9.68581,
+    "east": 76.62202
+   },
+   "mode": "sale",
+   "priceLo": "₹ 74.2 L",
+   "priceHi": "₹ 186.8 L",
+   "priceLoAmount": 7420000,
+   "priceHiAmount": 18680000,
+   "samples": [
+    {
+     "id": "sample-0397",
+     "coordinates": {
+      "latitude": 9.66132,
+      "longitude": 76.61858
+     },
+     "markerPrice": "₹ 150.3 L"
+    },
+    {
+     "id": "sample-0508",
+     "coordinates": {
+      "latitude": 9.65614,
+      "longitude": 76.62202
+     },
+     "markerPrice": "₹ 88.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:199:1524",
+   "coordinates": {
+    "latitude": 9.96438,
+    "longitude": 76.22628
+   },
+   "count": 2,
+   "bbox": {
+    "south": 9.96438,
+    "west": 76.22628,
+    "north": 9.96798,
+    "east": 76.23922
+   },
+   "mode": "sale",
+   "priceLo": "₹ 47.2 L",
+   "priceHi": "₹ 140.8 L",
+   "priceLoAmount": 4720000,
+   "priceHiAmount": 14080000.000000002,
+   "samples": [
+    {
+     "id": "sample-0406",
+     "coordinates": {
+      "latitude": 9.96438,
+      "longitude": 76.22628
+     },
+     "markerPrice": "₹ 47.2 L"
+    },
+    {
+     "id": "sample-1060",
+     "coordinates": {
+      "latitude": 9.96798,
+      "longitude": 76.23922
+     },
+     "markerPrice": "₹ 140.8 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:226:1514",
+   "coordinates": {
+    "latitude": 11.30058,
+    "longitude": 75.70073
+   },
+   "count": 6,
+   "bbox": {
+    "south": 11.30058,
+    "west": 75.70073,
+    "north": 11.34635,
+    "east": 75.73678
+   },
+   "mode": "sale",
+   "priceLo": "₹ 43.8 L",
+   "priceHi": "₹ 184.4 L",
+   "priceLoAmount": 4380000,
+   "priceHiAmount": 18440000,
+   "samples": [
+    {
+     "id": "sample-0410",
+     "coordinates": {
+      "latitude": 11.30058,
+      "longitude": 75.70073
+     },
+     "markerPrice": "₹ 128.5 L"
+    },
+    {
+     "id": "sample-0457",
+     "coordinates": {
+      "latitude": 11.34269,
+      "longitude": 75.72191
+     },
+     "markerPrice": "₹ 184.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:227:1514",
+   "coordinates": {
+    "latitude": 11.37598,
+    "longitude": 75.73561
+   },
+   "count": 3,
+   "bbox": {
+    "south": 11.3514,
+    "west": 75.73248,
+    "north": 11.37598,
+    "east": 75.746
+   },
+   "mode": "sale",
+   "priceLo": "₹ 62.5 L",
+   "priceHi": "₹ 143.7 L",
+   "priceLoAmount": 6250000,
+   "priceHiAmount": 14369999.999999998,
+   "samples": [
+    {
+     "id": "sample-0431",
+     "coordinates": {
+      "latitude": 11.37598,
+      "longitude": 75.73561
+     },
+     "markerPrice": "₹ 143.7 L"
+    },
+    {
+     "id": "sample-1147",
+     "coordinates": {
+      "latitude": 11.3514,
+      "longitude": 75.746
+     },
+     "markerPrice": "₹ 81.7 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:225:1513",
+   "coordinates": {
+    "latitude": 11.268,
+    "longitude": 75.69045
+   },
+   "count": 2,
+   "bbox": {
+    "south": 11.268,
+    "west": 75.67697,
+    "north": 11.29194,
+    "east": 75.69045
+   },
+   "mode": "sale",
+   "priceLo": "₹ 77.0 L",
+   "priceHi": "₹ 118.6 L",
+   "priceLoAmount": 7700000,
+   "priceHiAmount": 11860000,
+   "samples": [
+    {
+     "id": "sample-0442",
+     "coordinates": {
+      "latitude": 11.268,
+      "longitude": 75.69045
+     },
+     "markerPrice": "₹ 118.6 L"
+    },
+    {
+     "id": "sample-1042",
+     "coordinates": {
+      "latitude": 11.29194,
+      "longitude": 75.67697
+     },
+     "markerPrice": "₹ 77.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:168:1539",
+   "coordinates": {
+    "latitude": 8.43574,
+    "longitude": 76.97145
+   },
+   "count": 4,
+   "bbox": {
+    "south": 8.42987,
+    "west": 76.96715,
+    "north": 8.44914,
+    "east": 76.99182
+   },
+   "mode": "sale",
+   "priceLo": "₹ 53.0 L",
+   "priceHi": "₹ 184.5 L",
+   "priceLoAmount": 5300000,
+   "priceHiAmount": 18450000,
+   "samples": [
+    {
+     "id": "sample-0465",
+     "coordinates": {
+      "latitude": 8.43574,
+      "longitude": 76.97145
+     },
+     "markerPrice": "₹ 152.2 L"
+    },
+    {
+     "id": "sample-0490",
+     "coordinates": {
+      "latitude": 8.44478,
+      "longitude": 76.98207
+     },
+     "markerPrice": "₹ 184.5 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:196:1527",
+   "coordinates": {
+    "latitude": 9.83493,
+    "longitude": 76.3666
+   },
+   "count": 3,
+   "bbox": {
+    "south": 9.82315,
+    "west": 76.36303,
+    "north": 9.83493,
+    "east": 76.38638
+   },
+   "mode": "sale",
+   "priceLo": "₹ 52.1 L",
+   "priceHi": "₹ 173.9 L",
+   "priceLoAmount": 5210000,
+   "priceHiAmount": 17390000,
+   "samples": [
+    {
+     "id": "sample-0469",
+     "coordinates": {
+      "latitude": 9.83493,
+      "longitude": 76.3666
+     },
+     "markerPrice": "₹ 54.6 L"
+    },
+    {
+     "id": "sample-0719",
+     "coordinates": {
+      "latitude": 9.83419,
+      "longitude": 76.38638
+     },
+     "markerPrice": "₹ 173.9 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:197:1525",
+   "coordinates": {
+    "latitude": 9.8817,
+    "longitude": 76.28816
+   },
+   "count": 6,
+   "bbox": {
+    "south": 9.85444,
+    "west": 76.25017,
+    "north": 9.89769,
+    "east": 76.29907
+   },
+   "mode": "sale",
+   "priceLo": "₹ 8.7 L",
+   "priceHi": "₹ 183.1 L",
+   "priceLoAmount": 869999.9999999999,
+   "priceHiAmount": 18310000,
+   "samples": [
+    {
+     "id": "sample-0471",
+     "coordinates": {
+      "latitude": 9.8817,
+      "longitude": 76.28816
+     },
+     "markerPrice": "₹ 121.2 L"
+    },
+    {
+     "id": "sample-0757",
+     "coordinates": {
+      "latitude": 9.87531,
+      "longitude": 76.27506
+     },
+     "markerPrice": "₹ 155.3 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:168:1538",
+   "coordinates": {
+    "latitude": 8.43665,
+    "longitude": 76.92866
+   },
+   "count": 4,
+   "bbox": {
+    "south": 8.42894,
+    "west": 76.91154,
+    "north": 8.44563,
+    "east": 76.92866
+   },
+   "mode": "sale",
+   "priceLo": "₹ 19.9 L",
+   "priceHi": "₹ 186.5 L",
+   "priceLoAmount": 1989999.9999999998,
+   "priceHiAmount": 18650000,
+   "samples": [
+    {
+     "id": "sample-0496",
+     "coordinates": {
+      "latitude": 8.43665,
+      "longitude": 76.92866
+     },
+     "markerPrice": "₹ 19.9 L"
+    },
+    {
+     "id": "sample-0621",
+     "coordinates": {
+      "latitude": 8.43134,
+      "longitude": 76.91475
+     },
+     "markerPrice": "₹ 186.5 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:222:1516",
+   "coordinates": {
+    "latitude": 11.1489,
+    "longitude": 75.83213
+   },
+   "count": 2,
+   "bbox": {
+    "south": 11.13713,
+    "west": 75.81066,
+    "north": 11.1489,
+    "east": 75.83213
+   },
+   "mode": "sale",
+   "priceLo": "₹ 17.2 L",
+   "priceHi": "₹ 157.7 L",
+   "priceLoAmount": 1720000,
+   "priceHiAmount": 15769999.999999998,
+   "samples": [
+    {
+     "id": "sample-0500",
+     "coordinates": {
+      "latitude": 11.1489,
+      "longitude": 75.83213
+     },
+     "markerPrice": "₹ 157.7 L"
+    },
+    {
+     "id": "sample-0827",
+     "coordinates": {
+      "latitude": 11.13713,
+      "longitude": 75.81066
+     },
+     "markerPrice": "₹ 17.2 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:199:1526",
+   "coordinates": {
+    "latitude": 9.9538,
+    "longitude": 76.33042
+   },
+   "count": 4,
+   "bbox": {
+    "south": 9.95211,
+    "west": 76.31237,
+    "north": 9.99588,
+    "east": 76.33593
+   },
+   "mode": "sale",
+   "priceLo": "₹ 45.4 L",
+   "priceHi": "₹ 113.5 L",
+   "priceLoAmount": 4540000,
+   "priceHiAmount": 11350000,
+   "samples": [
+    {
+     "id": "sample-0501",
+     "coordinates": {
+      "latitude": 9.9538,
+      "longitude": 76.33042
+     },
+     "markerPrice": "₹ 72.6 L"
+    },
+    {
+     "id": "sample-1048",
+     "coordinates": {
+      "latitude": 9.99588,
+      "longitude": 76.31237
+     },
+     "markerPrice": "₹ 45.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:171:1539",
+   "coordinates": {
+    "latitude": 8.58782,
+    "longitude": 76.98917
+   },
+   "count": 4,
+   "bbox": {
+    "south": 8.55472,
+    "west": 76.9572,
+    "north": 8.58782,
+    "east": 76.99641
+   },
+   "mode": "sale",
+   "priceLo": "₹ 84.7 L",
+   "priceHi": "₹ 177.4 L",
+   "priceLoAmount": 8470000,
+   "priceHiAmount": 17740000,
+   "samples": [
+    {
+     "id": "sample-0505",
+     "coordinates": {
+      "latitude": 8.58782,
+      "longitude": 76.98917
+     },
+     "markerPrice": "₹ 90.5 L"
+    },
+    {
+     "id": "sample-0539",
+     "coordinates": {
+      "latitude": 8.55799,
+      "longitude": 76.98873
+     },
+     "markerPrice": "₹ 177.4 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:193:1530",
+   "coordinates": {
+    "latitude": 9.66624,
+    "longitude": 76.51889
+   },
+   "count": 3,
+   "bbox": {
+    "south": 9.65243,
+    "west": 76.51889,
+    "north": 9.67782,
+    "east": 76.54292
+   },
+   "mode": "sale",
+   "priceLo": "₹ 12.7 L",
+   "priceHi": "₹ 120.7 L",
+   "priceLoAmount": 1270000,
+   "priceHiAmount": 12070000,
+   "samples": [
+    {
+     "id": "sample-0506",
+     "coordinates": {
+      "latitude": 9.66624,
+      "longitude": 76.51889
+     },
+     "markerPrice": "₹ 12.7 L"
+    },
+    {
+     "id": "sample-0649",
+     "coordinates": {
+      "latitude": 9.65243,
+      "longitude": 76.5232
+     },
+     "markerPrice": "₹ 115.8 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:199:1523",
+   "coordinates": {
+    "latitude": 9.95059,
+    "longitude": 76.15961
+   },
+   "count": 2,
+   "bbox": {
+    "south": 9.95059,
+    "west": 76.15961,
+    "north": 9.95429,
+    "east": 76.18612
+   },
+   "mode": "sale",
+   "priceLo": "₹ 22.6 L",
+   "priceHi": "₹ 55.1 L",
+   "priceLoAmount": 2260000,
+   "priceHiAmount": 5510000,
+   "samples": [
+    {
+     "id": "sample-0531",
+     "coordinates": {
+      "latitude": 9.95059,
+      "longitude": 76.15961
+     },
+     "markerPrice": "₹ 55.1 L"
+    },
+    {
+     "id": "sample-1317",
+     "coordinates": {
+      "latitude": 9.95429,
+      "longitude": 76.18612
+     },
+     "markerPrice": "₹ 22.6 L"
+    }
+   ]
+  },
+  {
+   "id": "sample-0543",
+   "coordinates": {
+    "latitude": 9.49868,
+    "longitude": 76.61511
+   },
+   "markerPrice": "₹ 144.8 L"
+  },
+  {
+   "id": "bin:198:1525",
+   "coordinates": {
+    "latitude": 9.91316,
+    "longitude": 76.28035
+   },
+   "count": 5,
+   "bbox": {
+    "south": 9.91316,
+    "west": 76.25402,
+    "north": 9.94468,
+    "east": 76.28035
+   },
+   "mode": "sale",
+   "priceLo": "₹ 56.0 L",
+   "priceHi": "₹ 156.5 L",
+   "priceLoAmount": 5600000,
+   "priceHiAmount": 15650000,
+   "samples": [
+    {
+     "id": "sample-0544",
+     "coordinates": {
+      "latitude": 9.91316,
+      "longitude": 76.28035
+     },
+     "markerPrice": "₹ 88.0 L"
+    },
+    {
+     "id": "sample-1065",
+     "coordinates": {
+      "latitude": 9.93862,
+      "longitude": 76.25402
+     },
+     "markerPrice": "₹ 156.5 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:169:1537",
+   "coordinates": {
+    "latitude": 8.49988,
+    "longitude": 76.85301
+   },
+   "count": 2,
+   "bbox": {
+    "south": 8.49687,
+    "west": 76.85301,
+    "north": 8.49988,
+    "east": 76.86824
+   },
+   "mode": "sale",
+   "priceLo": "₹ 126.9 L",
+   "priceHi": "₹ 185.9 L",
+   "priceLoAmount": 12690000,
+   "priceHiAmount": 18590000,
+   "samples": [
+    {
+     "id": "sample-0549",
+     "coordinates": {
+      "latitude": 8.49988,
+      "longitude": 76.85301
+     },
+     "markerPrice": "₹ 185.9 L"
+    },
+    {
+     "id": "sample-0942",
+     "coordinates": {
+      "latitude": 8.49687,
+      "longitude": 76.86824
+     },
+     "markerPrice": "₹ 126.9 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:172:1540",
+   "coordinates": {
+    "latitude": 8.62423,
+    "longitude": 77.03045
+   },
+   "count": 2,
+   "bbox": {
+    "south": 8.62423,
+    "west": 77.00384,
+    "north": 8.64639,
+    "east": 77.03045
+   },
+   "mode": "sale",
+   "priceLo": "₹ 20.3 L",
+   "priceHi": "₹ 79.2 L",
+   "priceLoAmount": 2030000,
+   "priceHiAmount": 7920000,
+   "samples": [
+    {
+     "id": "sample-0553",
+     "coordinates": {
+      "latitude": 8.62423,
+      "longitude": 77.03045
+     },
+     "markerPrice": "₹ 20.3 L"
+    },
+    {
+     "id": "sample-0803",
+     "coordinates": {
+      "latitude": 8.64639,
+      "longitude": 77.00384
+     },
+     "markerPrice": "₹ 79.2 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:199:1527",
+   "coordinates": {
+    "latitude": 9.95472,
+    "longitude": 76.38865
+   },
+   "count": 3,
+   "bbox": {
+    "south": 9.95332,
+    "west": 76.35513,
+    "north": 9.97189,
+    "east": 76.38865
+   },
+   "mode": "sale",
+   "priceLo": "₹ 41.8 L",
+   "priceHi": "₹ 116.9 L",
+   "priceLoAmount": 4179999.9999999995,
+   "priceHiAmount": 11690000,
+   "samples": [
+    {
+     "id": "sample-0564",
+     "coordinates": {
+      "latitude": 9.95472,
+      "longitude": 76.38865
+     },
+     "markerPrice": "₹ 41.8 L"
+    },
+    {
+     "id": "sample-0968",
+     "coordinates": {
+      "latitude": 9.95332,
+      "longitude": 76.35513
+     },
+     "markerPrice": "₹ 85.2 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:171:1538",
+   "coordinates": {
+    "latitude": 8.55669,
+    "longitude": 76.93841
+   },
+   "count": 3,
+   "bbox": {
+    "south": 8.55583,
+    "west": 76.90521,
+    "north": 8.56274,
+    "east": 76.93841
+   },
+   "mode": "sale",
+   "priceLo": "₹ 106.2 L",
+   "priceHi": "₹ 159.0 L",
+   "priceLoAmount": 10620000,
+   "priceHiAmount": 15900000,
+   "samples": [
+    {
+     "id": "sample-0568",
+     "coordinates": {
+      "latitude": 8.55669,
+      "longitude": 76.93841
+     },
+     "markerPrice": "₹ 153.5 L"
+    },
+    {
+     "id": "sample-0754",
+     "coordinates": {
+      "latitude": 8.55583,
+      "longitude": 76.90521
+     },
+     "markerPrice": "₹ 159.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:225:1515",
+   "coordinates": {
+    "latitude": 11.28462,
+    "longitude": 75.77751
+   },
+   "count": 3,
+   "bbox": {
+    "south": 11.25241,
+    "west": 75.77406,
+    "north": 11.28462,
+    "east": 75.78505
+   },
+   "mode": "sale",
+   "priceLo": "₹ 58.2 L",
+   "priceHi": "₹ 158.7 L",
+   "priceLoAmount": 5820000,
+   "priceHiAmount": 15869999.999999998,
+   "samples": [
+    {
+     "id": "sample-0576",
+     "coordinates": {
+      "latitude": 11.28462,
+      "longitude": 75.77751
+     },
+     "markerPrice": "₹ 158.7 L"
+    },
+    {
+     "id": "sample-0613",
+     "coordinates": {
+      "latitude": 11.25241,
+      "longitude": 75.78505
+     },
+     "markerPrice": "₹ 135.2 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:213:1527",
+   "coordinates": {
+    "latitude": 10.69728,
+    "longitude": 76.36894
+   },
+   "count": 3,
+   "bbox": {
+    "south": 10.69707,
+    "west": 76.35343,
+    "north": 10.69958,
+    "east": 76.37308
+   },
+   "mode": "sale",
+   "priceLo": "₹ 73.9 L",
+   "priceHi": "₹ 186.3 L",
+   "priceLoAmount": 7390000.000000001,
+   "priceHiAmount": 18630000,
+   "samples": [
+    {
+     "id": "sample-0590",
+     "coordinates": {
+      "latitude": 10.69728,
+      "longitude": 76.36894
+     },
+     "markerPrice": "₹ 186.3 L"
+    },
+    {
+     "id": "sample-0724",
+     "coordinates": {
+      "latitude": 10.69707,
+      "longitude": 76.37308
+     },
+     "markerPrice": "₹ 94.1 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:200:1527",
+   "coordinates": {
+    "latitude": 10.00982,
+    "longitude": 76.36267
+   },
+   "count": 5,
+   "bbox": {
+    "south": 10.00311,
+    "west": 76.35365,
+    "north": 10.0365,
+    "east": 76.3909
+   },
+   "mode": "sale",
+   "priceLo": "₹ 40.3 L",
+   "priceHi": "₹ 169.0 L",
+   "priceLoAmount": 4029999.9999999995,
+   "priceHiAmount": 16900000,
+   "samples": [
+    {
+     "id": "sample-0593",
+     "coordinates": {
+      "latitude": 10.00982,
+      "longitude": 76.36267
+     },
+     "markerPrice": "₹ 40.3 L"
+    },
+    {
+     "id": "sample-0880",
+     "coordinates": {
+      "latitude": 10.0365,
+      "longitude": 76.38811
+     },
+     "markerPrice": "₹ 87.4 L"
+    }
+   ]
+  },
+  {
+   "id": "sample-0607",
+   "coordinates": {
+    "latitude": 9.67262,
+    "longitude": 76.44498
+   },
+   "markerPrice": "₹ 103.1 L"
+  },
+  {
+   "id": "bin:223:1513",
+   "coordinates": {
+    "latitude": 11.17507,
+    "longitude": 75.6624
+   },
+   "count": 3,
+   "bbox": {
+    "south": 11.15941,
+    "west": 75.6568,
+    "north": 11.17525,
+    "east": 75.67183
+   },
+   "mode": "sale",
+   "priceLo": "₹ 87.6 L",
+   "priceHi": "₹ 163.8 L",
+   "priceLoAmount": 8760000,
+   "priceHiAmount": 16380000.000000002,
+   "samples": [
+    {
+     "id": "sample-0625",
+     "coordinates": {
+      "latitude": 11.17507,
+      "longitude": 75.6624
+     },
+     "markerPrice": "₹ 163.8 L"
+    },
+    {
+     "id": "sample-1196",
+     "coordinates": {
+      "latitude": 11.17525,
+      "longitude": 75.67183
+     },
+     "markerPrice": "₹ 87.6 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:198:1527",
+   "coordinates": {
+    "latitude": 9.92978,
+    "longitude": 76.39133
+   },
+   "count": 3,
+   "bbox": {
+    "south": 9.92978,
+    "west": 76.35218,
+    "north": 9.94493,
+    "east": 76.39133
+   },
+   "mode": "sale",
+   "priceLo": "₹ 87.3 L",
+   "priceHi": "₹ 164.0 L",
+   "priceLoAmount": 8730000,
+   "priceHiAmount": 16400000,
+   "samples": [
+    {
+     "id": "sample-0629",
+     "coordinates": {
+      "latitude": 9.92978,
+      "longitude": 76.39133
+     },
+     "markerPrice": "₹ 158.9 L"
+    },
+    {
+     "id": "sample-0855",
+     "coordinates": {
+      "latitude": 9.93975,
+      "longitude": 76.35218
+     },
+     "markerPrice": "₹ 87.3 L"
+    }
+   ]
+  },
+  {
+   "id": "sample-0663",
+   "coordinates": {
+    "latitude": 10.05314,
+    "longitude": 76.36301
+   },
+   "markerPrice": "₹ 156.1 L"
+  },
+  {
+   "id": "bin:169:1538",
+   "coordinates": {
+    "latitude": 8.49169,
+    "longitude": 76.93215
+   },
+   "count": 3,
+   "bbox": {
+    "south": 8.45185,
+    "west": 76.91116,
+    "north": 8.49169,
+    "east": 76.93215
+   },
+   "mode": "sale",
+   "priceLo": "₹ 17.0 L",
+   "priceHi": "₹ 183.2 L",
+   "priceLoAmount": 1700000,
+   "priceHiAmount": 18320000,
+   "samples": [
+    {
+     "id": "sample-0665",
+     "coordinates": {
+      "latitude": 8.49169,
+      "longitude": 76.93215
+     },
+     "markerPrice": "₹ 17.0 L"
+    },
+    {
+     "id": "sample-0721",
+     "coordinates": {
+      "latitude": 8.46972,
+      "longitude": 76.91139
+     },
+     "markerPrice": "₹ 128.1 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:191:1531",
+   "coordinates": {
+    "latitude": 9.55303,
+    "longitude": 76.55634
+   },
+   "count": 3,
+   "bbox": {
+    "south": 9.55125,
+    "west": 76.55374,
+    "north": 9.55608,
+    "east": 76.55768
+   },
+   "mode": "sale",
+   "priceLo": "₹ 85.9 L",
+   "priceHi": "₹ 141.5 L",
+   "priceLoAmount": 8590000,
+   "priceHiAmount": 14150000,
+   "samples": [
+    {
+     "id": "sample-0680",
+     "coordinates": {
+      "latitude": 9.55303,
+      "longitude": 76.55634
+     },
+     "markerPrice": "₹ 113.4 L"
+    },
+    {
+     "id": "sample-1096",
+     "coordinates": {
+      "latitude": 9.55125,
+      "longitude": 76.55768
+     },
+     "markerPrice": "₹ 141.5 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:197:1523",
+   "coordinates": {
+    "latitude": 9.87321,
+    "longitude": 76.19364
+   },
+   "count": 3,
+   "bbox": {
+    "south": 9.85742,
+    "west": 76.15598,
+    "north": 9.87321,
+    "east": 76.19364
+   },
+   "mode": "sale",
+   "priceLo": "₹ 39.2 L",
+   "priceHi": "₹ 167.0 L",
+   "priceLoAmount": 3920000.0000000005,
+   "priceHiAmount": 16700000,
+   "samples": [
+    {
+     "id": "sample-0685",
+     "coordinates": {
+      "latitude": 9.87321,
+      "longitude": 76.19364
+     },
+     "markerPrice": "₹ 39.2 L"
+    },
+    {
+     "id": "sample-0859",
+     "coordinates": {
+      "latitude": 9.85775,
+      "longitude": 76.15598
+     },
+     "markerPrice": "₹ 132.0 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:198:1523",
+   "coordinates": {
+    "latitude": 9.90744,
+    "longitude": 76.19026
+   },
+   "count": 3,
+   "bbox": {
+    "south": 9.90117,
+    "west": 76.17181,
+    "north": 9.94442,
+    "east": 76.19026
+   },
+   "mode": "sale",
+   "priceLo": "₹ 59.7 L",
+   "priceHi": "₹ 180.7 L",
+   "priceLoAmount": 5970000,
+   "priceHiAmount": 18070000,
+   "samples": [
+    {
+     "id": "sample-0694",
+     "coordinates": {
+      "latitude": 9.90744,
+      "longitude": 76.19026
+     },
+     "markerPrice": "₹ 180.7 L"
+    },
+    {
+     "id": "sample-0962",
+     "coordinates": {
+      "latitude": 9.94442,
+      "longitude": 76.17822
+     },
+     "markerPrice": "₹ 59.7 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:222:1515",
+   "coordinates": {
+    "latitude": 11.1367,
+    "longitude": 75.77184
+   },
+   "count": 2,
+   "bbox": {
+    "south": 11.13567,
+    "west": 75.77184,
+    "north": 11.1367,
+    "east": 75.78484
+   },
+   "mode": "sale",
+   "priceLo": "₹ 60.7 L",
+   "priceHi": "₹ 170.6 L",
+   "priceLoAmount": 6070000,
+   "priceHiAmount": 17060000,
+   "samples": [
+    {
+     "id": "sample-0704",
+     "coordinates": {
+      "latitude": 11.1367,
+      "longitude": 75.77184
+     },
+     "markerPrice": "₹ 60.7 L"
+    },
+    {
+     "id": "sample-1236",
+     "coordinates": {
+      "latitude": 11.13567,
+      "longitude": 75.78484
+     },
+     "markerPrice": "₹ 170.6 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:199:1525",
+   "coordinates": {
+    "latitude": 9.98447,
+    "longitude": 76.28502
+   },
+   "count": 2,
+   "bbox": {
+    "south": 9.95251,
+    "west": 76.27615,
+    "north": 9.98447,
+    "east": 76.28502
+   },
+   "mode": "sale",
+   "priceLo": "₹ 81.3 L",
+   "priceHi": "₹ 134.0 L",
+   "priceLoAmount": 8130000,
+   "priceHiAmount": 13400000,
+   "samples": [
+    {
+     "id": "sample-0707",
+     "coordinates": {
+      "latitude": 9.98447,
+      "longitude": 76.28502
+     },
+     "markerPrice": "₹ 134.0 L"
+    },
+    {
+     "id": "sample-0898",
+     "coordinates": {
+      "latitude": 9.95251,
+      "longitude": 76.27615
+     },
+     "markerPrice": "₹ 81.3 L"
+    }
+   ]
+  },
+  {
+   "id": "sample-0738",
+   "coordinates": {
+    "latitude": 8.44648,
+    "longitude": 76.81798
+   },
+   "markerPrice": "₹ 55.6 L"
+  },
+  {
+   "id": "bin:193:1531",
+   "coordinates": {
+    "latitude": 9.66918,
+    "longitude": 76.5621
+   },
+   "count": 4,
+   "bbox": {
+    "south": 9.65704,
+    "west": 76.56203,
+    "north": 9.66996,
+    "east": 76.59887
+   },
+   "mode": "sale",
+   "priceLo": "₹ 72.5 L",
+   "priceHi": "₹ 161.4 L",
+   "priceLoAmount": 7250000,
+   "priceHiAmount": 16140000,
+   "samples": [
+    {
+     "id": "sample-0746",
+     "coordinates": {
+      "latitude": 9.66918,
+      "longitude": 76.5621
+     },
+     "markerPrice": "₹ 72.5 L"
+    },
+    {
+     "id": "sample-1135",
+     "coordinates": {
+      "latitude": 9.65704,
+      "longitude": 76.56203
+     },
+     "markerPrice": "₹ 129.1 L"
+    }
+   ]
+  },
+  {
+   "id": "sample-0747",
+   "coordinates": {
+    "latitude": 11.31827,
+    "longitude": 75.90024
+   },
+   "markerPrice": "₹ 117.9 L"
+  },
+  {
+   "id": "sample-0783",
+   "coordinates": {
+    "latitude": 10.60032,
+    "longitude": 76.4455
+   },
+   "markerPrice": "₹ 8.0 L"
+  },
+  {
+   "id": "bin:211:1524",
+   "coordinates": {
+    "latitude": 10.55076,
+    "longitude": 76.22694
+   },
+   "count": 2,
+   "bbox": {
+    "south": 10.55014,
+    "west": 76.2185,
+    "north": 10.55076,
+    "east": 76.22694
+   },
+   "mode": "sale",
+   "priceLo": "₹ 76.8 L",
+   "priceHi": "₹ 172.7 L",
+   "priceLoAmount": 7680000,
+   "priceHiAmount": 17270000,
+   "samples": [
+    {
+     "id": "sample-0795",
+     "coordinates": {
+      "latitude": 10.55076,
+      "longitude": 76.22694
+     },
+     "markerPrice": "₹ 172.7 L"
+    },
+    {
+     "id": "sample-0822",
+     "coordinates": {
+      "latitude": 10.55014,
+      "longitude": 76.2185
+     },
+     "markerPrice": "₹ 76.8 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:247:1503",
+   "coordinates": {
+    "latitude": 12.35569,
+    "longitude": 75.19276
+   },
+   "count": 2,
+   "bbox": {
+    "south": 12.35569,
+    "west": 75.17781,
+    "north": 12.36942,
+    "east": 75.19276
+   },
+   "mode": "sale",
+   "priceLo": "₹ 106.6 L",
+   "priceHi": "₹ 148.7 L",
+   "priceLoAmount": 10660000,
+   "priceHiAmount": 14869999.999999998,
+   "samples": [
+    {
+     "id": "sample-0819",
+     "coordinates": {
+      "latitude": 12.35569,
+      "longitude": 75.19276
+     },
+     "markerPrice": "₹ 106.6 L"
+    },
+    {
+     "id": "sample-1115",
+     "coordinates": {
+      "latitude": 12.36942,
+      "longitude": 75.17781
+     },
+     "markerPrice": "₹ 148.7 L"
+    }
+   ]
+  },
+  {
+   "id": "bin:245:1503",
+   "coordinates": {
+    "latitude": 12.29406,
+    "longitude": 75.18077
+   },
+   "count": 3,
+   "bbox": {
+    "south": 12.26938,
+    "west": 75.1649,
+    "north": 12.29406,
+    "east": 75.18077
+   },
+   "mode": "sale",
+   "priceLo": "₹ 48.9 L",
+   "priceHi": "₹ 183.2 L",
+   "priceLoAmount": 4890000,
+   "priceHiAmount": 18320000,
+   "samples": [
+    {
+     "id": "sample-0841",
+     "coordinates": {
+      "latitude": 12.29406,
+      "longitude": 75.18077
+     },
+     "markerPrice": "₹ 67.7 L"
+    },
+    {
+     "id": "sample-0995",
+     "coordinates": {
+      "latitude": 12.26938,
+      "longitude": 75.17257
+     },
+     "markerPrice": "₹ 183.2 L"
+    }
+   ]
+  },
+  {
+   "id": "sample-0857",
+   "coordinates": {
+    "latitude": 11.15528,
+    "longitude": 75.89037
+   },
+   "markerPrice": "₹ 27.4 L"
+  },
+  {
+   "id": "bin:244:1500",
+   "coordinates": {
+    "latitude": 12.21087,
+    "longitude": 75.03634
+   },
+   "count": 6,
+   "bbox": {
+    "south": 12.20302,
+    "west": 75.01377,
+    "north": 12.24221,
+    "east": 75.04053
+   },
+   "mode": "sale",
+   "priceLo": "₹ 114.3 L",
+   "priceHi": "₹ 180.6 L",
+   "priceLoAmount": 11430000,
+   "priceHiAmount": 18060000,
+   "samples": [
+    {
+     "id": "sample-0871",
+     "coordinates": {
+      "latitude": 12.21087,
+      "longitude": 75.03634
+     },
+     "markerPrice": "₹ 135.0 L"
+    },
+    {
+     "id": "sample-0878",
+     "coordinates": {
+      "latitude": 12.24151,
+      "longitude": 75.03809
+     },
+     "markerPrice": "₹ 148.6 L"
+    }
+   ]
+  },
+  {
+   "id": "sample-0888",
+   "coordinates": {
+    "latitude": 10.05253,
+    "longitude": 76.31078
+   },
+   "markerPrice": "₹ 174.0 L"
+  },
+  {
+   "id": "bin:213:1526",
+   "coordinates": {
+    "latitude": 10.69954,
+    "longitude": 76.33063
+   },
+   "count": 3,
+   "bbox": {
+    "south": 10.69801,
+    "west": 76.32582,
+    "north": 10.69976,
+    "east": 76.33862
+   },
+   "mode": "sale",
+   "priceLo": "₹ 20.6 L",
+   "priceHi": "₹ 161.6 L",
+   "priceLoAmount": 2060000.0000000002,
+   "priceHiAmount": 16160000,
+   "samples": [
+    {
+     "id": "sample-0949",
+     "coordinates": {
+      "latitude": 10.69954,
+      "longitude": 76.33063
+     },
+     "markerPrice": "₹ 20.6 L"
+    },
+    {
+     "id": "sample-1074",
+     "coordinates": {
+      "latitude": 10.69801,
+      "longitude": 76.32582
+     },
+     "markerPrice": "₹ 50.1 L"
+    }
+   ]
+  },
+  {
+   "id": "sample-0998",
+   "coordinates": {
+    "latitude": 8.59625,
+    "longitude": 76.84295
+   },
+   "markerPrice": "₹ 48.1 L"
+  },
+  {
+   "id": "sample-1005",
+   "coordinates": {
+    "latitude": 8.53553,
+    "longitude": 76.94139
+   },
+   "markerPrice": "₹ 170.6 L"
+  },
+  {
+   "id": "sample-1136",
+   "coordinates": {
+    "latitude": 10.05209,
+    "longitude": 76.1834
+   },
+   "markerPrice": "₹ 169.4 L"
+  },
+  {
+   "id": "bin:243:1503",
+   "coordinates": {
+    "latitude": 12.1958,
+    "longitude": 75.17569
+   },
+   "count": 2,
+   "bbox": {
+    "south": 12.18847,
+    "west": 75.17569,
+    "north": 12.1958,
+    "east": 75.17591
+   },
+   "mode": "sale",
+   "priceLo": "₹ 70.3 L",
+   "priceHi": "₹ 152.2 L",
+   "priceLoAmount": 7030000,
+   "priceHiAmount": 15219999.999999998,
+   "samples": [
+    {
+     "id": "sample-1189",
+     "coordinates": {
+      "latitude": 12.1958,
+      "longitude": 75.17569
+     },
+     "markerPrice": "₹ 70.3 L"
+    },
+    {
+     "id": "sample-1243",
+     "coordinates": {
+      "latitude": 12.18847,
+      "longitude": 75.17591
+     },
+     "markerPrice": "₹ 152.2 L"
+    }
+   ]
+  },
+  {
+   "id": "sample-1232",
+   "coordinates": {
+    "latitude": 11.30699,
+    "longitude": 75.88656
+   },
+   "markerPrice": "₹ 147.2 L"
+  },
+  {
+   "id": "sample-1257",
+   "coordinates": {
+    "latitude": 8.50051,
+    "longitude": 77.05313
+   },
+   "markerPrice": "₹ 122.3 L"
+  },
+  {
+   "id": "sample-1265",
+   "coordinates": {
+    "latitude": 9.60833,
+    "longitude": 76.61881
+   },
+   "markerPrice": "₹ 40.0 L"
+  },
+  {
+   "id": "sample-1316",
+   "coordinates": {
+    "latitude": 9.97342,
+    "longitude": 76.14268
+   },
+   "markerPrice": "₹ 148.8 L"
+  }
+ ],
+ "total": 1361,
+ "binned": true,
+ "sampled": false
+}
