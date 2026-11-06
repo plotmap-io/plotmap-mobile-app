@@ -4,7 +4,6 @@ import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-
 
 import { Card, GroupLabel } from '@/components/card';
 import { StackScreen } from '@/components/stack-screen';
-import { apiBase } from '@/lib/api';
 import { devListings } from '@/lib/dev-data';
 import { useDevSettings } from '@/lib/dev-settings';
 import { color } from '@/theme/tokens';
@@ -58,6 +57,11 @@ export default function DevelopmentScreen() {
   const { apiUrl, sampleData, inferredApiUrl, setApiUrl, setSampleData } = useDevSettings();
   const [draft, setDraft] = useState(apiUrl);
 
+  // Derived from state, never read back from the api module. React Compiler
+  // memoises this subtree, and an impure getter called during render has no
+  // dependency for it to track — the line would keep showing the old server.
+  const effective = apiUrl || inferredApiUrl;
+
   const commit = (value: string) => {
     setDraft(value);
     setApiUrl(value.trim());
@@ -84,7 +88,7 @@ export default function DevelopmentScreen() {
             />
             <Text style={styles.hint}>
               Leave it empty to follow the machine serving the bundle. Requests go to{' '}
-              <Text style={styles.hintStrong}>{apiBase()}</Text>.
+              <Text style={styles.hintStrong}>{effective}</Text>.
             </Text>
           </View>
           <Action
