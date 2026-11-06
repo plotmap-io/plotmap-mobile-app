@@ -12,6 +12,8 @@ import { color } from '@/theme/tokens';
 const UNREACHABLE = 'https://api.example.com';
 
 const edgeCount = devListings.filter((l) => l.id.startsWith('edge-')).length;
+const currencyCount = new Set(devListings.map((l) => l.askCurrency)).size;
+const cityCount = new Set(devListings.filter((l) => l.city).map((l) => l.city)).size;
 
 function Action({
   icon,
@@ -110,11 +112,16 @@ export default function DevelopmentScreen() {
               {sampleData ? 'Answering from sample data' : 'Talking to the server'}
             </Text>
             <Text style={styles.hint}>
-              {devListings.length} generated listings across Kerala, {edgeCount} of them awkward
-              on purpose — two pins on one coordinate, a knot too tight to draw apart, a pair
-              split by a grid line, money at both extremes, a row with no photos, a far outlier.
-              Requests the sample data cannot answer still go to the network, so signing in
-              fails honestly.
+              {devListings.length} generated listings — half around Thrissur and Kerala, half
+              across {cityCount} cities worldwide in {currencyCount} currencies. {edgeCount} are
+              awkward on purpose: two pins on one coordinate, a knot too tight to draw apart,
+              money at both extremes, a hundredth floor, thirty photos and none, the
+              antimeridian from both sides.
+            </Text>
+            <Text style={styles.hint}>
+              Place search is answered here too, so it never reaches Google or Mapbox. Photos
+              load from picsum.photos and need internet, nothing else does. Requests the sample
+              data cannot answer still go to the network, so signing in fails honestly.
             </Text>
           </View>
           <Action

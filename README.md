@@ -51,12 +51,33 @@ tab (`Menu → Development → Server & sample data`). It has two switches:
 Between them they give the three states worth testing: a real server, a server
 that cannot be reached, and a populated app with no server at all.
 
-The dataset is 666 generated listings across Kerala, 26 of them awkward on
-purpose — two pins on one coordinate, a knot of 14 too tight to draw apart, a
-pair split by a grid line, money at both extremes, a row with no photos, a row
-with nothing to highlight, a far outlier. It is deterministic, so every launch
-and every machine sees the same map. Nothing in it is real, and the section does
-not exist in a release build.
+The dataset is 2,081 generated listings — 1,076 across Kerala (652 of them in
+Thrissur district, the region worth stress-testing) and 1,005 spread over 30
+cities on every inhabited continent, each priced in its own currency, 17 in
+all. Every property type is crossed with every status so no combination is
+missing, and both the current and the older lower-cased spelling of a type
+appear, because an exact catalogue filter silently skips the old one.
+
+37 rows are awkward on purpose: two pins on a single coordinate, a knot of 14
+too tight to draw apart, a pair split by a grid line, money at both extremes, a
+hundredth-floor flat and a basement, a gallery of thirty photos and one of
+none, the antimeridian from both sides, the equator, the Arctic and Tierra del
+Fuego.
+
+A town viewport sits under the server's 500-point ceiling, so that feed is
+exact points — the case a map has to thin for itself. Zoom out and it comes
+back binned, with the counts summing to the total.
+
+It is deterministic, so every launch and every machine sees the same map.
+Nothing in it is real, and the section does not exist in a release build.
+
+**What it costs: nothing.** The app makes no AI calls at all, and map rendering
+on the native SDKs is free. The one route that is billed upstream is the place
+box — `/search/autocomplete` fans out to both Google Places and Mapbox on every
+call — so sample data answers it on the device and encodes the coordinates into
+the result, making a pick cost nothing either. Photos come from
+`picsum.photos`, which is free but does need internet; with no connection at
+all the galleries are empty and everything else still works.
 
 Requests the sample data has no answer for still go to the network, so signing
 in fails honestly rather than pretending.
