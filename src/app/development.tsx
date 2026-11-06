@@ -5,10 +5,8 @@ import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-
 import { Card, GroupLabel } from '@/components/card';
 import { StackScreen } from '@/components/stack-screen';
 import { devListings } from '@/lib/dev-data';
-import { useDevSettings } from '@/lib/dev-settings';
+import { UNREACHABLE_API, useDevSettings } from '@/lib/dev-settings';
 import { color } from '@/theme/tokens';
-
-const UNREACHABLE = 'https://api.example.com';
 
 const edgeCount = devListings.filter((l) => l.id.startsWith('edge-')).length;
 const currencyCount = new Set(devListings.map((l) => l.askCurrency)).size;
@@ -54,7 +52,8 @@ function Action({
  * a server that cannot be reached, and a populated app with no server at all.
  */
 export default function DevelopmentScreen() {
-  const { apiUrl, sampleData, inferredApiUrl, setApiUrl, setSampleData } = useDevSettings();
+  const { apiUrl, sampleData, inferredApiUrl, testMode, setApiUrl, setSampleData } =
+    useDevSettings();
   const [draft, setDraft] = useState(apiUrl);
 
   // Derived from state, never read back from the api module. React Compiler
@@ -94,10 +93,10 @@ export default function DevelopmentScreen() {
           <Action
             divided
             icon="wifi-off"
-            label={`Point at ${UNREACHABLE}`}
+            label={`Point at ${UNREACHABLE_API}`}
             hint="Nothing answers, so every request fails — a dropped backend on demand."
-            disabled={apiUrl === UNREACHABLE}
-            onPress={() => commit(UNREACHABLE)}
+            disabled={apiUrl === UNREACHABLE_API}
+            onPress={() => commit(UNREACHABLE_API)}
           />
           <Action
             divided
@@ -148,7 +147,9 @@ export default function DevelopmentScreen() {
         </Card>
 
         <Text style={styles.foot}>
-          These settings live on this device and are ignored by a release build.
+          {testMode
+            ? 'Test mode: nothing is saved, and every load starts pointed at nowhere with no sample data.'
+            : 'These settings live on this device and are ignored by a release build.'}
         </Text>
       </ScrollView>
     </StackScreen>

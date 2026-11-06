@@ -82,6 +82,30 @@ all the galleries are empty and everything else still works.
 Requests the sample data has no answer for still go to the network, so signing
 in fails honestly rather than pretending.
 
+### Driving it from a test
+
+```bash
+EXPO_PUBLIC_TEST_MODE=1 npx expo start
+```
+
+Under that flag the app starts **pointed at an unreachable host with no sample
+data**, and whatever the last person left on the device is ignored. A run can
+neither reach a real backend by accident nor inherit someone else's state, and
+the default a test sees is the honest-failure path.
+
+A test that needs data asks for it in the URL it navigates to:
+
+| URL | What the app does |
+|---|---|
+| `/` | nothing answers — the empty, failing state |
+| `/?sample=1` | answers from the sample dataset, no network at all |
+| `/?api=https://host` | talks to that host instead |
+
+Nothing is written to storage in test mode, so the fixture is gone on the next
+navigation. There is no teardown step to forget, and one test cannot seed the
+next. Both parameters work outside test mode too, and are equally unpersisted;
+they are ignored entirely by a release build.
+
 ## Checks
 
 ```bash

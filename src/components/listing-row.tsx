@@ -1,12 +1,14 @@
-import { Feather } from '@expo/vector-icons';
-import { Image } from 'expo-image';
-import { memo } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Feather } from "@expo/vector-icons";
+import { Image } from "expo-image";
+import { memo } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { Gesture, GestureDetector } from "react-native-gesture-handler";
+import { runOnJS } from "react-native-reanimated";
 
-import { mediaUrl } from '@/lib/api';
-import { ageLabel, metaLine, rateLabel } from '@/lib/display';
-import { color } from '@/theme/tokens';
-import type { Coordinate, ListingCard } from '@/types/api';
+import { mediaUrl } from "@/lib/api";
+import { ageLabel, metaLine, rateLabel } from "@/lib/display";
+import { color } from "@/theme/tokens";
+import type { Coordinate, ListingCard } from "@/types/api";
 
 /**
  * The one dense listing row — Search, Saved and Home all render this.
@@ -25,52 +27,84 @@ export const ListingRow = memo(function ListingRow({
   onPress?: (id: string) => void;
   onToggleSave?: (id: string) => void;
 }) {
-  const [place, district] = listing.addressDisplay?.split('\n') ?? ['', ''];
+  const [place, district] = listing.addressDisplay?.split("\n") ?? ["", ""];
   const thumb = mediaUrl(listing.images?.[0]);
   const rate = rateLabel(listing);
 
+  // A tap, not a press: a press fires on release wherever the finger has been,
+  // so swiping sideways across a row opened the listing (Ajay 2026-11-06).
+  // Moving more than a few points now cancels it.
+  const open = () => onPress?.(listing.id);
+  const save = () => onToggleSave?.(listing.id);
+
+  const heartTap = Gesture.Tap()
+    .maxDistance(12)
+    .onEnd((_e, ok) => {
+      if (ok) runOnJS(save)();
+    });
+
+  const rowTap = Gesture.Tap()
+    .maxDistance(12)
+    .requireExternalGestureToFail(heartTap)
+    .onEnd((_e, ok) => {
+      if (ok) runOnJS(open)();
+    });
+
   return (
-    <Pressable style={styles.row} onPress={() => onPress?.(listing.id)}>
-      {thumb ? (
-        <Image source={{ uri: thumb }} style={styles.photo} contentFit="cover" transition={120} />
-      ) : (
-        <View style={[styles.photo, styles.photoEmpty]}>
-          <Feather name="image" size={18} color="#a9bac6" />
+    <GestureDetector gesture={rowTap}>
+      <View style={styles.row}>
+        {thumb ? (
+          <Image
+            source={{ uri: thumb }}
+            style={styles.photo}
+            contentFit="cover"
+            transition={120}
+          />
+        ) : (
+          <View style={[styles.photo, styles.photoEmpty]}>
+            <Feather name="image" size={18} color="#a9bac6" />
+          </View>
+        )}
+
+        <View style={styles.text}>
+          <Text style={styles.price} numberOfLines={1}>
+            {listing.displayPrice}
+            {rate ? <Text style={styles.rate}> {rate}</Text> : null}
+          </Text>
+          <Text style={styles.place} numberOfLines={1}>
+            {place}
+            {district ? `, ${district}` : ""}
+          </Text>
+          <Text style={styles.meta} numberOfLines={1}>
+            {metaLine(listing, centre)}
+          </Text>
+          <Text style={styles.age} numberOfLines={1}>
+            {ageLabel(listing)}
+          </Text>
         </View>
-      )}
 
-      <View style={styles.text}>
-        <Text style={styles.price} numberOfLines={1}>
-          {listing.displayPrice}
-          {rate ? <Text style={styles.rate}>  {rate}</Text> : null}
-        </Text>
-        <Text style={styles.place} numberOfLines={1}>
-          {place}
-          {district ? `, ${district}` : ''}
-        </Text>
-        <Text style={styles.meta} numberOfLines={1}>
-          {metaLine(listing, centre)}
-        </Text>
-        <Text style={styles.age} numberOfLines={1}>
-          {ageLabel(listing)}
-        </Text>
+        <GestureDetector gesture={heartTap}>
+          <View
+            hitSlop={10}
+            style={styles.heart}
+            accessibilityRole="button"
+            accessibilityLabel={saved ? "Remove from saved" : "Save listing"}
+          >
+            <Feather
+              name="heart"
+              size={20}
+              color={saved ? color.shiraz : "#7a8b97"}
+            />
+          </View>
+        </GestureDetector>
       </View>
-
-      <Pressable
-        hitSlop={10}
-        style={styles.heart}
-        onPress={() => onToggleSave?.(listing.id)}
-        accessibilityRole="button"
-        accessibilityLabel={saved ? 'Remove from saved' : 'Save listing'}>
-        <Feather name="heart" size={20} color={saved ? color.shiraz : '#7a8b97'} />
-      </Pressable>
-    </Pressable>
+    </GestureDetector>
   );
 });
 
 const styles = StyleSheet.create({
   row: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 12,
     paddingHorizontal: 14,
     paddingVertical: 12,
@@ -78,13 +112,23 @@ const styles = StyleSheet.create({
     borderTopColor: color.hair,
     backgroundColor: color.surface,
   },
-  photo: { width: 104, height: 80, borderRadius: 7, backgroundColor: color.field },
-  photoEmpty: { alignItems: 'center', justifyContent: 'center' },
+  photo: {
+    width: 104,
+    height: 80,
+    borderRadius: 7,
+    backgroundColor: color.field,
+  },
+  photoEmpty: { alignItems: "center", justifyContent: "center" },
   text: { flex: 1, minWidth: 0, paddingRight: 26 },
-  price: { fontSize: 16.5, fontWeight: '700', letterSpacing: -0.2, color: color.ink },
-  rate: { fontSize: 12.5, fontWeight: '500', color: color.muted },
-  place: { fontSize: 13.5, fontWeight: '500', color: color.ink, marginTop: 1 },
+  price: {
+    fontSize: 16.5,
+    fontWeight: "700",
+    letterSpacing: -0.2,
+    color: color.ink,
+  },
+  rate: { fontSize: 12.5, fontWeight: "500", color: color.muted },
+  place: { fontSize: 13.5, fontWeight: "500", color: color.ink, marginTop: 1 },
   meta: { fontSize: 12.5, color: color.muted },
   age: { fontSize: 11.5, color: color.faint, marginTop: 1 },
-  heart: { position: 'absolute', right: 12, top: 11 },
+  heart: { position: "absolute", right: 12, top: 11 },
 });
