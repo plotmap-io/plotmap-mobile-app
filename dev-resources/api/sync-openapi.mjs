@@ -109,6 +109,24 @@ const out = {
 mkdirSync(HERE, { recursive: true });
 writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');
 
+/**
+ * The filter schema is configuration, not data: which fields a property type
+ * can be filtered by, each one's widget and its bounds. The Filters screen is
+ * supposed to be built from it, so it is worth having a copy to read and to
+ * write tests against without a server.
+ */
+const metaRes = await fetch(`${base}/api/v1/metadata`);
+if (metaRes.ok) {
+  const meta = await metaRes.json();
+  const samples = resolve(HERE, 'samples');
+  mkdirSync(samples, { recursive: true });
+  writeFileSync(
+    resolve(samples, 'metadata.json'),
+    JSON.stringify(meta.data ?? meta, null, 2) + '\n',
+  );
+  console.log('dev-resources/api/samples/metadata.json');
+}
+
 const ops = Object.values(paths).reduce(
   (n, item) => n + Object.keys(item).filter((k) => k !== 'parameters').length,
   0,

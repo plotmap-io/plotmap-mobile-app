@@ -6,9 +6,17 @@ the API contract it talks to, and how to read it.
 ```
 dev-resources/
   api/
-    openapi.json        the contract — generated, do not edit
-    sync-openapi.mjs    regenerates it from a running server
+    openapi.json          the contract — generated, do not edit
+    samples/metadata.json GET /metadata, captured whole
+    sync-openapi.mjs      regenerates both from a running server
 ```
+
+`samples/metadata.json` is configuration rather than data — property types and
+their subtypes, currencies, countries, area units, and `searchFilters`: which
+fields each property type can be filtered by, with a widget (`range`, `pills`,
+`toggle`, `select`) and bounds for each. The Filters screen is meant to be
+built from that schema; today it hardcodes three groups and reads only
+`propertyTypes`.
 
 ## The contract
 

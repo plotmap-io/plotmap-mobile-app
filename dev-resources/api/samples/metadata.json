@@ -1,0 +1,1831 @@
+{
+  "propertyTypes": [
+    {
+      "value": "Residential",
+      "label": "Residential",
+      "subtypes": [
+        {
+          "value": "house",
+          "label": "House"
+        },
+        {
+          "value": "apartment",
+          "label": "Apartment"
+        },
+        {
+          "value": "condo",
+          "label": "Condo"
+        },
+        {
+          "value": "townhouse",
+          "label": "Townhouse"
+        },
+        {
+          "value": "duplex",
+          "label": "Duplex"
+        },
+        {
+          "value": "studio",
+          "label": "Studio"
+        },
+        {
+          "value": "villa",
+          "label": "Villa"
+        },
+        {
+          "value": "bungalow",
+          "label": "Bungalow"
+        },
+        {
+          "value": "farmhouse",
+          "label": "Farmhouse"
+        },
+        {
+          "value": "cottage",
+          "label": "Cottage"
+        },
+        {
+          "value": "manufactured_home",
+          "label": "Manufactured Home"
+        },
+        {
+          "value": "co_op",
+          "label": "Co-op"
+        }
+      ]
+    },
+    {
+      "value": "Commercial",
+      "label": "Commercial",
+      "subtypes": [
+        {
+          "value": "office",
+          "label": "Office"
+        },
+        {
+          "value": "retail",
+          "label": "Retail"
+        },
+        {
+          "value": "warehouse",
+          "label": "Warehouse"
+        },
+        {
+          "value": "restaurant",
+          "label": "Restaurant"
+        },
+        {
+          "value": "hotel",
+          "label": "Hotel"
+        },
+        {
+          "value": "shop_house",
+          "label": "Shop House"
+        }
+      ]
+    },
+    {
+      "value": "Land",
+      "label": "Land",
+      "subtypes": [
+        {
+          "value": "residential_plot",
+          "label": "Residential Plot"
+        },
+        {
+          "value": "commercial_plot",
+          "label": "Commercial Plot"
+        },
+        {
+          "value": "agricultural_land",
+          "label": "Agricultural Land"
+        },
+        {
+          "value": "industrial_land",
+          "label": "Industrial Land"
+        }
+      ]
+    },
+    {
+      "value": "Industrial",
+      "label": "Industrial",
+      "subtypes": [
+        {
+          "value": "factory",
+          "label": "Factory"
+        },
+        {
+          "value": "logistics_center",
+          "label": "Logistics Center"
+        }
+      ]
+    }
+  ],
+  "searchFilters": {
+    "*": [
+      {
+        "fieldKey": "price",
+        "label": "Price",
+        "widget": "range",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 0,
+        "config": {
+          "max": 100000000,
+          "min": 0,
+          "step": 100000
+        }
+      },
+      {
+        "fieldKey": "area",
+        "label": "Area",
+        "widget": "range",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 1,
+        "config": {
+          "max": 50000,
+          "min": 0,
+          "step": 10
+        }
+      }
+    ],
+    "Commercial": [
+      {
+        "fieldKey": "price",
+        "label": "Price",
+        "widget": "range",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 0,
+        "config": {
+          "max": 100000000,
+          "min": 0,
+          "step": 100000
+        }
+      },
+      {
+        "fieldKey": "area",
+        "label": "Area",
+        "widget": "range",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 1,
+        "config": {
+          "max": 50000,
+          "min": 0,
+          "step": 10
+        }
+      },
+      {
+        "fieldKey": "parkingSpaces",
+        "label": "Parking Spaces",
+        "widget": "pills",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 2,
+        "config": {
+          "options": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "plusLast": true
+        }
+      },
+      {
+        "fieldKey": "yearBuilt",
+        "label": "Year Built",
+        "widget": "range",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 3,
+        "config": {
+          "max": 2026,
+          "min": 1920,
+          "step": 1
+        }
+      },
+      {
+        "fieldKey": "hasAC",
+        "label": "Air Conditioning",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 4,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasElevator",
+        "label": "Elevator",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 5,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasCCTV",
+        "label": "CCTV",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 6,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasSecurity",
+        "label": "Security System",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 7,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasPowerBackup",
+        "label": "Power Backup",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 8,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasLoadingDock",
+        "label": "Loading Dock",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 9,
+        "config": {}
+      },
+      {
+        "fieldKey": "isGatedCommunity",
+        "label": "Gated Community",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 10,
+        "config": {}
+      },
+      {
+        "fieldKey": "isNewConstruction",
+        "label": "New Construction",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 11,
+        "config": {}
+      }
+    ],
+    "Industrial": [
+      {
+        "fieldKey": "price",
+        "label": "Price",
+        "widget": "range",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 0,
+        "config": {
+          "max": 100000000,
+          "min": 0,
+          "step": 100000
+        }
+      },
+      {
+        "fieldKey": "area",
+        "label": "Area",
+        "widget": "range",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 1,
+        "config": {
+          "max": 50000,
+          "min": 0,
+          "step": 10
+        }
+      },
+      {
+        "fieldKey": "parkingSpaces",
+        "label": "Parking Spaces",
+        "widget": "pills",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 2,
+        "config": {
+          "options": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "plusLast": true
+        }
+      },
+      {
+        "fieldKey": "yearBuilt",
+        "label": "Year Built",
+        "widget": "range",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 3,
+        "config": {
+          "max": 2026,
+          "min": 1920,
+          "step": 1
+        }
+      },
+      {
+        "fieldKey": "hasPowerBackup",
+        "label": "Power Backup",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 4,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasLoadingDock",
+        "label": "Loading Dock",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 5,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasSecurity",
+        "label": "Security System",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 6,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasCCTV",
+        "label": "CCTV",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 7,
+        "config": {}
+      },
+      {
+        "fieldKey": "isNewConstruction",
+        "label": "New Construction",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 8,
+        "config": {}
+      }
+    ],
+    "Land": [
+      {
+        "fieldKey": "price",
+        "label": "Price",
+        "widget": "range",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 0,
+        "config": {
+          "max": 100000000,
+          "min": 0,
+          "step": 100000
+        }
+      },
+      {
+        "fieldKey": "area",
+        "label": "Land Area",
+        "widget": "range",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 1,
+        "config": {
+          "max": 50000,
+          "min": 0,
+          "step": 10
+        }
+      },
+      {
+        "fieldKey": "zoningType",
+        "label": "Zoning Type",
+        "widget": "select",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 2,
+        "config": {
+          "options": [
+            "Residential",
+            "Commercial",
+            "Industrial",
+            "Agricultural",
+            "Mixed"
+          ]
+        }
+      },
+      {
+        "fieldKey": "isClearTitle",
+        "label": "Clear Title",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 3,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasRoadAccess",
+        "label": "Road Access",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 4,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasBoundaryWall",
+        "label": "Boundary Wall/Fence",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 5,
+        "config": {}
+      },
+      {
+        "fieldKey": "isCornerPlot",
+        "label": "Corner Plot",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 6,
+        "config": {}
+      }
+    ],
+    "Residential": [
+      {
+        "fieldKey": "price",
+        "label": "Price",
+        "widget": "range",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 0,
+        "config": {
+          "max": 100000000,
+          "min": 0,
+          "step": 100000
+        }
+      },
+      {
+        "fieldKey": "area",
+        "label": "Area",
+        "widget": "range",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 1,
+        "config": {
+          "max": 50000,
+          "min": 0,
+          "step": 10
+        }
+      },
+      {
+        "fieldKey": "bedrooms",
+        "label": "Bedrooms",
+        "widget": "pills",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 2,
+        "config": {
+          "options": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "plusLast": true
+        }
+      },
+      {
+        "fieldKey": "bathrooms",
+        "label": "Bathrooms",
+        "widget": "pills",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 3,
+        "config": {
+          "options": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "plusLast": true
+        }
+      },
+      {
+        "fieldKey": "parkingSpaces",
+        "label": "Parking Spaces",
+        "widget": "pills",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 4,
+        "config": {
+          "options": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "plusLast": true
+        }
+      },
+      {
+        "fieldKey": "yearBuilt",
+        "label": "Year Built",
+        "widget": "range",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 5,
+        "config": {
+          "max": 2026,
+          "min": 1920,
+          "step": 1
+        }
+      },
+      {
+        "fieldKey": "hasGarage",
+        "label": "Garage",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 6,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasAC",
+        "label": "Air Conditioning",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 7,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasPool",
+        "label": "Swimming Pool",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 8,
+        "config": {}
+      },
+      {
+        "fieldKey": "furnishingStatus",
+        "label": "Furnishing",
+        "widget": "select",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 9,
+        "config": {
+          "options": [
+            "Furnished",
+            "Semi-Furnished",
+            "Unfurnished"
+          ]
+        }
+      },
+      {
+        "fieldKey": "hasGarden",
+        "label": "Garden/Yard",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 10,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasElevator",
+        "label": "Elevator",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 11,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasGym",
+        "label": "Gym/Fitness Center",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 12,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasCCTV",
+        "label": "CCTV",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 13,
+        "config": {}
+      },
+      {
+        "fieldKey": "isGatedCommunity",
+        "label": "Gated Community",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 14,
+        "config": {}
+      },
+      {
+        "fieldKey": "hasPowerBackup",
+        "label": "Power Backup",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 15,
+        "config": {}
+      },
+      {
+        "fieldKey": "isNewConstruction",
+        "label": "New Construction",
+        "widget": "toggle",
+        "visible": true,
+        "enabled": true,
+        "displayOrder": 16,
+        "config": {}
+      }
+    ]
+  },
+  "propertyStatuses": [
+    {
+      "value": "ForSale",
+      "label": "For Sale"
+    },
+    {
+      "value": "ForRent",
+      "label": "For Rent"
+    },
+    {
+      "value": "Sold",
+      "label": "Sold"
+    },
+    {
+      "value": "Rented",
+      "label": "Rented"
+    }
+  ],
+  "priceAreaUnits": [
+    {
+      "value": "per_cent",
+      "label": "Per cent"
+    },
+    {
+      "value": "per_acre",
+      "label": "Per acre"
+    },
+    {
+      "value": "per_sqft",
+      "label": "Per sq.ft"
+    },
+    {
+      "value": "per_sqm",
+      "label": "Per sq.m"
+    }
+  ],
+  "priceTimeUnits": [
+    {
+      "value": "per_day",
+      "label": "Per day"
+    },
+    {
+      "value": "per_week",
+      "label": "Per week"
+    },
+    {
+      "value": "per_month",
+      "label": "Per month"
+    },
+    {
+      "value": "per_year",
+      "label": "Per year"
+    }
+  ],
+  "pricingRules": {
+    "house": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "apartment": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "condo": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "townhouse": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "duplex": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "studio": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "villa": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "bungalow": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "farmhouse": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "cottage": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "manufactured_home": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "co_op": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "office": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "retail": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "warehouse": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "restaurant": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "hotel": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "agricultural_land": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_acre",
+          "per_cent"
+        ],
+        "defaultAreaUnit": "per_acre"
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_acre",
+          "per_cent"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "residential_plot": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_cent",
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_cent",
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "commercial_plot": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_cent",
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_cent",
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "industrial_land": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_acre",
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_acre",
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "factory": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "logistics_center": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_acre",
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_acre",
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    },
+    "shop_house": {
+      "ForSale": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null
+      },
+      "ForRent": {
+        "allowedAreaUnits": [
+          "per_sqft",
+          "per_sqm"
+        ],
+        "defaultAreaUnit": null,
+        "allowedTimeUnits": [
+          "per_day",
+          "per_week",
+          "per_month",
+          "per_year"
+        ],
+        "defaultTimeUnit": "per_month"
+      }
+    }
+  },
+  "currencies": [
+    {
+      "value": "USD",
+      "label": "USD ($)",
+      "symbol": "$"
+    },
+    {
+      "value": "EUR",
+      "label": "EUR (€)",
+      "symbol": "€"
+    },
+    {
+      "value": "GBP",
+      "label": "GBP (£)",
+      "symbol": "£"
+    },
+    {
+      "value": "INR",
+      "label": "INR (₹)",
+      "symbol": "₹"
+    },
+    {
+      "value": "AED",
+      "label": "AED (د.إ)",
+      "symbol": "د.إ"
+    },
+    {
+      "value": "SAR",
+      "label": "SAR (﷼)",
+      "symbol": "﷼"
+    },
+    {
+      "value": "NGN",
+      "label": "NGN (₦)",
+      "symbol": "₦"
+    },
+    {
+      "value": "KES",
+      "label": "KES (KSh)",
+      "symbol": "KSh"
+    },
+    {
+      "value": "BRL",
+      "label": "BRL (R$)",
+      "symbol": "R$"
+    },
+    {
+      "value": "AUD",
+      "label": "AUD (A$)",
+      "symbol": "A$"
+    },
+    {
+      "value": "CAD",
+      "label": "CAD (C$)",
+      "symbol": "C$"
+    },
+    {
+      "value": "SGD",
+      "label": "SGD (S$)",
+      "symbol": "S$"
+    }
+  ],
+  "areaUnits": [
+    {
+      "value": "sqm",
+      "label": "sq.m"
+    },
+    {
+      "value": "sqft",
+      "label": "sq.ft"
+    },
+    {
+      "value": "acre",
+      "label": "Acres"
+    },
+    {
+      "value": "cent",
+      "label": "Cents"
+    }
+  ],
+  "filterRanges": {
+    "area": {
+      "min": 0,
+      "max": 50000,
+      "step": 10,
+      "unit": "sqm",
+      "openEndedMin": false,
+      "openEndedMax": true
+    },
+    "yearBuilt": {
+      "min": 1920,
+      "max": 2026,
+      "step": 1,
+      "unit": "",
+      "openEndedMin": true,
+      "openEndedMax": false
+    },
+    "price": {
+      "min": 0,
+      "max": 200000000,
+      "step": 100000,
+      "unit": "",
+      "openEndedMin": false,
+      "openEndedMax": true
+    }
+  },
+  "defaults": {
+    "propertyType": "Residential",
+    "propertySubType": "house",
+    "status": "ForSale",
+    "currency": "USD",
+    "areaUnit": "sqm",
+    "distanceUnit": "metric"
+  },
+  "countries": [
+    {
+      "code": "IN",
+      "name": "India",
+      "currencyCode": "INR",
+      "locale": "en-IN",
+      "areaUnit": "cent",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "US",
+      "name": "United States",
+      "currencyCode": "USD",
+      "locale": "en-US",
+      "areaUnit": "sqft",
+      "distanceUnit": "imperial"
+    },
+    {
+      "code": "GB",
+      "name": "United Kingdom",
+      "currencyCode": "GBP",
+      "locale": "en-GB",
+      "areaUnit": "sqft",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "AE",
+      "name": "UAE",
+      "currencyCode": "AED",
+      "locale": "ar-AE",
+      "areaUnit": "sqft",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "SA",
+      "name": "Saudi Arabia",
+      "currencyCode": "SAR",
+      "locale": "ar-SA",
+      "areaUnit": "sqft",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "AU",
+      "name": "Australia",
+      "currencyCode": "AUD",
+      "locale": "en-AU",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "CA",
+      "name": "Canada",
+      "currencyCode": "CAD",
+      "locale": "en-CA",
+      "areaUnit": "sqft",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "SG",
+      "name": "Singapore",
+      "currencyCode": "SGD",
+      "locale": "en-SG",
+      "areaUnit": "sqft",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "DE",
+      "name": "Germany",
+      "currencyCode": "EUR",
+      "locale": "de-DE",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "FR",
+      "name": "France",
+      "currencyCode": "EUR",
+      "locale": "fr-FR",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "JP",
+      "name": "Japan",
+      "currencyCode": "JPY",
+      "locale": "ja-JP",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "BR",
+      "name": "Brazil",
+      "currencyCode": "BRL",
+      "locale": "pt-BR",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "NG",
+      "name": "Nigeria",
+      "currencyCode": "NGN",
+      "locale": "en-NG",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "KE",
+      "name": "Kenya",
+      "currencyCode": "KES",
+      "locale": "en-KE",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "ZA",
+      "name": "South Africa",
+      "currencyCode": "ZAR",
+      "locale": "en-ZA",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "MX",
+      "name": "Mexico",
+      "currencyCode": "MXN",
+      "locale": "es-MX",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "HK",
+      "name": "Hong Kong",
+      "currencyCode": "HKD",
+      "locale": "zh-HK",
+      "areaUnit": "sqft",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "NZ",
+      "name": "New Zealand",
+      "currencyCode": "NZD",
+      "locale": "en-NZ",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "MY",
+      "name": "Malaysia",
+      "currencyCode": "MYR",
+      "locale": "ms-MY",
+      "areaUnit": "sqft",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "TH",
+      "name": "Thailand",
+      "currencyCode": "THB",
+      "locale": "th-TH",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "PH",
+      "name": "Philippines",
+      "currencyCode": "PHP",
+      "locale": "en-PH",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "ID",
+      "name": "Indonesia",
+      "currencyCode": "IDR",
+      "locale": "id-ID",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "KR",
+      "name": "South Korea",
+      "currencyCode": "KRW",
+      "locale": "ko-KR",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "TR",
+      "name": "Turkey",
+      "currencyCode": "TRY",
+      "locale": "tr-TR",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "PK",
+      "name": "Pakistan",
+      "currencyCode": "PKR",
+      "locale": "en-PK",
+      "areaUnit": "sqft",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "BD",
+      "name": "Bangladesh",
+      "currencyCode": "BDT",
+      "locale": "bn-BD",
+      "areaUnit": "sqft",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "EG",
+      "name": "Egypt",
+      "currencyCode": "EGP",
+      "locale": "ar-EG",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "QA",
+      "name": "Qatar",
+      "currencyCode": "QAR",
+      "locale": "ar-QA",
+      "areaUnit": "sqft",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "ES",
+      "name": "Spain",
+      "currencyCode": "EUR",
+      "locale": "es-ES",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "IT",
+      "name": "Italy",
+      "currencyCode": "EUR",
+      "locale": "it-IT",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "NL",
+      "name": "Netherlands",
+      "currencyCode": "EUR",
+      "locale": "nl-NL",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "PT",
+      "name": "Portugal",
+      "currencyCode": "EUR",
+      "locale": "pt-PT",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "BE",
+      "name": "Belgium",
+      "currencyCode": "EUR",
+      "locale": "fr-BE",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "AT",
+      "name": "Austria",
+      "currencyCode": "EUR",
+      "locale": "de-AT",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "IE",
+      "name": "Ireland",
+      "currencyCode": "EUR",
+      "locale": "en-IE",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "FI",
+      "name": "Finland",
+      "currencyCode": "EUR",
+      "locale": "fi-FI",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "GR",
+      "name": "Greece",
+      "currencyCode": "EUR",
+      "locale": "el-GR",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "SE",
+      "name": "Sweden",
+      "currencyCode": "SEK",
+      "locale": "sv-SE",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "NO",
+      "name": "Norway",
+      "currencyCode": "NOK",
+      "locale": "nb-NO",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "DK",
+      "name": "Denmark",
+      "currencyCode": "DKK",
+      "locale": "da-DK",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "CH",
+      "name": "Switzerland",
+      "currencyCode": "CHF",
+      "locale": "de-CH",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "VN",
+      "name": "Vietnam",
+      "currencyCode": "VND",
+      "locale": "vi-VN",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "PL",
+      "name": "Poland",
+      "currencyCode": "PLN",
+      "locale": "pl-PL",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "CZ",
+      "name": "Czech Republic",
+      "currencyCode": "CZK",
+      "locale": "cs-CZ",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "HU",
+      "name": "Hungary",
+      "currencyCode": "HUF",
+      "locale": "hu-HU",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "RO",
+      "name": "Romania",
+      "currencyCode": "RON",
+      "locale": "ro-RO",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "CN",
+      "name": "China",
+      "currencyCode": "CNY",
+      "locale": "zh-CN",
+      "areaUnit": "sqm",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "LK",
+      "name": "Sri Lanka",
+      "currencyCode": "LKR",
+      "locale": "si-LK",
+      "areaUnit": "sqft",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "KW",
+      "name": "Kuwait",
+      "currencyCode": "KWD",
+      "locale": "ar-KW",
+      "areaUnit": "sqft",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "BH",
+      "name": "Bahrain",
+      "currencyCode": "BHD",
+      "locale": "ar-BH",
+      "areaUnit": "sqft",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "OM",
+      "name": "Oman",
+      "currencyCode": "OMR",
+      "locale": "ar-OM",
+      "areaUnit": "sqft",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "JO",
+      "name": "Jordan",
+      "currencyCode": "JOD",
+      "locale": "ar-JO",
+      "areaUnit": "sqft",
+      "distanceUnit": "metric"
+    },
+    {
+      "code": "MM",
+      "name": "Myanmar",
+      "currencyCode": "MMK",
+      "locale": "my-MM",
+      "areaUnit": "sqm",
+      "distanceUnit": "imperial"
+    },
+    {
+      "code": "LR",
+      "name": "Liberia",
+      "currencyCode": "LRD",
+      "locale": "en-LR",
+      "areaUnit": "sqm",
+      "distanceUnit": "imperial"
+    }
+  ]
+}
