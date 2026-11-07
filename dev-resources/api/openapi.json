@@ -1,0 +1,2842 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Plotmap API — mobile client subset",
+    "version": "1.0.0",
+    "description": "Generated from the running server by dev-resources/api/sync-openapi.mjs. Only the routes src/ calls are kept. Do not edit by hand."
+  },
+  "paths": {
+    "/api/v1/activity": {
+      "get": {
+        "tags": [
+          "activity"
+        ],
+        "operationId": "getApiV1Activity",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: query parameter limit",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/alerts": {
+      "get": {
+        "tags": [
+          "alerts"
+        ],
+        "operationId": "getApiV1Alerts",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "alerts"
+        ],
+        "operationId": "postApiV1Alerts",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/alerts/{id}": {
+      "delete": {
+        "tags": [
+          "alerts"
+        ],
+        "operationId": "deleteApiV1AlertsId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "alerts"
+        ],
+        "operationId": "patchApiV1AlertsId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/alerts/{id}/run": {
+      "post": {
+        "tags": [
+          "alerts"
+        ],
+        "operationId": "postApiV1AlertsIdRun",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/auth/account/methods": {
+      "get": {
+        "tags": [
+          "account"
+        ],
+        "operationId": "getApiV1AuthAccountMethods",
+        "parameters": [
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/auth/logout": {
+      "post": {
+        "tags": [
+          "identity"
+        ],
+        "operationId": "postApiV1AuthLogout",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleMessage"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/auth/me": {
+      "get": {
+        "tags": [
+          "identity"
+        ],
+        "operationId": "getApiV1AuthMe",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyProfile"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/auth/otp/request": {
+      "post": {
+        "tags": [
+          "identity"
+        ],
+        "operationId": "postApiV1AuthOtpRequest",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OtpRequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OtpRequestResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/register": {
+      "post": {
+        "tags": [
+          "identity"
+        ],
+        "operationId": "postApiV1AuthRegister",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegisterResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/sessions": {
+      "get": {
+        "tags": [
+          "identity"
+        ],
+        "operationId": "getApiV1AuthSessions",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionsListResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/auth/sessions/activity": {
+      "put": {
+        "tags": [
+          "identity"
+        ],
+        "operationId": "putApiV1AuthSessionsActivity",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleMessage"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/auth/sessions/revoke-all": {
+      "post": {
+        "tags": [
+          "identity"
+        ],
+        "operationId": "postApiV1AuthSessionsRevoke-all",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RevokeAllResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/auth/sessions/{id}": {
+      "get": {
+        "tags": [
+          "identity"
+        ],
+        "operationId": "getApiV1AuthSessionsId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionDto"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "identity"
+        ],
+        "operationId": "deleteApiV1AuthSessionsId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleMessage"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/auth/verify": {
+      "post": {
+        "tags": [
+          "identity"
+        ],
+        "operationId": "postApiV1AuthVerify",
+        "parameters": [
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body, Invalid value",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/drafts/empty": {
+      "post": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "postApiV1DraftsEmpty",
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/drafts/{id}": {
+      "get": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "getApiV1DraftsId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "putApiV1DraftsId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "deleteApiV1DraftsId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/drafts/{id}/publish": {
+      "post": {
+        "tags": [
+          "listings"
+        ],
+        "summary": "Publish a draft (makes it live on the map)",
+        "description": "Bearer auth; the draft must have at least one photo, a location and a price. Published listings are field- and photo-frozen.",
+        "operationId": "postApiV1DraftsIdPublish",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/favorites/{listingId}": {
+      "get": {
+        "tags": [
+          "favorites"
+        ],
+        "operationId": "getApiV1FavoritesListingid",
+        "parameters": [
+          {
+            "name": "listingId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "favorites"
+        ],
+        "operationId": "postApiV1FavoritesListingid",
+        "parameters": [
+          {
+            "name": "listingId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "favorites"
+        ],
+        "operationId": "deleteApiV1FavoritesListingid",
+        "parameters": [
+          {
+            "name": "listingId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/listings/count": {
+      "post": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "postApiV1ListingsCount",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/listings/favorites": {
+      "get": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "getApiV1ListingsFavorites",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/listings/map": {
+      "post": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "postApiV1ListingsMap",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/listings/my": {
+      "get": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "getApiV1ListingsMy",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Page size 1–500 (default 50).",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Rows to skip (default 0).",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: query parameter limit, Invalid value for: query parameter offset",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/listings/price-distribution": {
+      "post": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "postApiV1ListingsPrice-distribution",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PriceDistributionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/listings/region-counts": {
+      "post": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "postApiV1ListingsRegion-counts",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/listings/search": {
+      "post": {
+        "tags": [
+          "listings"
+        ],
+        "summary": "Search listings (the map UI's request)",
+        "description": "Paginated listing search over a viewport (boundsSW/boundsNE) or a drawn polygon (area), with type/sub-type, status, price, area, dynamic-field, seller-type and place-name (q/city/district) filters. Agents usually prefer the flat GET /api/v1/listings form, which folds into this same request. Response: {data:{listings:[ListingQuickView…], total, limit, offset}}.",
+        "operationId": "postApiV1ListingsSearch",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/listings/{id}": {
+      "get": {
+        "tags": [
+          "listings"
+        ],
+        "summary": "View one listing (public detail)",
+        "description": "Full public record of an ever-published listing: type, location (lat/lng, address, city, state, country), description, price (askAmount + askCurrency; askAreaUnit set = a per-unit RATE, askAmountTotal = the total), fields, media. Response: {data: Listing}. Drafts are not served here (404).",
+        "operationId": "getApiV1ListingsId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/listings/{id}/inquire": {
+      "post": {
+        "tags": [
+          "conversations"
+        ],
+        "operationId": "postApiV1ListingsIdInquire",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/metadata": {
+      "get": {
+        "tags": [
+          "metadata"
+        ],
+        "operationId": "getApiV1Metadata",
+        "parameters": [
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetadataResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/notifications/read-all": {
+      "put": {
+        "tags": [
+          "notifications"
+        ],
+        "operationId": "putApiV1NotificationsRead-all",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/notifications/unread-count": {
+      "get": {
+        "tags": [
+          "notifications"
+        ],
+        "operationId": "getApiV1NotificationsUnread-count",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/search/autocomplete": {
+      "get": {
+        "tags": [
+          "search"
+        ],
+        "operationId": "getApiV1SearchAutocomplete",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sessionToken",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SearchSuggestion"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: query parameter q, Invalid value for: query parameter lat, Invalid value for: query parameter lng",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/search/sellers": {
+      "get": {
+        "tags": [
+          "search"
+        ],
+        "operationId": "getApiV1SearchSellers",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SellerHit"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: query parameter q, Invalid value",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/threads": {
+      "get": {
+        "tags": [
+          "conversations"
+        ],
+        "operationId": "getApiV1Threads",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/threads/{threadId}/messages": {
+      "get": {
+        "tags": [
+          "conversations"
+        ],
+        "operationId": "getApiV1ThreadsThreadidMessages",
+        "parameters": [
+          {
+            "name": "threadId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: query parameter after",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "conversations"
+        ],
+        "operationId": "postApiV1ThreadsThreadidMessages",
+        "parameters": [
+          {
+            "name": "threadId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/user/preferences": {
+      "get": {
+        "tags": [
+          "preferences"
+        ],
+        "operationId": "getApiV1UserPreferences",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPreferences"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "preferences"
+        ],
+        "operationId": "putApiV1UserPreferences",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePreferencesRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPreferences"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/users/{username}": {
+      "get": {
+        "tags": [
+          "identity"
+        ],
+        "operationId": "getApiV1UsersUsername",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicProfile"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/{username}/listings": {
+      "get": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "getApiV1UsersUsernameListings",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Page size 1–500 (default 100).",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Rows to skip (default 0).",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: query parameter limit, Invalid value for: query parameter offset",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiError": {
+        "title": "ApiError",
+        "type": "object",
+        "required": [
+          "error",
+          "message"
+        ],
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "details": {}
+        }
+      },
+      "Coordinates": {
+        "title": "Coordinates",
+        "type": "object",
+        "required": [
+          "latitude",
+          "longitude"
+        ],
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "Country": {
+        "title": "Country",
+        "type": "object",
+        "required": [
+          "code",
+          "name",
+          "currencyCode",
+          "locale",
+          "areaUnit",
+          "distanceUnit"
+        ],
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "currencyCode": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "areaUnit": {
+            "type": "string"
+          },
+          "distanceUnit": {
+            "type": "string"
+          }
+        }
+      },
+      "FieldFilter": {
+        "title": "FieldFilter",
+        "type": "object",
+        "required": [
+          "key"
+        ],
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "min": {
+            "type": "number"
+          },
+          "max": {
+            "type": "number"
+          },
+          "equals": {},
+          "contains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "LoginResponse": {
+        "title": "LoginResponse",
+        "type": "object",
+        "required": [
+          "token",
+          "user"
+        ],
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/MyProfile"
+          }
+        }
+      },
+      "MetadataResponse": {
+        "title": "MetadataResponse",
+        "type": "object",
+        "required": [
+          "propertyTypes",
+          "searchFilters",
+          "propertyStatuses",
+          "priceAreaUnits",
+          "priceTimeUnits",
+          "pricingRules",
+          "currencies",
+          "areaUnits",
+          "filterRanges",
+          "defaults"
+        ],
+        "properties": {
+          "propertyTypes": {},
+          "searchFilters": {},
+          "propertyStatuses": {},
+          "priceAreaUnits": {},
+          "priceTimeUnits": {},
+          "pricingRules": {},
+          "currencies": {},
+          "areaUnits": {},
+          "filterRanges": {},
+          "defaults": {},
+          "countries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Country"
+            }
+          }
+        }
+      },
+      "MyProfile": {
+        "title": "MyProfile",
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "username",
+          "accountType",
+          "showEmail",
+          "showPhone",
+          "emailVerified",
+          "phoneVerified",
+          "createdAt",
+          "updatedAt",
+          "phoneWhatsapp",
+          "showInstagram"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "avatarUrl": {
+            "type": "string"
+          },
+          "accountType": {
+            "type": "string"
+          },
+          "coverPicUrl": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "bio": {
+            "type": "string"
+          },
+          "showEmail": {
+            "type": "boolean"
+          },
+          "showPhone": {
+            "type": "boolean"
+          },
+          "emailVerified": {
+            "type": "boolean"
+          },
+          "phoneVerified": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "instagramUsername": {
+            "type": "string"
+          },
+          "phoneWhatsapp": {
+            "type": "boolean"
+          },
+          "showInstagram": {
+            "type": "boolean"
+          },
+          "usernameChangedAt": {
+            "type": "string"
+          }
+        }
+      },
+      "OtpRequestBody": {
+        "title": "OtpRequestBody",
+        "type": "object",
+        "required": [
+          "identifier"
+        ],
+        "properties": {
+          "identifier": {
+            "type": "string"
+          }
+        }
+      },
+      "OtpRequestResponse": {
+        "title": "OtpRequestResponse",
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "otp": {
+            "type": "string"
+          }
+        }
+      },
+      "PriceDistributionRequest": {
+        "title": "PriceDistributionRequest",
+        "type": "object",
+        "properties": {
+          "boundsSW": {
+            "$ref": "#/components/schemas/Coordinates"
+          },
+          "boundsNE": {
+            "$ref": "#/components/schemas/Coordinates"
+          },
+          "propertyType": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "propertySubType": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "pastMonths": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fieldFilters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldFilter"
+            }
+          },
+          "minArea": {
+            "type": "number"
+          },
+          "maxArea": {
+            "type": "number"
+          },
+          "displayCurrency": {
+            "type": "string"
+          },
+          "sellerType": {
+            "type": "string"
+          },
+          "area": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Coordinates"
+            }
+          },
+          "buckets": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "PublicProfile": {
+        "title": "PublicProfile",
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "username",
+          "contactVerified",
+          "soldCount",
+          "rentedCount",
+          "phoneWhatsapp"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "avatarUrl": {
+            "type": "string"
+          },
+          "bio": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "memberSince": {
+            "type": "string"
+          },
+          "instagramUsername": {
+            "type": "string"
+          },
+          "verifiedProviders": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "contactVerified": {
+            "type": "boolean"
+          },
+          "soldCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rentedCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "phoneWhatsapp": {
+            "type": "boolean"
+          }
+        }
+      },
+      "RegisterRequest": {
+        "title": "RegisterRequest",
+        "type": "object",
+        "required": [
+          "identifier",
+          "name",
+          "username"
+        ],
+        "properties": {
+          "identifier": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "RegisterResponse": {
+        "title": "RegisterResponse",
+        "type": "object",
+        "required": [
+          "userId",
+          "message"
+        ],
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "otp": {
+            "type": "string"
+          }
+        }
+      },
+      "RevokeAllResponse": {
+        "title": "RevokeAllResponse",
+        "type": "object",
+        "required": [
+          "message",
+          "revokedCount"
+        ],
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "revokedCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SearchRequest": {
+        "title": "SearchRequest",
+        "type": "object",
+        "required": [
+          "limit",
+          "offset",
+          "convertPrices"
+        ],
+        "properties": {
+          "boundsSW": {
+            "$ref": "#/components/schemas/Coordinates"
+          },
+          "boundsNE": {
+            "$ref": "#/components/schemas/Coordinates"
+          },
+          "propertyType": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "propertySubType": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "pastMonths": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "minPrice": {
+            "type": "number"
+          },
+          "maxPrice": {
+            "type": "number"
+          },
+          "minArea": {
+            "type": "number"
+          },
+          "maxArea": {
+            "type": "number"
+          },
+          "fieldFilters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldFilter"
+            }
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "center": {
+            "$ref": "#/components/schemas/Coordinates"
+          },
+          "sort": {
+            "type": "string"
+          },
+          "displayCurrency": {
+            "type": "string"
+          },
+          "convertPrices": {
+            "type": "boolean"
+          },
+          "sellerType": {
+            "type": "string"
+          },
+          "minMediaCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "area": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Coordinates"
+            }
+          },
+          "zoom": {
+            "type": "number",
+            "format": "double"
+          },
+          "q": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          }
+        }
+      },
+      "SearchSuggestion": {
+        "title": "SearchSuggestion",
+        "type": "object",
+        "required": [
+          "suggestionType",
+          "placeId",
+          "description",
+          "mainText",
+          "secondaryText"
+        ],
+        "properties": {
+          "suggestionType": {
+            "type": "string"
+          },
+          "placeId": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "mainText": {
+            "type": "string"
+          },
+          "secondaryText": {
+            "type": "string"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "viewport": {}
+        }
+      },
+      "SellerHit": {
+        "title": "SellerHit",
+        "type": "object",
+        "required": [
+          "userId",
+          "username",
+          "name",
+          "liveListings",
+          "publishedListings"
+        ],
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "avatarUrl": {
+            "type": "string"
+          },
+          "liveListings": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "publishedListings": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "city": {
+            "type": "string"
+          }
+        }
+      },
+      "SessionDto": {
+        "title": "SessionDto",
+        "type": "object",
+        "required": [
+          "id",
+          "deviceName",
+          "browserName",
+          "osName",
+          "ipAddress",
+          "location",
+          "isCurrent",
+          "lastActivity",
+          "createdAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "deviceName": {
+            "type": "string"
+          },
+          "browserName": {
+            "type": "string"
+          },
+          "osName": {
+            "type": "string"
+          },
+          "ipAddress": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "isCurrent": {
+            "type": "boolean"
+          },
+          "lastActivity": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          }
+        }
+      },
+      "SessionsListResponse": {
+        "title": "SessionsListResponse",
+        "type": "object",
+        "properties": {
+          "sessions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SessionDto"
+            }
+          }
+        }
+      },
+      "SimpleMessage": {
+        "title": "SimpleMessage",
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdatePreferencesRequest": {
+        "title": "UpdatePreferencesRequest",
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "areaUnit": {
+            "type": "string"
+          },
+          "distanceUnit": {
+            "type": "string"
+          },
+          "theme": {
+            "type": "string"
+          }
+        }
+      },
+      "UserPreferences": {
+        "title": "UserPreferences",
+        "type": "object",
+        "required": [
+          "userId",
+          "country",
+          "areaUnit",
+          "distanceUnit",
+          "theme",
+          "updatedAt"
+        ],
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "areaUnit": {
+            "type": "string"
+          },
+          "distanceUnit": {
+            "type": "string"
+          },
+          "theme": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
+      "VerifyRequest": {
+        "title": "VerifyRequest",
+        "type": "object",
+        "required": [
+          "identifier",
+          "otp"
+        ],
+        "properties": {
+          "identifier": {
+            "type": "string"
+          },
+          "otp": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "httpAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

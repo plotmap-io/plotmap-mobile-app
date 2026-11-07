@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "plotmap-mobile-app",
+    "name": "Plotmap",
     "slug": "plotmap-mobile-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,7 +8,9 @@
     "scheme": "plotmapmobileapp",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.plotmap.mobile",
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
@@ -17,7 +19,8 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.plotmap.mobile"
     },
     "web": {
       "output": "static",

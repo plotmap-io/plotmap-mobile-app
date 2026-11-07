@@ -115,7 +115,9 @@ npm run lint       # expo lint                        — see below
 ```
 
 `npm test` and `npm run typecheck` pass from a fresh clone with nothing else
-installed or running — no device, no simulator, no server.
+installed or running — no device, no simulator, no server. Both run in CI on
+every push (`.github/workflows/ci.yml`); they are the only checks that can,
+since everything else about this app has to be run on something to be believed.
 
 `npm run lint` currently reports pre-existing errors. They come from the React
 Compiler rules in `eslint-config-expo` 58 (`reactCompiler` is on in `app.json`)
@@ -141,7 +143,14 @@ src/
   lib/          API client, auth, React state, formatting, dev data
   types/        API types and tables
   theme/        colour and spacing tokens
+dev-resources/  the API contract this client talks to — see its README
+scripts/        make-upload.sh, for packaging the repo
 ```
+
+The server's OpenAPI document, narrowed to the routes this client calls, is
+checked in at `dev-resources/api/openapi.json` and regenerated with
+`npm run api:sync`. Read `dev-resources/README.md` before integrating: the
+response envelope is not uniform, and the marker feed is not typed there.
 
 Two conventions worth knowing before changing anything:
 

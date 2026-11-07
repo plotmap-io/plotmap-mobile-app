@@ -52,7 +52,11 @@
     "lint": "expo lint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "upload": "bash scripts/make-upload.sh"
+    "upload": "bash scripts/make-upload.sh",
+    "api:sync": "node dev-resources/api/sync-openapi.mjs"
   },
-  "private": true
+  "private": true,
+  "engines": {
+    "node": ">=22.12"
+  }
 }
