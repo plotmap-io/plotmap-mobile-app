@@ -102,3 +102,27 @@ export function metaLine(listing: ListingCard, centre: Coordinate | null): strin
   if (distance) parts.push(distance);
   return parts.join(' · ');
 }
+
+/**
+ * The server's status as a person says it. The raw enum ("ForSale") must
+ * never reach a screen — Ajay reads these words on the web as "For sale".
+ */
+const STATUS_WORDS: Record<string, string> = {
+  ForSale: 'For sale',
+  ForRent: 'For rent',
+  Sold: 'Sold',
+  Rented: 'Rented',
+  Draft: 'Draft',
+};
+
+export function statusLabel(status: string | undefined): string {
+  if (!status) return '';
+  return STATUS_WORDS[status] ?? status.replace(/([a-z])([A-Z])/g, '$1 $2');
+}
+
+/** "residential_plot" → "Residential plot". */
+export function humanise(value: string | undefined): string {
+  if (!value) return '';
+  const words = value.replace(/[_-]+/g, ' ').trim().toLowerCase();
+  return words.charAt(0).toUpperCase() + words.slice(1);
+}

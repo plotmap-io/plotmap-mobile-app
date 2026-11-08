@@ -644,12 +644,19 @@ export function detailFor(id: string): ListingDetail | undefined {
     },
     lotSizeSqm: typeof area?.value === 'number' ? area.value : 400,
     fields: l.highlightFields.map((f) => ({ ...f, category: 'Details' })),
-    description: 'Sample listing used while the app runs without a backend.',
+    description:
+      `A sample ${l.propertySubType.replace(/_/g, ' ')} in ${place}, used while the app runs ` +
+      'without a backend. The road frontage, the walk to the bus stop and the shape of the ' +
+      'plot would be described here — the real listings carry a written description of what ' +
+      'is around the pin, and this paragraph stands in for it so the page can be judged at ' +
+      'its real length.',
     status: l.status,
     askAmount: l.askAmount,
     askCurrency: l.askCurrency,
     displayPrice: l.displayPrice,
+    listedByOwner: l.id.charCodeAt(l.id.length - 1) % 2 === 0,
     listingMedia: l.images.map((url, i) => ({ id: `${l.id}-m${i}`, listingId: l.id, url })),
+    contactUsername: 'nice_place_properties',
     createdAt: l.createdAt,
   };
 }
