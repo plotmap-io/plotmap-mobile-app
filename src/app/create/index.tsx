@@ -221,6 +221,9 @@ const styles = StyleSheet.create({
     borderRadius: radius.xs,
     overflow: 'hidden',
     backgroundColor: color.field,
+    // A pale photo on a pale ground is no tile at all until it has an edge.
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: color.line,
   },
   photo: { width: '100%', height: '100%' },
   veil: {

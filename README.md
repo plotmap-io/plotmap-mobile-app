@@ -82,6 +82,14 @@ all the galleries are empty and everything else still works.
 Requests the sample data has no answer for still go to the network, so signing
 in fails honestly rather than pretending.
 
+The seller side is answered too — a draft, its photos, the reverse-geocoded
+address and publishing — but only while the app is holding a token, since
+every one of those routes is behind a bearer token on the real server.
+`POST /auth/verify` is deliberately NOT answered, so sample mode cannot sign
+anyone in on its own: to walk Create listing with no backend, put a token in
+storage first (`localStorage['plotmap.token']` on web), which is what a
+screenshot run does.
+
 ### Driving it from a test
 
 ```bash
@@ -111,7 +119,7 @@ they are ignored entirely by a release build.
 ```bash
 npm test           # unit tests (vitest, plain Node)  — green
 npm run typecheck  # tsc --noEmit                     — green
-npm run lint       # expo lint                        — see below
+npm run lint       # expo lint                        — green
 ```
 
 `npm test` and `npm run typecheck` pass from a fresh clone with nothing else
@@ -119,10 +127,10 @@ installed or running — no device, no simulator, no server. Both run in CI on
 every push (`.github/workflows/ci.yml`); they are the only checks that can,
 since everything else about this app has to be run on something to be believed.
 
-`npm run lint` currently reports pre-existing errors. They come from the React
-Compiler rules in `eslint-config-expo` 58 (`reactCompiler` is on in `app.json`)
-and are spread across the screens — values modified during render, refs read in
-render. They are known and unrelated to any one change.
+`npm run lint` is green too, and worth keeping that way: the React Compiler
+rules in `eslint-config-expo` 58 (`reactCompiler` is on in `app.json`) refuse
+a ref read during render and a `setState` in an effect body. Loaders here are
+promise chains whose state writes happen in callbacks, which is why.
 
 Tests live in `tests/` and run in plain Node, so they can only import modules that
 are free of React Native imports: `src/services/`, `src/types/api.ts` and
@@ -135,6 +143,7 @@ a component — see *Views and services* below.
 src/
   app/          screens — expo-router file routes, one file per screen
     (tabs)/     Search (index), Home, Saved, Menu
+    create/     create a listing: photos, where, essentials, review
     listing/    listing detail
     thread/     one message thread
     u/          public profile by username

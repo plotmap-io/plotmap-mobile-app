@@ -745,6 +745,86 @@
         }
       }
     },
+    "/api/v1/drafts": {
+      "get": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "getApiV1Drafts",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "listings"
+        ],
+        "summary": "Create a listing draft (step 1 of listing creation)",
+        "description": "Bearer auth. Body is the draft payload (propertyType, propertySubType, status ForSale|ForRent, location {latitude, longitude, addressDisplay, city, …}, askAmount, askCurrency, description, fields). Then upload photos with POST /api/v1/listings/{id}/media and publish with POST /api/v1/drafts/{id}/publish.",
+        "operationId": "postApiV1Drafts",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
     "/api/v1/drafts/empty": {
       "post": {
         "tags": [
@@ -1517,6 +1597,242 @@
         ]
       }
     },
+    "/api/v1/listings/{id}/media/map-views": {
+      "post": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "postApiV1ListingsIdMediaMap-views",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/listings/{id}/media/reorder": {
+      "put": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "putApiV1ListingsIdMediaReorder",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/listings/{id}/media/upload": {
+      "post": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "postApiV1ListingsIdMediaUpload",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isPrimary",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "displayOrder",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: query parameter isPrimary, Invalid value for: query parameter displayOrder, Invalid value for: body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/listings/{id}/media/{mediaId}": {
+      "delete": {
+        "tags": [
+          "listings"
+        ],
+        "operationId": "deleteApiV1ListingsIdMediaMediaid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mediaId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
     "/api/v1/metadata": {
       "get": {
         "tags": [
@@ -1600,6 +1916,69 @@
             "content": {
               "application/json": {
                 "schema": {}
+              }
+            }
+          },
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "httpAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/places/reverse-geocode": {
+      "get": {
+        "tags": [
+          "places"
+        ],
+        "operationId": "getApiV1PlacesReverse-geocode",
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReverseGeocodeResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid value for: query parameter lat, Invalid value for: query parameter lng",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -2494,6 +2873,66 @@
             "type": "string"
           },
           "otp": {
+            "type": "string"
+          }
+        }
+      },
+      "ReverseGeocodeResult": {
+        "title": "ReverseGeocodeResult",
+        "type": "object",
+        "required": [
+          "formattedAddress"
+        ],
+        "properties": {
+          "formattedAddress": {
+            "type": "string"
+          },
+          "landmark": {
+            "type": "string"
+          },
+          "streetNumber": {
+            "type": "string"
+          },
+          "premise": {
+            "type": "string"
+          },
+          "route": {
+            "type": "string"
+          },
+          "routeShort": {
+            "type": "string"
+          },
+          "neighborhood": {
+            "type": "string"
+          },
+          "sublocality": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "subDistrict": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "stateProvince": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "countryCode": {
+            "type": "string"
+          },
+          "postalCode": {
+            "type": "string"
+          },
+          "plusCode": {
+            "type": "string"
+          },
+          "displayAddress": {
             "type": "string"
           }
         }

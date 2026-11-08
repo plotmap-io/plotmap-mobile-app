@@ -46,11 +46,15 @@ export function Tap({
 }) {
   const pressed = useSharedValue(0);
 
+  // The dimming of a DISABLED control has to live in the animated style too:
+  // an animated `opacity` overrides a static one, so a disabled button was
+  // painted at full strength and looked pressable. A disabled Publish that
+  // looks live is a promise the screen cannot keep.
   const anim = useAnimatedStyle(() => {
     const p = pressed.get();
     return {
       transform: [{ scale: 1 - (1 - scale) * p }],
-      opacity: 1 - (1 - dim) * p,
+      opacity: (disabled ? 0.45 : 1) * (1 - (1 - dim) * p),
     };
   });
 
@@ -70,7 +74,7 @@ export function Tap({
         if (kind !== 'none') haptic[kind]();
         onPress?.(e);
       }}
-      style={[style, disabled && styles.disabled, anim]}>
+      style={[style, anim]}>
       {children}
     </AnimatedPressable>
   );
@@ -142,7 +146,6 @@ export function Button({
 }
 
 const styles = StyleSheet.create({
-  disabled: { opacity: 0.5 },
   button: {
     flexDirection: 'row',
     alignItems: 'center',

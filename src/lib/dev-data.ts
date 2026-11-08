@@ -696,9 +696,15 @@ const METADATA: Metadata = {
   // Essentials screen would offer a choice that cannot be published.
   pricingRules: Object.fromEntries(
     [...KINDS, ...LEGACY_KINDS].map((k) => {
+      // The server's own table (`PricingRules`): a building takes per sq.ft
+      // and per sq.m, a plot adds per cent, farmland is acres and cents and
+      // nothing else. A fixture that allowed more would offer a rate the
+      // publish gate refuses.
       const areaUnits = k.built
         ? ['per_sqft', 'per_sqm']
-        : ['per_cent', 'per_acre', 'per_sqft', 'per_sqm'];
+        : k.subType.toLowerCase().includes('agricultural')
+          ? ['per_acre', 'per_cent']
+          : ['per_cent', 'per_sqft', 'per_sqm'];
       return [
         k.subType,
         {
@@ -906,6 +912,27 @@ function withFlags(d: DevDraft): Record<string, unknown> {
   };
 }
 
+/**
+ * "/cent", "/mo" — the twin of the backend's `PriceFormatter.priceSuffix`. A
+ * per-area ask is a RATE and its price string has to say so, or the listing
+ * page reads a rate as the whole price.
+ */
+function priceSuffix(areaUnit?: string, timeUnit?: string): string {
+  const area: Record<string, string> = {
+    per_cent: '/cent',
+    per_acre: '/acre',
+    per_sqft: '/sqft',
+    per_sqm: '/sqm',
+  };
+  const time: Record<string, string> = {
+    per_day: '/day',
+    per_week: '/wk',
+    per_month: '/mo',
+    per_year: '/yr',
+  };
+  return (area[areaUnit ?? ''] ?? '') + (time[timeUnit ?? ''] ?? '');
+}
+
 function applyDevUpdate(d: DevDraft, body: Record<string, unknown>): DevDraft {
   const str = (key: string) => (typeof body[key] === 'string' ? (body[key] as string) : undefined);
   const num = (key: string) => (typeof body[key] === 'number' ? (body[key] as number) : undefined);
@@ -933,7 +960,11 @@ function applyDevUpdate(d: DevDraft, body: Record<string, unknown>): DevDraft {
       typeof body.listedByOwner === 'boolean' ? (body.listedByOwner as boolean) : d.listedByOwner,
     displayPrice:
       (num('askAmount') ?? d.askAmount) > 0
-        ? displayPrice(num('askAmount') ?? d.askAmount, str('askCurrency') ?? d.askCurrency)
+        ? displayPrice(num('askAmount') ?? d.askAmount, str('askCurrency') ?? d.askCurrency) +
+          priceSuffix(
+            askPresent ? str('askAreaUnit') : d.askAreaUnit,
+            askPresent ? str('askTimeUnit') : d.askTimeUnit,
+          )
         : '',
     updatedAt: new Date().toISOString(),
   };
@@ -974,6 +1005,27 @@ function attachMapViews(d: DevDraft): DevMedia[] {
   });
   d.listingMedia = [...d.listingMedia.filter((m) => m.source === 'upload'), ...made];
   return made;
+}
+
+/** The published draft as the listing page reads it. */
+function publishedDevDraft(d: DevDraft): Record<string, unknown> {
+  return {
+    ...d,
+    fields:
+      d.lotSizeSqm > 0
+        ? [
+            {
+              key: 'areaSqm',
+              value: Math.round(d.lotSizeSqm),
+              fieldType: 'number',
+              label: 'sq.m',
+              category: 'Details',
+            },
+          ]
+        : [],
+    contactUsername: DEV_OWNER.username,
+    contactUserId: DEV_OWNER.id,
+  };
 }
 
 /**
@@ -1033,7 +1085,12 @@ export function devRespond(
   if (method === 'GET' && route === '/api/v1/search/sellers') return [];
 
   const detail = route.match(/^\/api\/v1\/listings\/([^/]+)$/);
-  if (method === 'GET' && detail) return detailFor(detail[1]);
+  if (method === 'GET' && detail) {
+    // The listing just published through the create flow, so landing on it
+    // shows the thing that was made rather than a 404.
+    if (draft?.id === detail[1] && draft.isPublished) return publishedDevDraft(draft);
+    return detailFor(detail[1]);
+  }
 
   /* ---- the seller side, all of it behind a token ---- */
 

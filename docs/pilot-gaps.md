@@ -6,36 +6,44 @@ Read against `src/` on `feat/premium-pass` (2026-11-07) and the web product's
 
 ## Blockers — the pilot cannot start without these
 
-**1. Publishing a listing is impossible today.** The backend gate is
-`FieldValidator.validateForPublish` (`backend/.../listings/FieldValidator.scala:10`):
-location (`lat != 0 && lng != 0`), price, details, **and at least one uploaded
-photo** (`imagesAdded = listingMedia.exists(!_.isGenerated)`). `src/app/create.tsx`
-sends price, area, description and sub-type and nothing else — no pin, no photo —
-so `POST /drafts/:id/publish` returns a validation error on *every* attempt. The
-screen's own closing line ("Photos and the plot boundary can be added from the
-listing once it is live") describes an order the server does not allow. Nothing
-else on this list matters until this does.
+**~~1. Publishing a listing is impossible today.~~ CLOSED (2026-11-07).**
+`src/app/create/` is four screens over one draft — Photos → Where it is →
+Essentials → Review — and every rule in
+`FieldValidator.validateForPublish` is answered before Publish is offered:
+`services/listing-draft.missingForPublish` restates them (a photo, a pin, a
+price, "details", and a lot size whenever the ask is per area) and names what
+is left in the broker's words, each line a tap from the step that answers it.
+Walked end to end on web at 390×844 — published, and landed on the live
+listing.
 
-**2. No camera, no photo upload anywhere in the app.** No `expo-image-picker`,
-no `expo-camera`, no call to `POST /api/v1/listings/:id/media` (one photo per
-call). A broker standing on a plot cannot do the one thing he came to do. iOS also
-needs the camera and photo-library usage strings before this can ship (see
-`pilot-release.md`).
+**~~2. No camera, no photo upload anywhere in the app.~~ CLOSED (2026-11-07).**
+`expo-image-picker` (~58.0.10, bundled in Expo Go) — camera or library,
+several at once; each photo goes up on pick through
+`POST /api/v1/listings/:id/media/upload` as a `FormData`, with its own
+spinner, its own remove, its own retry and the server's own error text. An
+empty MIME type is never a rejection: it defaults to `image/jpeg`, which is
+what the server assumes too. The three iOS usage strings and
+`ITSAppUsesNonExemptEncryption` are in `app.json` in the wording
+`pilot-release.md` prescribes. **Not verified without a simulator:** the
+camera itself, the permission dialogs, and multipart upload from a device.
 
-**3. Area and price are in the wrong units for Kerala.** `create.tsx` asks for
-"Area (sq.m)", hardcodes `askCurrency: 'INR'`, sets `askAmountTotal = askAmount`
-and never sets `askAreaUnit`; `filters.tsx` tells the user "the backend filters on
-square metres. 1 cent is about 40.5 sq.m." Brokers quote **cents** and **₹ per
-cent**. Per the umbrella gotcha "a per-area ask is a RATE, not money", a 100-cent
-plot at ₹1,00,000/cent entered here is recorded as having sold for ₹1,00,000
-instead of ₹1 crore. This is worse than missing — it is wrong data in an immutable
-record. `metadata.areaUnits` already ships `cent`; use it.
+**~~3. Area and price are in the wrong units for Kerala.~~ CLOSED (2026-11-07).**
+Area is asked in **cents** by default with unit tabs from
+`metadata.areaUnits`, and stored as `lotSizeSqm` through `services/area`
+(the web's four factors, to the same digits). The "Price per" row —
+Total | Per cent | Per sq.ft | Per sq.m, built from the server's own
+`pricingRules`, so a house is never offered a per-cent price — makes a rate
+a rate: the total under the field is `rate × area`, shown before anything is
+saved, and that number is what `askAmountTotal` carries. A 10-cent plot at
+₹1,00,000 per cent now reads **₹10,00,000 in total**.
+`filters.tsx` still asks for area in square metres.
 
-**4. No plot boundary and no satellite views.** The web Where step draws a ring (or
-a circle from the stated size) and renders three satellite images at publish
-(`map-close` / plot / area), the close-up becoming the cover when there is no
-photo. Mobile does neither, so a mobile-made listing is a bare pin — and for a
-plot, the outline *is* the product.
+**4. No plot boundary; satellite views now, but no ring.** The create flow
+asks for the three satellite views (`POST /listings/:id/media/map-views`)
+once the location is saved, best effort, as the web's Where step does. It
+still does not draw a ring or a circle from the stated size, so a
+mobile-made listing has a pin and imagery but no outline — and for a plot,
+the outline *is* the product.
 
 **5. A published listing cannot be managed.** No unpublish, relist, Take off
 market, mark Sold/Rented, edit-after-publish, transfer, or version history. The
@@ -75,8 +83,9 @@ what he hands a buyer, and he cannot change a word of it from the app.
 
 - **History is a stub** — `statusesFor('History')` = `['Sold','Rented']`. No Off
   market status, no 3/6/12/24-month window (web has both in a popover).
-- **No "Listed by" filter** and no owner/broker choice on create; the listing page
-  renders `listedByOwner` when the server sets it, which mobile never does.
+- **No "Listed by" filter.** Create listing now asks (optional, clearable, unset
+  by default) and the listing page renders what the server stores; search
+  cannot filter on it.
 - **Convert prices is dead state** — `Filters.convertPrices` reaches the query but
   no control sets it. Harmless in an all-INR pilot; delete or wire it.
 - **Alerts are not the web's search alerts** — "Save this search" posts a name,
@@ -95,13 +104,21 @@ what he hands a buyer, and he cannot change a word of it from the app.
 - **Dev affordances must stay out of the release.** The Menu's Development section
   and sample data are `__DEV__`-only — verify that in the release build, because
   a broker reaching "Insert fake data" would be unexplainable.
-- **`npm run lint` is red** (React Compiler rules in `eslint-config-expo` 58) and
-  there is no on-device test harness, so a release regression has no gate.
+- **No on-device test harness**, so a release regression has no gate.
+  `npm run lint`, `npm run typecheck` and `npm test` are all green (the
+  React Compiler errors were fixed in `485ad28`); the create flow was driven
+  on web with Playwright, which is not the same as a device.
+- **The listing page shows a per-area ask as the headline** — the server
+  formats it "₹ 1,00,000/cent", which is honest but not what the web does
+  (the web leads with the TOTAL and keeps the rate secondary,
+  `ListingDetailPage` + `Price.totalForArea`). Now that mobile can write a
+  rate, mobile should read one the same way.
 
 ## Honest summary
 
 Search, the map (piles, bins, disperse), the listing page, Saved, sign-in, Messages
-and the menu are real and shippable. **The seller side is not.** The app is a good
-buyer client that a broker cannot yet put a plot into. Items 1–4 are one piece of
-work — a Where step with a pin, a photo step, cents, and the ring — and they are
-the whole pilot.
+and the menu are real and shippable. **The seller side now starts**: a broker can
+photograph a plot, drop its pin, price it per cent and publish it from the phone
+(2026-11-07). What is still missing on that side is everything after publishing —
+managing the listing (item 5), the plot outline (item 4), and the land filters a
+buyer needs to find it (item 6).
