@@ -2,14 +2,22 @@ import { Feather } from '@expo/vector-icons';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  ActivityIndicator,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 
 import { Card } from '@/components/card';
 import { StackScreen } from '@/components/stack-screen';
 import { Empty } from '@/components/states';
+import { Tap } from '@/components/tap';
 import { api, mediaUrl } from '@/lib/api';
 import { asList } from '@/lib/social';
-import { color } from '@/theme/tokens';
+import { color, noOutline, radius, space, type, weight } from '@/theme/tokens';
 import type { PublicProfile } from '@/types/api';
 
 export default function SellersScreen() {
@@ -18,18 +26,27 @@ export default function SellersScreen() {
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
+    let alive = true;
     const t = setTimeout(() => {
-      setBusy(true);
       api
         .get<PublicProfile[]>(
           `/api/v1/search/sellers?q=${encodeURIComponent(q.trim())}&limit=25`,
           { auth: false },
         )
-        .then((r) => setRows(asList<PublicProfile>(r, 'sellers')))
-        .catch(() => setRows([]))
-        .finally(() => setBusy(false));
+        .then((r) => {
+          if (alive) setRows(asList<PublicProfile>(r, 'sellers'));
+        })
+        .catch(() => {
+          if (alive) setRows([]);
+        })
+        .finally(() => {
+          if (alive) setBusy(false);
+        });
     }, 250);
-    return () => clearTimeout(t);
+    return () => {
+      alive = false;
+      clearTimeout(t);
+    };
   }, [q]);
 
   return (
@@ -38,11 +55,14 @@ export default function SellersScreen() {
         <View style={styles.search}>
           <Feather name="search" size={17} color={color.muted} />
           <TextInput
-            style={styles.input}
+            style={[styles.input, noOutline]}
             value={q}
-            onChangeText={setQ}
+            onChangeText={(text) => {
+              setBusy(true);
+              setQ(text);
+            }}
             placeholder="Name or handle"
-            placeholderTextColor="#9aabb6"
+            placeholderTextColor={color.placeholder}
             autoCorrect={false}
           />
           {busy ? <ActivityIndicator size="small" color={color.muted} /> : null}
@@ -51,13 +71,17 @@ export default function SellersScreen() {
 
       <ScrollView contentContainerStyle={styles.body} keyboardShouldPersistTaps="handled">
         {rows.length === 0 && !busy ? (
-          <Empty icon="users" message="No sellers to show." />
+          <Empty icon="users" title="No sellers to show" message="Try a different name or handle." />
         ) : (
           <Card>
             {rows.map((s, i) => (
-              <Pressable
+              <Tap
                 key={s.username ?? i}
+                haptic="none"
+                scale={1}
                 style={[styles.row, i > 0 && styles.divided]}
+                accessibilityRole="button"
+                accessibilityLabel={`See ${s.name ?? s.username ?? 'this seller'}`}
                 onPress={() => s.username && router.push(`/u/${s.username}`)}>
                 {s.avatarUrl ? (
                   <Image source={{ uri: mediaUrl(s.avatarUrl) }} style={styles.face} />
@@ -72,8 +96,8 @@ export default function SellersScreen() {
                   <Text style={styles.primary}>{s.name ?? s.username}</Text>
                   {s.username ? <Text style={styles.secondary}>@{s.username}</Text> : null}
                 </View>
-                <Feather name="chevron-right" size={16} color="#b4c3cd" />
-              </Pressable>
+                <Feather name="chevron-right" size={16} color={color.chevron} />
+              </Tap>
             ))}
           </Card>
         )}
@@ -85,17 +109,22 @@ export default function SellersScreen() {
 const styles = StyleSheet.create({
   searchWrap: { padding: 14, backgroundColor: color.surface },
   search: {
-    flexDirection: 'row', alignItems: 'center', gap: 9, height: 44,
-    borderRadius: 12, backgroundColor: color.field, paddingHorizontal: 13,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 9,
+    height: 44,
+    borderRadius: radius.md,
+    backgroundColor: color.field,
+    paddingHorizontal: space[3],
   },
-  input: { flex: 1, fontSize: 15.5, color: color.ink },
-  body: { padding: 16, paddingBottom: 30 },
-  row: { flexDirection: 'row', alignItems: 'center', gap: 11, padding: 12 },
+  input: { flex: 1, fontSize: type.body, color: color.ink },
+  body: { padding: space[4], paddingBottom: 30 },
+  row: { flexDirection: 'row', alignItems: 'center', gap: 11, padding: space[3] },
   divided: { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: color.hair },
-  face: { width: 38, height: 38, borderRadius: 19, backgroundColor: color.field },
+  face: { width: 38, height: 38, borderRadius: radius.pill, backgroundColor: color.field },
   faceFallback: { backgroundColor: color.accent, alignItems: 'center', justifyContent: 'center' },
-  faceText: { fontSize: 13, fontWeight: '600', color: color.surface },
+  faceText: { fontSize: type.sub, fontWeight: weight.semibold, color: color.surface },
   text: { flex: 1, minWidth: 0 },
-  primary: { fontSize: 14, fontWeight: '600', color: color.ink },
-  secondary: { fontSize: 12, color: color.muted },
+  primary: { fontSize: type.sub, fontWeight: weight.semibold, color: color.ink },
+  secondary: { fontSize: type.footnote, color: color.muted },
 });

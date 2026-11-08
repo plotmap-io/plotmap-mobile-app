@@ -1,21 +1,23 @@
 import { Feather } from '@expo/vector-icons';
 import { router } from 'expo-router';
-import { useEffect, useState } from 'react';
-import { type ReactNode } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { type ReactNode, useEffect, useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { Tap } from '@/components/tap';
 import { useAuth } from '@/lib/auth';
 import { unreadCount } from '@/lib/social';
-import { color } from '@/theme/tokens';
+import { color, radius, type, weight } from '@/theme/tokens';
 
 /**
  * The standard top bar. A screen title sits centred — absolutely positioned so
  * the actions on the right cannot pull it off centre — or a screen hands in its
  * own `leading` content, as Search does with its location field.
  *
- * Each action is a real 40pt target with its own pressed state, so they read
- * and behave as buttons rather than decoration.
+ * Each action is a real 40pt target that presses, so they read and behave as
+ * buttons rather than decoration. `transparent` drops the surface and the
+ * hairline for a screen that paints its own ground behind the bar (Search
+ * puts a blur over the map).
  */
 function Action({
   icon,
@@ -23,59 +25,68 @@ function Action({
   badge,
   onPress,
 }: {
-  icon: any;
+  icon: keyof typeof Feather.glyphMap;
   label: string;
   badge?: number;
   onPress: () => void;
 }) {
   return (
-    <Pressable
+    <Tap
       accessibilityRole="button"
       accessibilityLabel={badge ? `${label}, ${badge} unread` : label}
       onPress={onPress}
       hitSlop={4}
-      style={({ pressed }) => [styles.action, pressed && styles.actionPressed]}>
-      <Feather name={icon} size={20} color="#4b5d6b" />
+      scale={0.9}
+      style={styles.action}>
+      <Feather name={icon} size={21} color={color.inkSoft} />
       {badge ? (
         <View style={styles.badge}>
           <Text style={styles.badgeText}>{badge > 99 ? '99+' : badge}</Text>
         </View>
       ) : null}
-    </Pressable>
+    </Tap>
   );
 }
 
 export function AppHeader({
   title,
-  count,
+  count: total,
   leading,
   showActions = true,
+  transparent = false,
 }: {
   title?: string;
   count?: number;
   leading?: ReactNode;
   showActions?: boolean;
+  transparent?: boolean;
 }) {
   const insets = useSafeAreaInsets();
   const { signedIn } = useAuth();
-  const [unread, setUnread] = useState(0);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!signedIn) return setUnread(0);
+    if (!signedIn) return;
+    let alive = true;
     unreadCount()
-      .then((r) => setUnread(r?.count ?? r?.unread ?? 0))
-      .catch(() => setUnread(0));
+      .then((r) => alive && setCount(r?.count ?? r?.unread ?? 0))
+      .catch(() => alive && setCount(0));
+    return () => {
+      alive = false;
+    };
   }, [signedIn]);
+  // A guest has no inbox: the badge is zero, not merely hidden.
+  const unread = signedIn ? count : 0;
 
   const open = (path: string) => router.push((signedIn ? path : '/sign-in') as never);
 
   return (
-    <View style={[styles.wrap, { paddingTop: insets.top }]}>
+    <View style={[styles.wrap, !transparent && styles.surface, { paddingTop: insets.top }]}>
       <View style={styles.bar}>
         {title ? (
           <View pointerEvents="none" style={styles.centre}>
             <Text style={styles.title}>{title}</Text>
-            {count != null ? <Text style={styles.count}>{count}</Text> : null}
+            {total != null ? <Text style={styles.count}>{total}</Text> : null}
           </View>
         ) : null}
 
@@ -93,7 +104,8 @@ export function AppHeader({
 }
 
 const styles = StyleSheet.create({
-  wrap: {
+  wrap: {},
+  surface: {
     backgroundColor: color.surface,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: color.line,
@@ -103,8 +115,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    paddingLeft: 14,
-    paddingRight: 10,
+    paddingLeft: 16,
+    paddingRight: 8,
   },
   centre: {
     position: 'absolute',
@@ -117,32 +129,31 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 7,
   },
-  title: { fontSize: 18, fontWeight: '700', letterSpacing: -0.3, color: color.ink },
-  count: { fontSize: 14.5, fontWeight: '500', color: color.faint },
+  title: { fontSize: type.title3, fontWeight: weight.semibold, letterSpacing: -0.3, color: color.ink },
+  count: { fontSize: type.body, fontWeight: weight.medium, color: color.faint },
   leading: { flex: 1, minWidth: 0 },
   filler: { flex: 1 },
   actions: { flexDirection: 'row', alignItems: 'center', gap: 2 },
   action: {
     width: 40,
     height: 40,
-    borderRadius: 12,
+    borderRadius: radius.sm,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  actionPressed: { backgroundColor: color.field },
   badge: {
     position: 'absolute',
     top: 4,
     right: 3,
     minWidth: 16,
     height: 16,
-    borderRadius: 8,
-    backgroundColor: color.accent,
+    borderRadius: radius.pill,
+    backgroundColor: color.shiraz,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 4,
     borderWidth: 2,
     borderColor: color.surface,
   },
-  badgeText: { fontSize: 10, fontWeight: '700', color: color.surface },
+  badgeText: { fontSize: type.caption - 1, fontWeight: weight.bold, color: color.surface },
 });

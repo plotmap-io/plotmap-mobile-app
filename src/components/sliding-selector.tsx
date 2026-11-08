@@ -16,6 +16,8 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
+import { haptic } from '@/lib/haptics';
+
 /**
  * A row of equal slots with one chip that carries the selection.
  *
@@ -26,7 +28,12 @@ import Animated, {
  * nudge the chip a little instead of bringing it over.
  *
  * Position lives in a shared value so tracking runs on the UI thread; React is
- * only told when the highlighted slot actually changes.
+ * only told when the highlighted slot actually changes, and the device ticks
+ * once each time it does — the chip is felt crossing a boundary, not seen.
+ *
+ * Shared values are read and written through `get()` / `set()`, never
+ * `.value`: the React Compiler (on in app.json) treats a `.value` write as a
+ * mutation of a hook result and refuses the whole component.
  */
 const SPRING = { damping: 20, stiffness: 190, mass: 0.6 };
 const CATCH = { damping: 18, stiffness: 260, mass: 0.5 };
@@ -54,8 +61,12 @@ export function SlidingSelector({
   const [width, setWidth] = useState(0);
   const slot = width > 0 ? width / count : 0;
 
-  const [hover, setHover] = useState(activeIndex);
-  useEffect(() => setHover(activeIndex), [activeIndex]);
+  // The highlighted slot is `activeIndex` unless a finger is on the control:
+  // a touch records which selection it overrode, so the moment the parent
+  // commits a new `activeIndex` the override falls away on its own. Syncing
+  // it back with an effect instead was a cascading render.
+  const [touch, setTouch] = useState<{ index: number; over: number } | null>(null);
+  const hover = touch && touch.over === activeIndex ? touch.index : activeIndex;
 
   const x = useSharedValue(0);
   const lift = useSharedValue(0);
@@ -64,53 +75,61 @@ export function SlidingSelector({
 
   // Follow selection changed from elsewhere, but never yank the chip mid-drag.
   useEffect(() => {
-    if (slot === 0 || dragging.value) return;
+    if (slot === 0 || dragging.get()) return;
     const target = activeIndex * slot;
-    if (x.value === 0 && activeIndex === 0) x.value = target;
-    else x.value = withSpring(target, SPRING);
+    if (x.get() === 0 && activeIndex === 0) x.set(target);
+    else x.set(withSpring(target, SPRING));
   }, [activeIndex, slot, dragging, x]);
 
   const commit = useCallback(
     (index: number) => {
-      setHover(index);
+      setTouch({ index, over: activeIndex });
       onSelect(index);
     },
-    [onSelect],
+    [activeIndex, onSelect],
+  );
+
+  const hoverTo = useCallback(
+    (index: number) => {
+      setTouch({ index, over: activeIndex });
+      haptic.selection();
+    },
+    [activeIndex],
   );
 
   const pan = Gesture.Pan()
     .enabled(slot > 0)
     // React to the touch itself, so the chip arrives before any movement.
     .onBegin((e) => {
-      dragging.value = true;
-      lift.value = withTiming(1, { duration: 90 });
+      dragging.set(true);
+      lift.set(withTiming(1, { duration: 90 }));
       const i = clamp(Math.floor(e.x / slot), 0, count - 1);
-      x.value = withSpring(clamp(e.x - slot / 2, 0, (count - 1) * slot), CATCH);
-      if (i !== reported.value) {
-        reported.value = i;
-        runOnJS(setHover)(i);
+      x.set(withSpring(clamp(e.x - slot / 2, 0, (count - 1) * slot), CATCH));
+      if (i !== reported.get()) {
+        reported.set(i);
+        runOnJS(hoverTo)(i);
       }
     })
     .onUpdate((e) => {
       // Track the finger directly — no spring, or it lags behind the touch.
-      x.value = clamp(e.x - slot / 2, 0, (count - 1) * slot);
+      x.set(clamp(e.x - slot / 2, 0, (count - 1) * slot));
       const i = clamp(Math.floor(e.x / slot), 0, count - 1);
-      if (i !== reported.value) {
-        reported.value = i;
-        runOnJS(setHover)(i);
+      if (i !== reported.get()) {
+        reported.set(i);
+        runOnJS(hoverTo)(i);
       }
     })
     // Finalize, not End: a tap never activates the pan, and must still commit.
     .onFinalize(() => {
-      dragging.value = false;
-      const i = reported.value;
-      x.value = withSpring(i * slot, SPRING);
-      lift.value = withTiming(0, { duration: 140 });
+      dragging.set(false);
+      const i = reported.get();
+      x.set(withSpring(i * slot, SPRING));
+      lift.set(withTiming(0, { duration: 140 }));
       runOnJS(commit)(i);
     });
 
   const chip = useAnimatedStyle(() => ({
-    transform: [{ translateX: x.value }, { scale: 1 + lift.value * liftScale }],
+    transform: [{ translateX: x.get() }, { scale: 1 + lift.get() * liftScale }],
   }));
 
   return (

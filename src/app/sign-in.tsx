@@ -2,10 +2,8 @@ import { Feather } from '@expo/vector-icons';
 import { router, Stack } from 'expo-router';
 import { useState } from 'react';
 import {
-  ActivityIndicator,
   KeyboardAvoidingView,
   Platform,
-  Pressable,
   StyleSheet,
   Text,
   TextInput,
@@ -14,8 +12,9 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Logo } from '@/components/logo';
+import { Button, Tap } from '@/components/tap';
 import { useAuth } from '@/lib/auth';
-import { color } from '@/theme/tokens';
+import { color, noOutline, radius, space, type, weight } from '@/theme/tokens';
 
 /** Two steps: ask for the identifier, then verify the code the backend sent. */
 export default function SignInScreen() {
@@ -83,9 +82,16 @@ export default function SignInScreen() {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         style={[styles.screen, { paddingTop: insets.top + 12 }]}>
-        <Pressable style={styles.close} onPress={() => router.back()} hitSlop={10}>
+        <Tap
+          haptic="none"
+          scale={0.9}
+          hitSlop={10}
+          style={styles.close}
+          accessibilityRole="button"
+          accessibilityLabel="Close"
+          onPress={() => router.back()}>
           <Feather name="x" size={22} color={color.muted} />
-        </Pressable>
+        </Tap>
 
         <View style={styles.body}>
           <View style={styles.logo}><Logo size={46} /></View>
@@ -107,39 +113,42 @@ export default function SignInScreen() {
           {step === 'register' ? (
             <>
               <TextInput
-                style={styles.input}
+                style={[styles.input, noOutline]}
                 value={name}
                 onChangeText={setName}
                 placeholder="Your name"
-                placeholderTextColor="#9aabb6"
+                placeholderTextColor={color.placeholder}
                 autoCapitalize="words"
                 autoFocus
+                accessibilityLabel="Your name"
               />
               <TextInput
-                style={styles.input}
+                style={[styles.input, noOutline]}
                 value={username}
                 onChangeText={(v) => setUsername(v.replace(/[^a-zA-Z0-9_]/g, '').toLowerCase())}
                 placeholder="username"
-                placeholderTextColor="#9aabb6"
+                placeholderTextColor={color.placeholder}
                 autoCapitalize="none"
                 autoCorrect={false}
                 returnKeyType="go"
                 onSubmitEditing={createAccount}
+                accessibilityLabel="Username"
               />
             </>
           ) : step === 'identify' ? (
             <TextInput
-              style={styles.input}
+              style={[styles.input, noOutline]}
               value={identifier}
               onChangeText={setIdentifier}
               placeholder="Email or phone number"
-              placeholderTextColor="#9aabb6"
+              placeholderTextColor={color.placeholder}
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
               returnKeyType="go"
               onSubmitEditing={sendCode}
               autoFocus
+              accessibilityLabel="Email or phone number"
             />
           ) : (
             <TextInput
@@ -147,39 +156,35 @@ export default function SignInScreen() {
               value={otp}
               onChangeText={setOtp}
               placeholder="000000"
-              placeholderTextColor="#9aabb6"
+              placeholderTextColor={color.placeholder}
               keyboardType="number-pad"
               returnKeyType="go"
               onSubmitEditing={confirm}
               autoFocus
+              accessibilityLabel="One-time code"
             />
           )}
 
           {error ? <Text style={styles.error}>{error}</Text> : null}
 
-          <Pressable
-            style={[styles.primary, busy && styles.primaryBusy]}
-            disabled={busy}
-            onPress={
-              step === 'identify' ? sendCode : step === 'register' ? createAccount : confirm
-            }>
-            {busy ? (
-              <ActivityIndicator color={color.surface} />
-            ) : (
-              <Text style={styles.primaryText}>
-                {step === 'identify'
-                  ? 'Continue'
-                  : step === 'register'
-                    ? 'Create account'
-                    : 'Sign in'}
-              </Text>
-            )}
-          </Pressable>
+          <Button
+            label={
+              step === 'identify' ? 'Continue' : step === 'register' ? 'Create account' : 'Sign in'
+            }
+            size="lg"
+            busy={busy}
+            style={styles.submit}
+            onPress={step === 'identify' ? sendCode : step === 'register' ? createAccount : confirm}
+          />
 
           {step !== 'identify' ? (
-            <Pressable onPress={() => setStep('identify')}>
-              <Text style={styles.link}>Use a different email or phone</Text>
-            </Pressable>
+            <Button
+              label="Use a different email or phone"
+              variant="ghost"
+              size="md"
+              haptic="selection"
+              onPress={() => setStep('identify')}
+            />
           ) : null}
         </View>
       </KeyboardAvoidingView>
@@ -188,31 +193,26 @@ export default function SignInScreen() {
 }
 
 const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: color.surface, paddingHorizontal: 24 },
+  screen: { flex: 1, backgroundColor: color.surface, paddingHorizontal: space[6] },
   close: { alignSelf: 'flex-start', padding: 6 },
-  body: { flex: 1, justifyContent: 'center', gap: 12, paddingBottom: 80 },
+  body: { flex: 1, justifyContent: 'center', gap: space[3], paddingBottom: 80 },
   logo: { marginBottom: 6 },
-  title: { fontSize: 25, fontWeight: '700', letterSpacing: -0.6, color: color.ink },
-  subtitle: { fontSize: 14.5, color: color.muted, marginBottom: 8 },
+  title: { fontSize: type.title1, fontWeight: weight.bold, letterSpacing: -0.6, color: color.ink },
+  subtitle: { fontSize: type.body, lineHeight: 21, color: color.muted, marginBottom: space[2] },
   input: {
     height: 50,
-    borderRadius: 12,
+    borderRadius: radius.md,
     backgroundColor: color.field,
     paddingHorizontal: 14,
-    fontSize: 16,
+    fontSize: type.callout,
     color: color.ink,
   },
-  code: { letterSpacing: 6, fontSize: 20, fontWeight: '600', textAlign: 'center' },
-  error: { fontSize: 13.5, color: color.shiraz },
-  primary: {
-    height: 50,
-    borderRadius: 12,
-    backgroundColor: color.accent,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 4,
+  code: {
+    letterSpacing: 6,
+    fontSize: type.title2,
+    fontWeight: weight.semibold,
+    textAlign: 'center',
   },
-  primaryBusy: { opacity: 0.7 },
-  primaryText: { fontSize: 16, fontWeight: '600', color: color.surface },
-  link: { fontSize: 13.5, color: color.accent, textAlign: 'center', paddingVertical: 10 },
+  error: { fontSize: type.sub, color: color.shiraz },
+  submit: { marginTop: space[1] },
 });

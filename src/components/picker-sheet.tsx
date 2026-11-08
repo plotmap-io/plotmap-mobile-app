@@ -1,8 +1,9 @@
 import { Feather } from '@expo/vector-icons';
-import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Modal, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { color } from '@/theme/tokens';
+import { Tap } from '@/components/tap';
+import { color, eyebrow, radius, space, type, weight } from '@/theme/tokens';
 
 /** A bottom sheet of options — one tap picks and closes. */
 export function PickerSheet<T extends string>({
@@ -23,7 +24,15 @@ export function PickerSheet<T extends string>({
   const insets = useSafeAreaInsets();
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
-      <Pressable style={styles.backdrop} onPress={onClose} />
+      <Tap
+        haptic="none"
+        scale={1}
+        dim={1}
+        style={styles.backdrop}
+        accessibilityRole="button"
+        accessibilityLabel="Close"
+        onPress={onClose}
+      />
       <View style={[styles.sheet, { paddingBottom: Math.max(insets.bottom, 14) }]}>
         <View style={styles.grip} />
         <Text style={styles.title}>{title}</Text>
@@ -31,8 +40,10 @@ export function PickerSheet<T extends string>({
           {options.map((o) => {
             const on = o.value === value;
             return (
-              <Pressable
+              <Tap
                 key={o.value}
+                haptic="selection"
+                scale={1}
                 style={styles.row}
                 accessibilityRole="button"
                 accessibilityState={on ? { selected: true } : {}}
@@ -42,7 +53,7 @@ export function PickerSheet<T extends string>({
                 }}>
                 <Text style={[styles.label, on && styles.labelOn]}>{o.label}</Text>
                 {on ? <Feather name="check" size={18} color={color.accent} /> : null}
-              </Pressable>
+              </Tap>
             );
           })}
         </ScrollView>
@@ -52,13 +63,13 @@ export function PickerSheet<T extends string>({
 }
 
 const styles = StyleSheet.create({
-  backdrop: { flex: 1, backgroundColor: 'rgba(16,28,36,0.35)' },
+  backdrop: { flex: 1, backgroundColor: color.scrim },
   sheet: {
     backgroundColor: color.surface,
-    borderTopLeftRadius: 18,
-    borderTopRightRadius: 18,
-    paddingHorizontal: 16,
-    paddingTop: 8,
+    borderTopLeftRadius: radius.lg,
+    borderTopRightRadius: radius.lg,
+    paddingHorizontal: space[4],
+    paddingTop: space[2],
     maxHeight: '70%',
   },
   grip: {
@@ -66,17 +77,10 @@ const styles = StyleSheet.create({
     width: 38,
     height: 5,
     borderRadius: 3,
-    backgroundColor: '#cfd8de',
-    marginBottom: 10,
+    backgroundColor: color.grip,
+    marginBottom: space[3],
   },
-  title: {
-    fontSize: 11,
-    fontWeight: '600',
-    letterSpacing: 1,
-    textTransform: 'uppercase',
-    color: '#7e91a0',
-    paddingBottom: 4,
-  },
+  title: { ...eyebrow, paddingBottom: space[1] },
   list: { flexGrow: 0 },
   row: {
     flexDirection: 'row',
@@ -86,6 +90,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: color.hair,
   },
-  label: { fontSize: 15.5, color: color.ink },
-  labelOn: { fontWeight: '600', color: color.accent },
+  label: { fontSize: type.body, color: color.ink },
+  labelOn: { fontWeight: weight.semibold, color: color.accent },
 });

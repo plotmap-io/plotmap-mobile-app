@@ -1,6 +1,6 @@
 /** Preferences, linked methods, sessions, alerts and drafts. */
 import { api } from '@/lib/api';
-import type { ListingDetail, SearchQuery } from '@/types/api';
+import type { SearchQuery } from '@/types/api';
 
 export interface Preferences {
   userId?: string;
@@ -58,7 +58,5 @@ export const createAlert = (body: Record<string, unknown>) => api.post<Alert>('/
 export const deleteAlert = (id: string) => api.delete(`/api/v1/alerts/${id}`);
 export const runAlert = (id: string) => api.post(`/api/v1/alerts/${id}/run`);
 
-export const emptyDraft = () => api.post<ListingDetail>('/api/v1/drafts/empty', {});
-export const saveDraft = (id: string, body: Record<string, unknown>) =>
-  api.request<ListingDetail>(`/api/v1/drafts/${id}`, { method: 'PUT', body: JSON.stringify(body) });
-export const publishDraft = (id: string) => api.post<ListingDetail>(`/api/v1/drafts/${id}/publish`);
+/* Drafts, their photos and publishing live in `lib/drafts.ts` — the seller
+   side is a flow of its own, not an account setting. */

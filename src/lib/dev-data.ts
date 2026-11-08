@@ -644,12 +644,19 @@ export function detailFor(id: string): ListingDetail | undefined {
     },
     lotSizeSqm: typeof area?.value === 'number' ? area.value : 400,
     fields: l.highlightFields.map((f) => ({ ...f, category: 'Details' })),
-    description: 'Sample listing used while the app runs without a backend.',
+    description:
+      `A sample ${l.propertySubType.replace(/_/g, ' ')} in ${place}, used while the app runs ` +
+      'without a backend. The road frontage, the walk to the bus stop and the shape of the ' +
+      'plot would be described here — the real listings carry a written description of what ' +
+      'is around the pin, and this paragraph stands in for it so the page can be judged at ' +
+      'its real length.',
     status: l.status,
     askAmount: l.askAmount,
     askCurrency: l.askCurrency,
     displayPrice: l.displayPrice,
+    listedByOwner: l.id.charCodeAt(l.id.length - 1) % 2 === 0,
     listingMedia: l.images.map((url, i) => ({ id: `${l.id}-m${i}`, listingId: l.id, url })),
+    contactUsername: 'nice_place_properties',
     createdAt: l.createdAt,
   };
 }
@@ -671,9 +678,48 @@ const METADATA: Metadata = {
     { value: 'Rented', label: 'Rented' },
   ],
   areaUnits: [
-    { value: 'sqm', label: 'sq.m' },
-    { value: 'cent', label: 'cent' },
+    { value: 'cent', label: 'Cents' },
     { value: 'sqft', label: 'sq.ft' },
+    { value: 'sqm', label: 'sq.m' },
+    { value: 'acre', label: 'Acres' },
+  ],
+  priceAreaUnits: [
+    { value: 'per_cent', label: 'Per cent' },
+    { value: 'per_acre', label: 'Per acre' },
+    { value: 'per_sqft', label: 'Per sq.ft' },
+    { value: 'per_sqm', label: 'Per sq.m' },
+  ],
+  priceTimeUnits: [{ value: 'per_month', label: 'Per month' }],
+  // Which rates each sub-type may be quoted in, keyed the way the real
+  // server keys it. Land takes a per-cent price and a building does not —
+  // the publish gate refuses the rest, so the sample data must agree or the
+  // Essentials screen would offer a choice that cannot be published.
+  pricingRules: Object.fromEntries(
+    [...KINDS, ...LEGACY_KINDS].map((k) => {
+      // The server's own table (`PricingRules`): a building takes per sq.ft
+      // and per sq.m, a plot adds per cent, farmland is acres and cents and
+      // nothing else. A fixture that allowed more would offer a rate the
+      // publish gate refuses.
+      const areaUnits = k.built
+        ? ['per_sqft', 'per_sqm']
+        : k.subType.toLowerCase().includes('agricultural')
+          ? ['per_acre', 'per_cent']
+          : ['per_cent', 'per_sqft', 'per_sqm'];
+      return [
+        k.subType,
+        {
+          ForSale: { allowedAreaUnits: areaUnits, defaultAreaUnit: null },
+          ForRent: {
+            allowedAreaUnits: areaUnits,
+            allowedTimeUnits: ['per_month'],
+            defaultTimeUnit: 'per_month',
+          },
+        },
+      ];
+    }),
+  ),
+  countries: [
+    { code: 'IN', name: 'India', currencyCode: 'INR', locale: 'en-IN', areaUnit: 'cent' },
   ],
   filterRanges: {},
   defaults: { currency: 'INR', areaUnit: 'cent' },
@@ -751,7 +797,277 @@ export function placeSuggestions(q: string, limit = 8): unknown[] {
  * the network. Sign-in is never faked: a request that needs a real account
  * should fail honestly rather than pretend.
  */
-export function devRespond(path: string, method: string, body: unknown): unknown | undefined {
+/* ---------- the seller side: one draft, held in memory ---------- */
+
+/**
+ * Create listing, answered locally.
+ *
+ * Unlike everything above, this part has STATE: a draft is created, photos
+ * are attached to it, fields are written onto it and then it is published,
+ * and each step has to see what the last one did. It lives for as long as the
+ * app is loaded and is gone on reload, like every other sample fixture.
+ *
+ * The merge rules deliberately copy the server's `applyUpdate`: `location`
+ * decodes whole or not at all, and `askAreaUnit` is only read when
+ * `askAmount` is in the body. A fixture that is more forgiving than the
+ * server would hide exactly the bug it exists to catch.
+ */
+const DEV_OWNER = {
+  id: 'devbroker001',
+  name: 'Nice Place Properties',
+  username: 'nice_place_properties',
+  email: 'hello@plotmap.com',
+  bio: 'Plots around Thrissur. Sample account — nothing here is real.',
+  createdAt: '2026-01-04T05:30:00Z',
+};
+
+interface DevMedia {
+  id: string;
+  listingId: string;
+  url: string;
+  contentType: string;
+  isPrimary: boolean;
+  displayOrder: number;
+  source: string;
+  aiStatus: string;
+}
+
+interface DevDraft {
+  id: string;
+  propertyType: string;
+  propertySubType: string;
+  location: {
+    latitude: number;
+    longitude: number;
+    addressDisplay: string;
+    city?: string;
+    stateProvince?: string;
+    country?: string;
+    countryCode?: string;
+    neighborhood?: string;
+  };
+  lotSizeSqm: number;
+  builtUpAreaSqm: number;
+  lotSizeDisplayUnit?: string;
+  fields: unknown[];
+  description?: string;
+  status: string;
+  askAmount: number;
+  askAreaUnit?: string;
+  askTimeUnit?: string;
+  askAmountTotal: number;
+  askCurrency: string;
+  listedByOwner?: boolean;
+  listingMedia: DevMedia[];
+  displayPrice: string;
+  isPublished: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+let draft: DevDraft | null = null;
+let mediaSeq = 0;
+
+function blankDraft(): DevDraft {
+  const now = new Date().toISOString();
+  return {
+    // The server's `emptyDraft` defaults, exactly: Residential / house,
+    // ForSale, USD, nothing else.
+    id: 'devdraft001',
+    propertyType: 'Residential',
+    propertySubType: 'house',
+    location: { latitude: 0, longitude: 0, addressDisplay: '' },
+    lotSizeSqm: 0,
+    builtUpAreaSqm: 0,
+    fields: [],
+    status: 'ForSale',
+    askAmount: 0,
+    askAmountTotal: 0,
+    askCurrency: 'USD',
+    listingMedia: [],
+    displayPrice: '',
+    isPublished: false,
+    createdAt: now,
+    updatedAt: now,
+  };
+}
+
+/** The computed booleans `ListingDraft.toJson` adds — the publish rules. */
+function withFlags(d: DevDraft): Record<string, unknown> {
+  const locationAdded = d.location.latitude !== 0 && d.location.longitude !== 0;
+  const detailsAdded =
+    d.fields.length > 0 || (d.description ?? '') !== '' || d.lotSizeSqm > 0 || d.builtUpAreaSqm > 0;
+  const imagesAdded = d.listingMedia.some((m) => m.source === 'upload');
+  const priceAdded = d.askAmount > 0;
+  return {
+    ...d,
+    propertyTypeAdded: !(d.propertyType === 'Residential' && d.propertySubType === 'house'),
+    propertyStatusAdded: d.status !== 'ForSale',
+    locationAdded,
+    detailsAdded,
+    imagesAdded,
+    priceAdded,
+    isComplete: locationAdded && detailsAdded && imagesAdded && priceAdded,
+    locationInsights: null,
+  };
+}
+
+/**
+ * "/cent", "/mo" — the twin of the backend's `PriceFormatter.priceSuffix`. A
+ * per-area ask is a RATE and its price string has to say so, or the listing
+ * page reads a rate as the whole price.
+ */
+function priceSuffix(areaUnit?: string, timeUnit?: string): string {
+  const area: Record<string, string> = {
+    per_cent: '/cent',
+    per_acre: '/acre',
+    per_sqft: '/sqft',
+    per_sqm: '/sqm',
+  };
+  const time: Record<string, string> = {
+    per_day: '/day',
+    per_week: '/wk',
+    per_month: '/mo',
+    per_year: '/yr',
+  };
+  return (area[areaUnit ?? ''] ?? '') + (time[timeUnit ?? ''] ?? '');
+}
+
+function applyDevUpdate(d: DevDraft, body: Record<string, unknown>): DevDraft {
+  const str = (key: string) => (typeof body[key] === 'string' ? (body[key] as string) : undefined);
+  const num = (key: string) => (typeof body[key] === 'number' ? (body[key] as number) : undefined);
+  const askPresent = 'askAmount' in body;
+  const loc = body.location as DevDraft['location'] | undefined;
+
+  return {
+    ...d,
+    propertyType: str('propertyType') ?? d.propertyType,
+    propertySubType: str('propertySubType') ?? d.propertySubType,
+    status: str('status') ?? d.status,
+    location:
+      loc && typeof loc.latitude === 'number' && typeof loc.longitude === 'number'
+        ? { ...loc, addressDisplay: loc.addressDisplay ?? '' }
+        : d.location,
+    lotSizeSqm: num('lotSizeSqm') ?? d.lotSizeSqm,
+    lotSizeDisplayUnit: str('lotSizeDisplayUnit') ?? d.lotSizeDisplayUnit,
+    description: str('description') ?? d.description,
+    askAmount: num('askAmount') ?? d.askAmount,
+    askAreaUnit: askPresent ? str('askAreaUnit') : d.askAreaUnit,
+    askTimeUnit: askPresent ? str('askTimeUnit') : d.askTimeUnit,
+    askAmountTotal: num('askAmountTotal') ?? d.askAmountTotal,
+    askCurrency: str('askCurrency') ?? d.askCurrency,
+    listedByOwner:
+      typeof body.listedByOwner === 'boolean' ? (body.listedByOwner as boolean) : d.listedByOwner,
+    displayPrice:
+      (num('askAmount') ?? d.askAmount) > 0
+        ? displayPrice(num('askAmount') ?? d.askAmount, str('askCurrency') ?? d.askCurrency) +
+          priceSuffix(
+            askPresent ? str('askAreaUnit') : d.askAreaUnit,
+            askPresent ? str('askTimeUnit') : d.askTimeUnit,
+          )
+        : '',
+    updatedAt: new Date().toISOString(),
+  };
+}
+
+/** A photo "uploaded": one media row, the first one primary. */
+function attachMedia(d: DevDraft, isPrimary: boolean, displayOrder: number): DevMedia {
+  mediaSeq += 1;
+  const media: DevMedia = {
+    id: `devmedia${mediaSeq}`,
+    listingId: d.id,
+    url: photos(`${d.id}-${mediaSeq}`, 1)[0],
+    contentType: 'image/jpeg',
+    isPrimary: isPrimary || d.listingMedia.length === 0,
+    displayOrder,
+    source: 'upload',
+    aiStatus: 'skipped',
+  };
+  d.listingMedia = [...d.listingMedia, media];
+  return media;
+}
+
+/** The three satellite views, as GENERATED media — never a photograph. */
+function attachMapViews(d: DevDraft): DevMedia[] {
+  const sources = ['map-closeup', 'map-close', 'map-wide'];
+  const made = sources.map((source, i) => {
+    mediaSeq += 1;
+    return {
+      id: `devmedia${mediaSeq}`,
+      listingId: d.id,
+      url: photos(`${d.id}-map-${source}`, 1)[0],
+      contentType: 'image/png',
+      isPrimary: false,
+      displayOrder: 90 + i,
+      source,
+      aiStatus: 'skipped',
+    };
+  });
+  d.listingMedia = [...d.listingMedia.filter((m) => m.source === 'upload'), ...made];
+  return made;
+}
+
+/** The published draft as the listing page reads it. */
+function publishedDevDraft(d: DevDraft): Record<string, unknown> {
+  return {
+    ...d,
+    fields:
+      d.lotSizeSqm > 0
+        ? [
+            {
+              key: 'areaSqm',
+              value: Math.round(d.lotSizeSqm),
+              fieldType: 'number',
+              label: 'sq.m',
+              category: 'Details',
+            },
+          ]
+        : [],
+    contactUsername: DEV_OWNER.username,
+    contactUserId: DEV_OWNER.id,
+  };
+}
+
+/**
+ * The address at a pin, in the shape `AddressRules` composes: the locality,
+ * then the district written "Thrissur Dist." — and no state or country on the
+ * line, because the line stops at the district.
+ */
+export function reverseGeocodeAt(lat: number, lng: number): Record<string, unknown> {
+  const nearest = [...KERALA, ...WORLD].reduce((best, place) => {
+    const d = (place.lat - lat) ** 2 + (place.lng - lng) ** 2;
+    const b = (best.lat - lat) ** 2 + (best.lng - lng) ** 2;
+    return d < b ? place : best;
+  });
+  const indian = nearest.country === 'India';
+  const district = indian ? `${nearest.region} Dist.` : nearest.region;
+  return {
+    // Newline-separated, one place per line — exactly as `AddressRules`
+    // composes it on the wire. A fixture that sent commas would hide the
+    // flattening every one-line reader has to do.
+    formattedAddress: `${nearest.name}\n${nearest.region}\n${nearest.country}`,
+    displayAddress: `${nearest.name}\n${district}`,
+    neighborhood: nearest.name,
+    city: nearest.name,
+    district: nearest.region,
+    stateProvince: indian ? 'Kerala' : nearest.region,
+    country: nearest.country,
+    countryCode: indian ? 'IN' : 'XX',
+  };
+}
+
+/**
+ * `authed` is whether the app is holding a token. The seller-side routes are
+ * all behind a bearer token on the real server, so without one they are left
+ * to fail exactly as they would there — and signing IN is never answered
+ * here, so sample mode cannot pretend anyone is logged in on its own.
+ */
+export function devRespond(
+  path: string,
+  method: string,
+  body: unknown,
+  authed = false,
+): unknown | undefined {
   const query = (body ?? {}) as SearchQuery & { zoom?: number };
   const route = path.split('?')[0];
 
@@ -772,7 +1088,72 @@ export function devRespond(path: string, method: string, body: unknown): unknown
   if (method === 'GET' && route === '/api/v1/search/sellers') return [];
 
   const detail = route.match(/^\/api\/v1\/listings\/([^/]+)$/);
-  if (method === 'GET' && detail) return detailFor(detail[1]);
+  if (method === 'GET' && detail) {
+    // The listing just published through the create flow, so landing on it
+    // shows the thing that was made rather than a 404.
+    if (draft?.id === detail[1] && draft.isPublished) return publishedDevDraft(draft);
+    return detailFor(detail[1]);
+  }
+
+  /* ---- the seller side, all of it behind a token ---- */
+
+  if (!authed) return undefined;
+
+  // Who the stored token belongs to. `POST /auth/verify` is NOT answered, so
+  // the only way to have a token in sample mode is to have put one there.
+  if (method === 'GET' && route === '/api/v1/auth/me') return DEV_OWNER;
+
+  if (method === 'GET' && route === '/api/v1/drafts') {
+    return draft && !draft.isPublished ? [withFlags(draft)] : [];
+  }
+  if (method === 'POST' && route === '/api/v1/drafts/empty') {
+    draft = blankDraft();
+    mediaSeq = 0;
+    return withFlags(draft);
+  }
+
+  const draftRoute = route.match(/^\/api\/v1\/drafts\/([^/]+)$/);
+  if (draftRoute && draft?.id === draftRoute[1]) {
+    if (method === 'GET') return withFlags(draft);
+    if (method === 'PUT') {
+      draft = applyDevUpdate(draft, (body ?? {}) as Record<string, unknown>);
+      return withFlags(draft);
+    }
+  }
+
+  const publishRoute = route.match(/^\/api\/v1\/drafts\/([^/]+)\/publish$/);
+  if (method === 'POST' && publishRoute && draft?.id === publishRoute[1]) {
+    draft.isPublished = true;
+    return { listingId: draft.id, version: 1, message: 'Draft published successfully' };
+  }
+
+  const uploadRoute = route.match(/^\/api\/v1\/listings\/([^/]+)\/media\/upload$/);
+  if (method === 'POST' && uploadRoute && draft?.id === uploadRoute[1]) {
+    const query = new URLSearchParams(path.split('?')[1] ?? '');
+    return attachMedia(
+      draft,
+      query.get('isPrimary') === 'true',
+      Number(query.get('displayOrder') ?? 0) || 0,
+    );
+  }
+
+  const mapViewsRoute = route.match(/^\/api\/v1\/listings\/([^/]+)\/media\/map-views$/);
+  if (method === 'POST' && mapViewsRoute && draft?.id === mapViewsRoute[1]) {
+    return { views: attachMapViews(draft) };
+  }
+
+  const mediaRoute = route.match(/^\/api\/v1\/listings\/([^/]+)\/media\/([^/]+)$/);
+  if (method === 'DELETE' && mediaRoute && draft?.id === mediaRoute[1]) {
+    draft.listingMedia = draft.listingMedia.filter((m) => m.id !== mediaRoute[2]);
+    return { deleted: mediaRoute[2] };
+  }
+
+  // Billed upstream, like the place box: answered here so the create flow
+  // costs nothing to walk through a hundred times.
+  if (method === 'GET' && route === '/api/v1/places/reverse-geocode') {
+    const query = new URLSearchParams(path.split('?')[1] ?? '');
+    return reverseGeocodeAt(Number(query.get('lat') ?? 0), Number(query.get('lng') ?? 0));
+  }
 
   return undefined;
 }

@@ -4,20 +4,31 @@ import { useCallback } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { SaveIcon } from '@/components/icons';
 import { SlidingSelector } from '@/components/sliding-selector';
-import { color } from '@/theme/tokens';
+import { color, radius, shadow, type, weight } from '@/theme/tokens';
 
 /**
  * The bar sits on the page ground behind a hairline — a straight edge, no fade.
  * Selection is a SlidingSelector, so touching a tab brings the chip to your
  * finger and releasing commits it.
+ *
+ * Order and glyphs follow the web's `BottomNav` (Ajay 2026-11-01/05): Search
+ * (a globe), Saved (the bookmark), Home (the grid), Menu. The Home tab wears a
+ * DOT for anything waiting — people or the app — never a number.
  */
-const TABS: Record<string, { icon: any; label: string }> = {
-  home: { icon: 'home', label: 'Home' },
-  index: { icon: 'search', label: 'Search' },
-  saved: { icon: 'heart', label: 'Saved' },
+const TABS: Record<string, { icon: 'globe' | 'save' | 'grid' | 'menu'; label: string }> = {
+  index: { icon: 'globe', label: 'Search' },
+  saved: { icon: 'save', label: 'Saved' },
+  home: { icon: 'grid', label: 'Home' },
   menu: { icon: 'menu', label: 'Menu' },
 };
+
+function Glyph({ name, on }: { name: 'globe' | 'save' | 'grid' | 'menu'; on: boolean }) {
+  const tint = on ? color.tabActive : color.tabInactive;
+  if (name === 'save') return <SaveIcon size={22} tint={tint} strokeWidth={on ? 2 : 1.75} />;
+  return <Feather name={name} size={21} color={tint} />;
+}
 
 export function TabBar({ state, navigateToTab }: BottomTabBarProps) {
   const insets = useSafeAreaInsets();
@@ -36,12 +47,13 @@ export function TabBar({ state, navigateToTab }: BottomTabBarProps) {
   );
 
   return (
-    <View style={[styles.bar, { paddingBottom: Math.max(insets.bottom, 10) + 8 }]}>
+    <View style={[styles.bar, { paddingBottom: Math.max(insets.bottom, 10) + 4 }]}>
       <SlidingSelector
         count={tabs.length}
         activeIndex={activeIndex}
         onSelect={select}
-        chipInset={14}
+        chipInset={12}
+        liftScale={0.03}
         style={styles.row}
         chipStyle={styles.chip}
         renderItem={(i, on) => {
@@ -53,7 +65,7 @@ export function TabBar({ state, navigateToTab }: BottomTabBarProps) {
               accessibilityRole="button"
               accessibilityLabel={tab.label}
               accessibilityState={on ? { selected: true } : {}}>
-              <Feather name={tab.icon} size={21} color={on ? color.tabActive : color.tabInactive} />
+              <Glyph name={tab.icon} on={on} />
               <Text style={[styles.label, on && styles.labelOn]}>{tab.label}</Text>
               {route.name === 'home' ? <View style={styles.dot} /> : null}
             </View>
@@ -67,35 +79,31 @@ export function TabBar({ state, navigateToTab }: BottomTabBarProps) {
 const styles = StyleSheet.create({
   bar: {
     backgroundColor: color.bg,
-    paddingTop: 5,
+    paddingTop: 6,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: color.line,
   },
-  row: { flexDirection: 'row', height: 52 },
+  row: { flexDirection: 'row', height: 50 },
   chip: {
-    top: 2,
-    bottom: 2,
-    borderRadius: 14,
+    top: 1,
+    bottom: 1,
+    borderRadius: radius.md,
     backgroundColor: color.surface,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: 'rgba(201,214,223,0.75)',
-    shadowColor: '#152936',
-    shadowOpacity: 0.13,
-    shadowRadius: 3,
-    shadowOffset: { width: 0, height: 1 },
-    elevation: 2,
+    ...shadow.card,
   },
   tab: { alignItems: 'center', justifyContent: 'center', gap: 3 },
-  label: { fontSize: 10.5, fontWeight: '500', color: color.tabInactive },
-  labelOn: { color: color.tabActive, fontWeight: '600' },
+  label: { fontSize: type.caption, fontWeight: weight.medium, color: color.tabInactive },
+  labelOn: { color: color.tabActive, fontWeight: weight.semibold },
   dot: {
     position: 'absolute',
-    top: -2,
+    top: 3,
     right: '50%',
-    marginRight: -16,
+    marginRight: -17,
     width: 7,
     height: 7,
     borderRadius: 3.5,
     backgroundColor: color.shiraz,
+    borderWidth: 1.5,
+    borderColor: color.surface,
   },
 });

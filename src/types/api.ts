@@ -94,11 +94,40 @@ export interface Range {
 /** GET /api/v1/metadata — returns a FLAT body, no { data } envelope. */
 export interface Currency extends Option { symbol?: string }
 
+/**
+ * Which per-area price units a sub-type may be quoted in, keyed
+ * `pricingRules[propertySubType][status]`. The server refuses the others at
+ * publish (`PricingRules.isAreaUnitAllowed`), so the price row is built from
+ * this rather than from a list of its own.
+ */
+export interface PricingRule {
+  allowedAreaUnits?: string[];
+  defaultAreaUnit?: string | null;
+  allowedTimeUnits?: string[];
+  defaultTimeUnit?: string | null;
+}
+
+export type PricingRules = Record<string, Record<string, PricingRule>>;
+
+export interface Country {
+  code: string;
+  name: string;
+  currencyCode?: string;
+  locale?: string;
+  areaUnit?: string;
+  distanceUnit?: string;
+}
+
 export interface Metadata {
   propertyTypes: PropertyType[];
   currencies: Currency[];
   propertyStatuses: Option[];
   areaUnits: Option[];
+  /** `per_cent` | `per_acre` | `per_sqft` | `per_sqm` — rates, not sizes. */
+  priceAreaUnits?: Option[];
+  priceTimeUnits?: Option[];
+  pricingRules?: PricingRules;
+  countries?: Country[];
   filterRanges: Record<string, Range>;
   defaults: Record<string, string>;
 }
@@ -151,13 +180,54 @@ export interface Filters {
 export interface ListingField {
   key: string; value: string | number; fieldType: string; label: string; category?: string;
 }
-export interface ListingMedia { id: string; listingId: string; url: string; }
+export interface ListingMedia {
+  id: string;
+  listingId: string;
+  url: string;
+  thumbnailUrl?: string;
+  contentType?: string;
+  isPrimary?: boolean;
+  displayOrder?: number;
+  /**
+   * `upload` is the owner's own photograph; `map-close` / `map-closeup` /
+   * `map-wide` are the satellite views the server draws. Only an upload
+   * counts towards the one-photo rule publish enforces.
+   */
+  source?: string;
+  aiStatus?: string;
+  /**
+   * Only on the upload response, and only when the photo carried GPS EXIF:
+   * where the camera was standing. The web's Where step opens on it, which is
+   * how a plot photographed on site arrives with its pin already right.
+   */
+  extractedGps?: Coordinate;
+  suggestedLocation?: Coordinate;
+}
+
+/** Media the server generated rather than a photograph someone took. */
+export function isUploadedPhoto(m: ListingMedia): boolean {
+  return (m.source ?? 'upload') === 'upload';
+}
+
+export interface ListingLocation {
+  latitude: number;
+  longitude: number;
+  addressDisplay: string;
+  city?: string;
+  stateProvince?: string;
+  country?: string;
+  countryCode?: string;
+  postalCode?: string;
+  neighborhood?: string;
+  /** Composed by the server: "Mullurkara, Thrissur Dist." */
+  placeLine?: string;
+}
 
 export interface ListingDetail {
   id: string;
   propertyType: string;
   propertySubType: string;
-  location: { latitude: number; longitude: number; addressDisplay: string };
+  location: ListingLocation;
   lotSizeSqm?: number;
   builtUpAreaSqm?: number;
   fields: ListingField[];
@@ -173,6 +243,51 @@ export interface ListingDetail {
   contactUsername?: string;
   createdAt: string;
   offMarket?: boolean;
+}
+
+/**
+ * `GET|PUT /api/v1/drafts/:id` — the owner's listing JSON plus the booleans
+ * the server computes about what the draft is still missing. They are the
+ * same questions `FieldValidator.validateForPublish` asks, which is why the
+ * review step can trust them over anything it worked out itself.
+ */
+export interface DraftListing extends ListingDetail {
+  askAreaUnit?: string;
+  askTimeUnit?: string;
+  askAmountTotal?: number;
+  lotSizeDisplayUnit?: string;
+  isPublished?: boolean;
+  isComplete?: boolean;
+  /** False while the draft still wears the server's "Residential / house". */
+  propertyTypeAdded?: boolean;
+  propertyStatusAdded?: boolean;
+  locationAdded?: boolean;
+  detailsAdded?: boolean;
+  imagesAdded?: boolean;
+  priceAdded?: boolean;
+  updatedAt?: string;
+}
+
+/** `POST /api/v1/drafts/:id/publish` returns the id, not the listing. */
+export interface PublishResult {
+  listingId: string;
+  version?: number | null;
+  message?: string;
+}
+
+/** `GET /api/v1/places/reverse-geocode` — flat, with nulls dropped. */
+export interface ReverseGeocodeResult {
+  formattedAddress: string;
+  /** The line Plotmap itself writes (AddressRules) — store this one. */
+  displayAddress?: string;
+  neighborhood?: string;
+  sublocality?: string;
+  city?: string;
+  district?: string;
+  stateProvince?: string;
+  country?: string;
+  countryCode?: string;
+  postalCode?: string;
 }
 
 /* ---------- people, threads, notifications ---------- */

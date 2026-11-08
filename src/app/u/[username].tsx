@@ -10,7 +10,7 @@ import { Empty, ErrorState, Loading } from '@/components/states';
 import { mediaUrl } from '@/lib/api';
 import { asRows } from '@/lib/listings';
 import { publicProfile, userListings } from '@/lib/social';
-import { color } from '@/theme/tokens';
+import { color, radius, space, type, weight } from '@/theme/tokens';
 import type { ListingCard, PublicProfile } from '@/types/api';
 
 /** A seller's public face — the page they hand a buyer. */
@@ -20,19 +20,19 @@ export default function PublicProfileScreen() {
   const [rows, setRows] = useState<ListingCard[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  const load = useCallback(async () => {
+  // A promise chain, not an `async` body — the state writes belong in
+  // callbacks so an effect may call this (react-hooks/set-state-in-effect).
+  const load = useCallback(() => {
     if (!username) return;
-    setError(null);
-    try {
-      const [p, l] = await Promise.all([
-        publicProfile(username),
-        userListings(username).catch(() => null),
-      ]);
-      setProfile(p);
-      setRows(asRows(l as never));
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Could not load this profile');
-    }
+    Promise.all([publicProfile(username), userListings(username).catch(() => null)])
+      .then(([p, l]) => {
+        setProfile(p);
+        setRows(asRows(l as never));
+        setError(null);
+      })
+      .catch((e: unknown) =>
+        setError(e instanceof Error ? e.message : 'Could not load this profile'),
+      );
   }, [username]);
 
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function PublicProfileScreen() {
   return (
     <StackScreen title={profile?.name ?? `@${username ?? ''}`}>
       {error ? (
-        <ErrorState message={error} onRetry={load} />
+        <ErrorState title="Couldn’t load this profile" message={error} onRetry={load} />
       ) : !profile ? (
         <Loading />
       ) : (
@@ -81,7 +81,11 @@ export default function PublicProfileScreen() {
           <View>
             <GroupLabel>Listings</GroupLabel>
             {rows.length === 0 ? (
-              <Empty icon="home" message="No public listings." />
+              <Empty
+                icon="home"
+                title="No public listings"
+                message="Nothing of theirs is on the market right now."
+              />
             ) : (
               <Card>
                 {rows.map((l) => (
@@ -101,18 +105,33 @@ export default function PublicProfileScreen() {
 }
 
 const styles = StyleSheet.create({
-  body: { padding: 16, gap: 14, paddingBottom: 30 },
-  head: { flexDirection: 'row', alignItems: 'center', gap: 13, padding: 14 },
-  face: { width: 56, height: 56, borderRadius: 28, backgroundColor: color.field },
+  body: { padding: space[4], gap: 14, paddingBottom: 30 },
+  head: { flexDirection: 'row', alignItems: 'center', gap: space[3], padding: 14 },
+  face: { width: 56, height: 56, borderRadius: radius.pill, backgroundColor: color.field },
   faceFallback: { backgroundColor: color.accent, alignItems: 'center', justifyContent: 'center' },
-  faceText: { fontSize: 20, fontWeight: '600', color: color.surface },
+  faceText: { fontSize: type.title2, fontWeight: weight.semibold, color: color.surface },
   headText: { flex: 1, minWidth: 0, gap: 2 },
-  name: { fontSize: 18, fontWeight: '700', color: color.ink },
-  handle: { fontSize: 13, color: color.muted },
+  name: { fontSize: type.title2, fontWeight: weight.bold, letterSpacing: -0.3, color: color.ink },
+  handle: { fontSize: type.sub, color: color.muted },
   badge: {
-    alignSelf: 'flex-start', backgroundColor: color.accentSoft, borderRadius: 6,
-    paddingHorizontal: 8, paddingVertical: 3, marginTop: 2,
+    alignSelf: 'flex-start',
+    backgroundColor: color.accentSoft,
+    borderRadius: radius.xs,
+    paddingHorizontal: space[2],
+    paddingVertical: 3,
+    marginTop: 2,
   },
-  badgeText: { fontSize: 11, fontWeight: '600', color: color.accent, textTransform: 'capitalize' },
-  bio: { fontSize: 14, color: '#45596a', paddingHorizontal: 14, paddingBottom: 14 },
+  badgeText: {
+    fontSize: type.caption,
+    fontWeight: weight.semibold,
+    color: color.accent,
+    textTransform: 'capitalize',
+  },
+  bio: {
+    fontSize: type.sub,
+    lineHeight: 20,
+    color: color.inkSoft,
+    paddingHorizontal: 14,
+    paddingBottom: 14,
+  },
 });

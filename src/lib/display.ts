@@ -102,3 +102,69 @@ export function metaLine(listing: ListingCard, centre: Coordinate | null): strin
   if (distance) parts.push(distance);
   return parts.join(' · ');
 }
+
+/**
+ * The server's status as a person says it. The raw enum ("ForSale") must
+ * never reach a screen — Ajay reads these words on the web as "For sale".
+ */
+const STATUS_WORDS: Record<string, string> = {
+  ForSale: 'For sale',
+  ForRent: 'For rent',
+  Sold: 'Sold',
+  Rented: 'Rented',
+  Draft: 'Draft',
+};
+
+export function statusLabel(status: string | undefined): string {
+  if (!status) return '';
+  return STATUS_WORDS[status] ?? status.replace(/([a-z])([A-Z])/g, '$1 $2');
+}
+
+/** "residential_plot" → "Residential plot". */
+export function humanise(value: string | undefined): string {
+  if (!value) return '';
+  const words = value.replace(/[_-]+/g, ' ').trim().toLowerCase();
+  return words.charAt(0).toUpperCase() + words.slice(1);
+}
+
+/**
+ * Money while it is being typed — "₹10,00,000".
+ *
+ * The server formats every price it sends (`displayPrice`, `markerPrice`),
+ * but the create flow has to show a total the moment a rate and an area are
+ * entered, before anything has been saved. Grouping follows the CURRENCY, as
+ * the web's `CurrencyFormat` does: the lakh set reads en-IN, the euro de-DE,
+ * everything else en-US.
+ */
+const LAKH_CURRENCIES = new Set(['INR', 'PKR', 'BDT', 'NPR', 'BTN']);
+
+export function moneyLabel(amount: number, currency = 'INR'): string {
+  const locale = LAKH_CURRENCIES.has(currency) ? 'en-IN' : currency === 'EUR' ? 'de-DE' : 'en-US';
+  try {
+    return new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency,
+      maximumFractionDigits: 0,
+    }).format(amount);
+  } catch {
+    // An unknown ISO code must not take the screen down with it.
+    return `${currency} ${Math.round(amount).toLocaleString(locale)}`;
+  }
+}
+
+/**
+ * An address on ONE line — "Kuranchery - Velur Road, Minalur, Thrissur Dist."
+ *
+ * `addressDisplay` and the reverse-geocoder's `displayAddress` are composed by
+ * the server's `AddressRules` and arrive NEWLINE-separated, one place per
+ * line. Anywhere the line has to fit in a row or a card, the breaks become
+ * commas; anywhere it is the title of a page, the lines are kept.
+ */
+export function addressLine(address: string | undefined | null): string {
+  if (!address) return '';
+  return address
+    .split('\n')
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .join(', ');
+}

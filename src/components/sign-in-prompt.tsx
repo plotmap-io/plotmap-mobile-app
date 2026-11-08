@@ -1,31 +1,31 @@
-import { Feather } from '@expo/vector-icons';
-import { Link } from 'expo-router';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { router } from 'expo-router';
+import { StyleSheet, Text, View } from 'react-native';
 
-import { color } from '@/theme/tokens';
+import { Logo } from '@/components/logo';
+import { Button } from '@/components/tap';
+import { color, type, weight } from '@/theme/tokens';
 
-export function SignInPrompt({ message }: { message: string }) {
+/** A guest's view of a signed-in screen: what it holds, and the one way in. */
+export function SignInPrompt({
+  title = 'Sign in to Plotmap',
+  message,
+}: {
+  title?: string;
+  message: string;
+}) {
   return (
     <View style={styles.wrap}>
-      <Feather name="lock" size={24} color={color.faint} />
+      <Logo size={40} />
+      <Text style={styles.title}>{title}</Text>
       <Text style={styles.message}>{message}</Text>
-      <Link href="/sign-in" asChild>
-        <Pressable style={styles.button}>
-          <Text style={styles.buttonText}>Sign in</Text>
-        </Pressable>
-      </Link>
+      <Button label="Sign in" size="md" onPress={() => router.push('/sign-in')} style={styles.button} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  wrap: { alignItems: 'center', justifyContent: 'center', gap: 12, padding: 36 },
-  message: { fontSize: 14, color: color.muted, textAlign: 'center', maxWidth: 260 },
-  button: {
-    paddingHorizontal: 22,
-    paddingVertical: 11,
-    borderRadius: 11,
-    backgroundColor: color.accent,
-  },
-  buttonText: { color: color.surface, fontWeight: '600', fontSize: 15 },
+  wrap: { alignItems: 'center', justifyContent: 'center', gap: 8, paddingHorizontal: 32, paddingVertical: 48 },
+  title: { fontSize: type.title3, fontWeight: weight.semibold, color: color.ink, marginTop: 8 },
+  message: { fontSize: type.sub, lineHeight: 19, color: color.muted, textAlign: 'center', maxWidth: 280 },
+  button: { marginTop: 10, paddingHorizontal: 24 },
 });

@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Alert as RNAlert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert as RNAlert, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { Card, GroupLabel } from '@/components/card';
 import { StackScreen } from '@/components/stack-screen';
 import { ErrorState, Loading } from '@/components/states';
+import { Tap } from '@/components/tap';
 import { getPreferences, savePreferences, type Preferences } from '@/lib/account';
 import { metadata } from '@/lib/metadata';
-import { color } from '@/theme/tokens';
+import { color, radius, space, type, weight } from '@/theme/tokens';
 import type { Option } from '@/types/api';
 
 const DISTANCE: Option[] = [
@@ -33,12 +34,16 @@ function Choice({
       {options.map((o) => {
         const on = o.value === value;
         return (
-          <Pressable
+          <Tap
             key={o.value}
+            haptic="selection"
+            scale={0.96}
             style={[styles.chip, on && styles.chipOn]}
+            accessibilityRole="radio"
+            accessibilityState={{ selected: on }}
             onPress={() => onPick(o.value)}>
             <Text style={[styles.chipText, on && styles.chipTextOn]}>{o.label}</Text>
-          </Pressable>
+          </Tap>
         );
       })}
     </View>
@@ -51,15 +56,18 @@ export default function PreferencesScreen() {
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
-  const load = useCallback(async () => {
-    setError(null);
-    try {
-      const [p, m] = await Promise.all([getPreferences(), metadata().catch(() => null)]);
-      setPrefs(p);
-      setAreaUnits(m?.areaUnits ?? []);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Could not load preferences');
-    }
+  // A promise chain, not an `async` body — the state writes belong in
+  // callbacks so an effect may call this (react-hooks/set-state-in-effect).
+  const load = useCallback(() => {
+    Promise.all([getPreferences(), metadata().catch(() => null)])
+      .then(([p, m]) => {
+        setPrefs(p);
+        setAreaUnits(m?.areaUnits ?? []);
+        setError(null);
+      })
+      .catch((e: unknown) =>
+        setError(e instanceof Error ? e.message : 'Could not load preferences'),
+      );
   }, []);
 
   useEffect(() => {
@@ -89,7 +97,7 @@ export default function PreferencesScreen() {
       title="Preferences"
       action={saving ? <Text style={styles.saving}>Saving…</Text> : null}>
       {error ? (
-        <ErrorState message={error} onRetry={load} />
+        <ErrorState title="Couldn’t load your preferences" message={error} onRetry={load} />
       ) : !prefs ? (
         <Loading />
       ) : (
@@ -139,13 +147,19 @@ export default function PreferencesScreen() {
 }
 
 const styles = StyleSheet.create({
-  body: { padding: 16, gap: 14, paddingBottom: 30 },
-  pad: { padding: 13 },
-  chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  chip: { paddingHorizontal: 14, paddingVertical: 9, borderRadius: 10, backgroundColor: color.field },
+  body: { padding: space[4], gap: 14, paddingBottom: 30 },
+  pad: { padding: space[3] },
+  chips: { flexDirection: 'row', flexWrap: 'wrap', gap: space[2] },
+  chip: {
+    height: 36,
+    justifyContent: 'center',
+    paddingHorizontal: 14,
+    borderRadius: radius.sm,
+    backgroundColor: color.field,
+  },
   chipOn: { backgroundColor: color.accent },
-  chipText: { fontSize: 13.5, fontWeight: '500', color: color.ink },
-  chipTextOn: { color: color.surface, fontWeight: '600' },
-  note: { fontSize: 12.5, color: color.muted, paddingHorizontal: 2 },
-  saving: { fontSize: 12.5, color: color.muted },
+  chipText: { fontSize: type.sub, fontWeight: weight.medium, color: color.ink },
+  chipTextOn: { color: color.surface, fontWeight: weight.semibold },
+  note: { fontSize: type.footnote, color: color.muted, paddingHorizontal: 2 },
+  saving: { fontSize: type.footnote, color: color.muted },
 });

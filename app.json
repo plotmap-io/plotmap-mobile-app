@@ -3,14 +3,20 @@
     "name": "Plotmap",
     "slug": "plotmap-mobile-app",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "plotmapmobileapp",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon",
       "bundleIdentifier": "com.plotmap.mobile",
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Plotmap uses your location to centre the map on where you are and to sort listings by distance. It is never attached to a listing.",
+        "NSCameraUsageDescription": "Plotmap uses the camera to photograph a property you are listing.",
+        "NSPhotoLibraryUsageDescription": "Plotmap needs access to your photos so you can add pictures to a listing.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -36,7 +42,22 @@
           "imageWidth": 140
         }
       ],
-      "expo-secure-store"
+      "expo-secure-store",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Plotmap needs access to your photos so you can add pictures to a listing.",
+          "cameraPermission": "Plotmap uses the camera to photograph a property you are listing.",
+          "microphonePermission": false
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Plotmap uses your location to centre the map on where you are and to sort listings by distance. It is never attached to a listing.",
+          "isAndroidBackgroundLocationEnabled": false
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { apiBase } from '@/lib/api';
 import type { MapRegion } from '@/lib/region';
@@ -14,6 +14,10 @@ import type { Filters, ListingCard } from '@/types/api';
  * reply. Which filters become which query fields is `services/search-query`.
  */
 export function useSearch(initialRegion: MapRegion, filters: Filters) {
+  // One primitive key for "the filters changed", so the dependency list stays
+  // a list of simple expressions (the React Compiler's lint refuses a call
+  // inside one) and an unchanged object never re-queries.
+  const filterKey = useMemo(() => JSON.stringify(filters), [filters]);
   const [listings, setListings] = useState<ListingCard[]>([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -40,7 +44,7 @@ export function useSearch(initialRegion: MapRegion, filters: Filters) {
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [JSON.stringify(filters)],
+    [filterKey],
   );
 
   const lastRegion = useRef(initialRegion);
@@ -53,9 +57,12 @@ export function useSearch(initialRegion: MapRegion, filters: Filters) {
   );
 
   // Filters changing re-queries the viewport the user is already looking at.
+  // On the NEXT tick, not in the effect body: several patches landing in one
+  // commit then make one request, and the loading flag is not a cascading
+  // render inside the effect itself.
   useEffect(() => {
-    run(lastRegion.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const t = setTimeout(() => run(lastRegion.current), 0);
+    return () => clearTimeout(t);
   }, [run]);
 
   return { listings, total, loading, error, search };

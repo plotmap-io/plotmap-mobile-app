@@ -1,4 +1,5 @@
 import { api } from '@/lib/api';
+import type { ReverseGeocodeResult } from '@/types/api';
 
 export interface PlaceSuggestion {
   suggestionType: string;
@@ -45,4 +46,44 @@ export function decodePlaceId(placeId: string | undefined): {
   } catch {
     return null;
   }
+}
+
+/**
+ * The address at a pin — `GET /places/reverse-geocode?lat=&lng=`.
+ *
+ * This is a BILLED call upstream (Mapbox first, Google as the fallback), and
+ * the only places route that requires a token. One call per settled pin,
+ * never one per drag frame: the create flow debounces it and the picker never
+ * asks while a finger is down.
+ *
+ * `displayAddress` is the line Plotmap itself composes (AddressRules: the
+ * road, the village, "Thrissur Dist.", each name once) and is what the web's
+ * Where step stores verbatim. `formattedAddress` is the raw provider ladder
+ * and is only a fallback.
+ */
+export function reverseGeocode(latitude: number, longitude: number) {
+  return api.get<ReverseGeocodeResult>(
+    `/api/v1/places/reverse-geocode?lat=${latitude}&lng=${longitude}`,
+  );
+}
+
+/** The parts of a reverse-geocode a listing's location stores. */
+export function addressFrom(result: ReverseGeocodeResult): {
+  addressDisplay?: string;
+  city?: string;
+  stateProvince?: string;
+  country?: string;
+  countryCode?: string;
+  postalCode?: string;
+  neighborhood?: string;
+} {
+  return {
+    addressDisplay: result.displayAddress ?? result.formattedAddress,
+    city: result.city,
+    stateProvince: result.stateProvince,
+    country: result.country,
+    countryCode: result.countryCode,
+    postalCode: result.postalCode,
+    neighborhood: result.neighborhood ?? result.sublocality,
+  };
 }
