@@ -170,5 +170,16 @@ describe('what never reaches the network', () => {
   it('still lets a route it cannot answer fail honestly', () => {
     expect(devRespond('/api/v1/auth/me', 'GET', undefined)).toBeUndefined();
     expect(devRespond('/api/v1/auth/verify', 'POST', {})).toBeUndefined();
+    // Nothing on the seller side answers without a token either.
+    expect(devRespond('/api/v1/drafts', 'GET', undefined)).toBeUndefined();
+    expect(devRespond('/api/v1/drafts/empty', 'POST', {})).toBeUndefined();
+  });
+
+  it('names the token holder once there IS one, so the create flow can run', () => {
+    // Signing in is still not answered: a token has to be put there on
+    // purpose, which is what a screenshot run does.
+    expect(devRespond('/api/v1/auth/verify', 'POST', {}, true)).toBeUndefined();
+    const me = devRespond('/api/v1/auth/me', 'GET', undefined, true) as { username: string };
+    expect(me.username).toBe('nice_place_properties');
   });
 });

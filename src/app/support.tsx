@@ -37,7 +37,7 @@ const PAGES: Record<string, { title: string; body: string[] }> = {
     body: [
       'Something wrong with a listing, or an idea for the app? Tell us.',
       'For a specific listing, use Contact seller on that listing so the message reaches the right person.',
-      'For anything else, including account problems, write to hello@plotmap.io.',
+      'For anything else, including account problems, write to hello@plotmap.com.',
     ],
   },
 };
