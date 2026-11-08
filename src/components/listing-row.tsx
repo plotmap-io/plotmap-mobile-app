@@ -1,43 +1,64 @@
-import { Feather } from "@expo/vector-icons";
-import { Image } from "expo-image";
-import { memo } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import { runOnJS } from "react-native-reanimated";
+import { Feather } from '@expo/vector-icons';
+import { Image } from 'expo-image';
+import { memo } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import Animated, {
+  interpolateColor,
+  runOnJS,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
 
-import { mediaUrl } from "@/lib/api";
-import { ageLabel, metaLine, rateLabel } from "@/lib/display";
-import { color } from "@/theme/tokens";
-import type { Coordinate, ListingCard } from "@/types/api";
+import { SaveIcon } from '@/components/icons';
+import { mediaUrl } from '@/lib/api';
+import { haptic } from '@/lib/haptics';
+import { ageLabel, metaLine, rateLabel } from '@/lib/display';
+import { color, radius, type, weight } from '@/theme/tokens';
+import type { ListingCard } from '@/types/api';
 
 /**
- * The one dense listing row — Search, Saved and Home all render this.
- * Four lines: price with the per-cent rate, place, type · size · distance, age.
+ * The one dense listing row — Search, Saved and Home all render this. It is
+ * the web's `PropertyCard.listRow`: thumbnail · price · place · type and
+ * facts · age on its own line, a bookmark at the right.
+ *
+ * Fixed height, so a list can lay it out without measuring (`getItemLayout`)
+ * and scroll to any row by index.
  */
+export const ROW_HEIGHT = 108;
+
 export const ListingRow = memo(function ListingRow({
   listing,
-  centre = null,
   saved,
+  active = false,
   onPress,
   onToggleSave,
 }: {
   listing: ListingCard;
-  centre?: Coordinate | null;
   saved?: boolean;
+  /** The row the map's selected pin belongs to. */
+  active?: boolean;
   onPress?: (id: string) => void;
   onToggleSave?: (id: string) => void;
 }) {
-  const [place, district] = listing.addressDisplay?.split("\n") ?? ["", ""];
+  const [place, district] = listing.addressDisplay?.split('\n') ?? ['', ''];
   const thumb = mediaUrl(listing.images?.[0]);
   const rate = rateLabel(listing);
 
   // A tap, not a press: a press fires on release wherever the finger has been,
   // so swiping sideways across a row opened the listing (Ajay 2026-11-06).
-  // Moving more than a few points now cancels it.
+  // Moving more than a few points now cancels it. The row tints while the
+  // finger is down and fades back on release — the pressed state a Pressable
+  // cannot give us inside a gesture-driven sheet.
+  const pressed = useSharedValue(0);
   const open = () => onPress?.(listing.id);
-  const save = () => onToggleSave?.(listing.id);
+  const save = () => {
+    haptic.light();
+    onToggleSave?.(listing.id);
+  };
 
-  const heartTap = Gesture.Tap()
+  const saveTap = Gesture.Tap()
     .maxDistance(12)
     .onEnd((_e, ok) => {
       if (ok) runOnJS(save)();
@@ -45,90 +66,117 @@ export const ListingRow = memo(function ListingRow({
 
   const rowTap = Gesture.Tap()
     .maxDistance(12)
-    .requireExternalGestureToFail(heartTap)
+    .requireExternalGestureToFail(saveTap)
+    .onBegin(() => {
+      pressed.set(withTiming(1, { duration: 60 }));
+    })
+    .onFinalize(() => {
+      pressed.set(withTiming(0, { duration: 240 }));
+    })
     .onEnd((_e, ok) => {
       if (ok) runOnJS(open)();
     });
 
+  const tint = useAnimatedStyle(() => ({
+    backgroundColor: interpolateColor(
+      pressed.get(),
+      [0, 1],
+      [active ? color.accentSoft : color.surface, color.pressed],
+    ),
+  }));
+
   return (
     <GestureDetector gesture={rowTap}>
-      <View style={styles.row}>
+      <Animated.View
+        style={[styles.row, tint]}
+        accessibilityRole="button"
+        accessibilityLabel={`${listing.displayPrice}, ${place}`}>
         {thumb ? (
           <Image
             source={{ uri: thumb }}
             style={styles.photo}
             contentFit="cover"
-            transition={120}
+            transition={160}
+            recyclingKey={listing.id}
           />
         ) : (
           <View style={[styles.photo, styles.photoEmpty]}>
-            <Feather name="image" size={18} color="#a9bac6" />
+            <Feather name="image" size={18} color={color.placeholder} />
           </View>
         )}
 
         <View style={styles.text}>
           <Text style={styles.price} numberOfLines={1}>
             {listing.displayPrice}
-            {rate ? <Text style={styles.rate}> {rate}</Text> : null}
+            {rate ? <Text style={styles.rate}>  {rate}</Text> : null}
           </Text>
           <Text style={styles.place} numberOfLines={1}>
             {place}
-            {district ? `, ${district}` : ""}
+            {district ? `, ${district}` : ''}
           </Text>
           <Text style={styles.meta} numberOfLines={1}>
-            {metaLine(listing, centre)}
+            {metaLine(listing, null)}
           </Text>
           <Text style={styles.age} numberOfLines={1}>
             {ageLabel(listing)}
           </Text>
         </View>
 
-        <GestureDetector gesture={heartTap}>
-          <View
-            hitSlop={10}
-            style={styles.heart}
-            accessibilityRole="button"
-            accessibilityLabel={saved ? "Remove from saved" : "Save listing"}
-          >
-            <Feather
-              name="heart"
-              size={20}
-              color={saved ? color.shiraz : "#7a8b97"}
-            />
-          </View>
-        </GestureDetector>
-      </View>
+        {onToggleSave ? (
+          <GestureDetector gesture={saveTap}>
+            <View
+              hitSlop={8}
+              style={styles.save}
+              accessibilityRole="button"
+              accessibilityLabel={saved ? 'Remove from saved' : 'Save listing'}
+              accessibilityState={{ selected: !!saved }}>
+              <SaveIcon size={18} tint={color.accent} filled={!!saved} />
+            </View>
+          </GestureDetector>
+        ) : null}
+      </Animated.View>
     </GestureDetector>
   );
 });
 
 const styles = StyleSheet.create({
   row: {
-    flexDirection: "row",
+    height: ROW_HEIGHT,
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: 12,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: color.hair,
+    paddingHorizontal: 16,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: color.hair,
     backgroundColor: color.surface,
   },
   photo: {
-    width: 104,
-    height: 80,
-    borderRadius: 7,
+    width: 112,
+    height: 84,
+    borderRadius: 8,
     backgroundColor: color.field,
   },
-  photoEmpty: { alignItems: "center", justifyContent: "center" },
-  text: { flex: 1, minWidth: 0, paddingRight: 26 },
+  photoEmpty: { alignItems: 'center', justifyContent: 'center' },
+  text: { flex: 1, minWidth: 0, paddingRight: 36 },
   price: {
-    fontSize: 16.5,
-    fontWeight: "700",
-    letterSpacing: -0.2,
+    fontSize: type.title3,
+    fontWeight: weight.semibold,
+    letterSpacing: -0.3,
     color: color.ink,
   },
-  rate: { fontSize: 12.5, fontWeight: "500", color: color.muted },
-  place: { fontSize: 13.5, fontWeight: "500", color: color.ink, marginTop: 1 },
-  meta: { fontSize: 12.5, color: color.muted },
-  age: { fontSize: 11.5, color: color.faint, marginTop: 1 },
-  heart: { position: "absolute", right: 12, top: 11 },
+  rate: { fontSize: type.footnote, fontWeight: weight.regular, color: color.muted },
+  place: { fontSize: type.sub, color: color.inkSoft, marginTop: 2 },
+  meta: { fontSize: type.sub, color: color.muted, marginTop: 3 },
+  age: { fontSize: type.caption, color: color.faint, marginTop: 3 },
+  save: {
+    position: 'absolute',
+    right: 12,
+    top: 12,
+    width: 32,
+    height: 32,
+    borderRadius: radius.pill,
+    backgroundColor: color.field,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });

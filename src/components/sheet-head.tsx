@@ -1,95 +1,93 @@
 import { Feather } from '@expo/vector-icons';
-import { useEffect, useState } from 'react';
-import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
 import { PickerSheet } from '@/components/picker-sheet';
+import { Tap } from '@/components/tap';
 import { useFilters } from '@/lib/filters';
-import { metadata } from '@/lib/metadata';
-import { color } from '@/theme/tokens';
-import { SORTS, STATUS_LABEL, type Currency, type SortKey } from '@/types/api';
+import { color, radius, type, weight } from '@/theme/tokens';
+import { SORTS, type SortKey, type StatusTab } from '@/types/api';
+
+/** "322 for sale" — the status, lower-cased, as the noun's qualifier. */
+const QUALIFIER: Record<StatusTab, string> = {
+  ForSale: 'for sale',
+  ForRent: 'for rent',
+  History: 'sold or rented',
+};
 
 /**
- * The drawer's head, matching the web: three labelled columns — what you are
- * looking at and how many, the currency to restate prices in, and the order.
- * Conversion and sorting are the backend's job; this only sets the query.
+ * The drawer's head is ONE line, as on the web (2026-11-05): how many and
+ * what on the left, the order on the right. Currency conversion is not here
+ * and never was on the web — it lives with Price in the Filters screen.
  */
-export function SheetHead({ total, loading, error }: { total: number; loading: boolean; error: boolean }) {
+export function SheetHead({
+  total,
+  loading,
+  error,
+  onPressCount,
+}: {
+  total: number;
+  loading: boolean;
+  error: boolean;
+  /** Tapping the count walks the drawer between docked and peek. */
+  onPressCount?: () => void;
+}) {
   const { filters, patch } = useFilters();
-  const [currencies, setCurrencies] = useState<Currency[]>([]);
-  const [picking, setPicking] = useState<'currency' | 'sort' | null>(null);
-
-  useEffect(() => {
-    metadata()
-      .then((m) => setCurrencies(m.currencies ?? []))
-      .catch(() => setCurrencies([]));
-  }, []);
+  const [picking, setPicking] = useState(false);
 
   const sortLabel = SORTS.find((s) => s.value === filters.sort)?.label ?? 'Nearest';
-  const currency = currencies.find((c) => c.value === filters.displayCurrency);
+
+  const count = (
+    <Text style={styles.count} numberOfLines={1} accessibilityLiveRegion="polite">
+      {error ? (
+        <Text style={styles.qualifier}>Couldn’t load listings</Text>
+      ) : loading && total === 0 ? (
+        <Text style={styles.qualifier}>Searching…</Text>
+      ) : (
+        <>
+          <Text style={styles.number}>{total.toLocaleString('en-IN')}</Text>
+          <Text style={styles.qualifier}> {QUALIFIER[filters.status]}</Text>
+        </>
+      )}
+    </Text>
+  );
 
   return (
     <View style={styles.head}>
-      <View style={styles.column}>
-        <Text style={styles.eyebrow}>{STATUS_LABEL[filters.status]}</Text>
-        <Text style={styles.count} numberOfLines={1}>
-          {loading && total === 0 ? '—' : error ? '!' : total.toLocaleString('en-IN')}
-        </Text>
-      </View>
-
-      <View style={styles.column}>
-        <Text style={styles.eyebrow}>Convert to</Text>
-        <View style={styles.controlRow}>
-          <Pressable
-            style={styles.control}
-            accessibilityRole="button"
-            accessibilityLabel={`Currency, ${currency?.value ?? filters.displayCurrency}`}
-            onPress={() => setPicking('currency')}>
-            <Text style={styles.controlText} numberOfLines={1}>
-              {currency?.symbol ? `${currency.symbol} ` : ''}
-              {filters.displayCurrency}
-            </Text>
-            <Feather name="chevron-down" size={14} color={color.muted} />
-          </Pressable>
-          <Switch
-            value={filters.convertPrices}
-            onValueChange={(on) => patch({ convertPrices: on })}
-            trackColor={{ true: color.accent, false: '#cfd8de' }}
-            thumbColor="#fff"
-            accessibilityLabel="Convert prices"
-            style={styles.switch}
-          />
-        </View>
-      </View>
-
-      <View style={styles.column}>
-        <Text style={styles.eyebrow}>Sort by</Text>
-        <Pressable
-          style={styles.control}
+      {onPressCount ? (
+        <Tap
+          haptic="none"
+          scale={1}
+          style={styles.countTap}
           accessibilityRole="button"
-          accessibilityLabel={`Sort by ${sortLabel}`}
-          onPress={() => setPicking('sort')}>
-          <Text style={styles.controlText} numberOfLines={1}>
-            {sortLabel}
-          </Text>
-          <Feather name="chevron-down" size={14} color={color.muted} />
-        </Pressable>
-      </View>
+          accessibilityLabel="Show the list"
+          onPress={onPressCount}>
+          {count}
+        </Tap>
+      ) : (
+        count
+      )}
+
+      <Tap
+        haptic="selection"
+        scale={0.95}
+        style={styles.sort}
+        accessibilityRole="button"
+        accessibilityLabel={`Sort by ${sortLabel}`}
+        onPress={() => setPicking(true)}>
+        <Text style={styles.sortText} numberOfLines={1}>
+          {sortLabel}
+        </Text>
+        <Feather name="chevron-down" size={14} color={color.muted} />
+      </Tap>
 
       <PickerSheet
-        visible={picking === 'currency'}
-        title="Convert prices to"
-        options={currencies.map((c) => ({ value: c.value, label: c.label }))}
-        value={filters.displayCurrency}
-        onPick={(v) => patch({ displayCurrency: v, convertPrices: true })}
-        onClose={() => setPicking(null)}
-      />
-      <PickerSheet
-        visible={picking === 'sort'}
+        visible={picking}
         title="Sort by"
         options={SORTS}
         value={filters.sort}
         onPick={(v) => patch({ sort: v as SortKey })}
-        onClose={() => setPicking(null)}
+        onClose={() => setPicking(false)}
       />
     </View>
   );
@@ -97,33 +95,28 @@ export function SheetHead({ total, loading, error }: { total: number; loading: b
 
 const styles = StyleSheet.create({
   head: {
+    height: 44,
     flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: 10,
-    paddingHorizontal: 15,
-    paddingBottom: 10,
+    alignItems: 'center',
+    gap: 12,
+    paddingLeft: 16,
+    paddingRight: 12,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: color.hair,
   },
-  column: { gap: 3 },
-  eyebrow: {
-    fontSize: 10,
-    fontWeight: '600',
-    letterSpacing: 0.9,
-    textTransform: 'uppercase',
-    color: '#7e91a0',
-  },
-  count: { fontSize: 22, fontWeight: '700', letterSpacing: -0.5, color: color.ink },
-  controlRow: { flexDirection: 'row', alignItems: 'center', gap: 4 },
-  control: {
+  countTap: { flex: 1, minWidth: 0, justifyContent: 'center', alignSelf: 'stretch' },
+  count: { flex: 1, minWidth: 0, fontSize: type.body },
+  number: { fontSize: type.title3, fontWeight: weight.bold, letterSpacing: -0.3, color: color.ink },
+  qualifier: { fontSize: type.body, fontWeight: weight.regular, color: color.muted },
+  sort: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
-    height: 30,
-    borderRadius: 9,
-    paddingHorizontal: 9,
+    height: 32,
+    paddingLeft: 12,
+    paddingRight: 8,
+    borderRadius: radius.sm,
     backgroundColor: color.field,
   },
-  controlText: { fontSize: 13.5, fontWeight: '600', color: color.ink },
-  switch: { transform: [{ scaleX: 0.75 }, { scaleY: 0.75 }] },
+  sortText: { fontSize: type.sub, fontWeight: weight.semibold, color: color.ink },
 });

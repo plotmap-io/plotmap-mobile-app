@@ -1,8 +1,10 @@
 import { type ReactNode } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { color } from '@/theme/tokens';
+import { type StyleProp, StyleSheet, Text, View, type ViewStyle } from 'react-native';
 
-export function Card({ children, style }: { children: ReactNode; style?: any }) {
+import { color, eyebrow, radius, type, weight } from '@/theme/tokens';
+
+/** A white card on the grey ground: a hairline edge, 10pt corners, no shadow. */
+export function Card({ children, style }: { children: ReactNode; style?: StyleProp<ViewStyle> }) {
   return <View style={[styles.card, style]}>{children}</View>;
 }
 
@@ -22,9 +24,9 @@ export function GroupLabel({ children }: { children: ReactNode }) {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: color.surface,
-    borderWidth: 1,
+    borderWidth: StyleSheet.hairlineWidth,
     borderColor: color.line,
-    borderRadius: 12,
+    borderRadius: radius.sm,
     overflow: 'hidden',
   },
   head: {
@@ -32,17 +34,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 2,
-    paddingBottom: 6,
+    paddingBottom: 8,
   },
-  title: { fontSize: 16, fontWeight: '700', letterSpacing: -0.16, color: color.ink },
-  action: { fontSize: 13, fontWeight: '600', color: color.accent },
-  group: {
-    fontSize: 12,
-    fontWeight: '600',
-    letterSpacing: 1.2,
-    textTransform: 'uppercase',
-    color: '#7e91a0',
-    paddingHorizontal: 2,
-    paddingBottom: 6,
-  },
+  title: { fontSize: type.title3, fontWeight: weight.semibold, letterSpacing: -0.2, color: color.ink },
+  action: { fontSize: type.sub, fontWeight: weight.semibold, color: color.accent },
+  group: { ...eyebrow, paddingHorizontal: 2, paddingBottom: 8 },
 });
