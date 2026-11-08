@@ -1,11 +1,9 @@
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import {
-  ActivityIndicator,
   Alert,
   KeyboardAvoidingView,
   Platform,
-  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -17,10 +15,11 @@ import { Card, GroupLabel } from '@/components/card';
 import { SignInPrompt } from '@/components/sign-in-prompt';
 import { StackScreen } from '@/components/stack-screen';
 import { ErrorState, Loading } from '@/components/states';
+import { Button, Tap } from '@/components/tap';
 import { emptyDraft, publishDraft, saveDraft } from '@/lib/account';
 import { useAuth } from '@/lib/auth';
 import { metadata } from '@/lib/metadata';
-import { color } from '@/theme/tokens';
+import { color, noOutline, radius, space, type, weight } from '@/theme/tokens';
 import type { ListingDetail, PropertyType } from '@/types/api';
 
 /**
@@ -40,22 +39,26 @@ export default function CreateListingScreen() {
   const [description, setDescription] = useState('');
   const [subType, setSubType] = useState<string>('');
 
-  const start = useCallback(async () => {
-    if (!signedIn) return;
-    setError(null);
-    try {
-      const [d, m] = await Promise.all([emptyDraft(), metadata().catch(() => null)]);
-      setDraft(d);
-      setSubType(d.propertySubType ?? '');
-      setTypes(m?.propertyTypes ?? []);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Could not start a draft');
-    }
-  }, [signedIn]);
+  // A promise chain, not an `async` body: the state writes live in callbacks,
+  // which is what the React Compiler's lint means by "no setState inside an
+  // effect".
+  const start = useCallback(() => {
+    Promise.all([emptyDraft(), metadata().catch(() => null)])
+      .then(([d, m]) => {
+        setDraft(d);
+        setSubType(d.propertySubType ?? '');
+        setTypes(m?.propertyTypes ?? []);
+        setError(null);
+      })
+      .catch((e: unknown) =>
+        setError(e instanceof Error ? e.message : 'Could not start a draft'),
+      );
+  }, []);
 
   useEffect(() => {
-    if (!authLoading) start();
-  }, [authLoading, start]);
+    if (authLoading || !signedIn) return;
+    start();
+  }, [authLoading, signedIn, start]);
 
   const publish = useCallback(async () => {
     if (!draft) return;
@@ -93,7 +96,7 @@ export default function CreateListingScreen() {
       {!signedIn && !authLoading ? (
         <SignInPrompt message="Sign in to list your land or property." />
       ) : error ? (
-        <ErrorState message={error} onRetry={start} />
+        <ErrorState title="Couldn’t start a draft" message={error} onRetry={start} />
       ) : !draft ? (
         <Loading label="Starting a draft…" />
       ) : (
@@ -107,12 +110,16 @@ export default function CreateListingScreen() {
                 {subtypes.slice(0, 12).map((s) => {
                   const on = s.value === subType;
                   return (
-                    <Pressable
+                    <Tap
                       key={s.value}
+                      haptic="selection"
+                      scale={0.96}
                       style={[styles.chip, on && styles.chipOn]}
+                      accessibilityRole="radio"
+                      accessibilityState={{ selected: on }}
                       onPress={() => setSubType(s.value)}>
                       <Text style={[styles.chipText, on && styles.chipTextOn]}>{s.label}</Text>
-                    </Pressable>
+                    </Tap>
                   );
                 })}
               </View>
@@ -122,12 +129,13 @@ export default function CreateListingScreen() {
               <GroupLabel>Asking price (₹)</GroupLabel>
               <Card>
                 <TextInput
-                  style={styles.input}
+                  style={[styles.input, noOutline]}
                   value={price}
                   onChangeText={setPrice}
                   placeholder="4200000"
-                  placeholderTextColor="#9aabb6"
+                  placeholderTextColor={color.placeholder}
                   keyboardType="number-pad"
+                  accessibilityLabel="Asking price"
                 />
               </Card>
             </View>
@@ -136,15 +144,16 @@ export default function CreateListingScreen() {
               <GroupLabel>Area (sq.m)</GroupLabel>
               <Card>
                 <TextInput
-                  style={styles.input}
+                  style={[styles.input, noOutline]}
                   value={area}
                   onChangeText={setArea}
                   placeholder="400"
-                  placeholderTextColor="#9aabb6"
+                  placeholderTextColor={color.placeholder}
                   keyboardType="decimal-pad"
+                  accessibilityLabel="Area in square metres"
                 />
               </Card>
-              <Text style={styles.hint}>1 cent is about 40.5 sq.m.</Text>
+              <Text style={styles.hint}>1 cent ≈ 40.5 sq.m</Text>
             </View>
 
             <View>
@@ -155,8 +164,9 @@ export default function CreateListingScreen() {
                   value={description}
                   onChangeText={setDescription}
                   placeholder="Road frontage, nearby landmarks, what makes it worth seeing."
-                  placeholderTextColor="#9aabb6"
+                  placeholderTextColor={color.placeholder}
                   multiline
+                  accessibilityLabel="Description"
                 />
               </Card>
             </View>
@@ -167,13 +177,7 @@ export default function CreateListingScreen() {
           </ScrollView>
 
           <View style={styles.foot}>
-            <Pressable style={[styles.publish, busy && styles.busy]} disabled={busy} onPress={publish}>
-              {busy ? (
-                <ActivityIndicator color={color.surface} />
-              ) : (
-                <Text style={styles.publishText}>Publish listing</Text>
-              )}
-            </Pressable>
+            <Button label="Publish listing" size="lg" busy={busy} onPress={publish} />
           </View>
         </KeyboardAvoidingView>
       )}
@@ -183,27 +187,27 @@ export default function CreateListingScreen() {
 
 const styles = StyleSheet.create({
   flex: { flex: 1 },
-  body: { padding: 16, gap: 14, paddingBottom: 24 },
-  chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  chip: { paddingHorizontal: 13, paddingVertical: 8, borderRadius: 10, backgroundColor: color.field },
+  body: { padding: space[4], gap: 14, paddingBottom: space[6] },
+  chips: { flexDirection: 'row', flexWrap: 'wrap', gap: space[2] },
+  chip: {
+    height: 34,
+    justifyContent: 'center',
+    paddingHorizontal: space[3],
+    borderRadius: radius.sm,
+    backgroundColor: color.field,
+  },
   chipOn: { backgroundColor: color.accent },
-  chipText: { fontSize: 13, fontWeight: '500', color: color.ink },
-  chipTextOn: { color: color.surface, fontWeight: '600' },
-  input: { padding: 13, fontSize: 16, color: color.ink },
+  chipText: { fontSize: type.sub, fontWeight: weight.medium, color: color.ink },
+  chipTextOn: { color: color.surface, fontWeight: weight.semibold },
+  input: { padding: space[3], fontSize: type.callout, color: color.ink },
   multiline: { minHeight: 110, textAlignVertical: 'top' },
-  hint: { fontSize: 12, color: color.faint, paddingHorizontal: 2, paddingTop: 5 },
-  note: { fontSize: 12.5, color: color.muted, paddingHorizontal: 2 },
+  hint: { fontSize: type.footnote, color: color.faint, paddingHorizontal: 2, paddingTop: 5 },
+  note: { fontSize: type.footnote, color: color.muted, paddingHorizontal: 2 },
   foot: {
-    padding: 16,
-    paddingTop: 10,
+    padding: space[4],
+    paddingTop: space[3],
     backgroundColor: color.surface,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: color.line,
   },
-  publish: {
-    height: 48, borderRadius: 12, backgroundColor: color.accent,
-    alignItems: 'center', justifyContent: 'center',
-  },
-  busy: { opacity: 0.7 },
-  publishText: { fontSize: 16, fontWeight: '600', color: color.surface },
 });

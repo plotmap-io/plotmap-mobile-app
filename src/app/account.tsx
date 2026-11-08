@@ -1,10 +1,11 @@
 import { Feather } from '@expo/vector-icons';
 import { useCallback, useEffect, useState } from 'react';
-import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { Card, GroupLabel } from '@/components/card';
 import { StackScreen } from '@/components/stack-screen';
 import { Empty, ErrorState, Loading } from '@/components/states';
+import { Button, Tap } from '@/components/tap';
 import {
   loginMethods,
   revokeAllSessions,
@@ -13,7 +14,7 @@ import {
   type LoginMethod,
   type Session,
 } from '@/lib/account';
-import { color } from '@/theme/tokens';
+import { color, radius, space, type, weight } from '@/theme/tokens';
 
 export default function AccountScreen() {
   const [methods, setMethods] = useState<LoginMethod[]>([]);
@@ -21,18 +22,20 @@ export default function AccountScreen() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const load = useCallback(async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const [m, s] = await Promise.all([loginMethods(), fetchSessions()]);
-      setMethods(m?.methods ?? []);
-      setRows(s?.sessions ?? []);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Could not load your account');
-    } finally {
-      setLoading(false);
-    }
+  // A promise chain, not an `async` body: every state write then lives in a
+  // callback rather than in the function the effect calls, which is what the
+  // React Compiler's lint means by "no setState inside an effect".
+  const load = useCallback(() => {
+    Promise.all([loginMethods(), fetchSessions()])
+      .then(([m, s]) => {
+        setMethods(m?.methods ?? []);
+        setRows(s?.sessions ?? []);
+        setError(null);
+      })
+      .catch((e: unknown) =>
+        setError(e instanceof Error ? e.message : 'Could not load your account'),
+      )
+      .finally(() => setLoading(false));
   }, []);
 
   useEffect(() => {
@@ -62,7 +65,7 @@ export default function AccountScreen() {
   return (
     <StackScreen title="Account">
       {error ? (
-        <ErrorState message={error} onRetry={load} />
+        <ErrorState title="Couldn’t load your account" message={error} onRetry={load} />
       ) : loading ? (
         <Loading />
       ) : (
@@ -71,7 +74,7 @@ export default function AccountScreen() {
             <GroupLabel>How you sign in</GroupLabel>
             <Card>
               {methods.length === 0 ? (
-                <Empty icon="key" message="No sign-in methods linked." />
+                <Empty icon="key" title="Nothing linked" message="No sign-in methods linked." />
               ) : (
                 methods.map((m, i) => (
                   <View key={m.id} style={[styles.row, i > 0 && styles.divided]}>
@@ -102,7 +105,7 @@ export default function AccountScreen() {
             <GroupLabel>Signed-in devices</GroupLabel>
             <Card>
               {rows.length === 0 ? (
-                <Empty icon="monitor" message="No other devices." />
+                <Empty icon="monitor" title="This device only" message="No other devices." />
               ) : (
                 rows.map((s, i) => (
                   <View key={s.id} style={[styles.row, i > 0 && styles.divided]}>
@@ -118,18 +121,29 @@ export default function AccountScreen() {
                         {[s.osName, s.location].filter(Boolean).join(' · ') || s.ipAddress}
                       </Text>
                     </View>
-                    <Pressable onPress={() => endSession(s.id)} hitSlop={8}>
+                    <Tap
+                      haptic="light"
+                      scale={0.94}
+                      hitSlop={8}
+                      accessibilityRole="button"
+                      accessibilityLabel={`Sign out ${s.deviceName ?? 'this device'}`}
+                      onPress={() => endSession(s.id)}>
                       <Text style={styles.revoke}>Sign out</Text>
-                    </Pressable>
+                    </Tap>
                   </View>
                 ))
               )}
             </Card>
           </View>
 
-          <Pressable onPress={endAll}>
-            <Text style={styles.danger}>Sign out of all devices</Text>
-          </Pressable>
+          <Button
+            label="Sign out of all devices"
+            variant="ghost"
+            size="md"
+            haptic="light"
+            style={styles.danger}
+            onPress={endAll}
+          />
         </ScrollView>
       )}
     </StackScreen>
@@ -137,20 +151,20 @@ export default function AccountScreen() {
 }
 
 const styles = StyleSheet.create({
-  body: { padding: 16, gap: 14, paddingBottom: 30 },
-  row: { flexDirection: 'row', alignItems: 'center', gap: 11, padding: 12 },
+  body: { padding: space[4], gap: 14, paddingBottom: 30 },
+  row: { flexDirection: 'row', alignItems: 'center', gap: 11, padding: space[3] },
   divided: { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: color.hair },
   icon: {
     width: 28,
     height: 28,
-    borderRadius: 9,
+    borderRadius: radius.sm,
     backgroundColor: color.accentSoft,
     alignItems: 'center',
     justifyContent: 'center',
   },
   text: { flex: 1, minWidth: 0 },
-  primary: { fontSize: 14, fontWeight: '600', color: color.ink },
-  secondary: { fontSize: 12, color: color.muted },
-  revoke: { fontSize: 13, fontWeight: '600', color: color.accent },
-  danger: { textAlign: 'center', fontSize: 14, fontWeight: '600', color: color.shiraz, paddingVertical: 12 },
+  primary: { fontSize: type.sub, fontWeight: weight.semibold, color: color.ink },
+  secondary: { fontSize: type.footnote, color: color.muted },
+  revoke: { fontSize: type.sub, fontWeight: weight.semibold, color: color.accent },
+  danger: { marginTop: space[1] },
 });

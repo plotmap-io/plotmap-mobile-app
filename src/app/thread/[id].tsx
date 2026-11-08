@@ -2,14 +2,21 @@ import { Feather } from '@expo/vector-icons';
 import { router, Stack, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import {
-  KeyboardAvoidingView, Platform, Pressable, ScrollView,
-  type ScrollViewInstance, StyleSheet, Text, TextInput, View,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  type ScrollViewInstance,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Empty, ErrorState, Loading } from '@/components/states';
+import { Tap } from '@/components/tap';
 import { asList, messages as fetchMessages, sendMessage } from '@/lib/social';
-import { color } from '@/theme/tokens';
+import { color, noOutline, radius, space, type, weight } from '@/theme/tokens';
 import type { Message } from '@/types/api';
 
 export default function ThreadScreen() {
@@ -21,16 +28,19 @@ export default function ThreadScreen() {
   const [draft, setDraft] = useState('');
   const scroller = useRef<ScrollViewInstance>(null);
 
-  const load = useCallback(async () => {
-    if (!id) return;
-    try {
-      setRows(asList<Message>(await fetchMessages(id), 'messages'));
-      setError(null);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Could not load this conversation');
-    } finally {
-      setLoading(false);
-    }
+  // A promise chain, not an `async` body — the state writes belong in
+  // callbacks so an effect may call this (react-hooks/set-state-in-effect).
+  const load = useCallback(() => {
+    if (!id) return Promise.resolve();
+    return fetchMessages(id)
+      .then((r) => {
+        setRows(asList<Message>(r, 'messages'));
+        setError(null);
+      })
+      .catch((e: unknown) =>
+        setError(e instanceof Error ? e.message : 'Could not load this conversation'),
+      )
+      .finally(() => setLoading(false));
   }, [id]);
 
   useEffect(() => {
@@ -57,11 +67,17 @@ export default function ThreadScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <Stack.Screen options={{ headerShown: false }} />
       <View style={[styles.bar, { paddingTop: insets.top + 6 }]}>
-        <Pressable onPress={() => router.back()} hitSlop={12}>
+        <Tap
+          haptic="none"
+          scale={0.9}
+          hitSlop={12}
+          accessibilityRole="button"
+          accessibilityLabel="Back"
+          onPress={() => router.back()}>
           <Feather name="arrow-left" size={21} color={color.ink} />
-        </Pressable>
+        </Tap>
         <Text style={styles.title}>Conversation</Text>
-        <View style={{ width: 21 }} />
+        <View style={styles.filler} />
       </View>
 
       <ScrollView
@@ -69,11 +85,11 @@ export default function ThreadScreen() {
         contentContainerStyle={styles.body}
         onContentSizeChange={() => scroller.current?.scrollToEnd({ animated: false })}>
         {error ? (
-          <ErrorState message={error} onRetry={load} />
+          <ErrorState title="Couldn’t load this conversation" message={error} onRetry={load} />
         ) : loading ? (
           <Loading />
         ) : rows.length === 0 ? (
-          <Empty icon="message-circle" message="No messages yet. Say hello." />
+          <Empty icon="message-circle" title="No messages yet" message="Say hello." />
         ) : (
           rows.map((m) => (
             <View key={m.id} style={[styles.bubble, m.mine && styles.mine]}>
@@ -85,16 +101,23 @@ export default function ThreadScreen() {
 
       <View style={[styles.composer, { paddingBottom: Math.max(insets.bottom, 10) }]}>
         <TextInput
-          style={styles.input}
+          style={[styles.input, noOutline]}
           value={draft}
           onChangeText={setDraft}
           placeholder="Write a message"
-          placeholderTextColor="#9aabb6"
+          placeholderTextColor={color.placeholder}
           multiline
         />
-        <Pressable style={styles.send} onPress={send} disabled={!draft.trim()}>
+        <Tap
+          haptic="light"
+          scale={0.92}
+          style={styles.send}
+          disabled={!draft.trim()}
+          accessibilityRole="button"
+          accessibilityLabel="Send message"
+          onPress={send}>
           <Feather name="arrow-up" size={19} color={color.surface} />
-        </Pressable>
+        </Tap>
       </View>
     </KeyboardAvoidingView>
   );
@@ -103,32 +126,59 @@ export default function ThreadScreen() {
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: color.bg },
   bar: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
-    paddingHorizontal: 16, paddingBottom: 12, backgroundColor: color.surface,
-    borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: color.line,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: space[4],
+    paddingBottom: space[3],
+    backgroundColor: color.surface,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: color.line,
   },
-  title: { fontSize: 17, fontWeight: '700', color: color.ink },
-  body: { padding: 16, gap: 8, flexGrow: 1 },
+  title: { fontSize: type.title3, fontWeight: weight.bold, color: color.ink },
+  filler: { width: 21 },
+  body: { padding: space[4], gap: space[2], flexGrow: 1 },
   bubble: {
-    alignSelf: 'flex-start', maxWidth: '80%', backgroundColor: color.surface,
-    borderRadius: 14, paddingHorizontal: 13, paddingVertical: 9,
-    borderWidth: StyleSheet.hairlineWidth, borderColor: color.line,
+    alignSelf: 'flex-start',
+    maxWidth: '80%',
+    backgroundColor: color.surface,
+    borderRadius: radius.md,
+    paddingHorizontal: space[3],
+    paddingVertical: 9,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: color.line,
   },
   mine: { alignSelf: 'flex-end', backgroundColor: color.accent, borderColor: color.accent },
-  msg: { fontSize: 14.5, color: color.ink },
+  msg: { fontSize: type.body, lineHeight: 21, color: color.ink },
   msgMine: { color: color.surface },
   composer: {
-    flexDirection: 'row', alignItems: 'flex-end', gap: 9,
-    paddingHorizontal: 14, paddingTop: 10, backgroundColor: color.surface,
-    borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: color.line,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    gap: 9,
+    paddingHorizontal: 14,
+    paddingTop: space[3],
+    backgroundColor: color.surface,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: color.line,
   },
   input: {
-    flex: 1, minHeight: 42, maxHeight: 120, borderRadius: 14,
-    backgroundColor: color.field, paddingHorizontal: 13, paddingTop: 11, paddingBottom: 11,
-    fontSize: 15, color: color.ink,
+    flex: 1,
+    minHeight: 42,
+    maxHeight: 120,
+    borderRadius: radius.md,
+    backgroundColor: color.field,
+    paddingHorizontal: space[3],
+    paddingTop: 11,
+    paddingBottom: 11,
+    fontSize: type.body,
+    color: color.ink,
   },
   send: {
-    width: 42, height: 42, borderRadius: 21, backgroundColor: color.accent,
-    alignItems: 'center', justifyContent: 'center',
+    width: 42,
+    height: 42,
+    borderRadius: radius.pill,
+    backgroundColor: color.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

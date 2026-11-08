@@ -2,17 +2,18 @@ import { Feather } from '@expo/vector-icons';
 import { Image } from 'expo-image';
 import { router, Stack } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Card } from '@/components/card';
 import { ListingRow } from '@/components/listing-row';
 import { SignInPrompt } from '@/components/sign-in-prompt';
 import { Empty, ErrorState, Loading } from '@/components/states';
+import { Button, Tap } from '@/components/tap';
 import { mediaUrl } from '@/lib/api';
 import { useAuth } from '@/lib/auth';
 import { asRows, myListings } from '@/lib/listings';
-import { color } from '@/theme/tokens';
+import { color, eyebrow, radius, space, type, weight } from '@/theme/tokens';
 import type { ListingCard } from '@/types/api';
 
 export default function ProfileScreen() {
@@ -22,21 +23,24 @@ export default function ProfileScreen() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const load = useCallback(async () => {
-    if (!signedIn) return setLoading(false);
-    try {
-      setRows(asRows(await myListings()));
-      setError(null);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Could not load your listings');
-    } finally {
-      setLoading(false);
-    }
-  }, [signedIn]);
+  // A promise chain, not an `async` body — the state writes belong in
+  // callbacks so an effect may call this (react-hooks/set-state-in-effect).
+  const load = useCallback(() => {
+    myListings()
+      .then((r) => {
+        setRows(asRows(r));
+        setError(null);
+      })
+      .catch((e: unknown) =>
+        setError(e instanceof Error ? e.message : 'Could not load your listings'),
+      )
+      .finally(() => setLoading(false));
+  }, []);
 
   useEffect(() => {
-    if (!authLoading) load();
-  }, [authLoading, load]);
+    if (authLoading || !signedIn) return;
+    load();
+  }, [authLoading, signedIn, load]);
 
   const initials = (user?.name ?? user?.username ?? '?')
     .split(' ')
@@ -49,11 +53,17 @@ export default function ProfileScreen() {
     <View style={styles.screen}>
       <Stack.Screen options={{ headerShown: false }} />
       <View style={[styles.bar, { paddingTop: insets.top + 6 }]}>
-        <Pressable onPress={() => router.back()} hitSlop={12}>
+        <Tap
+          haptic="none"
+          scale={0.9}
+          hitSlop={12}
+          accessibilityRole="button"
+          accessibilityLabel="Back"
+          onPress={() => router.back()}>
           <Feather name="arrow-left" size={21} color={color.ink} />
-        </Pressable>
+        </Tap>
         <Text style={styles.title}>Profile</Text>
-        <View style={{ width: 21 }} />
+        <View style={styles.filler} />
       </View>
 
       {authLoading ? (
@@ -74,9 +84,14 @@ export default function ProfileScreen() {
               <View style={styles.headText}>
                 <Text style={styles.name}>{user?.name ?? 'Your account'}</Text>
                 {user?.username ? (
-                  <Pressable onPress={() => router.push(`/u/${user.username}`)}>
+                  <Tap
+                    haptic="none"
+                    scale={0.98}
+                    accessibilityRole="link"
+                    accessibilityLabel="View your public profile"
+                    onPress={() => router.push(`/u/${user.username}`)}>
                     <Text style={styles.handleLink}>@{user.username} · View public profile</Text>
-                  </Pressable>
+                  </Tap>
                 ) : null}
               </View>
             </View>
@@ -104,11 +119,15 @@ export default function ProfileScreen() {
 
           <Text style={styles.section}>My listings</Text>
           {error ? (
-            <ErrorState message={error} onRetry={load} />
+            <ErrorState title="Couldn’t load your listings" message={error} onRetry={load} />
           ) : loading ? (
             <Loading />
           ) : rows.length === 0 ? (
-            <Empty icon="home" message="You have no listings yet." />
+            <Empty
+              icon="home"
+              title="No listings yet"
+              message="Your first listing takes a photo, a pin and a price."
+            />
           ) : (
             <Card>
               {rows.map((l) => (
@@ -121,9 +140,13 @@ export default function ProfileScreen() {
             </Card>
           )}
 
-          <Pressable onPress={() => void signOut()}>
-            <Text style={styles.signOut}>Sign out</Text>
-          </Pressable>
+          <Button
+            label="Sign out"
+            variant="ghost"
+            size="md"
+            haptic="light"
+            onPress={() => void signOut()}
+          />
         </ScrollView>
       )}
     </View>
@@ -133,32 +156,36 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: color.bg },
   bar: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
-    paddingHorizontal: 16, paddingBottom: 12, backgroundColor: color.surface,
-    borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: color.line,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: space[4],
+    paddingBottom: space[3],
+    backgroundColor: color.surface,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: color.line,
   },
-  title: { fontSize: 17, fontWeight: '700', color: color.ink },
-  body: { padding: 16, gap: 14, paddingBottom: 30 },
-  head: { flexDirection: 'row', alignItems: 'center', gap: 13, padding: 14 },
-  face: { width: 54, height: 54, borderRadius: 27, backgroundColor: color.field },
+  title: { fontSize: type.title3, fontWeight: weight.bold, color: color.ink },
+  filler: { width: 21 },
+  body: { padding: space[4], gap: 14, paddingBottom: 30 },
+  head: { flexDirection: 'row', alignItems: 'center', gap: space[3], padding: 14 },
+  face: { width: 54, height: 54, borderRadius: radius.pill, backgroundColor: color.field },
   faceFallback: { backgroundColor: color.accent, alignItems: 'center', justifyContent: 'center' },
-  faceText: { fontSize: 19, fontWeight: '600', color: color.surface },
+  faceText: { fontSize: type.title2, fontWeight: weight.semibold, color: color.surface },
   headText: { flex: 1, minWidth: 0 },
-  name: { fontSize: 18, fontWeight: '700', color: color.ink },
-  handle: { fontSize: 13, color: color.muted },
-  handleLink: { fontSize: 13, color: color.accent },
-  bio: { fontSize: 14, color: '#45596a', paddingHorizontal: 14, paddingBottom: 14 },
-  row: { flexDirection: 'row', justifyContent: 'space-between', gap: 12, padding: 13 },
+  name: { fontSize: type.title2, fontWeight: weight.bold, letterSpacing: -0.3, color: color.ink },
+  handleLink: { fontSize: type.sub, color: color.accent },
+  bio: {
+    fontSize: type.sub,
+    lineHeight: 20,
+    color: color.inkSoft,
+    paddingHorizontal: 14,
+    paddingBottom: 14,
+  },
+  row: { flexDirection: 'row', justifyContent: 'space-between', gap: space[3], padding: space[3] },
   divided: { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: color.hair },
-  label: { fontSize: 13.5, color: color.muted },
+  label: { fontSize: type.sub, color: color.muted },
   valueWrap: { flexDirection: 'row', alignItems: 'center', gap: 6, flexShrink: 1 },
-  value: { fontSize: 13.5, fontWeight: '600', color: color.ink },
-  section: {
-    fontSize: 11, fontWeight: '600', letterSpacing: 1, textTransform: 'uppercase',
-    color: '#7e91a0', paddingHorizontal: 2,
-  },
-  signOut: {
-    textAlign: 'center', fontSize: 14, fontWeight: '600',
-    color: color.shiraz, paddingVertical: 14,
-  },
+  value: { fontSize: type.sub, fontWeight: weight.semibold, color: color.ink },
+  section: { ...eyebrow, paddingHorizontal: 2 },
 });

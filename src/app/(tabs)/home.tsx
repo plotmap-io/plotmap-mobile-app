@@ -1,16 +1,17 @@
 import { Feather } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
 
+import { AppHeader } from '@/components/app-header';
 import { Card, SectionHead } from '@/components/card';
 import { ListingRow } from '@/components/listing-row';
-import { AppHeader } from '@/components/app-header';
 import { SignInPrompt } from '@/components/sign-in-prompt';
 import { Empty, ErrorState, Loading } from '@/components/states';
+import { Button } from '@/components/tap';
 import { useAuth } from '@/lib/auth';
 import { asRows, myListings } from '@/lib/listings';
-import { color } from '@/theme/tokens';
+import { color, eyebrow, radius, space, type, weight } from '@/theme/tokens';
 import type { ListingCard } from '@/types/api';
 
 /** Numbers are type, not tiles: label, figure, note, one named link. */
@@ -30,25 +31,32 @@ export default function HomeScreen() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const load = useCallback(async () => {
-    if (!signedIn) {
-      setLoading(false);
-      return;
-    }
-    setLoading(true);
-    try {
-      setRows(asRows(await myListings()));
-      setError(null);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Could not load your listings');
-    } finally {
-      setLoading(false);
-    }
-  }, [signedIn]);
+  // A promise chain, not an `async` body: every state write then lives in a
+  // callback rather than in the function the effect calls, which is what the
+  // React Compiler's lint means by "no setState inside an effect".
+  const load = useCallback(() => {
+    myListings()
+      .then((r) => {
+        setRows(asRows(r));
+        setError(null);
+      })
+      .catch((e: unknown) =>
+        setError(e instanceof Error ? e.message : 'Could not load your listings'),
+      )
+      .finally(() => setLoading(false));
+  }, []);
 
   useEffect(() => {
-    if (!authLoading) load();
-  }, [authLoading, load]);
+    if (authLoading || !signedIn) return;
+    load();
+  }, [authLoading, signedIn, load]);
+
+  // A pull is an event, where setting state is fine — and the control needs
+  // the flag back on or it snaps shut the moment the finger lifts.
+  const refresh = useCallback(() => {
+    setLoading(true);
+    load();
+  }, [load]);
 
   const header = <AppHeader title="Home" />;
 
@@ -77,16 +85,18 @@ export default function HomeScreen() {
       {header}
       <ScrollView
         contentContainerStyle={styles.content}
-        refreshControl={<RefreshControl refreshing={loading} onRefresh={load} />}
+        refreshControl={<RefreshControl refreshing={loading} onRefresh={refresh} />}
         showsVerticalScrollIndicator={false}>
         <Text style={styles.greeting}>
           {user?.name ? `Hello, ${user.name.split(' ')[0]}` : 'Hello'}
         </Text>
 
-        <Pressable style={styles.primary} onPress={() => router.push('/create')}>
-          <Feather name="plus" size={20} color={color.surface} />
-          <Text style={styles.primaryText}>Create listing</Text>
-        </Pressable>
+        <Button
+          label="Create listing"
+          size="lg"
+          icon={<Feather name="plus" size={19} color={color.surface} />}
+          onPress={() => router.push('/create')}
+        />
 
         <View style={styles.tiles}>
           <Tile label="Live listings" value={String(live.length)} note="Published and visible" />
@@ -100,9 +110,13 @@ export default function HomeScreen() {
         <View>
           <SectionHead title="My listings" />
           {error ? (
-            <ErrorState message={error} onRetry={load} />
+            <ErrorState title="Couldn’t load your listings" message={error} onRetry={load} />
           ) : !loading && rows.length === 0 ? (
-            <Empty icon="home" message="You have no listings yet." />
+            <Empty
+              icon="home"
+              title="No listings yet"
+              message="Your first listing takes a photo, a pin and a price."
+            />
           ) : (
             <Card>
               {rows.map((listing) => (
@@ -122,36 +136,31 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: color.bg },
-  content: { padding: 16, paddingBottom: 28, gap: 14 },
+  content: { padding: space[4], paddingBottom: 28, gap: space[4] },
 
-  greeting: { fontSize: 19, fontWeight: '700', letterSpacing: -0.38, color: color.ink },
-  primary: {
-    height: 46,
-    borderRadius: 12,
-    backgroundColor: color.accent,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
+  greeting: {
+    fontSize: type.title2,
+    fontWeight: weight.bold,
+    letterSpacing: -0.4,
+    color: color.ink,
   },
-  primaryText: { fontSize: 16, fontWeight: '600', color: color.surface },
   tiles: {
     flexDirection: 'row',
     backgroundColor: color.line,
-    borderWidth: 1,
+    borderWidth: StyleSheet.hairlineWidth,
     borderColor: color.line,
-    borderRadius: 12,
+    borderRadius: radius.sm,
     overflow: 'hidden',
-    gap: 1,
+    gap: StyleSheet.hairlineWidth,
   },
-  tile: { flex: 1, backgroundColor: color.surface, paddingHorizontal: 12, paddingVertical: 11 },
-  tileLabel: {
-    fontSize: 9.5,
-    fontWeight: '600',
-    letterSpacing: 0.95,
-    textTransform: 'uppercase',
-    color: '#7e91a0',
+  tile: { flex: 1, backgroundColor: color.surface, paddingHorizontal: space[3], paddingVertical: space[3] },
+  tileLabel: eyebrow,
+  tileValue: {
+    fontSize: type.large,
+    fontWeight: weight.bold,
+    letterSpacing: -0.9,
+    color: color.ink,
+    marginTop: 2,
   },
-  tileValue: { fontSize: 27, fontWeight: '700', letterSpacing: -0.8, color: color.ink },
-  tileNote: { fontSize: 11.5, color: color.muted, marginTop: 1 },
+  tileNote: { fontSize: type.footnote, color: color.muted, marginTop: 1 },
 });

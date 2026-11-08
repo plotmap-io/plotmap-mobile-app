@@ -6,7 +6,7 @@ import { Card, GroupLabel } from '@/components/card';
 import { StackScreen } from '@/components/stack-screen';
 import { devListings } from '@/lib/dev-data';
 import { UNREACHABLE_API, useDevSettings } from '@/lib/dev-settings';
-import { color } from '@/theme/tokens';
+import { color, noOutline } from '@/theme/tokens';
 
 const edgeCount = devListings.filter((l) => l.id.startsWith('edge-')).length;
 const currencyCount = new Set(devListings.map((l) => l.askCurrency)).size;
@@ -73,7 +73,7 @@ export default function DevelopmentScreen() {
         <Card>
           <View style={styles.field}>
             <TextInput
-              style={styles.input}
+              style={[styles.input, noOutline]}
               value={draft}
               onChangeText={setDraft}
               onBlur={() => commit(draft)}

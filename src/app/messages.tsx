@@ -1,15 +1,16 @@
 import { Feather } from '@expo/vector-icons';
 import { router, Stack } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Card } from '@/components/card';
-import { Empty, ErrorState, Loading } from '@/components/states';
 import { SignInPrompt } from '@/components/sign-in-prompt';
+import { Empty, ErrorState, Loading } from '@/components/states';
+import { Tap } from '@/components/tap';
 import { useAuth } from '@/lib/auth';
 import { asList, threads } from '@/lib/social';
-import { color } from '@/theme/tokens';
+import { color, radius, space, type, weight } from '@/theme/tokens';
 import type { Thread } from '@/types/api';
 
 export default function MessagesScreen() {
@@ -19,32 +20,40 @@ export default function MessagesScreen() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const load = useCallback(async () => {
-    if (!signedIn) return setLoading(false);
-    setLoading(true);
-    try {
-      setRows(asList<Thread>(await threads(), 'threads'));
-      setError(null);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Could not load messages');
-    } finally {
-      setLoading(false);
-    }
-  }, [signedIn]);
+  // A promise chain, not an `async` body — the state writes belong in
+  // callbacks so an effect may call this (react-hooks/set-state-in-effect).
+  const load = useCallback(() => {
+    threads()
+      .then((r) => {
+        setRows(asList<Thread>(r, 'threads'));
+        setError(null);
+      })
+      .catch((e: unknown) =>
+        setError(e instanceof Error ? e.message : 'Could not load messages'),
+      )
+      .finally(() => setLoading(false));
+  }, []);
 
   useEffect(() => {
-    if (!authLoading) load();
-  }, [authLoading, load]);
+    if (authLoading || !signedIn) return;
+    load();
+  }, [authLoading, signedIn, load]);
 
   return (
     <View style={styles.screen}>
       <Stack.Screen options={{ headerShown: false }} />
       <View style={[styles.bar, { paddingTop: insets.top + 6 }]}>
-        <Pressable onPress={() => router.back()} hitSlop={12}>
+        <Tap
+          haptic="none"
+          scale={0.9}
+          hitSlop={12}
+          accessibilityRole="button"
+          accessibilityLabel="Back"
+          onPress={() => router.back()}>
           <Feather name="arrow-left" size={21} color={color.ink} />
-        </Pressable>
+        </Tap>
         <Text style={styles.title}>Messages</Text>
-        <View style={{ width: 21 }} />
+        <View style={styles.filler} />
       </View>
 
       {!signedIn && !authLoading ? (
@@ -54,17 +63,25 @@ export default function MessagesScreen() {
           contentContainerStyle={styles.body}
           refreshControl={<RefreshControl refreshing={loading} onRefresh={load} />}>
           {error ? (
-            <ErrorState message={error} onRetry={load} />
+            <ErrorState title="Couldn’t load your messages" message={error} onRetry={load} />
           ) : loading && rows.length === 0 ? (
             <Loading />
           ) : rows.length === 0 ? (
-            <Empty icon="mail" message="No conversations yet." />
+            <Empty
+              icon="mail"
+              title="No conversations yet"
+              message="Message a seller from a listing and the thread lives here."
+            />
           ) : (
             <Card>
               {rows.map((t, i) => (
-                <Pressable
+                <Tap
                   key={t.id}
+                  haptic="none"
+                  scale={1}
                   style={[styles.row, i > 0 && styles.divided]}
+                  accessibilityRole="button"
+                  accessibilityLabel={`Conversation with ${t.counterpartName ?? t.title ?? 'someone'}`}
                   onPress={() => router.push(`/thread/${t.id}`)}>
                   <View style={styles.avatar}>
                     <Text style={styles.avatarText}>
@@ -84,9 +101,9 @@ export default function MessagesScreen() {
                       <Text style={styles.pillText}>{t.unreadCount}</Text>
                     </View>
                   ) : (
-                    <Feather name="chevron-right" size={16} color="#b4c3cd" />
+                    <Feather name="chevron-right" size={16} color={color.chevron} />
                   )}
-                </Pressable>
+                </Tap>
               ))}
             </Card>
           )}
@@ -99,25 +116,40 @@ export default function MessagesScreen() {
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: color.bg },
   bar: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
-    paddingHorizontal: 16, paddingBottom: 12, backgroundColor: color.surface,
-    borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: color.line,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: space[4],
+    paddingBottom: space[3],
+    backgroundColor: color.surface,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: color.line,
   },
-  title: { fontSize: 17, fontWeight: '700', color: color.ink },
-  body: { padding: 16, paddingBottom: 28 },
-  row: { flexDirection: 'row', alignItems: 'center', gap: 11, padding: 12 },
+  title: { fontSize: type.title3, fontWeight: weight.bold, color: color.ink },
+  filler: { width: 21 },
+  body: { padding: space[4], paddingBottom: 28 },
+  row: { flexDirection: 'row', alignItems: 'center', gap: 11, padding: space[3] },
   divided: { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: color.hair },
   avatar: {
-    width: 36, height: 36, borderRadius: 18, backgroundColor: color.accent,
-    alignItems: 'center', justifyContent: 'center',
+    width: 36,
+    height: 36,
+    borderRadius: radius.pill,
+    backgroundColor: color.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  avatarText: { fontSize: 13, fontWeight: '600', color: color.surface },
+  avatarText: { fontSize: type.sub, fontWeight: weight.semibold, color: color.surface },
   text: { flex: 1, minWidth: 0 },
-  name: { fontSize: 14, fontWeight: '600', color: color.ink },
-  preview: { fontSize: 12.5, color: color.muted },
+  name: { fontSize: type.sub, fontWeight: weight.semibold, color: color.ink },
+  preview: { fontSize: type.footnote, color: color.muted },
   pill: {
-    minWidth: 20, height: 20, borderRadius: 10, backgroundColor: color.accent,
-    alignItems: 'center', justifyContent: 'center', paddingHorizontal: 6,
+    minWidth: 20,
+    height: 20,
+    borderRadius: radius.pill,
+    backgroundColor: color.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 6,
   },
-  pillText: { fontSize: 11, fontWeight: '700', color: color.surface },
+  pillText: { fontSize: type.caption, fontWeight: weight.bold, color: color.surface },
 });

@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { Card } from '@/components/card';
 import { StackScreen } from '@/components/stack-screen';
-import { color } from '@/theme/tokens';
+import { color, space, type } from '@/theme/tokens';
 
 const PAGES: Record<string, { title: string; body: string[] }> = {
   about: {
@@ -64,7 +64,7 @@ export default function SupportScreen() {
 }
 
 const styles = StyleSheet.create({
-  body: { padding: 16, paddingBottom: 30 },
-  pad: { padding: 16, gap: 13 },
-  para: { fontSize: 14.5, lineHeight: 22, color: '#45596a' },
+  body: { padding: space[4], paddingBottom: 30 },
+  pad: { padding: space[4], gap: space[3] },
+  para: { fontSize: type.body, lineHeight: 23, color: color.inkSoft },
 });

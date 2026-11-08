@@ -2,14 +2,15 @@ import { Feather } from '@expo/vector-icons';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import { Card, GroupLabel } from '@/components/card';
 import { AppHeader } from '@/components/app-header';
+import { Card, GroupLabel } from '@/components/card';
+import { Button, Tap } from '@/components/tap';
 import { mediaUrl } from '@/lib/api';
 import { useAuth } from '@/lib/auth';
 import { unreadCount } from '@/lib/social';
-import { color } from '@/theme/tokens';
+import { color, radius, space, type, weight } from '@/theme/tokens';
 
 type Row = { icon: any; label: string; href?: string; badge?: number };
 type Group = { label: string; rows: Row[] };
@@ -31,10 +32,9 @@ function groupsFor(signedIn: boolean, unread: number): Group[] {
       rows: [
         { icon: 'home', label: 'My listings', href: '/profile' },
         { icon: 'message-circle', label: 'Messages', href: '/messages', badge: unread },
-        { icon: 'heart', label: 'Saved', href: '/saved' },
+        { icon: 'bookmark', label: 'Saved', href: '/saved' },
         { icon: 'bell', label: 'Alerts', href: '/alerts' },
         { icon: 'clock', label: 'Activity', href: '/notifications' },
-        { icon: 'bell', label: 'Notifications', href: '/notifications' },
       ],
     });
   }
@@ -83,14 +83,20 @@ function groupsFor(signedIn: boolean, unread: number): Group[] {
 
 export default function MenuScreen() {
   const { user, signedIn, signOut } = useAuth();
-  const [unread, setUnread] = useState(0);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!signedIn) return setUnread(0);
+    if (!signedIn) return;
+    let alive = true;
     unreadCount()
-      .then((r) => setUnread(r?.count ?? r?.unread ?? 0))
-      .catch(() => setUnread(0));
+      .then((r) => alive && setCount(r?.count ?? r?.unread ?? 0))
+      .catch(() => alive && setCount(0));
+    return () => {
+      alive = false;
+    };
   }, [signedIn]);
+  // A guest has no inbox, so the badge is not merely hidden — it is zero.
+  const unread = signedIn ? count : 0;
 
   function confirmSignOut() {
     Alert.alert('Sign out?', 'You will need your code again to sign back in.', [
@@ -115,8 +121,12 @@ export default function MenuScreen() {
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         {signedIn ? (
           // Who you are, first: the public profile is what a seller hands a buyer.
-          <Pressable
+          <Tap
+            haptic="none"
+            scale={0.99}
             style={styles.account}
+            accessibilityRole="link"
+            accessibilityLabel="Your profile"
             onPress={() => router.push(handle ? `/u/${handle}` : '/profile')}>
             {user?.avatarUrl ? (
               <Image source={{ uri: mediaUrl(user.avatarUrl) }} style={styles.face} />
@@ -133,18 +143,21 @@ export default function MenuScreen() {
                 {handle ? `@${handle} · View public profile` : 'View your profile'}
               </Text>
             </View>
-            <Feather name="chevron-right" size={18} color={color.muted} />
-          </Pressable>
+            <Feather name="chevron-right" size={18} color={color.chevron} />
+          </Tap>
         ) : (
-          <Pressable style={styles.guest} onPress={() => router.push('/sign-in')}>
+          <View style={styles.guest}>
             <Text style={styles.guestTitle}>The real estate market, mapped.</Text>
             <Text style={styles.guestBody}>
               Browse freely. Create a free account to list, save and message.
             </Text>
-            <View style={styles.guestButton}>
-              <Text style={styles.guestButtonText}>Sign up free</Text>
-            </View>
-          </Pressable>
+            <Button
+              label="Sign up free"
+              size="md"
+              style={styles.guestButton}
+              onPress={() => router.push('/sign-in')}
+            />
+          </View>
         )}
 
         {groupsFor(signedIn, unread).map((group) => (
@@ -152,12 +165,16 @@ export default function MenuScreen() {
             <GroupLabel>{group.label}</GroupLabel>
             <Card>
               {group.rows.map((row, i) => (
-                <Pressable
+                <Tap
                   key={row.label + i}
+                  haptic="none"
+                  scale={1}
                   style={[styles.row, i > 0 && styles.rowDivided]}
+                  accessibilityRole="link"
+                  accessibilityLabel={row.label}
                   onPress={() => row.href && router.push(row.href as never)}>
                   <View style={styles.rowIcon}>
-                    <Feather name={row.icon} size={16} color="#3c6075" />
+                    <Feather name={row.icon} size={16} color={color.accent} />
                   </View>
                   <Text style={styles.rowLabel}>{row.label}</Text>
                   {row.badge ? (
@@ -167,8 +184,8 @@ export default function MenuScreen() {
                       </Text>
                     </View>
                   ) : null}
-                  <Feather name="chevron-right" size={16} color="#b4c3cd" />
-                </Pressable>
+                  <Feather name="chevron-right" size={16} color={color.chevron} />
+                </Tap>
               ))}
             </Card>
           </View>
@@ -176,9 +193,14 @@ export default function MenuScreen() {
 
         {signedIn ? (
           <View>
-            <Pressable onPress={confirmSignOut}>
+            <Tap
+              haptic="light"
+              scale={0.98}
+              accessibilityRole="button"
+              accessibilityLabel="Sign out"
+              onPress={confirmSignOut}>
               <Text style={styles.signOut}>Sign out</Text>
-            </Pressable>
+            </Tap>
             <Text style={styles.wordmark}>plotmap</Text>
           </View>
         ) : null}
@@ -189,69 +211,72 @@ export default function MenuScreen() {
 
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: color.bg },
-  content: { padding: 16, paddingBottom: 30, gap: 10 },
+  content: { padding: space[4], paddingBottom: 30, gap: space[3] },
   account: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
-    padding: 13,
+    gap: space[3],
+    padding: space[3],
     backgroundColor: color.surface,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: color.line,
-    borderRadius: 12,
+    borderRadius: radius.sm,
   },
-  face: { width: 44, height: 44, borderRadius: 22, backgroundColor: color.field },
+  face: { width: 44, height: 44, borderRadius: radius.pill, backgroundColor: color.field },
   faceFallback: { backgroundColor: color.accent, alignItems: 'center', justifyContent: 'center' },
-  faceText: { fontSize: 16, fontWeight: '600', color: color.surface },
+  faceText: { fontSize: type.callout, fontWeight: weight.semibold, color: color.surface },
   accountText: { flex: 1, minWidth: 0 },
-  accountName: { fontSize: 16, fontWeight: '600', letterSpacing: -0.16, color: color.ink },
-  accountHandle: { fontSize: 12, color: '#7a8b97' },
+  accountName: {
+    fontSize: type.callout,
+    fontWeight: weight.semibold,
+    letterSpacing: -0.2,
+    color: color.ink,
+  },
+  accountHandle: { fontSize: type.footnote, color: color.muted, marginTop: 1 },
   guest: {
     backgroundColor: color.surface,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: color.line,
-    borderRadius: 12,
-    padding: 15,
-    gap: 4,
+    borderRadius: radius.sm,
+    padding: space[4],
+    gap: space[1],
   },
-  guestTitle: { fontSize: 14.5, fontWeight: '600', color: color.ink },
-  guestBody: { fontSize: 12.5, color: color.muted },
-  guestButton: {
-    marginTop: 9,
-    alignSelf: 'flex-start',
-    backgroundColor: color.accent,
-    borderRadius: 8,
-    paddingHorizontal: 13,
-    paddingVertical: 8,
+  guestTitle: { fontSize: type.body, fontWeight: weight.semibold, color: color.ink },
+  guestBody: { fontSize: type.footnote, lineHeight: 17, color: color.muted },
+  guestButton: { marginTop: space[2], alignSelf: 'flex-start' },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space[3],
+    paddingHorizontal: space[3],
+    height: 46,
   },
-  guestButtonText: { fontSize: 13.5, fontWeight: '600', color: color.surface },
-  row: { flexDirection: 'row', alignItems: 'center', gap: 11, paddingHorizontal: 13, height: 43 },
   rowDivided: { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: color.hair },
   rowIcon: {
     width: 26,
     height: 26,
-    borderRadius: 8,
+    borderRadius: radius.xs,
     backgroundColor: color.accentSoft,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  rowLabel: { flex: 1, fontSize: 14, fontWeight: '500', color: color.ink },
+  rowLabel: { flex: 1, fontSize: type.body, fontWeight: weight.medium, color: color.ink },
   badge: {
     minWidth: 20,
     height: 20,
-    borderRadius: 10,
+    borderRadius: radius.pill,
     backgroundColor: color.accent,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 6,
   },
-  badgeText: { fontSize: 11, fontWeight: '700', color: color.surface },
+  badgeText: { fontSize: type.caption, fontWeight: weight.bold, color: color.surface },
   signOut: {
     textAlign: 'center',
-    fontSize: 14,
-    fontWeight: '600',
+    fontSize: type.body,
+    fontWeight: weight.semibold,
     color: color.shiraz,
-    paddingTop: 14,
+    paddingTop: space[4],
   },
-  wordmark: { textAlign: 'center', fontSize: 11, color: '#9aabb6', marginTop: 6 },
+  wordmark: { textAlign: 'center', fontSize: type.caption, color: color.placeholder, marginTop: space[2] },
 });

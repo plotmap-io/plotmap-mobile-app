@@ -1,16 +1,17 @@
 import { Feather } from '@expo/vector-icons';
 import { useCallback, useEffect, useState } from 'react';
-import { Alert as RNAlert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert as RNAlert, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { Card } from '@/components/card';
 import { SignInPrompt } from '@/components/sign-in-prompt';
 import { StackScreen } from '@/components/stack-screen';
 import { Empty, ErrorState, Loading } from '@/components/states';
+import { Tap } from '@/components/tap';
 import { createAlert, deleteAlert, listAlerts, runAlert, type Alert } from '@/lib/account';
 import { useAuth } from '@/lib/auth';
 import { useFilters } from '@/lib/filters';
-import { color } from '@/theme/tokens';
 import { statusesFor } from '@/services/filters';
+import { color, radius, space, type, weight } from '@/theme/tokens';
 import { STATUS_LABEL } from '@/types/api';
 
 /** Saved searches. "Save this search" captures the filters you are holding. */
@@ -21,23 +22,24 @@ export default function AlertsScreen() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const load = useCallback(async () => {
-    if (!signedIn) return setLoading(false);
-    setLoading(true);
-    try {
-      const r = await listAlerts();
-      setRows(r?.alerts ?? []);
-      setError(null);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Could not load alerts');
-    } finally {
-      setLoading(false);
-    }
-  }, [signedIn]);
+  // A promise chain, not an `async` body — the state writes belong in
+  // callbacks so an effect may call this (react-hooks/set-state-in-effect).
+  const load = useCallback(() => {
+    listAlerts()
+      .then((r) => {
+        setRows(r?.alerts ?? []);
+        setError(null);
+      })
+      .catch((e: unknown) =>
+        setError(e instanceof Error ? e.message : 'Could not load alerts'),
+      )
+      .finally(() => setLoading(false));
+  }, []);
 
   useEffect(() => {
-    if (!authLoading) load();
-  }, [authLoading, load]);
+    if (authLoading || !signedIn) return;
+    load();
+  }, [authLoading, signedIn, load]);
 
   const saveCurrent = useCallback(async () => {
     const area = filters.place;
@@ -86,15 +88,21 @@ export default function AlertsScreen() {
       title="Alerts"
       action={
         signedIn ? (
-          <Pressable onPress={saveCurrent} hitSlop={8} accessibilityLabel="Save this search">
+          <Tap
+            haptic="light"
+            scale={0.9}
+            hitSlop={8}
+            accessibilityRole="button"
+            accessibilityLabel="Save this search"
+            onPress={saveCurrent}>
             <Feather name="plus" size={21} color={color.accent} />
-          </Pressable>
+          </Tap>
         ) : null
       }>
       {!signedIn && !authLoading ? (
         <SignInPrompt message="Sign in to save searches and be told about new matches." />
       ) : error ? (
-        <ErrorState message={error} onRetry={load} />
+        <ErrorState title="Couldn’t load your alerts" message={error} onRetry={load} />
       ) : loading ? (
         <Loading />
       ) : (
@@ -102,7 +110,8 @@ export default function AlertsScreen() {
           {rows.length === 0 ? (
             <Empty
               icon="bell"
-              message={'No saved searches yet.\nTap + to save the search you have open.'}
+              title="No saved searches yet"
+              message="Tap + to save the search you have open."
             />
           ) : (
             <Card>
@@ -115,12 +124,24 @@ export default function AlertsScreen() {
                     <Text style={styles.primary}>{a.name ?? a.label ?? 'Saved search'}</Text>
                     <Text style={styles.secondary}>{a.frequency ?? 'daily'}</Text>
                   </View>
-                  <Pressable onPress={() => runAlert(a.id).catch(() => {})} hitSlop={8}>
+                  <Tap
+                    haptic="light"
+                    scale={0.9}
+                    hitSlop={8}
+                    accessibilityRole="button"
+                    accessibilityLabel="Run this alert now"
+                    onPress={() => runAlert(a.id).catch(() => {})}>
                     <Feather name="play" size={16} color={color.muted} />
-                  </Pressable>
-                  <Pressable onPress={() => remove(a.id)} hitSlop={8}>
+                  </Tap>
+                  <Tap
+                    haptic="light"
+                    scale={0.9}
+                    hitSlop={8}
+                    accessibilityRole="button"
+                    accessibilityLabel="Delete this alert"
+                    onPress={() => remove(a.id)}>
                     <Feather name="trash-2" size={16} color={color.shiraz} />
-                  </Pressable>
+                  </Tap>
                 </View>
               ))}
             </Card>
@@ -132,14 +153,18 @@ export default function AlertsScreen() {
 }
 
 const styles = StyleSheet.create({
-  body: { padding: 16, paddingBottom: 30 },
-  row: { flexDirection: 'row', alignItems: 'center', gap: 11, padding: 12 },
+  body: { padding: space[4], paddingBottom: 30 },
+  row: { flexDirection: 'row', alignItems: 'center', gap: 11, padding: space[3] },
   divided: { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: color.hair },
   icon: {
-    width: 28, height: 28, borderRadius: 9, backgroundColor: color.accentSoft,
-    alignItems: 'center', justifyContent: 'center',
+    width: 28,
+    height: 28,
+    borderRadius: radius.sm,
+    backgroundColor: color.accentSoft,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: { flex: 1, minWidth: 0 },
-  primary: { fontSize: 14, fontWeight: '600', color: color.ink },
-  secondary: { fontSize: 12, color: color.muted, textTransform: 'capitalize' },
+  primary: { fontSize: type.sub, fontWeight: weight.semibold, color: color.ink },
+  secondary: { fontSize: type.footnote, color: color.muted, textTransform: 'capitalize' },
 });
