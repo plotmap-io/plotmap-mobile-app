@@ -195,6 +195,13 @@ export interface ListingMedia {
    */
   source?: string;
   aiStatus?: string;
+  /**
+   * Only on the upload response, and only when the photo carried GPS EXIF:
+   * where the camera was standing. The web's Where step opens on it, which is
+   * how a plot photographed on site arrives with its pin already right.
+   */
+  extractedGps?: Coordinate;
+  suggestedLocation?: Coordinate;
 }
 
 /** Media the server generated rather than a photograph someone took. */
@@ -251,6 +258,9 @@ export interface DraftListing extends ListingDetail {
   lotSizeDisplayUnit?: string;
   isPublished?: boolean;
   isComplete?: boolean;
+  /** False while the draft still wears the server's "Residential / house". */
+  propertyTypeAdded?: boolean;
+  propertyStatusAdded?: boolean;
   locationAdded?: boolean;
   detailsAdded?: boolean;
   imagesAdded?: boolean;

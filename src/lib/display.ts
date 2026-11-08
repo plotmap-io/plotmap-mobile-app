@@ -126,3 +126,28 @@ export function humanise(value: string | undefined): string {
   const words = value.replace(/[_-]+/g, ' ').trim().toLowerCase();
   return words.charAt(0).toUpperCase() + words.slice(1);
 }
+
+/**
+ * Money while it is being typed — "₹10,00,000".
+ *
+ * The server formats every price it sends (`displayPrice`, `markerPrice`),
+ * but the create flow has to show a total the moment a rate and an area are
+ * entered, before anything has been saved. Grouping follows the CURRENCY, as
+ * the web's `CurrencyFormat` does: the lakh set reads en-IN, the euro de-DE,
+ * everything else en-US.
+ */
+const LAKH_CURRENCIES = new Set(['INR', 'PKR', 'BDT', 'NPR', 'BTN']);
+
+export function moneyLabel(amount: number, currency = 'INR'): string {
+  const locale = LAKH_CURRENCIES.has(currency) ? 'en-IN' : currency === 'EUR' ? 'de-DE' : 'en-US';
+  try {
+    return new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency,
+      maximumFractionDigits: 0,
+    }).format(amount);
+  } catch {
+    // An unknown ISO code must not take the screen down with it.
+    return `${currency} ${Math.round(amount).toLocaleString(locale)}`;
+  }
+}
