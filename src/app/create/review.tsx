@@ -8,7 +8,7 @@ import { CreateGate } from '@/components/create/gate';
 import { Group, StepScreen } from '@/components/create/step-screen';
 import { Button, Tap } from '@/components/tap';
 import { useCreateFlow } from '@/lib/create-flow';
-import { humanise, moneyLabel } from '@/lib/display';
+import { addressLine, humanise, moneyLabel } from '@/lib/display';
 import { haptic } from '@/lib/haptics';
 import { formatArea, toSqm } from '@/services/area';
 import { canPublish, impliedTotal, PRICE_BASIS_SUFFIX, type MissingKey } from '@/services/listing-draft';
@@ -105,7 +105,7 @@ export default function ReviewStep() {
             <Row
               label="Where"
               value={
-                values.address.addressDisplay ??
+                addressLine(values.address.addressDisplay) ||
                 (values.pin
                   ? `${values.pin.latitude.toFixed(5)}, ${values.pin.longitude.toFixed(5)}`
                   : 'No pin yet')

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { humanise, statusLabel } from '../src/lib/display';
+import { addressLine, humanise, statusLabel } from '../src/lib/display';
 
 describe('statusLabel', () => {
   it('says the four server statuses the way a person does', () => {
@@ -28,5 +28,19 @@ describe('humanise', () => {
 
   it('is empty for a missing value', () => {
     expect(humanise(undefined)).toBe('');
+  });
+});
+
+describe('addressLine', () => {
+  it('flattens the newline-separated line the server composes', () => {
+    expect(addressLine('Kuranchery - Velur Road\nMinalur\nWadakkancherry\nThrissur Dist.')).toBe(
+      'Kuranchery - Velur Road, Minalur, Wadakkancherry, Thrissur Dist.',
+    );
+  });
+
+  it('drops empty lines and survives nothing at all', () => {
+    expect(addressLine('Punkunnam\n\nThrissur Dist.')).toBe('Punkunnam, Thrissur Dist.');
+    expect(addressLine(undefined)).toBe('');
+    expect(addressLine('')).toBe('');
   });
 });

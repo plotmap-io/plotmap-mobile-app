@@ -151,3 +151,20 @@ export function moneyLabel(amount: number, currency = 'INR'): string {
     return `${currency} ${Math.round(amount).toLocaleString(locale)}`;
   }
 }
+
+/**
+ * An address on ONE line — "Kuranchery - Velur Road, Minalur, Thrissur Dist."
+ *
+ * `addressDisplay` and the reverse-geocoder's `displayAddress` are composed by
+ * the server's `AddressRules` and arrive NEWLINE-separated, one place per
+ * line. Anywhere the line has to fit in a row or a card, the breaks become
+ * commas; anywhere it is the title of a page, the lines are kept.
+ */
+export function addressLine(address: string | undefined | null): string {
+  if (!address) return '';
+  return address
+    .split('\n')
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .join(', ');
+}

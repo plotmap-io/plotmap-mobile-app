@@ -1042,8 +1042,11 @@ export function reverseGeocodeAt(lat: number, lng: number): Record<string, unkno
   const indian = nearest.country === 'India';
   const district = indian ? `${nearest.region} Dist.` : nearest.region;
   return {
-    formattedAddress: `${nearest.name}, ${nearest.region}, ${nearest.country}`,
-    displayAddress: `${nearest.name}, ${district}`,
+    // Newline-separated, one place per line — exactly as `AddressRules`
+    // composes it on the wire. A fixture that sent commas would hide the
+    // flattening every one-line reader has to do.
+    formattedAddress: `${nearest.name}\n${nearest.region}\n${nearest.country}`,
+    displayAddress: `${nearest.name}\n${district}`,
     neighborhood: nearest.name,
     city: nearest.name,
     district: nearest.region,

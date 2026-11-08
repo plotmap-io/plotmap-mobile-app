@@ -9,6 +9,7 @@ import { PinMap, type PinMapHandle } from '@/components/create/pin-map';
 import { StepScreen } from '@/components/create/step-screen';
 import { Button, Tap } from '@/components/tap';
 import { useCreateFlow } from '@/lib/create-flow';
+import { addressLine } from '@/lib/display';
 import { addressFrom, reverseGeocode } from '@/lib/places';
 import { color, radius, shadow, space, type, weight } from '@/theme/tokens';
 import type { Coordinate } from '@/types/api';
@@ -111,7 +112,7 @@ export default function WhereStep() {
       );
   }, [save]);
 
-  const line = values.address.addressDisplay;
+  const line = addressLine(values.address.addressDisplay);
 
   return (
     <CreateGate>
