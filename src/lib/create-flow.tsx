@@ -10,6 +10,7 @@ import {
 } from 'react';
 
 import { ApiError, mediaUrl } from '@/lib/api';
+import { useAuth } from '@/lib/auth';
 import {
   deleteListingPhoto,
   emptyDraft,
@@ -158,6 +159,13 @@ function adoptPhotos(d: DraftListing): FlowPhoto[] {
 }
 
 export function CreateFlowProvider({ children }: { children: ReactNode }) {
+  // Nothing here may run before the stored session has been restored: every
+  // seller-side route is behind a bearer token, and `AuthProvider` attaches
+  // it asynchronously. Asking for the drafts a frame too early sent the
+  // request with NO Authorization header — a 401 that was swallowed as "no
+  // drafts", so a broker coming back would have started a second draft
+  // instead of continuing the one he left.
+  const { signedIn, loading: authLoading } = useAuth();
   const [ready, setReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [attempt, setAttempt] = useState(0);
@@ -183,6 +191,7 @@ export function CreateFlowProvider({ children }: { children: ReactNode }) {
   // A promise chain, not an `async` effect body: every state write happens in
   // a callback, which is what `react-hooks/set-state-in-effect` is about.
   useEffect(() => {
+    if (authLoading || !signedIn) return;
     let alive = true;
     Promise.all([
       myDrafts().catch(() => [] as DraftListing[]),
@@ -211,7 +220,7 @@ export function CreateFlowProvider({ children }: { children: ReactNode }) {
     return () => {
       alive = false;
     };
-  }, [attempt]);
+  }, [attempt, authLoading, signedIn]);
 
   const retry = useCallback(() => setAttempt((n) => n + 1), []);
 
